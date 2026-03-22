@@ -1,0 +1,85 @@
+{
+    "question_text": "<h3>Unique Email Addresses</h3><p>Every valid email consists of a <b>local name</b> and a <b>domain name</b>, separated by the <code>'@'</code> sign. Besides lowercase letters, the email may contain one or more <code>'.'</code> or <code>'+'</code>.</p><ul><li>For example, in <code>\"alice@leetcode.com\"</code>, <code>\"alice\"</code> is the local name, and <code>\"leetcode.com\"</code> is the domain name.</li></ul><p>If you add periods <code>'.'</code> between some characters in the <b>local name</b> part of an email address, mail sent there will be forwarded to the same address without dots in the local name. Note that this rule does not apply to domain names.</p><ul><li>For example, <code>\"alice.z@leetcode.com\"</code> and <code>\"alicez@leetcode.com\"</code> forward to the same email address.</li></ul><p>If you add a plus <code>'+'</code> in the <b>local name</b>, everything after the first plus sign will be ignored. This allows certain emails to be filtered. Note that this rule does not apply to domain names.</p><ul><li>For example, <code>\"m.y+name@email.com\"</code> will be forwarded to <code>\"my@email.com\"</code>.</li></ul><p>It is possible to use both of these rules at the same time.</p><p>Given an array of strings <code>emails</code> where we send one email to each <code>emails[i]</code>, return the number of different addresses that actually receive mails.</p>",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "The input consists of multiple lines. Each line contains a single email address.",
+    "output_format": "A single integer denoting the number of unique email addresses.",
+    "constraints": [
+        "1 <= emails.length <= 100",
+        "1 <= emails[i].length <= 100",
+        "emails[i] consist of lowercase English letters, '+', '.' and '@'.",
+        "Each emails[i] contains exactly one '@' character.",
+        "All local and domain names are non-empty.",
+        "Local names do not start with a '+' character.",
+        "Domain names end with the '.com' suffix.",
+        "Domain names must contain at least one character before '.com' suffix."
+    ],
+    "explanation": "To correctly process each email according to the forwarding rules, we iterate through the list of email addresses. For each email, we split it into two distinct parts using the '@' delimiter: the `local_name` and the `domain_name`. In the `local_name`, if we encounter a '+' character, we discard the '+' and all subsequent characters. We then remove all '.' characters from the remaining `local_name`. The `domain_name` remains unmodified. We concatenate the cleaned `local_name` and the `domain_name` with the '@' symbol. To count the number of unique fully-resolved addresses, we insert each processed email into a Hash Set in Python. Sets natively handle duplicate elimination, so the final answer is simply the size (length) of the set. The time complexity is O(N * L) where N is the number of emails and L is the max length of an email strings.",
+    "answer": "def solve(emails):\n    unique_emails = set()\n    for email in emails:\n        local, domain = email.split('@')\n        if '+' in local:\n            local = local[:local.index('+')]\n        unique_emails.add(local.replace('.', '') + '@' + domain)\n    return len(unique_emails)",
+    "boilerplate": "import sys\n\ndef solve(emails):\n    # User logic should be written here\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().splitlines()\n    emails = [line.strip() for line in input_data if line.strip()]\n    print(solve(emails))",
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "test.email+alex@leetcode.com\ntest.e.mail+bob.cathy@leetcode.com\ntestemail+david@lee.tcode.com",
+            "expected_output": "2",
+            "is_sample": true
+        },
+        {
+            "input": "a@leetcode.com\nb@leetcode.com\nc@leetcode.com",
+            "expected_output": "3",
+            "is_sample": true
+        },
+        {
+            "input": "a.b.c+d@leetcode.com\nabc+1@leetcode.com\na.bc+2@leetcode.com",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "only@leetcode.com",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "a+b+c@leetcode.com\na+z@leetcode.com",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "a@b.com.com\na+bc@b.com.com",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "z@leetcode.com\nz+@leetcode.com\nz..@leetcode.com",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "some.123+123@xyz.com\nsome123+456@xyz.com",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "x.y.z.w.q.r.s.t.u.v.w.x.y.z+abc@123.com\nxyz...wqrstuvwxyz@123.com\nx.y.z.w.q.r.s.t.u.v.w.x.y.z+xyz@123.com",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "a@l.com\na+a@l.com\na.a@l.com\na.a+a@l.com\n.a@l.com",
+            "expected_output": "2",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Hash Table",
+        "String"
+    ],
+    "companyIndex": 0
+}

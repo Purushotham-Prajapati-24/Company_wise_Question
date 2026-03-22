@@ -1,0 +1,91 @@
+Company: Google
+
+--- Question: Longest Absolute File Path (longest-absolute-file-path) ---
+Topic: Graphs, Difficulty: Medium
+Content:
+Suppose we have a file system that stores both files and directories. An example of one system is represented in the following picture: Here, we have dir as the only directory in the root. dir contains two subdirectories, subdir1 and subdir2 . subdir1 contains a file file1.ext and subdirectory subsubdir1 . subdir2 contains a subdirectory subsubdir2 , which contains a file file2.ext . In text form, it looks like this (with ⟶ representing the tab character): dir ⟶ subdir1 ⟶ ⟶ file1.ext ⟶ ⟶ subsubdir1 ⟶ subdir2 ⟶ ⟶ subsubdir2 ⟶ ⟶ ⟶ file2.ext If we were to write this representation in code, it will look like this: &quot;dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext&quot; . Note that the &#39;\n&#39; and &#39;\t&#39; are the new-line and tab characters. Every file and directory has a unique absolute path in the file system, which is the order of directories that must be opened to reach the file/directory itself, all concatenated by &#39;/&#39;s . Using the above example, the absolute path to file2.ext is &quot;dir/subdir2/subsubdir2/file2.ext&quot; . Each directory name consists of letters, digits, and/or spaces. Each file name is of the form name.extension , where name and extension consist of letters, digits, and/or spaces. Given a string input representing the file system in the explained format, return the length of the longest absolute path to a file in the abstracted file system . If there is no file in the system, return 0 . Note that the testcases are generated such that the file system is valid and no file or directory name has length 0. &nbsp; Example 1: Input: input = &quot;dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext&quot; Output: 20 Explanation: We have only one file, and the absolute path is &quot;dir/subdir2/file.ext&quot; of length 20. Example 2: Input: input = &quot;dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext&quot; Output: 32 Explanation: We have two files: &quot;dir/subdir1/file1.ext&quot; of length 21 &quot;dir/subdir2/subsubdir2/file2.ext&quot; of length 32. We return 32 since it is the longest absolute path to a file. Example 3: Input: input = &quot;a&quot; Output: 0 Explanation: We do not have any files, just a single directory named &quot;a&quot;. &nbsp; Constraints: 1 &lt;= input.length &lt;= 10 4 input may contain lowercase or uppercase English letters, a new line character &#39;\n&#39; , a tab character &#39;\t&#39; , a dot &#39;.&#39; , a space &#39; &#39; , and digits. All file and directory names have positive length.
+
+Testcases:
+"dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext"
+"dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext"
+"a"
+
+--- Question: K Empty Slots (k-empty-slots) ---
+Topic: Data Structures / Algorithms, Difficulty: Hard
+Error: Cannot read properties of null (reading 'replace')
+
+--- Question: Next Closest Time (next-closest-time) ---
+Topic: Data Structures / Algorithms, Difficulty: Medium
+Error: Cannot read properties of null (reading 'replace')
+
+--- Question: Two Sum (two-sum) ---
+Topic: Arrays, Difficulty: Easy
+Content:
+Given an array of integers nums &nbsp;and an integer target , return indices of the two numbers such that they add up to target . You may assume that each input would have exactly one solution , and you may not use the same element twice. You can return the answer in any order. &nbsp; Example 1: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Because nums[0] + nums[1] == 9, we return [0, 1]. Example 2: Input: nums = [3,2,4], target = 6 Output: [1,2] Example 3: Input: nums = [3,3], target = 6 Output: [0,1] &nbsp; Constraints: 2 &lt;= nums.length &lt;= 10 4 -10 9 &lt;= nums[i] &lt;= 10 9 -10 9 &lt;= target &lt;= 10 9 Only one valid answer exists. &nbsp; Follow-up:&nbsp; Can you come up with an algorithm that is less than O(n 2 ) &nbsp; time complexity?
+
+Testcases:
+[2,7,11,15]
+9
+[3,2,4]
+6
+[3,3]
+6
+
+--- Question: Unique Email Addresses (unique-email-addresses) ---
+Topic: Data Structures / Algorithms, Difficulty: Easy
+Content:
+Every valid email consists of a local name and a domain name , separated by the &#39;@&#39; sign. Besides lowercase letters, the email may contain one or more &#39;.&#39; or &#39;+&#39; . For example, in &quot;alice@leetcode.com&quot; , &quot;alice&quot; is the local name , and &quot;leetcode.com&quot; is the domain name . If you add periods &#39;.&#39; between some characters in the local name part of an email address, mail sent there will be forwarded to the same address without dots in the local name. Note that this rule does not apply to domain names . For example, &quot;alice.z@leetcode.com&quot; and &quot;alicez@leetcode.com&quot; forward to the same email address. If you add a plus &#39;+&#39; in the local name , everything after the first plus sign will be ignored . This allows certain emails to be filtered. Note that this rule does not apply to domain names . For example, &quot;m.y+name@email.com&quot; will be forwarded to &quot;my@email.com&quot; . It is possible to use both of these rules at the same time. Given an array of strings emails where we send one email to each emails[i] , return the number of different addresses that actually receive mails . &nbsp; Example 1: Input: emails = [&quot;test.email+alex@leetcode.com&quot;,&quot;test.e.mail+bob.cathy@leetcode.com&quot;,&quot;testemail+david@lee.tcode.com&quot;] Output: 2 Explanation: &quot;testemail@leetcode.com&quot; and &quot;testemail@lee.tcode.com&quot; actually receive mails. Example 2: Input: emails = [&quot;a@leetcode.com&quot;,&quot;b@leetcode.com&quot;,&quot;c@leetcode.com&quot;] Output: 3 &nbsp; Constraints: 1 &lt;= emails.length &lt;= 100 1 &lt;= emails[i].length &lt;= 100 emails[i] consist of lowercase English letters, &#39;+&#39; , &#39;.&#39; and &#39;@&#39; . Each emails[i] contains exactly one &#39;@&#39; character. All local and domain names are non-empty. Local names do not start with a &#39;+&#39; character. Domain names end with the &quot;.com&quot; suffix. Domain names must contain at least one character before &quot;.com&quot; suffix.
+
+Testcases:
+["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
+["a@leetcode.com","b@leetcode.com","c@leetcode.com"]
+
+--- Question: Fruit Into Baskets (fruit-into-baskets) ---
+Topic: Data Structures / Algorithms, Difficulty: Medium
+Content:
+You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array fruits where fruits[i] is the type of fruit the i th tree produces. You want to collect as much fruit as possible. However, the owner has some strict rules that you must follow: You only have two baskets, and each basket can only hold a single type of fruit. There is no limit on the amount of fruit each basket can hold. Starting from any tree of your choice, you must pick exactly one fruit from every tree (including the start tree) while moving to the right. The picked fruits must fit in one of your baskets. Once you reach a tree with fruit that cannot fit in your baskets, you must stop. Given the integer array fruits , return the maximum number of fruits you can pick . &nbsp; Example 1: Input: fruits = [ 1,2,1 ] Output: 3 Explanation: We can pick from all 3 trees. Example 2: Input: fruits = [0, 1,2,2 ] Output: 3 Explanation: We can pick from trees [1,2,2]. If we had started at the first tree, we would only pick from trees [0,1]. Example 3: Input: fruits = [1, 2,3,2,2 ] Output: 4 Explanation: We can pick from trees [2,3,2,2]. If we had started at the first tree, we would only pick from trees [1,2]. &nbsp; Constraints: 1 &lt;= fruits.length &lt;= 10 5 0 &lt;= fruits[i] &lt; fruits.length
+
+Testcases:
+[1,2,1]
+[0,1,2,2]
+[1,2,3,2,2]
+
+--- Question: License Key Formatting (license-key-formatting) ---
+Topic: Data Structures / Algorithms, Difficulty: Easy
+Content:
+You are given a license key represented as a string s that consists of only alphanumeric characters and dashes. The string is separated into n + 1 groups by n dashes. You are also given an integer k . We want to reformat the string s such that each group contains exactly k characters, except for the first group, which could be shorter than k but still must contain at least one character. Furthermore, there must be a dash inserted between two groups, and you should convert all lowercase letters to uppercase. Return the reformatted license key . &nbsp; Example 1: Input: s = &quot;5F3Z-2e-9-w&quot;, k = 4 Output: &quot;5F3Z-2E9W&quot; Explanation: The string s has been split into two parts, each part has 4 characters. Note that the two extra dashes are not needed and can be removed. Example 2: Input: s = &quot;2-5g-3-J&quot;, k = 2 Output: &quot;2-5G-3J&quot; Explanation: The string s has been split into three parts, each part has 2 characters except the first part as it could be shorter as mentioned above. &nbsp; Constraints: 1 &lt;= s.length &lt;= 10 5 s consists of English letters, digits, and dashes &#39;-&#39; . 1 &lt;= k &lt;= 10 4
+
+Testcases:
+"5F3Z-2e-9-w"
+4
+"2-5g-3-J"
+2
+
+--- Question: Range Sum Query 2D - Mutable (range-sum-query-2d---mutable) ---
+Topic: Arrays, Difficulty: Medium
+Failed to fetch from GraphQL.
+
+--- Question: Minimum Domino Rotations For Equal Row (minimum-domino-rotations-for-equal-row) ---
+Topic: Data Structures / Algorithms, Difficulty: Medium
+Content:
+In a row of dominoes, tops[i] and bottoms[i] represent the top and bottom halves of the i th domino. (A domino is a tile with two numbers from 1 to 6 - one on each half of the tile.) We may rotate the i th domino, so that tops[i] and bottoms[i] swap values. Return the minimum number of rotations so that all the values in tops are the same, or all the values in bottoms are the same. If it cannot be done, return -1 . &nbsp; Example 1: Input: tops = [2,1,2,4,2,2], bottoms = [5,2,6,2,3,2] Output: 2 Explanation: The first figure represents the dominoes as given by tops and bottoms: before we do any rotations. If we rotate the second and fourth dominoes, we can make every value in the top row equal to 2, as indicated by the second figure. Example 2: Input: tops = [3,5,1,2,3], bottoms = [3,6,3,3,4] Output: -1 Explanation: In this case, it is not possible to rotate the dominoes to make one row of values equal. &nbsp; Constraints: 2 &lt;= tops.length &lt;= 2 * 10 4 bottoms.length == tops.length 1 &lt;= tops[i], bottoms[i] &lt;= 6
+
+Testcases:
+[2,1,2,4,2,2]
+[5,2,6,2,3,2]
+[3,5,1,2,3]
+[3,6,3,3,4]
+
+--- Question: Guess the Word (guess-the-word) ---
+Topic: Strings, Difficulty: Hard
+Content:
+You are given an array of unique strings words where words[i] is six letters long. One word of words was chosen as a secret word. You are also given the helper object Master . You may call Master.guess(word) where word is a six-letter-long string, and it must be from words . Master.guess(word) returns: -1 if word is not from words , or an integer representing the number of exact matches (value and position) of your guess to the secret word. There is a parameter allowedGuesses for each test case where allowedGuesses is the maximum number of times you can call Master.guess(word) . For each test case, you should call Master.guess with the secret word without exceeding the maximum number of allowed guesses. You will get: &quot;Either you took too many guesses, or you did not find the secret word.&quot; if you called Master.guess more than allowedGuesses times or if you did not call Master.guess with the secret word, or &quot;You guessed the secret word correctly.&quot; if you called Master.guess with the secret word with the number of calls to Master.guess less than or equal to allowedGuesses . The test cases are generated such that you can guess the secret word with a reasonable strategy (other than using the bruteforce method). &nbsp; Example 1: Input: secret = &quot;acckzz&quot;, words = [&quot;acckzz&quot;,&quot;ccbazz&quot;,&quot;eiowzz&quot;,&quot;abcczz&quot;], allowedGuesses = 10 Output: You guessed the secret word correctly. Explanation: master.guess(&quot;aaaaaa&quot;) returns -1, because &quot;aaaaaa&quot; is not in words. master.guess(&quot;acckzz&quot;) returns 6, because &quot;acckzz&quot; is secret and has all 6 matches. master.guess(&quot;ccbazz&quot;) returns 3, because &quot;ccbazz&quot; has 3 matches. master.guess(&quot;eiowzz&quot;) returns 2, because &quot;eiowzz&quot; has 2 matches. master.guess(&quot;abcczz&quot;) returns 4, because &quot;abcczz&quot; has 4 matches. We made 5 calls to master.guess, and one of them was the secret, so we pass the test case. Example 2: Input: secret = &quot;hamada&quot;, words = [&quot;hamada&quot;,&quot;khaled&quot;], allowedGuesses = 10 Output: You guessed the secret word correctly. Explanation: Since there are two words, you can guess both. &nbsp; Constraints: 1 &lt;= words.length &lt;= 100 words[i].length == 6 words[i] consist of lowercase English letters. All the strings of words are unique . secret exists in words . 10 &lt;= allowedGuesses &lt;= 30
+
+Testcases:
+"acckzz"
+["acckzz","ccbazz","eiowzz","abcczz"]
+10
+"hamada"
+["hamada","khaled"]
+10
+

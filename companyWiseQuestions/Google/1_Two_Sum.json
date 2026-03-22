@@ -1,0 +1,80 @@
+{
+    "question_text": "<h3>Two Sum</h3><p>Given an array of integers <code>nums</code> and an integer <code>target</code>, return indices of the two numbers such that they add up to <code>target</code>.</p><p>You may assume that each input would have <b>exactly one solution</b>, and you may not use the same element twice. You can return the answer in any order.</p>",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "The first line contains a space-separated list of integers representing the array `nums`.\nThe second line contains a single integer `target`.",
+    "output_format": "A single line containing two space-separated integers representing the indices.",
+    "constraints": [
+        "2 <= nums.length <= 10^4",
+        "-10^9 <= nums[i] <= 10^9",
+        "-10^9 <= target <= 10^9",
+        "Only one valid answer exists."
+    ],
+    "explanation": "To solve this problem optimally in O(N) time, we can use a Hash Map (dictionary in Python) to keep track of the numbers we have seen so far and their corresponding indices. As we iterate through the array `nums`, for each number `n` at index `i`, we calculate its complement `target - n`. We then check if this complement already exists in our Hash Map. If it does, it means we have found the two numbers that add up to the target, and we can immediately return their indices. If the complement is not in the Hash Map, we add the current number `n` and its index `i` to the Hash Map and continue. This ensures we only pass through the array a single time (O(N) time complexity) and use O(N) auxiliary space.",
+    "answer": "def solve(nums, target):\n    seen = {}\n    for i, n in enumerate(nums):\n        complement = target - n\n        if complement in seen:\n            return f\"{seen[complement]} {i}\"\n        seen[n] = i\n    return \"\"",
+    "boilerplate": "import sys\n\ndef solve(nums, target):\n    # User logic should be written here\n    return \"\"\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().splitlines()\n    if len(input_data) < 2: sys.exit(0)\n    nums = list(map(int, input_data[0].split()))\n    target = int(input_data[1])\n    print(solve(nums, target))",
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "2 7 11 15\n9",
+            "expected_output": "0 1",
+            "is_sample": true
+        },
+        {
+            "input": "3 2 4\n6",
+            "expected_output": "1 2",
+            "is_sample": true
+        },
+        {
+            "input": "3 3\n6",
+            "expected_output": "0 1",
+            "is_sample": false
+        },
+        {
+            "input": "2 5 5 11\n10",
+            "expected_output": "1 2",
+            "is_sample": false
+        },
+        {
+            "input": "-1 -2 -3 -4 -5\n-8",
+            "expected_output": "2 4",
+            "is_sample": false
+        },
+        {
+            "input": "0 4 3 0\n0",
+            "expected_output": "0 3",
+            "is_sample": false
+        },
+        {
+            "input": "5 7 13 18 22\n35",
+            "expected_output": "2 4",
+            "is_sample": false
+        },
+        {
+            "input": "-1000000000 1000000000\n0",
+            "expected_output": "0 1",
+            "is_sample": false
+        },
+        {
+            "input": "1000000000 500000000 500000000\n1000000000",
+            "expected_output": "1 2",
+            "is_sample": false
+        },
+        {
+            "input": "-999999999 999999999 1 0 -1\n-1000000000",
+            "expected_output": "0 4",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Arrays",
+        "Hash Table"
+    ],
+    "companyIndex": 0
+}

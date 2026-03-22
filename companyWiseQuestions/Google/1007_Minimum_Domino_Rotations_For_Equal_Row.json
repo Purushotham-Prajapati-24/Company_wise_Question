@@ -1,0 +1,79 @@
+{
+    "question_text": "<h3>Minimum Domino Rotations For Equal Row</h3><p>In a row of dominoes, <code>tops[i]</code> and <code>bottoms[i]</code> represent the top and bottom halves of the <code>i</code>th domino. (A domino is a tile with two numbers from 1 to 6 - one on each half of the tile.)</p><p>We may rotate the <code>i</code>th domino, so that <code>tops[i]</code> and <code>bottoms[i]</code> swap values.</p><p>Return the minimum number of rotations so that all the values in <code>tops</code> are the same, or all the values in <code>bottoms</code> are the same.</p><p>If it cannot be done, return <code>-1</code>.</p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "The first line contains a space-separated list of integers representing the array `tops`.\nThe second line contains a space-separated list of integers representing the array `bottoms`.",
+    "output_format": "A single integer denoting the minimum number of rotations. If it's not possible, output `-1`.",
+    "constraints": [
+        "2 <= tops.length <= 2 * 10^4",
+        "bottoms.length == tops.length",
+        "1 <= tops[i], bottoms[i] <= 6"
+    ],
+    "explanation": "If it is mathematically possible to make either the entire top row or the entire bottom row identical, then that identical uniform value must definitively be either `tops[0]` or `bottoms[0]`. This is logical because the very first domino must contribute this value to either its top or its bottom position.\nTherefore, we simply have two target candidates to check: `tops[0]` and `bottoms[0]`. \nFor each target candidate, we simulate iteratively checking each domino from `i = 0` to `n - 1`. If neither the top nor the bottom matching domino at index `i` corresponds strictly to the target, it's impossible for this candidate. Conversely, if it matches, we count how many rotations are explicitly needed to align the top array entirely to this target, and how many for the bottom array. The overall optimal solution is simply the minimal rotation count out of the viable candidates. This provides a clean O(N) time and O(1) space optimization.",
+    "answer": "def solve(tops, bottoms):\n    def check(x):\n        rotations_a = rotations_b = 0\n        for i in range(len(tops)):\n            if tops[i] != x and bottoms[i] != x:\n                return -1\n            elif tops[i] != x:\n                rotations_a += 1\n            elif bottoms[i] != x:\n                rotations_b += 1\n        return min(rotations_a, rotations_b)\n    \n    res = check(tops[0])\n    if res != -1 or tops[0] == bottoms[0]:\n        return res\n    return check(bottoms[0])",
+    "boilerplate": "import sys\n\ndef solve(tops, bottoms):\n    # User logic should be written here\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().splitlines()\n    if len(input_data) >= 2:\n        tops = list(map(int, input_data[0].split()))\n        bottoms = list(map(int, input_data[1].split()))\n        print(solve(tops, bottoms))",
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "2 1 2 4 2 2\n5 2 6 2 3 2",
+            "expected_output": "2",
+            "is_sample": true
+        },
+        {
+            "input": "3 5 1 2 3\n3 6 3 3 4",
+            "expected_output": "-1",
+            "is_sample": true
+        },
+        {
+            "input": "1 1 1 1\n1 1 1 1",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 1 2\n2 1 2 1",
+            "expected_output": "2",
+            "is_sample": false
+        },
+        {
+            "input": "1 3 5 4 6\n2 2 2 2 2",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "6 6 6 6 6 6\n1 2 3 4 5 6",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 3\n1 2 3",
+            "expected_output": "-1",
+            "is_sample": false
+        },
+        {
+            "input": "1 1\n2 2",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "6 5 4 3 2 1\n1 1 1 1 1 1",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "2 2 2 2\n3 3 3 3",
+            "expected_output": "0",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Greedy"
+    ],
+    "companyIndex": 0
+}

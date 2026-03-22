@@ -1,0 +1,80 @@
+{
+    "question_text": "<h3>Cracking the Safe</h3><p>There is a safe protected by a password. The password is a sequence of <code>n</code> digits where each digit can be in the range <code>[0, k - 1]</code>. The safe has a peculiar way of checking the password. When you enter in a sequence, it checks the <b>most recent <code>n</code> digits</b> that were entered each time you type a digit.</p><p>For example, the correct password is <code>\"345\"</code> and you enter in <code>\"012345\"</code>:</p><ul><li>After typing 0, the most recent 3 digits is <code>\"0\"</code>, which is incorrect.</li><li>After typing 1, the most recent 3 digits is <code>\"01\"</code>, which is incorrect.</li><li>After typing 2, the most recent 3 digits is <code>\"012\"</code>, which is incorrect.</li><li>After typing 3, the most recent 3 digits is <code>\"123\"</code>, which is incorrect.</li><li>After typing 4, the most recent 3 digits is <code>\"234\"</code>, which is incorrect.</li><li>After typing 5, the most recent 3 digits is <code>\"345\"</code>, which is correct and the safe unlocks.</li></ul><p>Return <b>any string of minimum length</b> that will unlock the safe <b>at some point</b> of entering it.</p>",
+    "difficulty": "HARD",
+    "marks": 20,
+    "input_format": "A single line containing two space-separated integers, `n` and `k`.",
+    "output_format": "A single line containing the minimum length string that cracks the safe.",
+    "constraints": [
+        "1 <= n <= 4",
+        "1 <= k <= 10",
+        "1 <= k^n <= 4096"
+    ],
+    "explanation": "This problem perfectly maps to finding an Eulerian path (specifically a De Bruijn sequence) on a directed graph. In a De Bruijn sequence, we uniquely traverse every possible password combination compactly. The nodes of our graph will be sequences of length `n-1`, and the edges represent the appended `k` character. Walking over an edge from one `n-1` node to another effectively simulates typing one digit on the safe. \nSince an Eulerian Circuit exists on this graph, we can find it via a Depth First Search (DFS). We start with a string of `n-1` zeros. At each node, we try to append all characters from `k-1` down to `0`. If appending a certain character forms an unvisited edge (a unique combination of length `n`), we mark it as visited and DFS recursively. Post-traversal, we append the character to our sequence result. Due to backtracking post-order recursion, reversing the generated result at the end paired with our initial `n-1` zeros gives us our minimum length string cracking the safe optimally.",
+    "answer": "def solve(n, k):\n    visited = set()\n    ans = []\n    \n    def dfs(node):\n        for x in range(k):\n            nei = node + str(x)\n            if nei not in visited:\n                visited.add(nei)\n                dfs(nei[1:])\n                ans.append(str(x))\n                \n    start = \"0\" * (n - 1)\n    dfs(start)\n    \n    return start + \"\".join(ans[::-1])",
+    "boilerplate": "import sys\n\ndef solve(n, k):\n    # User logic should be written here\n    return \"\"\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().split()\n    if len(input_data) >= 2:\n        print(solve(int(input_data[0]), int(input_data[1])))",
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "1 2",
+            "expected_output": "01",
+            "is_sample": true
+        },
+        {
+            "input": "2 2",
+            "expected_output": "00110",
+            "is_sample": true
+        },
+        {
+            "input": "1 1",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "3 2",
+            "expected_output": "0001011100",
+            "is_sample": false
+        },
+        {
+            "input": "1 5",
+            "expected_output": "01234",
+            "is_sample": false
+        },
+        {
+            "input": "4 1",
+            "expected_output": "0000",
+            "is_sample": false
+        },
+        {
+            "input": "2 3",
+            "expected_output": "0010211220",
+            "is_sample": false
+        },
+        {
+            "input": "3 3",
+            "expected_output": "0001002011012021022111212220",
+            "is_sample": false
+        },
+        {
+            "input": "1 10",
+            "expected_output": "0123456789",
+            "is_sample": false
+        },
+        {
+            "input": "2 4",
+            "expected_output": "00102031121322330",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Depth-First Search",
+        "Graph",
+        "Eulerian Circuit"
+    ],
+    "companyIndex": 0
+}

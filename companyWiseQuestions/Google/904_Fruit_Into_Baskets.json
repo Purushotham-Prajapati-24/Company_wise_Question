@@ -1,0 +1,79 @@
+{
+    "question_text": "<h3>Fruit Into Baskets</h3><p>You are visiting a farm that has a single row of fruit trees arranged from left to right. The trees are represented by an integer array <code>fruits</code> where <code>fruits[i]</code> is the <b>type</b> of fruit the <code>i</code>th tree produces.</p><p>You want to collect as much fruit as possible. However, the owner has some strict rules that you must follow:</p><ul><li>You only have <b>two</b> baskets, and each basket can only hold a <b>single type</b> of fruit. There is no limit on the amount of fruit each basket can hold.</li><li>Starting from any tree of your choice, you must pick <b>exactly one fruit</b> from every tree (including the start tree) while moving to the right. The picked fruits must fit in one of your baskets.</li><li>Once you reach a tree with fruit that cannot fit in your baskets, you must stop.</li></ul><p>Given the integer array <code>fruits</code>, return the <b>maximum number of fruits you can pick</b>.</p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "A single line containing space-separated integers representing the array `fruits`.",
+    "output_format": "A single integer denoting the maximum number of fruits you can pick.",
+    "constraints": [
+        "1 <= fruits.length <= 10^5",
+        "0 <= fruits[i] < fruits.length"
+    ],
+    "explanation": "This problem requires us to find the length of the longest contiguous subarray that contains at most 2 distinct integer values. A sliding window technique is optimal here. We use two pointers, `left` and `right`, to denote the current subarray bounds. As we expand the window by moving `right`, we utilize a Hash Map (dictionary) to store the occurrences (counts) of each fruit type currently in the window. \n\nIf the size of the Hash Map exceeds 2 (meaning we have gathered 3 distinct kinds of fruits), our current subarray is invalid. We must then shrink the window from the left. We decrement the count of the fruit at the `left` pointer and advance the `left` pointer. Crucially, if the count of a fruit type drops precisely to zero, we completely delete that fruit from the Hash Map. We continue shrinking the window until the Hash Map size is exactly 2 again. At each step where the window is valid, we record the max sequence length seen (`right - left + 1`), providing an overall O(N) optimized solution.",
+    "answer": "def solve(fruits):\n    count = {}\n    res = left = 0\n    for right in range(len(fruits)):\n        count[fruits[right]] = count.get(fruits[right], 0) + 1\n        while len(count) > 2:\n            count[fruits[left]] -= 1\n            if count[fruits[left]] == 0:\n                del count[fruits[left]]\n            left += 1\n        res = max(res, right - left + 1)\n    return res",
+    "boilerplate": "import sys\n\ndef solve(fruits):\n    # User logic should be written here\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().split()\n    if not input_data: sys.exit(0)\n    fruits = list(map(int, input_data))\n    print(solve(fruits))",
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "1 2 1",
+            "expected_output": "3",
+            "is_sample": true
+        },
+        {
+            "input": "0 1 2 2",
+            "expected_output": "3",
+            "is_sample": true
+        },
+        {
+            "input": "1 2 3 2 2",
+            "expected_output": "4",
+            "is_sample": true
+        },
+        {
+            "input": "3 3 3 1 2 1 1 2 3 3 4",
+            "expected_output": "5",
+            "is_sample": false
+        },
+        {
+            "input": "0 0 0 0 0 0",
+            "expected_output": "6",
+            "is_sample": false
+        },
+        {
+            "input": "1",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "1 0",
+            "expected_output": "2",
+            "is_sample": false
+        },
+        {
+            "input": "0 1 2 3 4 5 6 7 8 9",
+            "expected_output": "2",
+            "is_sample": false
+        },
+        {
+            "input": "99999 99999 100000 100000 99999 100000 100000 0 0 0",
+            "expected_output": "7",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 1 2 1 2 1 2 1 2 1 2",
+            "expected_output": "12",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Hash Table",
+        "Sliding Window"
+    ],
+    "companyIndex": 0
+}

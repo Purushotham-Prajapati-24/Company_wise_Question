@@ -1,0 +1,78 @@
+{
+    "question_text": "<h3>License Key Formatting</h3><p>You are given a license key represented as a string <code>s</code> that consists of only alphanumeric characters and dashes. The string is separated into <code>n + 1</code> groups by <code>n</code> dashes. You are also given an integer <code>k</code>.</p><p>We want to reformat the string <code>s</code> such that each group contains exactly <code>k</code> characters, except for the first group, which could be shorter than <code>k</code> but still must contain at least one character. Furthermore, there must be a dash inserted between two groups, and you should convert all lowercase letters to uppercase.</p><p>Return the reformatted license key.</p>",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "The first line contains a string `s` representing the license key.\nThe second line contains an integer `k`.",
+    "output_format": "A single line containing the reformatted license key string.",
+    "constraints": [
+        "1 <= s.length <= 10^5",
+        "s consists of English letters, digits, and dashes '-'.",
+        "1 <= k <= 10^4"
+    ],
+    "explanation": "To reformat the license key efficiently, we can first normalize the string by stripping away any existing dashes `'-'` and converting all alphabetic characters to uppercase to satisfy the requirements. The resultant cleaned string just contains the core alphanumeric payload. \nWe can determine the length of the first group by using the modulo operator `clean.length() % k`. If there's a remainder, it becomes our first group. We add this group to our results list. Then, iterating in steps of `k`, we slice the rest of the cleaned string into uniform groups of size `k` and append them to the results list. Finally, we join these groups with dashes `'-'` to formulate the final answer. This O(N) strategy involves slicing and joining operations which are heavily optimized in Python, avoiding manual pointer tracking.",
+    "answer": "def solve(s, k):\n    s = s.replace('-', '').upper()\n    res = []\n    n = len(s)\n    first_group = n % k\n    if first_group:\n        res.append(s[:first_group])\n    for i in range(first_group, n, k):\n        res.append(s[i:i+k])\n    return '-'.join(res)",
+    "boilerplate": "import sys\n\ndef solve(s, k):\n    # User logic should be written here\n    return \"\"\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().splitlines()\n    if len(input_data) >= 2:\n        print(solve(input_data[0].strip(), int(input_data[1])))\n    elif len(input_data) == 1:\n        print(solve(\"\", int(input_data[0])))",
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "5F3Z-2e-9-w\n4",
+            "expected_output": "5F3Z-2E9W",
+            "is_sample": true
+        },
+        {
+            "input": "2-5g-3-J\n2",
+            "expected_output": "2-5G-3J",
+            "is_sample": true
+        },
+        {
+            "input": "a-a-a-a-\n1",
+            "expected_output": "A-A-A-A",
+            "is_sample": false
+        },
+        {
+            "input": "--a-a-a-a--\n2",
+            "expected_output": "AA-AA",
+            "is_sample": false
+        },
+        {
+            "input": "---\n1",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "2\n2",
+            "expected_output": "2",
+            "is_sample": false
+        },
+        {
+            "input": "r\n50",
+            "expected_output": "R",
+            "is_sample": false
+        },
+        {
+            "input": "123456789\n3",
+            "expected_output": "123-456-789",
+            "is_sample": false
+        },
+        {
+            "input": "---A--B---C---D---\n10000",
+            "expected_output": "ABCD",
+            "is_sample": false
+        },
+        {
+            "input": "A----------------------------------------------------------------------------------------------------\n1",
+            "expected_output": "A",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "String"
+    ],
+    "companyIndex": 0
+}

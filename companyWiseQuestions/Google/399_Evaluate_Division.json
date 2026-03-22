@@ -1,0 +1,88 @@
+{
+    "question_text": "<h3>Evaluate Division</h3><p>You are given an array of variable pairs <code>equations</code> and an array of real numbers <code>values</code>, where <code>equations[i] = [A<sub>i</sub>, B<sub>i</sub>]</code> and <code>values[i]</code> represent the equation <code>A<sub>i</sub> / B<sub>i</sub> = values[i]</code>. Each <code>A<sub>i</sub></code> or <code>B<sub>i</sub></code> is a string that represents a single variable.</p><p>You are also given some <code>queries</code>, where <code>queries[j] = [C<sub>j</sub>, D<sub>j</sub>]</code> represents the <code>j</code>th query where you must find the answer for <code>C<sub>j</sub> / D<sub>j</sub> = ?</code>.</p><p>Return the answers to all queries. If a single answer cannot be determined, return <code>-1.0</code>.</p><p><b>Note:</b> The input is always valid. You may assume that evaluating the queries will not result in division by zero and that there is no contradiction. The variables that do not occur in the list of equations are undefined, so the answer cannot be determined for them.</p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "The first line contains two integers `N` and `M`, denoting the number of equations and queries, respectively.\nThe next `N` lines each contain two strings `A_i` and `B_i` and a float `value_i`, separated by spaces.\nThe next `M` lines each contain two strings `C_j` and `D_j`, representing the queries.",
+    "output_format": "A single line containing `M` space-separated floats representing the answers to the queries, formatted to 5 decimal places.",
+    "constraints": [
+        "1 <= equations.length <= 20",
+        "equations[i].length == 2",
+        "1 <= A_i.length, B_i.length <= 5",
+        "values.length == equations.length",
+        "0.0 < values[i] <= 20.0",
+        "1 <= queries.length <= 20",
+        "queries[i].length == 2",
+        "1 <= C_j.length, D_j.length <= 5",
+        "A_i, B_i, C_j, D_j consist of lowercase English letters and digits."
+    ],
+    "explanation": "This problem can be elegantly solved using a graph representation where each variable is a node, and each equation `A / B = value` represents a directed edge from `A` to `B` with weight `value`, and a reverse directed edge from `B` to `A` with weight `1.0 / value`. \nTo answer a query `C / D`, we can perform a Depth First Search (DFS) or Breadth First Search (BFS) starting from node `C`. If `C` or `D` are not in the graph, the answer is immediately `-1.0`. We look for a path from `C` to `D` and implicitly multiply the traversal weights to evaluate `C / D`. To avoid cycles, we must maintain a set of `visited` nodes during traversal. If no path is found, we return `-1.0`. The overall complexity is roughly O((N+M)*E) where N is equations, M is queries, E is the number of edges.",
+    "answer": "def solve(equations, values, queries):\n    import collections\n    graph = collections.defaultdict(dict)\n    for (u, v), val in zip(equations, values):\n        graph[u][v] = val\n        graph[v][u] = 1.0 / val\n    \n    def dfs(src, dst, visited):\n        if src not in graph or dst not in graph:\n            return -1.0\n        if src == dst:\n            return 1.0\n        visited.add(src)\n        for neighbor, weight in graph[src].items():\n            if neighbor not in visited:\n                res = dfs(neighbor, dst, visited)\n                if res != -1.0:\n                    return weight * res\n        return -1.0\n    \n    res = []\n    for u, v in queries:\n        res.append(float(dfs(u, v, set())))\n    return ' '.join(f\"{x:.5f}\" for x in res)",
+    "boilerplate": "import sys\n\ndef solve(equations, values, queries):\n    # User logic should be written here\n    return \"\"\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().splitlines()\n    if not input_data: sys.exit(0)\n    parts = input_data[0].strip().split()\n    n, m = int(parts[0]), int(parts[1])\n    equations, values = [], []\n    for i in range(1, n + 1):\n        parts = input_data[i].strip().split()\n        equations.append([parts[0], parts[1]])\n        values.append(float(parts[2]))\n    queries = []\n    for i in range(n + 1, n + 1 + m):\n        parts = input_data[i].strip().split()\n        queries.append([parts[0], parts[1]])\n    print(solve(equations, values, queries))",
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "2 5\na b 2.0\nb c 3.0\na c\nb a\na e\na a\nx x",
+            "expected_output": "6.00000 0.50000 -1.00000 1.00000 -1.00000",
+            "is_sample": true
+        },
+        {
+            "input": "3 4\na b 1.5\nb c 2.5\nbc cd 5.0\na c\nc b\nbc cd\ncd bc",
+            "expected_output": "3.75000 0.40000 5.00000 0.20000",
+            "is_sample": true
+        },
+        {
+            "input": "1 4\na b 0.5\na b\nb a\na c\nx y",
+            "expected_output": "0.50000 2.00000 -1.00000 -1.00000",
+            "is_sample": true
+        },
+        {
+            "input": "3 1\na b 2.0\nb c 1.0\nc d 4.0\na d",
+            "expected_output": "8.00000",
+            "is_sample": false
+        },
+        {
+            "input": "3 2\nx y 10.0\ny z 0.1\nz w 5.0\nx w\nw x",
+            "expected_output": "5.00000 0.20000",
+            "is_sample": false
+        },
+        {
+            "input": "5 1\na b 2.0\nb c 2.0\nc d 2.0\nd e 2.0\ne f 2.0\na f",
+            "expected_output": "32.00000",
+            "is_sample": false
+        },
+        {
+            "input": "2 2\nfoo bar 1.0\nbar baz 1.0\nfoo baz\nfoo bar",
+            "expected_output": "1.00000 1.00000",
+            "is_sample": false
+        },
+        {
+            "input": "4 4\na b 10.0\nc d 10.0\nb c 10.0\ne f 10.0\na d\na f\nd a\na e",
+            "expected_output": "1000.00000 -1.00000 0.00100 -1.00000",
+            "is_sample": false
+        },
+        {
+            "input": "2 2\nvar1 var2 20.0\nvar2 var3 0.05\nvar1 var3\nvar3 var1",
+            "expected_output": "1.00000 1.00000",
+            "is_sample": false
+        },
+        {
+            "input": "6 3\na1 a2 2.0\na2 a3 2.0\na3 a4 2.0\na4 a5 2.0\na5 a6 2.0\na6 a7 2.0\na1 a7\na7 a1\na3 a5",
+            "expected_output": "64.00000 0.01562 4.00000",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Graph",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Union Find"
+    ],
+    "companyIndex": 0
+}

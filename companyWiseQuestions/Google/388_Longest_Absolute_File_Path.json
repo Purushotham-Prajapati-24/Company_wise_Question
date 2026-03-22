@@ -1,0 +1,81 @@
+{
+    "question_text": "<h3>Longest Absolute File Path</h3><p>Suppose we have a file system that stores both files and directories. In text form, it is represented as a string with <code>\\n</code> and <code>\\t</code> characters to indicate new lines and depths (tabs).</p><p>Every file and directory has a unique absolute path in the file system, which is the order of directories that must be opened to reach the file/directory itself, all concatenated by <code>/</code>s.</p><p>Given a string <code>input</code> representing the file system in the explained format, return the length of the <b>longest absolute path to a file</b> in the abstracted file system. If there is no file in the system, return <code>0</code>.</p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "The input consists of a multiline string representing the file system. Depth is represented by tab (`\\t`) characters.",
+    "output_format": "A single integer denoting the length of the longest absolute path to a file.",
+    "constraints": [
+        "1 <= input.length <= 10^4",
+        "input may contain lowercase or uppercase English letters, a new line character '\\n', a tab character '\\t', a dot '.', a space ' ', and digits.",
+        "All file and directory names have positive length."
+    ],
+    "explanation": "To find the longest absolute file path, we can process the given string line by line (splitting by '\\n'). The depth of any file or directory is exactly the number of tab characters ('\\t') preceding its name. We can maintain a dictionary `path_lens` that records the current absolute path length at each depth. For example, `path_lens[depth]` will store the length of the directory path up to that depth. As we iterate through each line, we calculate its depth, strip the tabs to get the actual name, and check if it represents a file (contains a '.'). If it's a file, we calculate the absolute path length to this file by taking the length of its parent directory path `path_lens[depth]` and adding the file's length. We update our maximum length tracking variable. If it's a directory, we simply update `path_lens[depth + 1]` to encompass the parent directory's length plus this directory's length, plus 1 (for the '/' separator implicitly added). This O(N) approach is optimal as we parse each character exactly once.",
+    "answer": "def solve(input_str):\n    max_len = 0\n    path_lens = {0: 0}\n    for line in input_str.split('\\n'):\n        depth = line.count('\\t')\n        name = line.replace('\\t', '')\n        if '.' in name:\n            max_len = max(max_len, path_lens[depth] + len(name))\n        else:\n            path_lens[depth + 1] = path_lens[depth] + len(name) + 1\n    return max_len",
+    "boilerplate": "import sys\n\ndef solve(input_str):\n    # User logic should be written here\n    return 0\n\nif __name__ == '__main__':\n    print(solve(sys.stdin.read()))",
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext",
+            "expected_output": "20",
+            "is_sample": true
+        },
+        {
+            "input": "dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext",
+            "expected_output": "32",
+            "is_sample": true
+        },
+        {
+            "input": "a",
+            "expected_output": "0",
+            "is_sample": true
+        },
+        {
+            "input": "file.ext",
+            "expected_output": "8",
+            "is_sample": false
+        },
+        {
+            "input": "dir\n\tfile.ext",
+            "expected_output": "12",
+            "is_sample": false
+        },
+        {
+            "input": "dir\n\t        file.txt",
+            "expected_output": "17",
+            "is_sample": false
+        },
+        {
+            "input": "dir\n\tdir2\n\t\tdir3",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "a\n\tb\n\t\tc\n\t\t\td.ext",
+            "expected_output": "9",
+            "is_sample": false
+        },
+        {
+            "input": "a.txt\nb.txt\nc.txt",
+            "expected_output": "5",
+            "is_sample": false
+        },
+        {
+            "input": "thisIsAVeryLongDirectoryNameThatTestsTheLimitsOfLengths1234567890\n\tsubdir\n\t\tsubsubdir\n\t\t\tdeepestlyNestedFileWhichAlsoHasAVeryLongName.extension",
+            "expected_output": "136",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Strings",
+        "Graphs",
+        "Depth-First Search",
+        "Stack"
+    ],
+    "companyIndex": 0
+}

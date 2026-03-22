@@ -1,0 +1,81 @@
+{
+    "question_text": "<h3>Odd Even Jump</h3><p>You are given an integer array <code>arr</code>. From some starting index, you can make a series of jumps. The (1<sup>st</sup>, 3<sup>rd</sup>, 5<sup>th</sup>, ...) jumps in the series are called <b>odd-numbered jumps</b>, and the (2<sup>nd</sup>, 4<sup>th</sup>, 6<sup>th</sup>, ...) jumps in the series are called <b>even-numbered jumps</b>. Note that the jumps are numbered, not the indices.</p><p>You may jump forward from index <code>i</code> to index <code>j</code> (with <code>i < j</code>) in the following way:</p><ul><li>During <b>odd-numbered jumps</b> (i.e., jumps 1, 3, 5, ...), you jump to the index <code>j</code> such that <code>arr[i] <= arr[j]</code> and <code>arr[j]</code> is the smallest possible value. If there are multiple such indices <code>j</code>, you can only jump to the <b>smallest</b> such index <code>j</code>.</li><li>During <b>even-numbered jumps</b> (i.e., jumps 2, 4, 6, ...), you jump to the index <code>j</code> such that <code>arr[i] >= arr[j]</code> and <code>arr[j]</code> is the largest possible value. If there are multiple such indices <code>j</code>, you can only jump to the <b>smallest</b> such index <code>j</code>.</li></ul><p>It may be the case that for some index <code>i</code>, there are no legal jumps.</p><p>A starting index is <b>good</b> if, starting from that index, you can reach the end of the array (index <code>arr.length - 1</code>) by jumping some number of times (possibly 0 or more than once).</p><p>Return the number of <b>good</b> starting indices.</p>",
+    "difficulty": "HARD",
+    "marks": 20,
+    "input_format": "A single line containing space-separated integers representing the array `arr`.",
+    "output_format": "A single integer denoting the number of good starting indices.",
+    "constraints": [
+        "1 <= arr.length <= 2 * 10^4",
+        "0 <= arr[i] < 10^5"
+    ],
+    "explanation": "This is a dynamic programming problem heavily relying on efficient next-jump identification via a monotonic stack approach after sorting.\n\nFirst, we need to know for each index `i`, what is the destination of an odd jump (`next_higher`) and an even jump (`next_lower`). We can achieve this by pairing the elements with their indices, sorting them, and using a monotonic decreasing stack to find the next greater or equal element's index. For identical elements, sorting orders them by index to inherently satisfy the 'smallest index' tie-breaking rule.\n\nAfter identifying `next_higher` and `next_lower` arrays, we define two DP boolean arrays: `higher[i]` (true if we can reach the end starting with an odd jump from `i`) and `lower[i]` (true if we can reach the end starting with an even jump from `i`). \nProcessing from right to left, we use state transitions `higher[i] = lower[next_higher[i]]` and `lower[i] = higher[next_lower[i]]`. Initial setup implies `higher[N-1] = lower[N-1] = True`.\n\nThe overall answer is the number of indices where `higher[i]` is True, yielding an optimal O(N log N) runtime.",
+    "answer": "def solve(arr):\n    n = len(arr)\n    if n == 0: return 0\n    \n    def get_next(sorted_indices):\n        res = [None] * n\n        stack = []\n        for i in sorted_indices:\n            while stack and stack[-1] < i:\n                res[stack.pop()] = i\n            stack.append(i)\n        return res\n\n    sorted_indices = sorted(range(n), key=lambda i: (arr[i], i))\n    next_higher = get_next(sorted_indices)\n    \n    sorted_indices = sorted(range(n), key=lambda i: (-arr[i], i))\n    next_lower = get_next(sorted_indices)\n    \n    higher, lower = [False] * n, [False] * n\n    higher[-1] = lower[-1] = True\n    good_starts = 1\n    \n    for i in range(n - 2, -1, -1):\n        if next_higher[i] is not None:\n            higher[i] = lower[next_higher[i]]\n        if next_lower[i] is not None:\n            lower[i] = higher[next_lower[i]]\n        \n        if higher[i]:\n            good_starts += 1\n            \n    return good_starts",
+    "boilerplate": "import sys\n\ndef solve(arr):\n    # User logic should be written here\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().split()\n    if not input_data: sys.exit(0)\n    arr = list(map(int, input_data))\n    print(solve(arr))",
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "10 13 12 14 15",
+            "expected_output": "2",
+            "is_sample": true
+        },
+        {
+            "input": "2 3 1 1 4",
+            "expected_output": "3",
+            "is_sample": true
+        },
+        {
+            "input": "5 1 3 4 2",
+            "expected_output": "3",
+            "is_sample": true
+        },
+        {
+            "input": "1 2 3 4 5",
+            "expected_output": "5",
+            "is_sample": false
+        },
+        {
+            "input": "5 4 3 2 1",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "1 1 1 1 1",
+            "expected_output": "5",
+            "is_sample": false
+        },
+        {
+            "input": "1",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "10 9 8 7 6 5 4 3 2 1 0",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "0 100000 0 100000 0 100000",
+            "expected_output": "4",
+            "is_sample": false
+        },
+        {
+            "input": "1 4 2 8 5 7",
+            "expected_output": "2",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Dynamic Programming",
+        "Stack",
+        "Monotonic Stack",
+        "Ordered Set"
+    ],
+    "companyIndex": 0
+}
