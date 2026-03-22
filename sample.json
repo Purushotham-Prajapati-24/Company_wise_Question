@@ -1,0 +1,34 @@
+{
+        "question_text": "<h3>The DNA Sequence Patent</h3><p>You are working for a bioinformatics firm. Two labs have submitted genetic sequences: <code>text1</code> and <code>text2</code>. To determine if they share a common lineage, you must find the <b>similarity score</b>.</p><p>Calculate the length of the <b>Longest Common Subsequence</b> between the two strings. A subsequence is a new string generated from the original with some characters (or none) deleted without changing the relative order of the remaining characters.</p>",
+        "difficulty": "MEDIUM",
+        "marks": 15,
+        "input_format": "sample input format",
+        "output_format":"sample output format",
+        "constraints": [
+            "1Sample Constraint"
+        ],
+        "explanation": "This problem is solved using a 2D Dynamic Programming table where dp[i][j] represents the LCS of text1[0...i-1] and text2[0...j-1]. If the characters at the current indices match, we carry over the result from the previous diagonal and add one. If they don't match, we take the maximum value from either the cell above or the cell to the left.",
+        "answer": "def solve(text1, text2):\n    m, n = len(text1), len(text2)\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if text1[i-1] == text2[j-1]: dp[i][j] = 1 + dp[i-1][j-1]\n            else: dp[i][j] = max(dp[i-1][j], dp[i][j-1])\n    return dp[m][n]",
+        "boilerplate": {
+            "python": "import sys\n\ndef solve(t1, t2):\n    # User logic should be written here\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().splitlines()\n    t1 = input_data[0].strip() if len(input_data) > 0 else \"\"\n    t2 = input_data[1].strip() if len(input_data) > 1 else \"\"\n    print(solve(t1, t2))",
+            "cpp": "#include <iostream>\n#include <string>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nint solve(string t1, string t2) {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    string t1, t2;\n    if (!getline(cin, t1)) t1 = \"\";\n    if (!getline(cin, t2)) t2 = \"\";\n    cout << solve(t1, t2) << endl;\n    return 0;\n}",
+            "java": "import java.util.Scanner;\n\npublic class Main {\n    public static int solve(String t1, String t2) {\n        // User logic should be written here\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String t1 = sc.hasNextLine() ? sc.nextLine() : \"\";\n        String t2 = sc.hasNextLine() ? sc.nextLine() : \"\";\n        System.out.println(solve(t1, t2));\n    }\n}",
+            "javascript": "const fs = require('fs');\n\nfunction solve(t1, t2) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').split('\\n');\nconst t1 = input[0] ? input[0].trim() : \"\";\nconst t2 = input[1] ? input[1].trim() : \"\";\nconsole.log(solve(t1, t2));",
+            "c": "#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\n\n#define MAX(a,b) (((a)>(b))?(a):(b))\n\nint solve(char* t1, char* t2) {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    char t1[2000], t2[2000];\n    if (!fgets(t1, sizeof(t1), stdin)) t1[0] = '\\0';\n    else t1[strcspn(t1, \"\\n\")] = 0;\n    if (!fgets(t2, sizeof(t2), stdin)) t2[0] = '\\0';\n    else t2[strcspn(t2, \"\\n\")] = 0;\n    printf(\"%d\\n\", solve(t1, t2));\n    return 0;\n}"
+        },
+        "metadata": { "time_limit_ms": 1000, "memory_limit_mb": 256, "allowed_languages": ["python", "cpp", "java", "javascript", "c"] },
+        "test_cases": [
+            { "input": "abcde\nace", "expected_output": "3", "is_sample": true },
+            { "input": "abc\nabc", "expected_output": "3", "is_sample": true },
+            { "input": "abc\ndef", "expected_output": "0", "is_sample": false },
+            { "input": "ezupkr\nubmra", "expected_output": "2", "is_sample": false },
+            { "input": "bsbininm\njmgleigz", "expected_output": "1", "is_sample": false },
+            { "input": "oxcpqrsvwf\nshmtulqkv", "expected_output": "2", "is_sample": false },
+            { "input": "a\nb", "expected_output": "0", "is_sample": false },
+            { "input": "aaaaa\naa", "expected_output": "2", "is_sample": false },
+            { "input": "longtext\nshort", "expected_output": "2", "is_sample": false },
+            { "input": "empty\n", "expected_output": "0", "is_sample": false }
+        ],
+        "topics": ["Dynamic Programming", "String"],
+        "companyIndex": 2
+    }
