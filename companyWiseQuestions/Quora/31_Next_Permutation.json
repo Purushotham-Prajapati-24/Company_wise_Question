@@ -1,21 +1,21 @@
 {
-  "question_text": "<h3>Next Permutation</h3><p>A <strong>permutation</strong> of an array of integers is an arrangement of its members into a sequence or linear order.</p>\n\n<ul>\n\t<li>For example, for <code>arr = [1,2,3]</code>, the following are all the permutations of <code>arr</code>: <code>[1,2,3], [1,3,2], [2, 1, 3], [2, 3, 1], [3,1,2], [3,2,1]</code>.</li>\n</ul>\n\n<p>The <strong>next permutation</strong> of an array of integers is the next lexicographically greater permutation of its integer. More formally, if all the permutations of the array are sorted in one container according to their lexicographical order, then the <strong>next permutation</strong> of that array is the permutation that follows it in the sorted container. If such arrangement is not possible, the array must be rearranged as the lowest possible order (i.e., sorted in ascending order).</p>\n\n<ul>\n\t<li>For example, the next permutation of <code>arr = [1,2,3]</code> is <code>[1,3,2]</code>.</li>\n\t<li>Similarly, the next permutation of <code>arr = [2,3,1]</code> is <code>[3,1,2]</code>.</li>\n\t<li>While the next permutation of <code>arr = [3,2,1]</code> is <code>[1,2,3]</code> because <code>[3,2,1]</code> does not have a lexicographical larger rearrangement.</li>\n</ul>\n\n<p>Given an array of integers <code>nums</code>, <em>find the next permutation of</em> <code>nums</code>.</p>\n\n<p>The replacement must be <strong><a href=\"http://en.wikipedia.org/wiki/In-place_algorithm\" target=\"_blank\">in place</a></strong> and use only constant extra memory.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [1,2,3]\n<strong>Output:</strong> [1,3,2]\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [3,2,1]\n<strong>Output:</strong> [1,2,3]\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [1,1,5]\n<strong>Output:</strong> [1,5,1]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= nums.length &lt;= 100</code></li>\n\t<li><code>0 &lt;= nums[i] &lt;= 100</code></li>\n</ul>\n",
+  "question_text": "<h3>Next Permutation</h3><p>A <strong>permutation</strong> of an array of integers is an arrangement of its members into a sequence or linear order.</p><ul><li>For example, for <code>arr = [1,2,3]</code>, the following are all the permutations of <code>arr</code>: <code>[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]</code>.</li></ul><p>The <strong>next permutation</strong> of an array of integers is the next lexicographically greater permutation of its integer. More formally, if all the permutations of the array are sorted in one container according to their lexicographical order, then the <strong>next permutation</strong> of that array is the permutation that follows it in the sorted container. If such arrangement is not possible, the array must be rearranged as the lowest possible order (i.e., sorted in ascending order).</p><ul><li>For example, the next permutation of <code>arr = [1,2,3]</code> is <code>[1,3,2]</code>.</li><li>Similarly, the next permutation of <code>arr = [2,3,1]</code> is <code>[3,1,2]</code>.</li><li>While the next permutation of <code>arr = [3,2,1]</code> is <code>[1,2,3]</code> because <code>[3,2,1]</code> does not have a lexicographical larger rearrangement.</li></ul><p>Given an array of integers <code>nums</code>, <em>find the next permutation of</em> <code>nums</code>.</p><p>The replacement must be <strong>in place</strong> and use only constant extra memory.</p>",
   "difficulty": "MEDIUM",
   "marks": 10,
-  "input_format": "Array nums",
-  "output_format": "Modify array in place to next lexicographical permutation",
+  "input_format": "A single array of integers `nums`.",
+  "output_format": "The modified array `nums` after the next permutation operation.",
   "constraints": [
     "1 <= nums.length <= 100",
     "0 <= nums[i] <= 100"
   ],
-  "explanation": "Find first pair from right where nums[i] < nums[i+1]. Then find nums[j] > nums[i] from right. Swap i, j. Reverse i+1 to end.",
-  "answer": "def nextPermutation(nums):\n    i = len(nums) - 2\n    while i >= 0 and nums[i] >= nums[i+1]: i -= 1\n    if i >= 0:\n        j = len(nums) - 1\n        while nums[j] <= nums[i]: j -= 1\n        nums[i], nums[j] = nums[j], nums[i]\n    nums[i+1:] = nums[i+1:][::-1]",
+  "explanation": "To find the next permutation: 1. Find the first decreasing element from the right (pivot). 2. Find the smallest element larger than the pivot to its right. 3. Swap them. 4. Reverse the sub-array to the right of the pivot. If no such pivot exists, reverse the entire array.",
+  "answer": "def nextPermutation(nums):\n    \"\"\"\n    Do not return anything, modify nums in-place instead.\n    \"\"\"\n    i = len(nums) - 2\n    while i >= 0 and nums[i] >= nums[i+1]:\n        i -= 1\n    if i >= 0:\n        j = len(nums) - 1\n        while nums[j] <= nums[i]:\n            j -= 1\n        nums[i], nums[j] = nums[j], nums[i]\n    \n    # Reverse from i + 1 to end\n    l, r = i + 1, len(nums) - 1\n    while l < r:\n        nums[l], nums[r] = nums[r], nums[l]\n        l += 1\n        r -= 1\n    return nums",
   "boilerplate": {
-    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Next Permutation here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
-    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
-    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
-    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+    "python": "import sys\nimport json\n\ndef nextPermutation(nums):\n    i = len(nums) - 2\n    while i >= 0 and nums[i] >= nums[i+1]: i -= 1\n    if i >= 0:\n        j = len(nums) - 1\n        while nums[j] <= nums[i]: j -= 1\n        nums[i], nums[j] = nums[j], nums[i]\n    l, r = i + 1, len(nums) - 1\n    while l < r:\n        nums[l], nums[r] = nums[r], nums[l]\n        l += 1; r -= 1\n    return nums\n\nif __name__ == '__main__':\n    line = sys.stdin.read().strip()\n    if line:\n        print(json.dumps(nextPermutation(json.loads(line))))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <string>\n#include <sstream>\n\nusing namespace std;\n\nvoid nextPermutation(vector<int>& nums) {\n    next_permutation(nums.begin(), nums.end());\n}\n\nint main() {\n    string line;\n    if (getline(cin, line)) {\n        // Minimal parser for [1,2,3] format\n        vector<int> nums;\n        stringstream ss(line.substr(1, line.size() - 2));\n        string temp;\n        while (getline(ss, temp, ',')) nums.push_back(stoi(temp));\n        \n        next_permutation(nums.begin(), nums.end());\n        \n        cout << \"[\";\n        for (int i = 0; i < nums.size(); ++i) {\n            cout << nums[i] << (i == nums.size() - 1 ? \"\" : \",\");\n        }\n        cout << \"]\" << endl;\n    }\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.util.stream.Collectors;\n\npublic class Main {\n    public static void nextPermutation(int[] nums) {\n        int i = nums.length - 2;\n        while (i >= 0 && nums[i] >= nums[i + 1]) i--;\n        if (i >= 0) {\n            int j = nums.length - 1;\n            while (nums[j] <= nums[i]) j--;\n            swap(nums, i, j);\n        }\n        reverse(nums, i + 1);\n    }\n\n    private static void reverse(int[] nums, int start) {\n        int i = start, j = nums.length - 1;\n        while (i < j) {\n            swap(nums, i, j);\n            i++; j--;\n        }\n    }\n\n    private static void swap(int[] nums, int i, int j) {\n        int temp = nums[i];\n        nums[i] = nums[j];\n        nums[j] = temp;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String s = sc.nextLine().trim();\n            s = s.substring(1, s.length() - 1);\n            if (s.isEmpty()) {\n                System.out.println(\"[]\");\n                return;\n            }\n            int[] nums = Arrays.stream(s.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            nextPermutation(nums);\n            System.out.println(\"[\" + Arrays.stream(nums).mapToObj(String::valueOf).collect(Collectors.joining(\",\")) + \"]\");\n        }\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction nextPermutation(nums) {\n    let i = nums.length - 2;\n    while (i >= 0 && nums[i] >= nums[i+1]) i--;\n    if (i >= 0) {\n        let j = nums.length - 1;\n        while (nums[j] <= nums[i]) j--;\n        [nums[i], nums[j]] = [nums[j], nums[i]];\n    }\n    let left = i + 1, right = nums.length - 1;\n    while (left < right) {\n        [nums[left], nums[right]] = [nums[right], nums[left]];\n        left++; right--;\n    }\n    return nums;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim();\nif (input) {\n    console.log(JSON.stringify(nextPermutation(JSON.parse(input))));\n}",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nvoid reverse(int* nums, int start, int end) {\n    while (start < end) {\n        int temp = nums[start];\n        nums[start] = nums[end];\n        nums[end] = temp;\n        start++; end--;\n    }\n}\n\nvoid nextPermutation(int* nums, int numsSize) {\n    int i = numsSize - 2;\n    while (i >= 0 && nums[i] >= nums[i+1]) i--;\n    if (i >= 0) {\n        int j = numsSize - 1;\n        while (nums[j] <= nums[i]) j--;\n        int temp = nums[i];\n        nums[i] = nums[j];\n        nums[j] = temp;\n    }\n    reverse(nums, i + 1, numsSize - 1);\n}\n\nint main() {\n    char buffer[1024];\n    if (fgets(buffer, sizeof(buffer), stdin)) {\n        int nums[100];\n        int numsSize = 0;\n        char* token = strtok(buffer + 1, \",]\");\n        while (token != NULL && numsSize < 100) {\n            nums[numsSize++] = atoi(token);\n            token = strtok(NULL, \",]\");\n        }\n        nextPermutation(nums, numsSize);\n        printf(\"[\");\n        for (int i = 0; i < numsSize; i++) {\n            printf(\"%d%s\", nums[i], (i == numsSize - 1 ? \"\" : \",\"));\n        }\n        printf(\"]\\n\");\n    }\n    return 0;\n}"
   },
   "metadata": {
     "time_limit_ms": 1000,
@@ -31,52 +31,52 @@
   "test_cases": [
     {
       "input": "[1,2,3]",
-      "expected_output": "null",
+      "expected_output": "[1,3,2]",
       "is_sample": true
     },
     {
       "input": "[3,2,1]",
-      "expected_output": "null",
+      "expected_output": "[1,2,3]",
       "is_sample": true
     },
     {
       "input": "[1,1,5]",
-      "expected_output": "null",
+      "expected_output": "[1,5,1]",
       "is_sample": false
     },
     {
       "input": "[1]",
-      "expected_output": "null",
+      "expected_output": "[1]",
       "is_sample": false
     },
     {
       "input": "[1,3,2]",
-      "expected_output": "null",
+      "expected_output": "[2,1,3]",
       "is_sample": false
     },
     {
       "input": "[1,5,1]",
-      "expected_output": "null",
+      "expected_output": "[5,1,1]",
       "is_sample": false
     },
     {
       "input": "[2,3,1]",
-      "expected_output": "null",
+      "expected_output": "[3,1,2]",
       "is_sample": false
     },
     {
       "input": "[5,4,7,5,3,2]",
-      "expected_output": "null",
+      "expected_output": "[5,5,2,3,4,7]",
       "is_sample": false
     },
     {
       "input": "[1,2]",
-      "expected_output": "null",
+      "expected_output": "[2,1]",
       "is_sample": false
     },
     {
-      "input": "[1,2]",
-      "expected_output": "null",
+      "input": "[10,9,8,7]",
+      "expected_output": "[7,8,9,10]",
       "is_sample": false
     }
   ],

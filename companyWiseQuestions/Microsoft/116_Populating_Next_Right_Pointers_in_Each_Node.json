@@ -1,88 +1,88 @@
 {
-  "question_text": "<h3>Populating Next Right Pointers in Each Node</h3><p>Populate the next pointer of each node to point to its next right node.</p>",
-  "difficulty": "MEDIUM",
-  "marks": 10,
-  "input_format": "Complete binary tree array.",
-  "output_format": "Modified tree structure.",
-  "constraints": [
-    "nodes <= 4095 (depth 12)"
-  ],
-  "explanation": "Recursive connection: left.next = right, right.next = current.next.left.",
-  "answer": "def connect(root):\n    if not root or not root.left: return root\n    root.left.next = root.right\n    if root.next: root.right.next = root.next.left\n    connect(root.left); connect(root.right)\n    return root",
-  "boilerplate": {
-    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 116 Populating Next Right Pointers in Each Node here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
-    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
-    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
-    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
-  },
-  "metadata": {
-    "time_limit_ms": 1000,
-    "memory_limit_mb": 256,
-    "allowed_languages": [
-      "python",
-      "cpp",
-      "java",
-      "javascript",
-      "c"
-    ]
-  },
-  "test_cases": [
-    {
-      "input": "[1,2,3,4,5,6,7]",
-      "expected_output": "[1,#,2,3,#,4,5,6,7,#]",
-      "is_sample": true
+    "question_text": "<h3>116. Populating Next Right Pointers in Each Node</h3><p>You are given a <strong>perfect binary tree</strong> where all leaves are on the same level, and every parent has two children. The binary tree has the following definition:</p>\n\n<pre>\nstruct Node {\n  int val;\n  Node *left;\n  Node *right;\n  Node *next;\n}\n</pre>\n\n<p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to <code>NULL</code>.</p>\n\n<p>Initially, all next pointers are set to <code>NULL</code>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2019/02/14/116_sample.png\" style=\"width: 500px; height: 171px;\" />\n<pre>\n<strong>Input:</strong> root = [1,2,3,4,5,6,7]\n<strong>Output:</strong> [1,#,2,3,#,4,5,6,7,#]\n<strong>Explanation: </strong>Given the above perfect binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B. The serialized output is in level order as connected by the next pointers, with &#39;#&#39; signifying the end of each level.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> root = []\n<strong>Output:</strong> []\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The number of nodes in the tree is in the range <code>[0, 2<sup>12</sup> - 1]</code>.</li>\n\t<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong>Follow-up:</strong></p>\n\n<ul>\n\t<li>You may only use constant extra space.</li>\n\t<li>The recursive approach is fine. You may assume implicit stack space does not count as extra space for this problem.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Complete binary tree array.",
+    "output_format": "Modified tree structure.",
+    "constraints": [
+        "nodes <= 4095 (depth 12)"
+    ],
+    "explanation": "Recursive connection: left.next = right, right.next = current.next.left.",
+    "answer": "def connect(root):\n    if not root or not root.left: return root\n    root.left.next = root.right\n    if root.next: root.right.next = root.next.left\n    connect(root.left); connect(root.right)\n    return root",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 116 Populating Next Right Pointers in Each Node here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
     },
-    {
-      "input": "[]",
-      "expected_output": "[]",
-      "is_sample": true
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
     },
-    {
-      "input": "[1]",
-      "expected_output": "[1,#]",
-      "is_sample": false
-    },
-    {
-      "input": "[1,2,3]",
-      "expected_output": "[1,#,2,3,#]",
-      "is_sample": false
-    },
-    {
-      "input": "[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]",
-      "expected_output": "[1,#,2,3,#,4,5,6,7,#,8,9,10,11,12,13,14,15,#]",
-      "is_sample": false
-    },
-    {
-      "input": "[1,2,null,3,null]",
-      "expected_output": "[1,#,2,#,3,#]",
-      "is_sample": false
-    },
-    {
-      "input": "[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]",
-      "expected_output": "[1,\"#\",1,1,\"#\",1,1,1,1,\"#\",1,1,1,1,1,1,1,1,\"#\",1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,\"#\",1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,\"#\"]",
-      "is_sample": false
-    },
-    {
-      "input": "[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]",
-      "expected_output": "[1,#,2,3,#,4,5,6,7,#,8,9,10,11,12,13,14,15,#]",
-      "is_sample": false
-    },
-    {
-      "input": "[1,2,3,4,5,6,7]",
-      "expected_output": "[1,#,2,3,#,4,5,6,7,#]",
-      "is_sample": false
-    },
-    {
-      "input": "[1]",
-      "expected_output": "[1,#]",
-      "is_sample": false
-    }
-  ],
-  "topics": [
-    "Tree",
-    "DFS",
-    "BFS"
-  ],
-  "companyIndex": 1
+    "test_cases": [
+        {
+            "input": "[1,2,3,4,5,6,7]",
+            "expected_output": "[1,#,2,3,#,4,5,6,7,#]",
+            "is_sample": true
+        },
+        {
+            "input": "[]",
+            "expected_output": "[]",
+            "is_sample": true
+        },
+        {
+            "input": "[1]",
+            "expected_output": "[1,#]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3]",
+            "expected_output": "[1,#,2,3,#]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]",
+            "expected_output": "[1,#,2,3,#,4,5,6,7,#,8,9,10,11,12,13,14,15,#]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,null,3,null]",
+            "expected_output": "[1,#,2,#,3,#]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]",
+            "expected_output": "[1,\"#\",1,1,\"#\",1,1,1,1,\"#\",1,1,1,1,1,1,1,1,\"#\",1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,\"#\",1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,\"#\"]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]",
+            "expected_output": "[1,#,2,3,#,4,5,6,7,#,8,9,10,11,12,13,14,15,#]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3,4,5,6,7]",
+            "expected_output": "[1,#,2,3,#,4,5,6,7,#]",
+            "is_sample": false
+        },
+        {
+            "input": "[1]",
+            "expected_output": "[1,#]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Tree",
+        "DFS",
+        "BFS"
+    ],
+    "companyIndex": 1
 }

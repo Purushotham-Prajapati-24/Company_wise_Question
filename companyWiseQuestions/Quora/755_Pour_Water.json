@@ -1,5 +1,5 @@
 {
-  "question_text": "<h3>Pour Water</h3>",
+  "question_text": "<h3>Pour Water</h3><p>We are given an elevation map, <code>heights</code> represented by an array of non-negative integers where <code>heights[i]</code> is the height of the terrain at index <code>i</code>. Given a quantity of water <code>volume</code> and a location <code>k</code>, return the final state of the terrain after <code>volume</code> units of water have been poured at <code>k</code>.</p><p>Water behaves according to these rules:</p><ul><li>First, the water attempts to move to the left. If there is a position to the left that is lower than the current position, the water will move to the leftmost such position that is the lowest.</li><li>If the water cannot move to the left, it then attempts to move to the right. If there is a position to the right that is lower than the current position, the water will move to the rightmost such position that is the lowest.</li><li>If the water cannot move to the left or right, it stays at its current position.</li></ul>",
   "difficulty": "MEDIUM",
   "marks": 10,
   "input_format": "Array heights, volume V, and index K",

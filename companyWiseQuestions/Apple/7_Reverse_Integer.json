@@ -1,0 +1,86 @@
+{
+    "question_text": "<h3>7. Reverse Integer</h3><p>Given a signed 32-bit integer <code>x</code>, return <code>x</code><em> with its digits reversed</em>. If reversing <code>x</code> causes the value to go outside the signed 32-bit integer range <code>[-2<sup>31</sup>, 2<sup>31</sup> - 1]</code>, then return <code>0</code>.</p>\n\n<p><strong>Assume the environment does not allow you to store 64-bit integers (signed or unsigned).</strong></p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> x = 123\n<strong>Output:</strong> 321\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> x = -123\n<strong>Output:</strong> -321\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> x = 120\n<strong>Output:</strong> 21\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>-2<sup>31</sup> &lt;= x &lt;= 2<sup>31</sup> - 1</code></li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "A single integer integer variable.",
+    "output_format": "A single integer.",
+    "constraints": [
+        "-2^31 <= x <= 2^31 - 1"
+    ],
+    "explanation": "Utilizing iterative remainder extractions via standard modulo bounds explicitly mathematically stacks bounds reversed identically inside tracking buffers. To ensure secure constraints handling without triggering exceptions internally manually apply 32-bit bound ceilings continuously checking overflow boundaries on individual multiplication steps linearly terminating properly.",
+    "answer": "def solve(n):\n    sign = -1 if n < 0 else 1\n    n = abs(n)\n    res = 0\n    while n:\n        res = res * 10 + n % 10\n        n //= 10\n    res *= sign\n    if res < -2**31 or res > 2**31 - 1: return 0\n    return res",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(n):\n    return 0\n\nif __name__ == '__main__':\n    s = sys.stdin.read().strip()\n    if s:\n        print(solve(int(s)))",
+        "cpp": "#include <iostream>\nusing namespace std;\n\nint solve(int n) {\n    return 0;\n}\n\nint main() {\n    int n;\n    if (cin >> n) cout << solve(n) << endl;\n    return 0;\n}",
+        "java": "import java.util.Scanner;\n\npublic class Main {\n    public static int solve(int n) {\n        return 0;\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextInt()) System.out.println(solve(sc.nextInt()));\n        sc.close();\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(n) { return 0; }\nconst input = fs.readFileSync(0, 'utf8').trim();\nif (input) console.log(solve(parseInt(input)));",
+        "c": "#include <stdio.h>\n\nint solve(int n) {\n    return 0;\n}\n\nint main() {\n    int n;\n    if (scanf(\"%d\", &n) == 1) printf(\"%d\\n\", solve(n));\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "123",
+            "expected_output": "321",
+            "is_sample": true
+        },
+        {
+            "input": "-123",
+            "expected_output": "-321",
+            "is_sample": true
+        },
+        {
+            "input": "120",
+            "expected_output": "21",
+            "is_sample": true
+        },
+        {
+            "input": "0",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "1534236469",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "-2147483648",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "2147483647",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "900000",
+            "expected_output": "9",
+            "is_sample": false
+        },
+        {
+            "input": "-900000",
+            "expected_output": "-9",
+            "is_sample": false
+        },
+        {
+            "input": "1463847412",
+            "expected_output": "2147483641",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Math"
+    ],
+    "companyIndex": 3
+}

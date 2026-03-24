@@ -1,89 +1,89 @@
 {
-  "question_text": "<h3>Maximum Length of a Concatenated String with Unique Characters</h3><p>Find max length of unique character string formed by concatenating elements of arr.</p>",
-  "difficulty": "MEDIUM",
-  "marks": 10,
-  "input_format": "Array of strings.",
-  "output_format": "Int length.",
-  "constraints": [
-    "arr.length <= 16"
-  ],
-  "explanation": "Backtracking or bitmasking to track unique characters in combinations.",
-  "answer": "def maxLength(arr):\n    def bit(s):\n        b = 0\n        for c in s:\n            if b & (1 << (ord(c)-97)): return 0\n            b |= (1 << (ord(c)-97))\n        return b\n    dp = [0]; res = 0\n    for s in arr:\n        b = bit(s)\n        if not b: continue\n        for mask in dp[:]:\n            if not (mask & b): dp.append(mask | b); res = max(res, bin(mask | b).count('1'))\n    return res",
-  "boilerplate": {
-    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 1239 Maximum Length of a Concatenated String with Unique Characters here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
-    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
-    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
-    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
-  },
-  "metadata": {
-    "time_limit_ms": 1000,
-    "memory_limit_mb": 256,
-    "allowed_languages": [
-      "python",
-      "cpp",
-      "java",
-      "javascript",
-      "c"
-    ]
-  },
-  "test_cases": [
-    {
-      "input": "[\"un\",\"iq\",\"ue\"]",
-      "expected_output": "4",
-      "is_sample": true
+    "question_text": "<h3>1239. Maximum Length of a Concatenated String with Unique Characters</h3><p>You are given an array of strings <code>arr</code>. A string <code>s</code> is formed by the <strong>concatenation</strong> of a <strong>subsequence</strong> of <code>arr</code> that has <strong>unique characters</strong>.</p>\n\n<p>Return <em>the <strong>maximum</strong> possible length</em> of <code>s</code>.</p>\n\n<p>A <strong>subsequence</strong> is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> arr = [&quot;un&quot;,&quot;iq&quot;,&quot;ue&quot;]\n<strong>Output:</strong> 4\n<strong>Explanation:</strong> All the valid concatenations are:\n- &quot;&quot;\n- &quot;un&quot;\n- &quot;iq&quot;\n- &quot;ue&quot;\n- &quot;uniq&quot; (&quot;un&quot; + &quot;iq&quot;)\n- &quot;ique&quot; (&quot;iq&quot; + &quot;ue&quot;)\nMaximum length is 4.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> arr = [&quot;cha&quot;,&quot;r&quot;,&quot;act&quot;,&quot;ers&quot;]\n<strong>Output:</strong> 6\n<strong>Explanation:</strong> Possible longest valid concatenations are &quot;chaers&quot; (&quot;cha&quot; + &quot;ers&quot;) and &quot;acters&quot; (&quot;act&quot; + &quot;ers&quot;).\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> arr = [&quot;abcdefghijklmnopqrstuvwxyz&quot;]\n<strong>Output:</strong> 26\n<strong>Explanation:</strong> The only string in arr has all 26 characters.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= arr.length &lt;= 16</code></li>\n\t<li><code>1 &lt;= arr[i].length &lt;= 26</code></li>\n\t<li><code>arr[i]</code> contains only lowercase English letters.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Array of strings.",
+    "output_format": "Int length.",
+    "constraints": [
+        "arr.length <= 16"
+    ],
+    "explanation": "Backtracking or bitmasking to track unique characters in combinations.",
+    "answer": "def maxLength(arr):\n    def bit(s):\n        b = 0\n        for c in s:\n            if b & (1 << (ord(c)-97)): return 0\n            b |= (1 << (ord(c)-97))\n        return b\n    dp = [0]; res = 0\n    for s in arr:\n        b = bit(s)\n        if not b: continue\n        for mask in dp[:]:\n            if not (mask & b): dp.append(mask | b); res = max(res, bin(mask | b).count('1'))\n    return res",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 1239 Maximum Length of a Concatenated String with Unique Characters here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
     },
-    {
-      "input": "[\"cha\",\"r\",\"act\",\"ers\"]",
-      "expected_output": "6",
-      "is_sample": true
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
     },
-    {
-      "input": "[\"abcdefghijklmnopqrstuvwxyz\"]",
-      "expected_output": "26",
-      "is_sample": true
-    },
-    {
-      "input": "[\"aa\",\"bb\"]",
-      "expected_output": "0",
-      "is_sample": false
-    },
-    {
-      "input": "[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\",\"g\",\"h\",\"i\",\"j\",\"k\",\"l\",\"m\",\"n\",\"o\",\"p\"]",
-      "expected_output": "16",
-      "is_sample": false
-    },
-    {
-      "input": "[\"abc\",\"def\",\"ghi\",\"jkl\",\"mno\",\"pqr\",\"stu\",\"vwx\",\"yz\"]",
-      "expected_output": "26",
-      "is_sample": false
-    },
-    {
-      "input": "[\"ab\",\"ba\"]",
-      "expected_output": "2",
-      "is_sample": false
-    },
-    {
-      "input": "[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\",\"g\",\"h\",\"i\",\"j\",\"k\",\"l\",\"m\",\"n\",\"o\",\"p\"]",
-      "expected_output": "16",
-      "is_sample": false
-    },
-    {
-      "input": "[\"abcdefg\",\"hijklmn\",\"opqrstu\",\"vwxyz\"]",
-      "expected_output": "26",
-      "is_sample": false
-    },
-    {
-      "input": "[\"abc\", \"def\", \"abc\"]",
-      "expected_output": "6",
-      "is_sample": false
-    }
-  ],
-  "topics": [
-    "Array",
-    "String",
-    "Backtracking",
-    "Bitmask"
-  ],
-  "companyIndex": 1
+    "test_cases": [
+        {
+            "input": "[\"un\",\"iq\",\"ue\"]",
+            "expected_output": "4",
+            "is_sample": true
+        },
+        {
+            "input": "[\"cha\",\"r\",\"act\",\"ers\"]",
+            "expected_output": "6",
+            "is_sample": true
+        },
+        {
+            "input": "[\"abcdefghijklmnopqrstuvwxyz\"]",
+            "expected_output": "26",
+            "is_sample": true
+        },
+        {
+            "input": "[\"aa\",\"bb\"]",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\",\"g\",\"h\",\"i\",\"j\",\"k\",\"l\",\"m\",\"n\",\"o\",\"p\"]",
+            "expected_output": "16",
+            "is_sample": false
+        },
+        {
+            "input": "[\"abc\",\"def\",\"ghi\",\"jkl\",\"mno\",\"pqr\",\"stu\",\"vwx\",\"yz\"]",
+            "expected_output": "26",
+            "is_sample": false
+        },
+        {
+            "input": "[\"ab\",\"ba\"]",
+            "expected_output": "2",
+            "is_sample": false
+        },
+        {
+            "input": "[\"a\",\"b\",\"c\",\"d\",\"e\",\"f\",\"g\",\"h\",\"i\",\"j\",\"k\",\"l\",\"m\",\"n\",\"o\",\"p\"]",
+            "expected_output": "16",
+            "is_sample": false
+        },
+        {
+            "input": "[\"abcdefg\",\"hijklmn\",\"opqrstu\",\"vwxyz\"]",
+            "expected_output": "26",
+            "is_sample": false
+        },
+        {
+            "input": "[\"abc\", \"def\", \"abc\"]",
+            "expected_output": "6",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "String",
+        "Backtracking",
+        "Bitmask"
+    ],
+    "companyIndex": 1
 }

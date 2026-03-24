@@ -1,17 +1,17 @@
 {
-  "question_text": "<h3>Longest Arithmetic Subsequence</h3>null",
+  "question_text": "<h3>Longest Arithmetic Subsequence</h3><p>Given an array <code>nums</code> of integers, return the <strong>length</strong> of the longest arithmetic subsequence in <code>nums</code>.</p>\n\n<p>A <strong>subsequence</strong> is a subset of elements from an array written in the same order as the original array. An arithmetic sequence has a common difference between consecutive elements.</p>\n\n<p><strong>Constraints:</strong></p>\n<ul>\n\t<li><code>2 &lt;= nums.length &lt;= 1000</code></li>\n\t<li><code>0 &lt;= nums[i] &lt;= 500</code></li>\n</ul>",
   "difficulty": "MEDIUM",
   "marks": 10,
-  "input_format": "Array nums",
-  "output_format": "Length of the longest arithmetic subsequence",
+  "input_format": "An array of integers nums.",
+  "output_format": "The length of the longest arithmetic subsequence.",
   "constraints": [
     "2 <= nums.length <= 1000",
     "0 <= nums[i] <= 500"
   ],
-  "explanation": "DP: dp[i][diff] is the length of arithmetic subsequence ending at index i with common difference diff. Transition: dp[i][diff] = dp[j][diff] + 1 where j < i.",
-  "answer": "def longestArithSeqLength(nums):\n    dp = {}; n = len(nums)\n    for i in range(n):\n        for j in range(i):\n            d = nums[i] - nums[j]\n            dp[i, d] = dp.get((j, d), 1) + 1\n    return max(dp.values())",
+  "explanation": "<h4>Dynamic Programming with Hash Map</h4><p>For each position i, maintain a dictionary dp[i] mapping difference d → length of longest arithmetic subsequence ending at i with common difference d. For each pair (j, i) where j < i, compute d = nums[i] - nums[j] and set dp[i][d] = dp[j].get(d, 1) + 1. Track the global maximum.</p><p><strong>Time:</strong> O(N²). <strong>Space:</strong> O(N²).</p>",
+  "answer": "def longestArithSeqLength(nums):\n    n = len(nums)\n    dp = [{} for _ in range(n)]\n    res = 2\n    for i in range(1, n):\n        for j in range(i):\n            d = nums[i] - nums[j]\n            dp[i][d] = dp[j].get(d, 1) + 1\n            res = max(res, dp[i][d])\n    return res",
   "boilerplate": {
-    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Longest Arithmetic Subsequence here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 1027 Longest Arithmetic Subsequence here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
     "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
     "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
     "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
@@ -45,44 +45,45 @@
       "is_sample": false
     },
     {
-      "input": "[1,1,1,1]",
+      "input": "[1,2]",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "[0,0,0,0]",
       "expected_output": "4",
       "is_sample": false
     },
     {
-      "input": "[1,2,3,4,5]",
+      "input": "[1,5,7,8,5,3,4,2,1]",
       "expected_output": "5",
       "is_sample": false
     },
     {
-      "input": "[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]",
-      "expected_output": "1000",
-      "is_sample": false
-    },
-    {
-      "input": "[1,5,10,15]",
-      "expected_output": "3",
-      "is_sample": false
-    },
-    {
-      "input": "[10,1,10,1,10]",
-      "expected_output": "3",
-      "is_sample": false
-    },
-    {
-      "input": "[0,2,4,6]",
-      "expected_output": "4",
-      "is_sample": false
-    },
-    {
-      "input": "[1,2,4,8]",
+      "input": "[83,20,17,43,52,78,68,45]",
       "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]",
+      "expected_output": "20",
+      "is_sample": false
+    },
+    {
+      "input": "[0,500,250,125,375,62,438,188,312,156]",
+      "expected_output": "3",
+      "is_sample": false
+    },
+    {
+      "input": "[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,0,20]",
+      "expected_output": "21",
       "is_sample": false
     }
   ],
   "topics": [
     "Array",
     "Hash Table",
+    "Binary Search",
     "Dynamic Programming"
   ],
   "companyIndex": 26

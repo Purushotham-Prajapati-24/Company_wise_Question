@@ -1,0 +1,90 @@
+{
+  "question_text": "<p>Given the <code>root</code> of a binary tree and an integer <code>targetSum</code>, return <em>the number of paths where the sum of the values&nbsp;along the path equals</em>&nbsp;<code>targetSum</code>.</p>\n\n<p>The path does not need to start or end at the root or a leaf, but it must go downwards (i.e., traveling only from parent nodes to child nodes).</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2021/04/09/pathsum3-1-tree.jpg\" style=\"width: 450px; height: 386px;\" />\n<pre>\n<strong>Input:</strong> root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> The paths that sum to 8 are shown.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22\n<strong>Output:</strong> 3\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The number of nodes in the tree is in the range <code>[0, 1000]</code>.</li>\n\t<li><code>-10<sup>9</sup> &lt;= Node.val &lt;= 10<sup>9</sup></code></li>\n\t<li><code>-1000 &lt;= targetSum &lt;= 1000</code></li>\n</ul>\n",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Serialized binary tree, targetSum.",
+  "output_format": "Int.",
+  "constraints": [
+    "The number of nodes in the tree is in the range [0, 1000].",
+    "-10^9 <= Node.val <= 10^9",
+    "-1000 <= targetSum <= 1000"
+  ],
+  "explanation": "Use prefix sum on paths from root. At each node, current prefix sum `currSum` is checked against `currSum - targetSum` in a hash map. This tells us how many paths ending at the current node have the target sum.",
+  "answer": "def pathSum(root, targetSum):\n    self.count = 0\n    preSum = {0: 1}\n    def dfs(node, currSum):\n        if not node: return\n        currSum += node.val\n        self.count += preSum.get(currSum - targetSum, 0)\n        preSum[currSum] = preSum.get(currSum, 0) + 1\n        dfs(node.left, currSum)\n        dfs(node.right, currSum)\n        preSum[currSum] -= 1\n    dfs(root, 0)\n    return self.count",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 437 Path Sum III here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']:\n        sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l)))));\n}\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[10,5,-3,3,2,null,11,3,-2,null,1]\n8",
+      "expected_output": "3",
+      "is_sample": true
+    },
+    {
+      "input": "[5,4,8,11,null,13,4,7,2,null,null,5,1]\n22",
+      "expected_output": "3",
+      "is_sample": true
+    },
+    {
+      "input": "[]\n0",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "[1]\n1",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2]\n3",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2]\n2",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "[1000000000]\n1000000000",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "[1,1,1,1,1]\n2",
+      "expected_output": "4",
+      "is_sample": false
+    },
+    {
+      "input": "[1,null,2,null,3,null,4,null,5]\n3",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "[1,-2,-3,1,3,-2,null,-1]\n-1",
+      "expected_output": "4",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Tree",
+    "Depth-First Search",
+    "Binary Tree"
+  ],
+  "companyIndex": 26
+}

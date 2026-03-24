@@ -1,21 +1,21 @@
 {
-  "question_text": "<h3>House Robber</h3><p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and <b>it will automatically contact the police if two adjacent houses were broken into on the same night</b>.</p>\n\n<p>Given an integer array <code>nums</code> representing the amount of money of each house, return <em>the maximum amount of money you can rob tonight <b>without alerting the police</b></em>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [1,2,3,1]\n<strong>Output:</strong> 4\n<strong>Explanation:</strong> Rob house 1 (money = 1) and then rob house 3 (money = 3).\nTotal amount you can rob = 1 + 3 = 4.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [2,7,9,3,1]\n<strong>Output:</strong> 12\n<strong>Explanation:</strong> Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).\nTotal amount you can rob = 2 + 9 + 1 = 12.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= nums.length &lt;= 100</code></li>\n\t<li><code>0 &lt;= nums[i] &lt;= 400</code></li>\n</ul>\n",
+  "question_text": "<h3>House Robber</h3><p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and <b>it will automatically contact the police if two adjacent houses were broken into on the same night</b>.</p><p>Given an integer array <code>nums</code> representing the amount of money of each house, return the maximum amount of money you can rob tonight <b>without alerting the police</b>.</p>",
   "difficulty": "MEDIUM",
   "marks": 10,
-  "input_format": "Array nums representing money in houses",
-  "output_format": "Max money without robbing adjacent houses",
+  "input_format": "Space-separated integers representing money per house.",
+  "output_format": "A single integer for maximum money.",
   "constraints": [
     "1 <= nums.length <= 100",
     "0 <= nums[i] <= 400"
   ],
-  "explanation": "DP: dp[i] = max(dp[i-2] + nums[i], dp[i-1]). Use two variables to optimize space.",
-  "answer": "def rob(nums):\n    p2 = p1 = 0\n    for x in nums:\n        p2, p1 = p1, max(p2 + x, p1)\n    return p1",
+  "explanation": "This operates identically as dynamic programming but restricts adjacency jumping logically. For every house, the robber selects the geometric absolute maximum between robbing the previous adjacent neighborhood branch (`rob1`), or bypassing it to rob the current household paired with `rob2`. The O(1) tracker dynamically stores overlapping optimal routes through length iteration strictly linearly.",
+  "answer": "def solve(nums):\n    rob1, rob2 = 0, 0\n    for n in nums:\n        temp = max(n + rob1, rob2)\n        rob1 = rob2\n        rob2 = temp\n    return rob2",
   "boilerplate": {
-    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement House Robber here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
-    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
-    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
-    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+    "python": "import sys\n\ndef solve(arr):\n    # User logic here\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().split()\n    if not input_data: sys.exit(0)\n    arr = list(map(int, input_data))\n    res = solve(arr)\n    print(str(res).lower() if isinstance(res, bool) else res)",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint solve(vector<int>& arr) {\n    return 0;\n}\n\nint main() {\n    int val;\n    vector<int> arr;\n    while (cin >> val) arr.push_back(val);\n    int res = solve(arr);\n    cout << (res) << endl;\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Main {\n    public static int solve(int[] arr) {\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ArrayList<Integer> list = new ArrayList<>();\n        while (sc.hasNextInt()) list.add(sc.nextInt());\n        int[] arr = new int[list.size()];\n        for (int i = 0; i < list.size(); i++) arr[i] = list.get(i);\n        System.out.println(solve(arr));\n        sc.close();\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve(arr) {\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split(/\\s+/);\nif (input.length > 0 && input[0] !== '') {\n    const arr = input.map(Number);\n    console.log(solve(arr));\n}",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\nint solve(int* arr, int n) {\n    return 0;\n}\n\nint main() {\n    int capacity = 1000;\n    int* arr = (int*)malloc(capacity * sizeof(int));\n    int n = 0, val;\n    while (scanf(\"%d\", &val) == 1) {\n        if (n == capacity) {\n            capacity *= 2;\n            arr = (int*)realloc(arr, capacity * sizeof(int));\n        }\n        arr[n++] = val;\n    }\n    int res = solve(arr, n);\n    printf(\"%d\\n\", res);\n    free(arr);\n    return 0;\n}"
   },
   "metadata": {
     "time_limit_ms": 1000,
@@ -30,53 +30,53 @@
   },
   "test_cases": [
     {
-      "input": "[1,2,3,1]",
+      "input": "1 2 3 1",
       "expected_output": "4",
       "is_sample": true
     },
     {
-      "input": "[2,7,9,3,1]",
+      "input": "2 7 9 3 1",
       "expected_output": "12",
       "is_sample": true
     },
     {
-      "input": "[0]",
+      "input": "0",
       "expected_output": "0",
       "is_sample": false
     },
     {
-      "input": "[5]",
-      "expected_output": "5",
+      "input": "2 1",
+      "expected_output": "2",
       "is_sample": false
     },
     {
-      "input": "[1,1,1,1,1]",
-      "expected_output": "3",
+      "input": "2 1 1 2",
+      "expected_output": "4",
       "is_sample": false
     },
     {
-      "input": "[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]",
-      "expected_output": "50",
+      "input": "50 1 1 50",
+      "expected_output": "100",
       "is_sample": false
     },
     {
-      "input": "[100,1,1,100]",
-      "expected_output": "200",
+      "input": "0 0 0 0",
+      "expected_output": "0",
       "is_sample": false
     },
     {
-      "input": "[1,100,1,1]",
-      "expected_output": "101",
+      "input": "400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400 400",
+      "expected_output": "20000",
       "is_sample": false
     },
     {
-      "input": "[5,10,5,10,5]",
-      "expected_output": "20",
+      "input": "400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0",
+      "expected_output": "20000",
       "is_sample": false
     },
     {
-      "input": "[10,5,10,5]",
-      "expected_output": "20",
+      "input": "0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400 0 400",
+      "expected_output": "20000",
       "is_sample": false
     }
   ],
