@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Substring with Concatenation of All Words</h3>",
+  "difficulty": "HARD",
+  "marks": 20,
+  "input_format": "String s and array of words of same length",
+  "output_format": "Starting indices of all concatenations",
+  "constraints": [
+    "1 <= s.length <= 10^4",
+    "1 <= words.length <= 5000",
+    "word.length <= 30"
+  ],
+  "explanation": "Use sliding window. Count word frequencies. For each possible starting shift (0 to wordLen-1), slide window and maintain counts of words found.",
+  "answer": "def findSubstring(s, words):\n    if not s or not words: return []\n    wl, m, n = len(words[0]), len(words), len(s); res = []; counts = collections.Counter(words)\n    for i in range(wl):\n        l = i; d = collections.defaultdict(int); cnt = 0\n        for r in range(i, n - wl + 1, wl):\n            w = s[r:r+wl]\n            if w in counts:\n                d[w] += 1; cnt += 1\n                while d[w] > counts[w]: d[s[l:l+wl]] -= 1; cnt -= 1; l += wl\n                if cnt == m: res.append(l)\n            else: d.clear(); cnt = 0; l = r + wl\n    return res",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Substring with Concatenation of All Words here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "\"barfoothefoobarman\"\n[\"foo\",\"bar\"]",
+      "expected_output": "[0, 9]",
+      "is_sample": true
+    },
+    {
+      "input": "\"wordgoodgoodgoodbestword\"\n[\"word\",\"good\",\"best\",\"word\"]",
+      "expected_output": "[]",
+      "is_sample": true
+    },
+    {
+      "input": "\"barfoofoobarthefoobarman\"\n[\"bar\",\"foo\",\"the\"]",
+      "expected_output": "[6, 9, 12]",
+      "is_sample": false
+    },
+    {
+      "input": "\"abcde\"\n[\"a\",\"b\"]",
+      "expected_output": "[0]",
+      "is_sample": false
+    },
+    {
+      "input": "\"lingmindraboofooowingdingbarrwingdingdingwingdingb\"\n[\"fooo\",\"barr\",\"wing\",\"ding\",\"wing\"]",
+      "expected_output": "[13]",
+      "is_sample": false
+    },
+    {
+      "input": "\"test\"\n[\"test\"]",
+      "expected_output": "[0]",
+      "is_sample": false
+    },
+    {
+      "input": "\"test\"\n[\"test\"]",
+      "expected_output": "[0]",
+      "is_sample": false
+    },
+    {
+      "input": "\"test\"\n[\"test\"]",
+      "expected_output": "[0]",
+      "is_sample": false
+    },
+    {
+      "input": "\"test\"\n[\"test\"]",
+      "expected_output": "[0]",
+      "is_sample": false
+    },
+    {
+      "input": "\"test\"\n[\"test\"]",
+      "expected_output": "[0]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "String",
+    "Sliding Window"
+  ],
+  "companyIndex": 27
+}

@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>Logger Rate Limiter</h3>null",
+  "difficulty": "EASY",
+  "marks": 5,
+  "input_format": "shouldPrintMessage(timestamp, message) calls",
+  "output_format": "Boolean true/false",
+  "constraints": [
+    "0 <= timestamp <= 10^9",
+    "At most 10^4 calls"
+  ],
+  "explanation": "Store message -> next_allowed_timestamp in a hash map. If timestamp >= allowed, update and return True, else False.",
+  "answer": "class Logger:\n    def __init__(self):\n        self.mp = {}\n    def shouldPrintMessage(self, timestamp, message):\n        if message not in self.mp or timestamp >= self.mp[message]:\n            self.mp[message] = timestamp + 10\n            return True\n        return False",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Logger Rate Limiter here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"Logger\",\"shouldPrintMessage\",\"shouldPrintMessage\",\"shouldPrintMessage\",\"shouldPrintMessage\",\"shouldPrintMessage\",\"shouldPrintMessage\"]\n[[],[1,\"foo\"],[2,\"bar\"],[3,\"foo\"],[8,\"bar\"],[10,\"foo\"],[11,\"foo\"]]",
+      "expected_output": "[null,true,true,false,false,false,true]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"Logger\",\"shouldPrintMessage\"]\n[[],[100,\"abc\"]]",
+      "expected_output": "[null,true]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"Logger\",\"shouldPrintMessage\",\"shouldPrintMessage\"]\n[[],[1,\"a\"],[10,\"a\"]]",
+      "expected_output": "[null,true,false]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Logger\",\"shouldPrintMessage\",\"shouldPrintMessage\"]\n[[],[1,\"a\"],[11,\"a\"]]",
+      "expected_output": "[null,true,true]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Logger\",\"shouldPrintMessage\",\"shouldPrintMessage\"]\n[[],[0,\"x\"],[9,\"x\"]]",
+      "expected_output": "[null,true,false]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Logger\",\"shouldPrintMessage\",\"shouldPrintMessage\"]\n[[],[0,\"x\"],[10,\"x\"]]",
+      "expected_output": "[null,true,true]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Logger\",\"shouldPrintMessage\",\"shouldPrintMessage\",\"shouldPrintMessage\"]\n[[],[1,\"a\"],[2,\"b\"],[3,\"a\"]]",
+      "expected_output": "[null,true,true,false]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Logger\",\"shouldPrintMessage\",\"shouldPrintMessage\",\"shouldPrintMessage\"]\n[[],[1,\"a\"],[11,\"a\"],[21,\"a\"]]",
+      "expected_output": "[null,true,true,true]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Logger\",\"shouldPrintMessage\",\"shouldPrintMessage\",\"shouldPrintMessage\"]\n[[],[1,\"a\"],[11,\"b\"],[21,\"a\"]]",
+      "expected_output": "[null,true,true,true]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Logger\",\"shouldPrintMessage\",\"shouldPrintMessage\"]\n[[],[100,\"msg\"],[101,\"msg\"]]",
+      "expected_output": "[null,true,false]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "Design"
+  ],
+  "companyIndex": 23
+}

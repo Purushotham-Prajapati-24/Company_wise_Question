@@ -1,0 +1,92 @@
+{
+    "question_text": "<h3>Top K Frequent Words</h3><p>Given an array of strings <code>words</code> and an integer <code>k</code>, return the <code>k</code> most frequent strings.</p><p>Return the answer sorted by the frequency from highest to lowest. Sort the words with the same frequency by their <b>lexicographical order</b>.</p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "First line: space-separated words. Second line: integer k.",
+    "output_format": "A single line of the k most frequent words, separated by spaces (sorted by frequency desc, then lexicographically).",
+    "constraints": [
+        "1 <= words.length <= 500",
+        "1 <= words[i].length <= 10",
+        "words[i] consists of lowercase English letters.",
+        "k is in the range [1, The number of unique words[i]]."
+    ],
+    "explanation": "We count frequency of each word using a dictionary, then sort the words by a custom comparator: primary sort by frequency (descending), secondary sort by lexicographic order (ascending). Using Python's sort with a tuple key `(-freq, word)` achieves both criteria simultaneously since tuples are compared element-by-element. We take the first `k` elements. O(N log N) time, O(N) space. An O(N log K) solution using a min-heap is also possible for large datasets.",
+    "answer": "def solve(words, k):\n    count = {}\n    for w in words:\n        count[w] = count.get(w, 0) + 1\n    sorted_words = sorted(count.keys(), key=lambda w: (-count[w], w))\n    return ' '.join(sorted_words[:k])",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(arr, k):\n    return 0\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    if len(lines) >= 2:\n        arr = list(map(int, lines[0].strip().split()))\n        k = int(lines[1].strip())\n        print(solve(arr, k))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <sstream>\nusing namespace std;\n\nint solve(vector<int>& arr, int k) {\n    return 0;\n}\n\nint main() {\n    string line; int val, k;\n    vector<int> arr;\n    if (getline(cin, line)) {\n        stringstream ss(line);\n        while (ss >> val) arr.push_back(val);\n    }\n    if (cin >> k) cout << solve(arr, k) << endl;\n    return 0;\n}",
+        "java": "import java.util.*;\npublic class Main {\n    public static int solve(int[] arr, int k) { return 0; }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String[] parts = sc.nextLine().trim().split(\"\\\\s+\");\n            int[] arr = new int[parts.length];\n            for (int i=0;i<parts.length;i++) arr[i]=Integer.parseInt(parts[i]);\n            if (sc.hasNextInt()) System.out.println(solve(arr, sc.nextInt()));\n        }\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(arr, k) { return 0; }\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length >= 2) {\n    const arr = input[0].trim().split(/\\s+/).map(Number);\n    console.log(solve(arr, parseInt(input[1])));\n}",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve(int* arr, int n, int k) { return 0; }\nint main() {\n    int cap=1000, n=0, k; char c;\n    int* arr=(int*)malloc(cap*sizeof(int));\n    while(scanf(\"%d\",&arr[n])==1){\n        n++; if(n==cap){cap*=2;arr=(int*)realloc(arr,cap*sizeof(int));}\n        c=getchar(); if(c=='\\n'||c==EOF)break;\n    }\n    if(scanf(\"%d\",&k)==1) printf(\"%d\\n\",solve(arr,n,k));\n    free(arr); return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "i love leetcode i love coding\n2",
+            "expected_output": "i love",
+            "is_sample": true
+        },
+        {
+            "input": "the day is sunny the the the sunny is is\n4",
+            "expected_output": "the is sunny day",
+            "is_sample": true
+        },
+        {
+            "input": "a\n1",
+            "expected_output": "a",
+            "is_sample": false
+        },
+        {
+            "input": "a b a b c\n2",
+            "expected_output": "a b",
+            "is_sample": false
+        },
+        {
+            "input": "a b c d e\n3",
+            "expected_output": "a b c",
+            "is_sample": false
+        },
+        {
+            "input": "ball ball cool cool\n1",
+            "expected_output": "ball",
+            "is_sample": false
+        },
+        {
+            "input": "apple apple banana cherry cherry cherry\n2",
+            "expected_output": "cherry apple",
+            "is_sample": false
+        },
+        {
+            "input": "word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word\n1",
+            "expected_output": "word",
+            "is_sample": false
+        },
+        {
+            "input": "a b c d e f g h i j k l m n o\n5",
+            "expected_output": "a b c d e",
+            "is_sample": false
+        },
+        {
+            "input": "z y x w v u t s r q\n3",
+            "expected_output": "q r s",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Hash Table",
+        "String",
+        "Sorting",
+        "Heap"
+    ],
+    "companyIndex": 23
+}

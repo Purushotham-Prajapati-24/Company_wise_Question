@@ -1,0 +1,86 @@
+{
+  "question_text": "<p><strong>Maximum Length of a Concatenated String with Unique Characters</strong></p><p>Standard LeetCode description for Maximum Length of a Concatenated String with Unique Characters.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply."
+  ],
+  "explanation": "FAANG-level explanation for Maximum Length of a Concatenated String with Unique Characters.",
+  "answer": "class Solution:\n    def solve(self, arr: List[str]) -> int:\n        unique = ['']\n        max_len = 0\n        for s in arr:\n            if len(set(s)) < len(s): continue\n            for u in unique:\n                new_s = u + s\n                if len(set(new_s)) == len(new_s):\n                    unique.append(new_s)\n                    max_len = max(max_len, len(new_s))\n        return max_len",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "un' 'iq' 'ue",
+      "expected_output": "4",
+      "is_sample": true
+    },
+    {
+      "input": "cha' 'r' 'act' 'ers",
+      "expected_output": "6",
+      "is_sample": true
+    },
+    {
+      "input": "abcdefghijklmnopqrstuvwxyz",
+      "expected_output": "26",
+      "is_sample": false
+    },
+    {
+      "input": "a' 'b' 'c' 'd",
+      "expected_output": "4",
+      "is_sample": false
+    },
+    {
+      "input": "aa' 'bb",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "a' 'abc' 'd' 'def",
+      "expected_output": "6",
+      "is_sample": false
+    },
+    {
+      "input": "a' 'b' 'a",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "chr(i+ord('a')) for i in range(26)",
+      "expected_output": "26",
+      "is_sample": false
+    },
+    {
+      "input": "ab' 'cd' 'ef' 'gh']*4",
+      "expected_output": "8",
+      "is_sample": false
+    },
+    {
+      "input": "a'*i for i in range(1  27)",
+      "expected_output": "1",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Backtracking"
+  ],
+  "companyIndex": 4
+}

@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>784 Letter Case Permutation</h3><p><strong>Letter Case Permutation</strong></p><p>Given a string s, you can transform every letter individually to be lowercase or uppercase to create another string.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply.",
+    "Time limit: 1s",
+    "Memory limit: 256MB"
+  ],
+  "explanation": "Use backtracking (recursion). At each alphabetical character, branch into two recursive calls: one for lowercase and one for uppercase. If the character is a digit, simply append it and continue. The number of permutations is 2^(number of alphabetical letters).",
+  "answer": "def solve(s: str) -> List[str]:\n    res = []\n    def backtrack(i, cur):\n        if i == len(s):\n            res.append(cur)\n            return\n        if s[i].isalpha():\n            backtrack(i + 1, cur + s[i].lower())\n            backtrack(i + 1, cur + s[i].upper())\n        else:\n            backtrack(i + 1, cur + s[i])\n    backtrack(0, \"\")\n    return res",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n\nint main() {\n    Solution sol;\n    sol.solve();\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n    public static void main(String[] args) {\n        new Solution().solve();\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "a1b2",
+      "expected_output": "\"a1b2\" \"a1B2\" \"A1b2\" \"A1B2\"",
+      "is_sample": true
+    },
+    {
+      "input": "3z4",
+      "expected_output": "\"3z4\" \"3Z4\"",
+      "is_sample": true
+    },
+    {
+      "input": "12345",
+      "expected_output": "\"12345\"",
+      "is_sample": false
+    },
+    {
+      "input": "ab",
+      "expected_output": "\"ab\" \"aB\" \"Ab\" \"AB\"",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "\"\"",
+      "is_sample": false
+    },
+    {
+      "input": "C",
+      "expected_output": "\"c\" \"C\"",
+      "is_sample": false
+    },
+    {
+      "input": "1a2b3c",
+      "expected_output": "8 variants",
+      "is_sample": false
+    },
+    {
+      "input": "abc",
+      "expected_output": "8 variants",
+      "is_sample": false
+    },
+    {
+      "input": "A1B1C1",
+      "expected_output": "8 variants",
+      "is_sample": false
+    },
+    {
+      "input": "qWeRtY",
+      "expected_output": "64 variants",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Recursion"
+  ],
+  "companyIndex": 2
+}

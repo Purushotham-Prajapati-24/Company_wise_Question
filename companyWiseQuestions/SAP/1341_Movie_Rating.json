@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>Movie Rating</h3><p>Find the user name who has rated the greatest number of movies and the movie name with the highest average rating in Feb 2020.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Tables simulated as list of objects.",
+  "output_format": "Array of two strings.",
+  "constraints": [
+    "User count <= 1000",
+    "Movie count <= 1000"
+  ],
+  "explanation": "Though this is usually a SQL problem, we simulate it. First, count ratings per user and sort by count (desc) then name (asc). Second, filter ratings by date, average ratings per movie, and sort by average (desc) then name (asc).",
+  "answer": "def movieRating(users, movies, ratings):\n    user_count = collections.Counter(r['user_id'] for r in ratings)\n    max_user = sorted(user_count.items(), key=lambda x: (-x[1], users[x[0]])) [0][0]\n    feb_ratings = [r for r in ratings if r['created_at'].startswith('2020-02')]\n    movie_avg = collections.defaultdict(list)\n    for r in feb_ratings: movie_avg[r['movie_id']].append(r['rating'])\n    max_movie = sorted(movie_avg.items(), key=lambda x: (-sum(x[1])/len(x[1]), movies[x[0]])) [0][0]\n    return [users[max_user], movies[max_movie]]",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 1341 Movie Rating here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "{\"1\":\"Daniel\",\"2\":\"Monica\",\"3\":\"Maria\",\"4\":\"James\"}\n{\"1\":\"Avengers\",\"2\":\"Frozen 2\",\"3\":\"The Joker\"}\n[{\"user_id\":\"1\",\"movie_id\":\"1\",\"rating\":3,\"created_at\":\"2020-01-12\"},{\"user_id\":\"1\",\"movie_id\":\"2\",\"rating\":4,\"created_at\":\"2020-02-11\"},{\"user_id\":\"1\",\"movie_id\":\"3\",\"rating\":2,\"created_at\":\"2020-02-12\"},{\"user_id\":\"2\",\"movie_id\":\"1\",\"rating\":5,\"created_at\":\"2020-02-11\"},{\"user_id\":\"2\",\"movie_id\":\"2\",\"rating\":2,\"created_at\":\"2020-02-11\"},{\"user_id\":\"3\",\"movie_id\":\"1\",\"rating\":3,\"created_at\":\"2020-02-22\"},{\"user_id\":\"3\",\"movie_id\":\"2\",\"rating\":4,\"created_at\":\"2020-02-25\"},{\"user_id\":\"4\",\"movie_id\":\"1\",\"rating\":3,\"created_at\":\"2020-01-01\"}]",
+      "expected_output": "[\"Daniel\",\"Frozen 2\"]",
+      "is_sample": true
+    },
+    {
+      "input": "{\"1\":\"A\",\"2\":\"B\"}\n{\"1\":\"M1\",\"2\":\"M2\"}\n[{\"user_id\":\"1\",\"movie_id\":\"1\",\"rating\":5,\"created_at\":\"2020-02-01\"},{\"user_id\":\"2\",\"movie_id\":\"1\",\"rating\":5,\"created_at\":\"2020-02-01\"}]",
+      "expected_output": "[\"A\",\"M1\"]",
+      "is_sample": true
+    },
+    {
+      "input": "{\"1\":\"U1\"}\n{\"1\":\"M1\"}\n[{\"user_id\":\"1\",\"movie_id\":\"1\",\"rating\":1,\"created_at\":\"2020-02-01\"}]",
+      "expected_output": "[\"U1\",\"M1\"]",
+      "is_sample": false
+    },
+    {
+      "input": "{\"1\":\"U1\",\"2\":\"U2\"}\n{\"1\":\"M1\",\"2\":\"M2\"}\n[{\"user_id\":\"1\",\"movie_id\":\"1\",\"rating\":5,\"created_at\":\"2020-02-01\"},{\"user_id\":\"1\",\"movie_id\":\"2\",\"rating\":5,\"created_at\":\"2020-02-01\"},{\"user_id\":\"2\",\"movie_id\":\"1\",\"rating\":5,\"created_at\":\"2020-02-01\"}]",
+      "expected_output": "[\"U1\",\"M1\"]",
+      "is_sample": false
+    },
+    {
+      "input": "{\"1\":\"Daniel\",\"2\":\"Monica\"}\n{\"1\":\"M1\",\"2\":\"M2\"}\n[{\"user_id\":\"1\",\"movie_id\":\"1\",\"rating\":1,\"created_at\":\"2020-02-01\"},{\"user_id\":\"2\",\"movie_id\":\"1\",\"rating\":5,\"created_at\":\"2020-02-01\"}]",
+      "expected_output": "[\"Daniel\",\"M1\"]",
+      "is_sample": false
+    },
+    {
+      "input": "{\"1\":\"A\",\"2\":\"B\"}\n{\"1\":\"M1\",\"2\":\"M2\"}\n[{\"user_id\":\"1\",\"movie_id\":\"1\",\"rating\":5,\"created_at\":\"2020-02-10\"},{\"user_id\":\"2\",\"movie_id\":\"2\",\"rating\":5,\"created_at\":\"2020-02-10\"}]",
+      "expected_output": "[\"A\",\"M1\"]",
+      "is_sample": false
+    },
+    {
+      "input": "{\"1\":\"A\",\"2\":\"B\"}\n{\"1\":\"M1\",\"2\":\"M2\"}\n[{\"user_id\":\"1\",\"movie_id\":\"1\",\"rating\":5,\"created_at\":\"2020-02-01\"},{\"user_id\":\"1\",\"movie_id\":\"2\",\"rating\":1,\"created_at\":\"2020-02-01\"}]",
+      "expected_output": "[\"A\",\"M1\"]",
+      "is_sample": false
+    },
+    {
+      "input": "{\"1\":\"A\",\"2\":\"B\"}\n{\"1\":\"M1\",\"2\":\"M2\"}\n[{\"user_id\":\"1\",\"movie_id\":\"1\",\"rating\":1,\"created_at\":\"2020-02-01\"},{\"user_id\":\"2\",\"movie_id\":\"1\",\"rating\":5,\"created_at\":\"2020-02-01\"}]",
+      "expected_output": "[\"A\",\"M1\"]",
+      "is_sample": false
+    },
+    {
+      "input": "{\"1\":\"A\",\"2\":\"B\"}\n{\"1\":\"M1\",\"2\":\"M2\"}\n[{\"user_id\":\"1\",\"movie_id\":\"1\",\"rating\":5,\"created_at\":\"2020-01-01\"},{\"user_id\":\"2\",\"movie_id\":\"1\",\"rating\":5,\"created_at\":\"2020-02-01\"}]",
+      "expected_output": "[\"A\",\"M1\"]",
+      "is_sample": false
+    },
+    {
+      "input": "{\"1\":\"A\",\"2\":\"B\"}\n{\"1\":\"M1\",\"2\":\"M2\"}\n[{\"user_id\":\"1\",\"movie_id\":\"1\",\"rating\":5,\"created_at\":\"2020-02-01\"},{\"user_id\":\"1\",\"movie_id\":\"1\",\"rating\":5,\"created_at\":\"2020-02-01\"}]",
+      "expected_output": "[\"A\",\"M1\"]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Math",
+    "Simulation"
+  ],
+  "companyIndex": 16
+}

@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Meeting Scheduler</h3><p>Given the availability time slots arrays <code>slots1</code> and <code>slots2</code> of two people and a meeting duration <code>duration</code>, return the <strong>earliest time slot</strong> that works for both of them and is of duration <code>duration</code>.</p>\n<p>If there is no common time slot that satisfies the requirements, return an <strong>empty array</strong>.</p>\n<p>The format of a time slot is an array of two elements <code>[start, end]</code> representing an inclusive time range from <code>start</code> to <code>end</code>.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "slots1, slots2, duration.",
+  "output_format": "Int array [start, end].",
+  "constraints": [
+    "1 <= slots1.length, slots2.length <= 10^4",
+    "slots1[i].length, slots2[i].length == 2",
+    "0 <= duration <= 10^6"
+  ],
+  "explanation": "Sort the slots by starting time. Use two pointers to iterate through both lists of slots. Find the intersection of the current two slots. If the intersection length >= duration, return it. Otherwise, advance the pointer of the slot that ends earlier.",
+  "answer": "def minAvailableDuration(slots1, slots2, duration):\n    slots1.sort(key=lambda x: x[0])\n    slots2.sort(key=lambda x: x[0])\n    i = j = 0\n    while i < len(slots1) and j < len(slots2):\n        st = max(slots1[i][0], slots2[j][0])\n        ed = min(slots1[i][1], slots2[j][1])\n        if ed - st >= duration:\n            return [st, st + duration]\n        if slots1[i][1] < slots2[j][1]: i += 1\n        else: j += 1\n    return []",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 1229 Meeting Scheduler here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']:\n        sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l)))));\n}\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[[10,50],[60,120],[140,210]]\n[[0,15],[60,70]]\n8",
+      "expected_output": "[60,68]",
+      "is_sample": true
+    },
+    {
+      "input": "[[10,50],[60,120],[140,210]]\n[[0,15],[60,70]]\n12",
+      "expected_output": "[]",
+      "is_sample": true
+    },
+    {
+      "input": "[[0,10]]\n[[0,10]]\n10",
+      "expected_output": "[0,10]",
+      "is_sample": false
+    },
+    {
+      "input": "[[0,10]]\n[[5,15]]\n5",
+      "expected_output": "[5,10]",
+      "is_sample": false
+    },
+    {
+      "input": "[[0,10]]\n[[5,15]]\n6",
+      "expected_output": "[]",
+      "is_sample": false
+    },
+    {
+      "input": "[[10,20],[30,40]]\n[[15,25],[35,45]]\n5",
+      "expected_output": "[15,20]",
+      "is_sample": false
+    },
+    {
+      "input": "[[1,2]]\n[[3,4]]\n1",
+      "expected_output": "[]",
+      "is_sample": false
+    },
+    {
+      "input": "[[10,100]]\n[[20,30],[40,50],[60,70]]\n10",
+      "expected_output": "[20,30]",
+      "is_sample": false
+    },
+    {
+      "input": "[[0,1000000000]]\n[[0,1000000000]]\n1000000000",
+      "expected_output": "[0,1000000000]",
+      "is_sample": false
+    },
+    {
+      "input": "[[0,5],[6,10]]\n[[0,2],[4,6],[8,10]]\n2",
+      "expected_output": "[0,2]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Two Pointers",
+    "Sorting"
+  ],
+  "companyIndex": 25
+}

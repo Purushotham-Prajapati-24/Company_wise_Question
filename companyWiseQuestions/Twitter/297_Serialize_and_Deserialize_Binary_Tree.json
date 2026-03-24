@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>Serialize and Deserialize Binary Tree</h3>",
+  "difficulty": "HARD",
+  "marks": 20,
+  "input_format": "Binary tree root",
+  "output_format": "New root after reconstruction",
+  "constraints": [
+    "Node count [0, 10^4]"
+  ],
+  "explanation": "Use BFS or DFS traversal with a special character for null nodes to serialize. Rebuild using the same traversal.",
+  "answer": "class Codec:\n    def serialize(self, root):\n        def dfs(node):\n            if not node: res.append('X'); return\n            res.append(str(node.val)); dfs(node.left); dfs(node.right)\n        res = []; dfs(root); return ','.join(res)\n    def deserialize(self, data):\n        def dfs():\n            val = next(vals)\n            if val == 'X': return None\n            node = TreeNode(int(val)); node.left = dfs(); node.right = dfs(); return node\n        vals = iter(data.split(',')); return dfs()",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Serialize and Deserialize Binary Tree here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[1,2,3,null,null,4,5]",
+      "expected_output": "[1,2,3,null,null,4,5]",
+      "is_sample": true
+    },
+    {
+      "input": "[]",
+      "expected_output": "[]",
+      "is_sample": true
+    },
+    {
+      "input": "[1]",
+      "expected_output": "[1]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2]",
+      "expected_output": "[1,2]",
+      "is_sample": false
+    },
+    {
+      "input": "[10,5,15,3,7,12,18]",
+      "expected_output": "[10,5,15,3,7,12,18]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,null,2,null,3,null,4]",
+      "expected_output": "[1,null,2,null,3,null,4]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,null,3,null,4,null,5]",
+      "expected_output": "[1,2,null,3,null,4,null,5]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,3,4,5,6,7]",
+      "expected_output": "[1,2,3,4,5,6,7]",
+      "is_sample": false
+    },
+    {
+      "input": "[10,20,30]",
+      "expected_output": "[10,20,30]",
+      "is_sample": false
+    },
+    {
+      "input": "[10,20,30]",
+      "expected_output": "[10,20,30]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Tree",
+    "Design",
+    "Binary Tree"
+  ],
+  "companyIndex": 27
+}

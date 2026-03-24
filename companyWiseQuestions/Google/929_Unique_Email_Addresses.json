@@ -16,12 +16,22 @@
     ],
     "explanation": "To correctly process each email according to the forwarding rules, we iterate through the list of email addresses. For each email, we split it into two distinct parts using the '@' delimiter: the `local_name` and the `domain_name`. In the `local_name`, if we encounter a '+' character, we discard the '+' and all subsequent characters. We then remove all '.' characters from the remaining `local_name`. The `domain_name` remains unmodified. We concatenate the cleaned `local_name` and the `domain_name` with the '@' symbol. To count the number of unique fully-resolved addresses, we insert each processed email into a Hash Set in Python. Sets natively handle duplicate elimination, so the final answer is simply the size (length) of the set. The time complexity is O(N * L) where N is the number of emails and L is the max length of an email strings.",
     "answer": "def solve(emails):\n    unique_emails = set()\n    for email in emails:\n        local, domain = email.split('@')\n        if '+' in local:\n            local = local[:local.index('+')]\n        unique_emails.add(local.replace('.', '') + '@' + domain)\n    return len(unique_emails)",
-    "boilerplate": "import sys\n\ndef solve(emails):\n    # User logic should be written here\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().splitlines()\n    emails = [line.strip() for line in input_data if line.strip()]\n    print(solve(emails))",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(emails):\n    # User logic should be written here\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().splitlines()\n    print(solve(input_data))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\nint solve(vector<string>& emails) {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    string line;\n    vector<string> emails;\n    while (getline(cin, line)) {\n        emails.push_back(line);\n    }\n    cout << solve(emails) << endl;\n    return 0;\n}",
+        "java": "import java.util.Scanner;\nimport java.util.ArrayList;\n\npublic class Main {\n    public static int solve(String[] emails) {\n        // User logic should be written here\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ArrayList<String> list = new ArrayList<>();\n        while (sc.hasNextLine()) {\n            list.add(sc.nextLine());\n        }\n        System.out.println(solve(list.toArray(new String[0])));\n        sc.close();\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve(emails) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    console.log(solve(input));\n}",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint solve(char** emails, int n) {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    int capacity = 1000;\n    char** emails = (char**)malloc(capacity * sizeof(char*));\n    int n = 0;\n    char buffer[256];\n    while (fgets(buffer, sizeof(buffer), stdin)) {\n        buffer[strcspn(buffer, \"\\n\")] = 0;\n        if (n == capacity) {\n            capacity *= 2;\n            emails = (char**)realloc(emails, capacity * sizeof(char*));\n        }\n        emails[n] = strdup(buffer);\n        n++;\n    }\n    printf(\"%d\\n\", solve(emails, n));\n    for (int i = 0; i < n; ++i) free(emails[i]);\n    free(emails);\n    return 0;\n}"
+    },
     "metadata": {
         "time_limit_ms": 1000,
         "memory_limit_mb": 256,
         "allowed_languages": [
-            "python"
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
         ]
     },
     "test_cases": [
@@ -61,18 +71,18 @@
             "is_sample": false
         },
         {
-            "input": "some.123+123@xyz.com\nsome123+456@xyz.com",
+            "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbb.com",
             "expected_output": "1",
             "is_sample": false
         },
         {
-            "input": "x.y.z.w.q.r.s.t.u.v.w.x.y.z+abc@123.com\nxyz...wqrstuvwxyz@123.com\nx.y.z.w.q.r.s.t.u.v.w.x.y.z+xyz@123.com",
+            "input": "a+0@b.com\na+1@b.com\na+2@b.com\na+3@b.com\na+4@b.com\na+5@b.com\na+6@b.com\na+7@b.com\na+8@b.com\na+9@b.com\na+10@b.com\na+11@b.com\na+12@b.com\na+13@b.com\na+14@b.com\na+15@b.com\na+16@b.com\na+17@b.com\na+18@b.com\na+19@b.com",
             "expected_output": "1",
             "is_sample": false
         },
         {
-            "input": "a@l.com\na+a@l.com\na.a@l.com\na.a+a@l.com\n.a@l.com",
-            "expected_output": "2",
+            "input": "0@b.com\n1@b.com\n2@b.com\n3@b.com\n4@b.com\n5@b.com\n6@b.com\n7@b.com\n8@b.com\n9@b.com\n10@b.com\n11@b.com\n12@b.com\n13@b.com\n14@b.com\n15@b.com\n16@b.com\n17@b.com\n18@b.com\n19@b.com",
+            "expected_output": "20",
             "is_sample": false
         }
     ],

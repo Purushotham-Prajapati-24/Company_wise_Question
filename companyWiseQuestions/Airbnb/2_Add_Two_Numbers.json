@@ -1,0 +1,89 @@
+{
+    "question_text": "<p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in <strong>reverse order</strong>, and each of their nodes contains a single digit. Add the two numbers and return the sum&nbsp;as a linked list.</p>\n\n<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2020/10/02/addtwonumber1.jpg\" style=\"width: 483px; height: 342px;\" />\n<pre>\n<strong>Input:</strong> l1 = [2,4,3], l2 = [5,6,4]\n<strong>Output:</strong> [7,0,8]\n<strong>Explanation:</strong> 342 + 465 = 807.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> l1 = [0], l2 = [0]\n<strong>Output:</strong> [0]\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]\n<strong>Output:</strong> [8,9,9,9,0,0,0,1]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The number of nodes in each linked list is in the range <code>[1, 100]</code>.</li>\n\t<li><code>0 &lt;= Node.val &lt;= 9</code></li>\n\t<li>It is guaranteed that the list represents a number that does not have leading zeros.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Two linked lists l1 and l2",
+    "output_format": "Sum as a linked list",
+    "constraints": [
+        "1 <= Node Count <= 100",
+        "0 <= Node.val <= 9",
+        "No leading zeros."
+    ],
+    "explanation": "Traverse both lists digit by digit, keeping track of the carry.",
+    "answer": "def addTwoNumbers(l1, l2):\n    dummy = ListNode(0)\n    curr, carry = dummy, 0\n    while l1 or l2 or carry:\n        val1  = l1.val if l1 else 0\n        val2  = l2.val if l2 else 0\n        out = val1 + val2 + carry\n        carry = out // 10\n        curr.next = ListNode(out % 10)\n        curr = curr.next\n        l1 = l1.next if l1 else None\n        l2 = l2.next if l2 else None\n    return dummy.next",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef addTwoNumbers(*args):\n    # Python optimum solution exclusively\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if not input_data or input_data == ['']: sys.exit(0)\n    parsed_args = [json.loads(line) for line in input_data]\n    print(json.dumps(addTwoNumbers(*parsed_args)).replace(' ', ''))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint addTwoNumbers() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Basic standard IO loop parser\n    string line;\n    while (getline(cin, line)) {\n        // Parse line into arguments and call solve\n    }\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object addTwoNumbers() {\n        // User logic should be written here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {\n            // Parse line into arguments\n        }\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction addTwoNumbers(...args) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    const parsedArgs = input.map(line => JSON.parse(line));\n    console.log(JSON.stringify(addTwoNumbers(...parsedArgs)));\n}\n\nmodule.exports = addTwoNumbers;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint addTwoNumbers() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Standard C IO loop\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[2,4,3]\n[5,6,4]",
+            "expected_output": "[7,0,8]",
+            "is_sample": true
+        },
+        {
+            "input": "[0]\n[0]",
+            "expected_output": "[0]",
+            "is_sample": true
+        },
+        {
+            "input": "[9,9,9,9,9,9,9]\n[9,9,9,9]",
+            "expected_output": "[8,9,9,9,0,0,0,1]",
+            "is_sample": false
+        },
+        {
+            "input": "[1]\n[9,9]",
+            "expected_output": "[0,0,1]",
+            "is_sample": false
+        },
+        {
+            "input": "[9,9]\n[1]",
+            "expected_output": "[0,0,1]",
+            "is_sample": false
+        },
+        {
+            "input": "[5]\n[5]",
+            "expected_output": "[0,1]",
+            "is_sample": false
+        },
+        {
+            "input": "[2,4,9]\n[5,6,4,9]",
+            "expected_output": "[7,0,4,0,1]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,8]\n[0]",
+            "expected_output": "[1,8]",
+            "is_sample": false
+        },
+        {
+            "input": "[8,9,9]\n[2]",
+            "expected_output": "[0,0,0,1]",
+            "is_sample": false
+        },
+        {
+            "input": "[9]\n[1,9,9,9,9,9,9,9,9,9]",
+            "expected_output": "[0,0,0,0,0,0,0,0,0,0,1]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Linked Lists",
+        "Math"
+    ],
+    "companyIndex": 5
+}

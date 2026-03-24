@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>Integer to English Words</h3><p>Convert a non-negative integer $num$ to its English words representation.</p>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Int.",
+  "output_format": "string.",
+  "constraints": [
+    "0 <= num <= 2^31 - 1"
+  ],
+  "explanation": "Divide the number into groups of three digits (Billion, Million, Thousand). For each group, convert the 3-digit number to words using predefined lists for ones, teens, and tens.",
+  "answer": "def numberToWords(num):\n    if num == 0: return \"Zero\"\n    ones = [\"\", \"One\", \"Two\", \"Three\", \"Four\", \"Five\", \"Six\", \"Seven\", \"Eight\", \"Nine\", \"Ten\", \"Eleven\", \"Twelve\", \"Thirteen\", \"Fourteen\", \"Fifteen\", \"Sixteen\", \"Seventeen\", \"Eighteen\", \"Nineteen\"]\n    tens = [\"\", \"\", \"Twenty\", \"Thirty\", \"Forty\", \"Fifty\", \"Sixty\", \"Seventy\", \"Eighty\", \"Ninety\"]\n    bigs = [\"\", \"Thousand\", \"Million\", \"Billion\"]\n    def helper(n):\n        if n == 0: return \"\"\n        if n < 20: return ones[n] + \" \"\n        if n < 100: return tens[n//10] + \" \" + helper(n%10)\n        return ones[n//100] + \" Hundred \" + helper(n%100)\n    res, i = \"\", 0\n    while num > 0:\n        if num % 1000 != 0:\n            res = helper(num % 1000) + bigs[i] + \" \" + res\n        num //= 1000; i += 1\n    return res.strip()",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 273 Integer to English Words here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "123",
+      "expected_output": "\"One Hundred Twenty Three\"",
+      "is_sample": true
+    },
+    {
+      "input": "12345",
+      "expected_output": "\"Twelve Thousand Three Hundred Forty Five\"",
+      "is_sample": true
+    },
+    {
+      "input": "1234567",
+      "expected_output": "\"One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven\"",
+      "is_sample": true
+    },
+    {
+      "input": "1234567891",
+      "expected_output": "\"One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety One\"",
+      "is_sample": true
+    },
+    {
+      "input": "0",
+      "expected_output": "\"Zero\"",
+      "is_sample": false
+    },
+    {
+      "input": "100",
+      "expected_output": "\"One Hundred\"",
+      "is_sample": false
+    },
+    {
+      "input": "1000000",
+      "expected_output": "\"One Million\"",
+      "is_sample": false
+    },
+    {
+      "input": "1000000000",
+      "expected_output": "\"One Billion\"",
+      "is_sample": false
+    },
+    {
+      "input": "2147483647",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "1000010",
+      "expected_output": "\"One Million Ten\"",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Math",
+    "String",
+    "Recursion"
+  ],
+  "companyIndex": 5
+}

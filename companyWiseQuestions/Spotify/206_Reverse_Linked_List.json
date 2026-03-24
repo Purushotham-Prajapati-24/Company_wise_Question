@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>206 Reverse Linked List</h3><p><strong>Reverse Linked List</strong></p><p>Given the head of a singly linked list, reverse the list, and return the reversed list.</p>",
+  "difficulty": "EASY",
+  "marks": 5,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply.",
+    "Time limit: 1s",
+    "Memory limit: 256MB"
+  ],
+  "explanation": "Use an iterative approach with three pointers: `prev`, `curr`, and `nxt`. At each step, reverse the `next` pointer of the current node to point to the previous node, then move ahead. O(n) time and O(1) space.",
+  "answer": "def solve(head):\n    prev, curr = None, head\n    while curr:\n        next_node = curr.next\n        curr.next = prev\n        prev = curr\n        curr = next_node\n    return prev",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n\nint main() {\n    Solution sol;\n    sol.solve();\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n    public static void main(String[] args) {\n        new Solution().solve();\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "1 2 3 4 5",
+      "expected_output": "5 4 3 2 1",
+      "is_sample": true
+    },
+    {
+      "input": "1 2",
+      "expected_output": "2 1",
+      "is_sample": true
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "1\nEdge_Case",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "1 1 1",
+      "expected_output": "1 1 1",
+      "is_sample": false
+    },
+    {
+      "input": "1 2 3 4 5",
+      "expected_output": "5 4 3 2 1",
+      "is_sample": false
+    },
+    {
+      "input": "1 2 3",
+      "expected_output": "3 2 1",
+      "is_sample": false
+    },
+    {
+      "input": "i for i in range(5000)",
+      "expected_output": "i for i in range(4999  -1  -1)",
+      "is_sample": false
+    },
+    {
+      "input": "1",
+      "expected_output": "1]*5000",
+      "is_sample": false
+    },
+    {
+      "input": "1 2",
+      "expected_output": "2 1]*2500",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Linked Lists"
+  ],
+  "companyIndex": 2
+}

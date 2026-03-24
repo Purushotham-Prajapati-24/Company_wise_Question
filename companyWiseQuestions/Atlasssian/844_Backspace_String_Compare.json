@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Backspace String Compare</h3><p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if they are equal when both are typed into empty text editors. <code>'#'</code> means a backspace character.</p><p>Note that after backspacing an empty text, the text will continue empty.</p>",
+  "difficulty": "EASY",
+  "marks": 5,
+  "input_format": "The first line contains the string `s`.\nThe second line contains the string `t`.",
+  "output_format": "A single line containing `true` if they are equal, or `false` otherwise.",
+  "constraints": [
+    "1 <= s.length, t.length <= 200",
+    "s and t only contain lowercase letters and '#' characters."
+  ],
+  "explanation": "We can simulate the process of a user typing on a keyboard by utilizing the Stack data structure. For each character in the string, if it's a regular lowercase letter, we push it onto the stack. If it's a backspace character '#', we pop the top element from the stack (if the stack is not empty, representing an empty text editor). We do this independently for both strings `s` and `t`, constructing their final text representations. Finally, we compare the resulting stacks to check if they match. Stack operations run in O(N) time and space.\n\nAlternatively, an optimized O(1) space approach uses two pointers starting from the end of each string, maintaining a count of skipped characters to accurately 'backspace' letters backwards.",
+  "answer": "def solve(s, t):\n    def build(string):\n        stack = []\n        for char in string:\n            if char != '#':\n                stack.append(char)\n            elif stack:\n                stack.pop()\n        return \"\".join(stack)\n    \n    return \"true\" if build(s) == build(t) else \"false\"",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve(s, t):\n    # User logic should be written here\n    return \"\"\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    if len(lines) >= 2:\n        print(solve(lines[0].strip(), lines[1].strip()))",
+    "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\n\nstring solve(string s, string t) {\n    // User logic should be written here\n    return \"\";\n}\n\nint main() {\n    string s, t;\n    if (getline(cin, s) && getline(cin, t)) {\n        cout << solve(s, t) << endl;\n    }\n    return 0;\n}",
+    "java": "import java.util.Scanner;\n\npublic class Main {\n    public static String solve(String s, String t) {\n        // User logic should be written here\n        return \"\";\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String s = sc.nextLine();\n            String t = sc.hasNextLine() ? sc.nextLine() : \"\";\n            System.out.println(solve(s, t));\n        }\n        sc.close();\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve(s, t) {\n    // User logic should be written here\n    return \"\";\n}\n\nconst input = fs.readFileSync(0, 'utf8').split('\\n');\nif (input.length >= 2) {\n    console.log(solve(input[0].trim(), input[1].trim()));\n}",
+    "c": "#include <stdio.h>\n#include <string.h>\n\nchar* solve(char* s, char* t) {\n    // User logic should be written here\n    return \"\";\n}\n\nint main() {\n    char s[200000], t[200000];\n    if (fgets(s, sizeof(s), stdin)) s[strcspn(s, \"\\n\")] = 0;\n    if (fgets(t, sizeof(t), stdin)) t[strcspn(t, \"\\n\")] = 0;\n    printf(\"%s\\n\", solve(s, t));\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "ab#c\nad#c",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "ab##\nc#d#",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "a#c\nb",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "a##c\n#a#c",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "y#fo##f\ny#f#o##f",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "a#b#c#d#\ne#",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "xyz#\nxyzz#",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "###################\n#",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "a#b#c#d#e#f#g#h#i#j#k#l#m#n#o#p#q#r#s#t#u#v#w#x#y#z#\n#",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "abaa##caba#\nabacaba#",
+      "expected_output": "true",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Two Pointers",
+    "String",
+    "Stack",
+    "Simulation"
+  ],
+  "companyIndex": 23
+}

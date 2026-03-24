@@ -1,0 +1,89 @@
+{
+    "question_text": "<p>You are given a doubly linked list, which contains nodes that have a next pointer, a previous pointer, and an additional <strong>child pointer</strong>. This child pointer may or may not point to a separate doubly linked list, also containing these special nodes. These child lists may have one or more children of their own, and so on, to produce a <strong>multilevel data structure</strong> as shown in the example below.</p>\n\n<p>Given the <code>head</code> of the first level of the list, <strong>flatten</strong> the list so that all the nodes appear in a single-level, doubly linked list. Let <code>curr</code> be a node with a child list. The nodes in the child list should appear <strong>after</strong> <code>curr</code> and <strong>before</strong> <code>curr.next</code> in the flattened list.</p>\n\n<p>Return <em>the </em><code>head</code><em> of the flattened list. The nodes in the list must have <strong>all</strong> of their child pointers set to </em><code>null</code>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2021/11/09/flatten11.jpg\" style=\"width: 700px; height: 339px;\" />\n<pre>\n<strong>Input:</strong> head = [1,2,3,4,5,6,null,null,null,7,8,9,10,null,null,11,12]\n<strong>Output:</strong> [1,2,3,7,8,11,12,9,10,4,5,6]\n<strong>Explanation:</strong> The multilevel linked list in the input is shown.\nAfter flattening the multilevel linked list it becomes:\n<img src=\"https://assets.leetcode.com/uploads/2021/11/09/flatten12.jpg\" style=\"width: 1000px; height: 69px;\" />\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2021/11/09/flatten2.1jpg\" style=\"width: 200px; height: 200px;\" />\n<pre>\n<strong>Input:</strong> head = [1,2,null,3]\n<strong>Output:</strong> [1,3,2]\n<strong>Explanation:</strong> The multilevel linked list in the input is shown.\nAfter flattening the multilevel linked list it becomes:\n<img src=\"https://assets.leetcode.com/uploads/2021/11/24/list.jpg\" style=\"width: 300px; height: 87px;\" />\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> head = []\n<strong>Output:</strong> []\n<strong>Explanation:</strong> There could be empty list in the input.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The number of Nodes will not exceed <code>1000</code>.</li>\n\t<li><code>1 &lt;= Node.val &lt;= 10<sup>5</sup></code></li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong>How the multilevel linked list is represented in test cases:</strong></p>\n\n<p>We use the multilevel linked list from <strong>Example 1</strong> above:</p>\n\n<pre>\n 1---2---3---4---5---6--NULL\n         |\n         7---8---9---10--NULL\n             |\n             11--12--NULL</pre>\n\n<p>The serialization of each level is as follows:</p>\n\n<pre>\n[1,2,3,4,5,6,null]\n[7,8,9,10,null]\n[11,12,null]\n</pre>\n\n<p>To serialize all levels together, we will add nulls in each level to signify no node connects to the upper node of the previous level. The serialization becomes:</p>\n\n<pre>\n[1,    2,    3, 4, 5, 6, null]\n             |\n[null, null, 7,    8, 9, 10, null]\n                   |\n[            null, 11, 12, null]\n</pre>\n\n<p>Merging the serialization of each level and removing trailing nulls we obtain:</p>\n\n<pre>\n[1,2,3,4,5,6,null,null,null,7,8,9,10,null,null,11,12]\n</pre>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Head of doubly linked list with child pointers",
+    "output_format": "Flattened doubly linked list",
+    "constraints": [
+        "The number of nodes in the list is 0 to 1000.",
+        "-10^5 <= Node.val <= 10^5"
+    ],
+    "explanation": "DFS: when encountering a node with a child, splice the flattened child list between the current node and its next. Continue iteration.",
+    "answer": "def flatten(head):\n    if not head: return head\n    cur = head\n    while cur:\n        if cur.child:\n            nxt = cur.next\n            child = flatten(cur.child)\n            cur.next = child\n            child.prev = cur\n            cur.child = None\n            while cur.next:\n                cur = cur.next\n            cur.next = nxt\n            if nxt: nxt.prev = cur\n        cur = cur.next\n    return head",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Flatten a Multilevel Doubly Linked List here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <unordered_map>\n#include <algorithm>\nusing namespace std;\n\nint solve() {\n    // Implement Flatten a Multilevel Doubly Linked List here\n    return 0;\n}\n\nint main() {\n    string line;\n    while (getline(cin, line)) { /* parse and call solve */ }\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object solve() {\n        // Implement Flatten a Multilevel Doubly Linked List here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) { /* parse and call */ }\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve(...args) {\n    // Implement Flatten a Multilevel Doubly Linked List here\n    return 0;\n}\n\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    const args = lines.map(l => JSON.parse(l));\n    console.log(JSON.stringify(solve(...args)));\n}\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint solve() {\n    // Implement Flatten a Multilevel Doubly Linked List here\n    return 0;\n}\n\nint main() {\n    // Standard C IO\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[1,2,3,4,5,6,null,null,null,7,8,9,10,null,null,11,12]",
+            "expected_output": "[1,2,3,7,8,11,12,9,10,4,5,6]",
+            "is_sample": true
+        },
+        {
+            "input": "[1,2,null,3]",
+            "expected_output": "[1,3,2]",
+            "is_sample": true
+        },
+        {
+            "input": "[]",
+            "expected_output": "[]",
+            "is_sample": false
+        },
+        {
+            "input": "[1]",
+            "expected_output": "[1]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,null,2]",
+            "expected_output": "[1,2]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3,4]",
+            "expected_output": "[1,2,3,4]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,null,3,null,4]",
+            "expected_output": "[1,3,4,2]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,null,2,null,3,null,4]",
+            "expected_output": "[1,2,3,4]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3,null,null,null,4,null,null,5]",
+            "expected_output": "[1,2,3,4,5]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,null,3,4,null,5,6]",
+            "expected_output": "[1,3,5,6,4,2]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Linked List",
+        "Depth-First Search",
+        "Doubly-Linked List"
+    ],
+    "companyIndex": 24
+}

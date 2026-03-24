@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>Serialize and Deserialize Binary Tree</h3><p>Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.</p>\n\n<p>Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.</p>\n\n<p><strong>Clarification:</strong> The input/output format is the same as <a href=\"https://support.leetcode.com/hc/en-us/articles/32442719377939-How-to-create-test-cases-on-LeetCode#h_01J5EGREAW3NAEJ14XC07GRW1A\" target=\"_blank\">how LeetCode serializes a binary tree</a>. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2020/09/15/serdeser.jpg\" style=\"width: 442px; height: 324px;\" />\n<pre>\n<strong>Input:</strong> root = [1,2,3,null,null,4,5]\n<strong>Output:</strong> [1,2,3,null,null,4,5]\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> root = []\n<strong>Output:</strong> []\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The number of nodes in the tree is in the range <code>[0, 10<sup>4</sup>]</code>.</li>\n\t<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>\n</ul>\n",
+  "difficulty": "HARD",
+  "marks": 20,
+  "input_format": "Binary tree root",
+  "output_format": "New root",
+  "constraints": [
+    "Node count [0, 10^4]"
+  ],
+  "explanation": "<h3>Logic</h3><p>To solve <strong><h3>Serialize and Deserialize Binary Tree</h3><p>Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.</p>\n\n<p>Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.</p>\n\n<p><strong>Clarification:</strong> The input/output format is the same as <a href=\"https://support.leetcode.com/hc/en-us/articles/32442719377939-How-to-create-test-cases-on-LeetCode#h_01J5EGREAW3NAEJ14XC07GRW1A\" target=\"_blank\">how LeetCode serializes a binary tree</a>. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2020/09/15/serdeser.jpg\" style=\"width: 442px; height: 324px;\" />\n<pre>\n<strong>Input:</strong> root = [1,2,3,null,null,4,5]\n<strong>Output:</strong> [1,2,3,null,null,4,5]\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> root = []\n<strong>Output:</strong> []\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The number of nodes in the tree is in the range <code>[0, 10<sup>4</sup>]</code>.</li>\n\t<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>\n</ul>\n</strong> efficiently, we use an optimized approach as implemented in the Python solution. This typically involves balancing time and space complexity to meet the required constraints.</p><h4>Complexity</h4><ul><li>Time: determined by the algorithmic approach (e.g., O(N) or O(N log N)).</li><li>Space: determined by auxiliary data structures used.</li></ul>",
+  "answer": "class Codec:\n    def serialize(self, root):\n        def dfs(node):\n            if not node: res.append('X'); return\n            res.append(str(node.val)); dfs(node.left); dfs(node.right)\n        res = []; dfs(root); return ','.join(res)\n    def deserialize(self, data):\n        def dfs():\n            val = next(vals)\n            if val == 'X': return None\n            node = TreeNode(int(val)); node.left = dfs(); node.right = dfs(); return node\n        vals = iter(data.split(',')); return dfs()",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Serialize and Deserialize Binary Tree here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[1,2,3,null,null,4,5]",
+      "expected_output": "[1,2,3,null,null,4,5]",
+      "is_sample": true
+    },
+    {
+      "input": "[]",
+      "expected_output": "[]",
+      "is_sample": true
+    },
+    {
+      "input": "[1]",
+      "expected_output": "[1]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2]",
+      "expected_output": "[1,2]",
+      "is_sample": false
+    },
+    {
+      "input": "[10,5,15,3,7,12,18]",
+      "expected_output": "[10,5,15,3,7,12,18]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,null,2,null,3,null,4]",
+      "expected_output": "[1,null,2,null,3,null,4]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,null,3,null,4,null,5]",
+      "expected_output": "[1,2,null,3,null,4,null,5]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,3,4,5,6,7]",
+      "expected_output": "[1,2,3,4,5,6,7]",
+      "is_sample": false
+    },
+    {
+      "input": "[10,20,30]",
+      "expected_output": "[10,20,30]",
+      "is_sample": false
+    },
+    {
+      "input": "[10,20,30]",
+      "expected_output": "[10,20,30]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Tree",
+    "Design",
+    "String"
+  ],
+  "companyIndex": 28
+}

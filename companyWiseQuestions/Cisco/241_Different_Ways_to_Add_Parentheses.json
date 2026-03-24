@@ -1,0 +1,91 @@
+{
+  "question_text": "<h3>Different Ways to Add Parentheses</h3><p>Return all possible results from computing all different ways to group numbers and operators in string <code>expression</code>.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Expression string.",
+  "output_format": "Array of ints.",
+  "constraints": [
+    "1 <= expression.length <= 20",
+    "expression consists of digits and [+,-,*]."
+  ],
+  "explanation": "Divide and conquer. Iteratively split expression at each operator. Recursively calculate all possible results for left and right operands. Combine them using the operator. Use memoization to avoid redundant calculations.",
+  "answer": "def diffWaysToCompute(expression):\n    memo = {}\n    def helper(s):\n        if s in memo: return memo[s]\n        res = []\n        for i, char in enumerate(s):\n            if char in \"+-*\":\n                left = helper(s[:i])\n                right = helper(s[i+1:])\n                for l in left:\n                    for r in right:\n                        if char == \"+\": res.append(l + r)\n                        elif char == \"-\": res.append(l - r)\n                        else: res.append(l * r)\n        if not res: res = [int(s)]\n        memo[s] = res\n        return res\n    return helper(expression)",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 241 Different Ways to Add Parentheses here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "\"2-1-1\"",
+      "expected_output": "[0,2]",
+      "is_sample": true
+    },
+    {
+      "input": "\"2*3-4*5\"",
+      "expected_output": "[-34,-14,-10,-10,10]",
+      "is_sample": true
+    },
+    {
+      "input": "\"11\"",
+      "expected_output": "[11]",
+      "is_sample": false
+    },
+    {
+      "input": "\"1+1\"",
+      "expected_output": "[2]",
+      "is_sample": false
+    },
+    {
+      "input": "\"1+2*3\"",
+      "expected_output": "[9,7]",
+      "is_sample": false
+    },
+    {
+      "input": "\"10+5\"",
+      "expected_output": "[15]",
+      "is_sample": false
+    },
+    {
+      "input": "\"1+1+1+1+1\"",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "\"0\"",
+      "expected_output": "[0]",
+      "is_sample": false
+    },
+    {
+      "input": "\"1-2*3+4\"",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "\"10-10\"",
+      "expected_output": "[0]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Math",
+    "String",
+    "Dynamic Programming",
+    "Recursion",
+    "Memoization"
+  ],
+  "companyIndex": 20
+}

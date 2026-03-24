@@ -1,0 +1,90 @@
+{
+    "question_text": "<h3>Basic Calculator II</h3><p>Given a string <code>s</code> which represents an expression, evaluate this expression and return its value.</p><p>The integer division should <b>truncate toward zero</b>. You may assume that the given expression is always valid. All intermediate results will be in the range of <code>[-2^31, 2^31 - 1]</code>.</p><p><b>Note:</b> You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as <code>eval()</code>.</p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "A single string containing a valid arithmetic expression with operators +, -, *, /.",
+    "output_format": "A single integer representing the result of the evaluated expression.",
+    "constraints": [
+        "1 <= s.length <= 3 * 10^5",
+        "s consists of integers and operators (+, -, *, /) separated by spaces.",
+        "All integers in the expression are non-negative and in the range [0, 2^31 - 1]."
+    ],
+    "explanation": "We process the expression with a stack to handle operator precedence. We keep a running `curr_num` and a `prev_op`. When we encounter an operator or reach the end, we commit the previous operation to the stack: for + and -, we push ±curr_num; for * and /, we pop the top, compute, and push back. This way, multiplication and division are handled immediately (high precedence), while addition and subtraction are deferred (stacked). The final answer is the sum of all elements in the stack. O(N) time, O(N) space.",
+    "answer": "def solve(s):\n    stack = []\n    num = 0\n    op = '+'\n    for i, c in enumerate(s):\n        if c.isdigit():\n            num = num * 10 + int(c)\n        if (not c.isdigit() and c != ' ') or i == len(s) - 1:\n            if op == '+':\n                stack.append(num)\n            elif op == '-':\n                stack.append(-num)\n            elif op == '*':\n                stack.append(stack.pop() * num)\n            elif op == '/':\n                stack.append(int(stack.pop() / num))\n            op = c\n            num = 0\n    return sum(stack)",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(s):\n    return 0\n\nif __name__ == '__main__':\n    s = sys.stdin.read().strip()\n    print(solve(s))",
+        "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint solve(string s) {\n    return 0;\n}\n\nint main() {\n    string s;\n    if (getline(cin, s)) cout << solve(s) << endl;\n    return 0;\n}",
+        "java": "import java.util.Scanner;\n\npublic class Main {\n    public static int solve(String s) {\n        return 0;\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) System.out.println(solve(sc.nextLine().trim()));\n        sc.close();\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(s) { return 0; }\nconst input = fs.readFileSync(0, 'utf8').trim();\nif (input) console.log(solve(input));",
+        "c": "#include <stdio.h>\n#include <string.h>\n\nint solve(char* s) {\n    return 0;\n}\n\nint main() {\n    char buffer[300001];\n    if (fgets(buffer, sizeof(buffer), stdin)) {\n        buffer[strcspn(buffer, \"\\n\")] = 0;\n        printf(\"%d\\n\", solve(buffer));\n    }\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "3+2*2",
+            "expected_output": "7",
+            "is_sample": true
+        },
+        {
+            "input": " 3/2 ",
+            "expected_output": "1",
+            "is_sample": true
+        },
+        {
+            "input": " 3+5 / 2 ",
+            "expected_output": "5",
+            "is_sample": true
+        },
+        {
+            "input": "1+1",
+            "expected_output": "2",
+            "is_sample": false
+        },
+        {
+            "input": "10*2+3",
+            "expected_output": "23",
+            "is_sample": false
+        },
+        {
+            "input": "100-50*2",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "14-3/2",
+            "expected_output": "13",
+            "is_sample": false
+        },
+        {
+            "input": "2*3+4*5-6/3",
+            "expected_output": "24",
+            "is_sample": false
+        },
+        {
+            "input": "-7/2",
+            "expected_output": "-3",
+            "is_sample": false
+        },
+        {
+            "input": "1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1",
+            "expected_output": "100",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Math",
+        "String",
+        "Stack"
+    ],
+    "companyIndex": 23
+}

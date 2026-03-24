@@ -1,0 +1,90 @@
+{
+    "question_text": "<h3>1274. Number of Ships in a Rectangle</h3>\n<p><em>(This problem is an <strong>interactive problem</strong>.)</em></p>\n<p>Each ship is located at an integer point on the sea represented by a cartesian plane, and each integer point may contain at most 1 ship.</p>\n<p>You have a function <code>Sea.hasShips(topRight, bottomLeft)</code> which takes two points as arguments and returns <code>true</code> If there is at least one ship in the rectangle represented by the two points, including on the boundary.</p>\n<p>Given two points: the top right and bottom left corners of a rectangle, return the number of ships present in that rectangle. It is guaranteed that there are <strong>at most 10 ships</strong> in that rectangle.</p>\n<p>Submissions making <strong>more than 400 calls</strong> to <code>hasShips</code> will be judged <em>Wrong Answer</em>. Also, any solutions that attempt to circumvent the judge will result in disqualification.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img src=\"https://assets.leetcode.com/uploads/2019/07/26/1445_example_1.png\" style=\"width: 400px; height: 404px;\"/>\n<pre>\n<strong>Input:</strong> \nships = [[1,1],[2,2],[3,3],[5,5]], topRight = [4,4], bottomLeft = [0,0]\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> From [0,0] to [4,4] we can count 3 ships within the range.\n</pre>\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n<ul>\n    <li>On the input <code>ships</code> is only given to initialize the map internally. You must solve this problem \"blindfolded\". In other words, you must find the answer using the given <code>hasShips</code> API, without knowing the <code>ships</code> position.</li>\n    <li><code>0 &lt;= bottomLeft[0] &lt;= topRight[0] &lt;= 1000</code></li>\n    <li><code>0 &lt;= bottomLeft[1] &lt;= topRight[1] &lt;= 1000</code></li>\n    <li>topRight != bottomLeft</li>\n</ul>",
+    "difficulty": "HARD",
+    "marks": 15,
+    "input_format": "topRight and bottomLeft coordinates",
+    "output_format": "Number of ships in rectangle",
+    "constraints": [
+        "Coordinates in range [-1000, 1000]",
+        "At most 10 ships",
+        "At most 400 calls to hasShips"
+    ],
+    "explanation": "Divide and conquer: split the rectangle into 4 quadrants, only recurse on quadrants that contain ships. Base case for 1x1 cell.",
+    "answer": "def countShips(sea, topRight, bottomLeft):\n    if bottomLeft[0] > topRight[0] or bottomLeft[1] > topRight[1]: return 0\n    if not sea.hasShips(topRight, bottomLeft): return 0\n    if topRight == bottomLeft: return 1\n    midX = (topRight[0] + bottomLeft[0]) // 2\n    midY = (topRight[1] + bottomLeft[1]) // 2\n    return (countShips(sea, [midX, midY], bottomLeft) +\n            countShips(sea, topRight, [midX+1, midY+1]) +\n            countShips(sea, [midX, topRight[1]], [bottomLeft[0], midY+1]) +\n            countShips(sea, [topRight[0], midY], [midX+1, bottomLeft[1]]))",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Number of Ships in a Rectangle here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static Object solve() { return null; }\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[[1,1],[0,0]]\n[[1,1],[1,1],[0,1],[0,0]]",
+            "expected_output": "3",
+            "is_sample": true
+        },
+        {
+            "input": "[[0,0],[0,0]]\n[[0,0]]",
+            "expected_output": "1",
+            "is_sample": true
+        },
+        {
+            "input": "[[10,10],[0,0]]\n[]",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "[[1000,1000],[-1000,-1000]]\n[[0,0]]",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "[[5,5],[0,0]]\n[[1,1],[2,2],[3,3],[4,4],[5,5]]",
+            "expected_output": "5",
+            "is_sample": false
+        },
+        {
+            "input": "[[10,10],[5,5]]\n[[6,6],[7,7],[9,9]]",
+            "expected_output": "3",
+            "is_sample": false
+        },
+        {
+            "input": "[[1000,1000],[-1000,-1000]]\n[[-999,-999],[0,500],[999,999]]",
+            "expected_output": "3",
+            "is_sample": false
+        },
+        {
+            "input": "[[10,10],[0,0]]\n[[0,0],[10,0],[0,10],[10,10],[5,5]]",
+            "expected_output": "5",
+            "is_sample": false
+        },
+        {
+            "input": "[[1000,0],[-1000,0]]\n[[-500,0],[0,0],[500,0]]",
+            "expected_output": "3",
+            "is_sample": false
+        },
+        {
+            "input": "[[0,1000],[0,-1000]]\n[[0,-500],[0,0],[0,500]]",
+            "expected_output": "3",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Divide and Conquer",
+        "Interactive"
+    ],
+    "companyIndex": 24
+}

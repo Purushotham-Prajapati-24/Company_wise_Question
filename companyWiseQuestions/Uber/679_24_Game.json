@@ -1,0 +1,89 @@
+{
+    "question_text": "<h3>24 Game</h3><p>You are given an integer array <code>cards</code> of length <code>4</code>. You have four cards, each containing a number in the range <code>[1, 9]</code>. You should use the operators <code>+</code>, <code>-</code>, <code>*</code>, and <code>/</code> to evaluate a mathematical expression. You want to know if you can get the value <code>24</code>.</p>\n\n<ul>\n\t<li>Every card must be used exactly once.</li>\n\t<li>You may only use each operator once.</li>\n\t<li>Division is real division, not integer division. For example, <code>4 / (1 - 2/3) = 12</code>.</li>\n</ul>\n\n<p><strong>Constraints:</strong></p>\n<ul>\n\t<li><code>cards.length == 4</code></li>\n\t<li><code>1 &lt;= cards[i] &lt;= 9</code></li>\n</ul>",
+    "difficulty": "HARD",
+    "marks": 15,
+    "input_format": "An integer array cards of exactly 4 integers, each between 1 and 9.",
+    "output_format": "true if it is possible to compute 24 using the 4 numbers and arithmetic operations, false otherwise.",
+    "constraints": [
+        "cards.length == 4",
+        "1 <= cards[i] <= 9"
+    ],
+    "explanation": "<h4>Backtracking over all Permutations and Operations</h4><p>Try all permutations of the 4 numbers and all combinations of 3 operators among +,-,*,/. Use backtracking: at each step pick two operands from the remaining list, apply one of 4 operations, and recurse with the resulting list of remaining numbers. Base case: if one number remains and equals 24 (within epsilon), return true.</p><p><strong>Time:</strong> O(4! × 4^3) = constant. <strong>Space:</strong> O(1).</p>",
+    "answer": "from itertools import permutations\n\ndef judgePoint24(cards):\n    EPS = 1e-6\n    ops = [lambda a,b: a+b, lambda a,b: a-b, lambda a,b: a*b, lambda a,b: a/b if b else None]\n    \n    def dfs(nums):\n        if len(nums) == 1:\n            return abs(nums[0] - 24) < EPS\n        for i in range(len(nums)):\n            for j in range(len(nums)):\n                if i == j: continue\n                rest = [nums[k] for k in range(len(nums)) if k != i and k != j]\n                for op in ops:\n                    result = op(nums[i], nums[j])\n                    if result is None: continue\n                    if dfs(rest + [result]): return True\n        return False\n    \n    return dfs([float(c) for c in cards])",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 679 24 Game here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[4,1,8,7]",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "[1,2,1,2]",
+            "expected_output": "false",
+            "is_sample": true
+        },
+        {
+            "input": "[1,1,1,1]",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "[8,8,3,8]",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "[1,3,4,6]",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "[5,5,5,1]",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "[9,9,9,9]",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "[3,3,8,8]",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "[2,2,2,2]",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "[4,4,4,4]",
+            "expected_output": "true",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Math",
+        "Backtracking"
+    ],
+    "companyIndex": 8
+}

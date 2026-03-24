@@ -1,0 +1,90 @@
+{
+    "question_text": "<p>Given two arrays of strings <code>list1</code> and <code>list2</code>, find the <strong>common strings with the least index sum</strong>.</p>\n\n<p>A <strong>common string</strong> is a string that appeared in both <code>list1</code> and <code>list2</code>.</p>\n\n<p>A <strong>common string with the least index sum</strong> is a common string such that if it appeared at <code>list1[i]</code> and <code>list2[j]</code> then <code>i + j</code> should be the minimum value among all the other <strong>common strings</strong>.</p>\n\n<p>Return <em>all the <strong>common strings with the least index sum</strong></em>. Return the answer in <strong>any order</strong>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> list1 = [&quot;Shogun&quot;,&quot;Tapioca Express&quot;,&quot;Burger King&quot;,&quot;KFC&quot;], list2 = [&quot;Piatti&quot;,&quot;The Grill at Torrey Pines&quot;,&quot;Hungry Hunter Steakhouse&quot;,&quot;Shogun&quot;]\n<strong>Output:</strong> [&quot;Shogun&quot;]\n<strong>Explanation:</strong> The only common string is &quot;Shogun&quot;.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> list1 = [&quot;Shogun&quot;,&quot;Tapioca Express&quot;,&quot;Burger King&quot;,&quot;KFC&quot;], list2 = [&quot;KFC&quot;,&quot;Shogun&quot;,&quot;Burger King&quot;]\n<strong>Output:</strong> [&quot;Shogun&quot;]\n<strong>Explanation:</strong> The common string with the least index sum is &quot;Shogun&quot; with index sum = (0 + 1) = 1.\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> list1 = [&quot;happy&quot;,&quot;sad&quot;,&quot;good&quot;], list2 = [&quot;sad&quot;,&quot;happy&quot;,&quot;good&quot;]\n<strong>Output:</strong> [&quot;sad&quot;,&quot;happy&quot;]\n<strong>Explanation:</strong> There are three common strings:\n&quot;happy&quot; with index sum = (0 + 1) = 1.\n&quot;sad&quot; with index sum = (1 + 0) = 1.\n&quot;good&quot; with index sum = (2 + 2) = 4.\nThe strings with the least index sum are &quot;sad&quot; and &quot;happy&quot;.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= list1.length, list2.length &lt;= 1000</code></li>\n\t<li><code>1 &lt;= list1[i].length, list2[i].length &lt;= 30</code></li>\n\t<li><code>list1[i]</code> and <code>list2[i]</code> consist of spaces <code>&#39; &#39;</code> and English letters.</li>\n\t<li>All the strings of <code>list1</code> are <strong>unique</strong>.</li>\n\t<li>All the strings of <code>list2</code> are <strong>unique</strong>.</li>\n\t<li>There is at least a common string between <code>list1</code> and <code>list2</code>.</li>\n</ul>\n",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "First line: space-separated strings of list1. Second line: space-separated strings of list2.",
+    "output_format": "Space-separated common strings with minimum index sum.",
+    "constraints": [
+        "1 <= list1.length, list2.length <= 1000",
+        "1 <= list1[i].length, list2[i].length <= 30",
+        "All strings in each list are unique."
+    ],
+    "explanation": "Build an index map for list1. Iterate list2, for each common element compute sum of indices. Track the minimum index sum and collect all strings achieving it.",
+    "answer": "def solve(list1_str, list2_str):\n    list1 = list1_str.split(); list2 = list2_str.split()\n    idx1 = {v: i for i, v in enumerate(list1)}\n    best = float('inf'); res = []\n    for j, v in enumerate(list2):\n        if v in idx1:\n            total = idx1[v] + j\n            if total < best: best = total; res = [v]\n            elif total == best: res.append(v)\n    return ' '.join(res)",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(l1, l2):\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().splitlines()\n    print(solve(data[0].strip(), data[1].strip() if len(data) > 1 else ''))",
+        "cpp": "#include <iostream>\n#include <string>\n#include <unordered_map>\nusing namespace std;\nint main() { return 0; }",
+        "java": "import java.util.*;\npublic class Main { public static void main(String[] args) {} }",
+        "javascript": "const fs = require('fs');\nconst input = fs.readFileSync(0, 'utf-8').trim().split('\\n');",
+        "c": "#include <stdio.h>\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "Shogun Tapioca Express Burger King KFC\nPiatti The Grill at Torrey Pines Hungry Hunter Steakhouse Shogun",
+            "expected_output": "Shogun",
+            "is_sample": true
+        },
+        {
+            "input": "Shogun Tapioca Express Burger King KFC\nKFC Shogun Burger King",
+            "expected_output": "Shogun",
+            "is_sample": true
+        },
+        {
+            "input": "happy sad good\ngood sad happy",
+            "expected_output": "happy",
+            "is_sample": false
+        },
+        {
+            "input": "a b c\na b c",
+            "expected_output": "a",
+            "is_sample": false
+        },
+        {
+            "input": "abc\nabc",
+            "expected_output": "abc",
+            "is_sample": false
+        },
+        {
+            "input": "a b\nc d",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "z y\nz y",
+            "expected_output": "z",
+            "is_sample": false
+        },
+        {
+            "input": "apple banana cherry\napple mango cherry",
+            "expected_output": "apple",
+            "is_sample": false
+        },
+        {
+            "input": "a b c d e f g h i j k\nz x c v b n m a s d f",
+            "expected_output": "a",
+            "is_sample": false
+        },
+        {
+            "input": "a b c\nb a c",
+            "expected_output": "a b",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Hash Table",
+        "String"
+    ],
+    "companyIndex": 12
+}

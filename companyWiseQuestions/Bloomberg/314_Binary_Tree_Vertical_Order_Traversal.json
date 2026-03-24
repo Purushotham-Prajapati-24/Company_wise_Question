@@ -1,0 +1,92 @@
+{
+    "question_text": "<h3>314. Binary Tree Vertical Order Traversal</h3>\n<p>Given the <code>root</code> of a binary tree, return <em>the vertical order traversal of its nodes' values</em>. (i.e., from top to bottom, column by column).</p>\n<p>If two nodes are in the same row and column, the order should be from <strong>left to right</strong>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img src=\"https://assets.leetcode.com/uploads/2021/01/29/vtree1.jpg\" style=\"width: 282px; height: 301px;\"/>\n<pre>\n<strong>Input:</strong> root = [3,9,20,null,null,15,7]\n<strong>Output:</strong> [[9],[3,15],[20],[7]]\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n<img src=\"https://assets.leetcode.com/uploads/2021/01/29/vtree2.jpg\" style=\"width: 462px; height: 222px;\"/>\n<pre>\n<strong>Input:</strong> root = [3,9,8,4,0,1,7]\n<strong>Output:</strong> [[4],[9],[3,0,1],[8],[7]]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n<ul>\n    <li>The number of nodes in the tree is in the range <code>[0, 100]</code>.</li>\n    <li><code>-100 &lt;= Node.val &lt;= 100</code></li>\n</ul>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Root of binary tree",
+    "output_format": "Vertical order traversal columns",
+    "constraints": [
+        "0 to 100 nodes",
+        "-100 <= Node.val <= 100"
+    ],
+    "explanation": "BFS tracking column for each node. Group nodes by column and keep row order within each column.",
+    "answer": "from collections import defaultdict, deque\n\ndef verticalOrder(root):\n    if not root: return []\n    col_map = defaultdict(list)\n    q = deque([(root, 0)])\n    while q:\n        node, col = q.popleft()\n        col_map[col].append(node.val)\n        if node.left: q.append((node.left, col-1))\n        if node.right: q.append((node.right, col+1))\n    return [col_map[c] for c in sorted(col_map)]",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Binary Tree Vertical Order Traversal here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static Object solve() { return null; }\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[3,9,20,null,null,15,7]",
+            "expected_output": "[[9],[3,15],[20],[7]]",
+            "is_sample": true
+        },
+        {
+            "input": "[3,9,8,4,0,1,7]",
+            "expected_output": "[[4],[9],[3,0,1],[8],[7]]",
+            "is_sample": true
+        },
+        {
+            "input": "[]",
+            "expected_output": "[]",
+            "is_sample": false
+        },
+        {
+            "input": "[1]",
+            "expected_output": "[[1]]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3]",
+            "expected_output": "[[2],[1],[3]]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,null,2,null,null,null,3]",
+            "expected_output": "[[1],[2],[3]]",
+            "is_sample": false
+        },
+        {
+            "input": "[3,9,8,4,0,1,7,null,null,null,2,5]",
+            "expected_output": "[[4],[9,5],[3,0,1],[8,2],[7]]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]",
+            "expected_output": "[[8],[4],[2,9,10],[1,5,6],[3,11,12],[7],[13,14],[15]]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,null,2,null,null,null,3,null,null,null,null,null,null,null,4]",
+            "expected_output": "[[1],[2],[3],[4]]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,null,3,null,4]",
+            "expected_output": "[[3],[4],[2],[1]]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Hash Table",
+        "Tree",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Sorting",
+        "Binary Tree"
+    ],
+    "companyIndex": 24
+}

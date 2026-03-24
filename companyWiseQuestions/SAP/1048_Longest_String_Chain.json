@@ -1,0 +1,91 @@
+{
+  "question_text": "<h3>Longest String Chain</h3><p>Find the length of the longest possible word chain where each word is a predecessor of the next (successor has one more character than predecessor).</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "List of words.",
+  "output_format": "Int.",
+  "constraints": [
+    "words.length <= 1000",
+    "word.length <= 16"
+  ],
+  "explanation": "Sort words by length. For each word, generate all possible predecessors by removing one character and look them up in a DP map. `dp[word] = max(dp[prev]) + 1`. The answer is the maximum value in `dp`.",
+  "answer": "def longestStrChain(words):\n    dp = {}\n    for w in sorted(words, key=len):\n        dp[w] = 1\n        for i in range(len(w)):\n            prev = w[:i] + w[i+1:]\n            if prev in dp: dp[w] = max(dp[w], dp[prev] + 1)\n    return max(dp.values())",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 1048 Longest String Chain here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"a\",\"b\",\"ba\",\"bca\",\"bda\",\"bdca\"]",
+      "expected_output": "4",
+      "is_sample": true
+    },
+    {
+      "input": "[\"xbc\",\"pcxbcf\",\"xb\",\"cxbc\",\"pcxbc\"]",
+      "expected_output": "5",
+      "is_sample": true
+    },
+    {
+      "input": "[\"abcd\",\"dbqca\"]",
+      "expected_output": "1",
+      "is_sample": true
+    },
+    {
+      "input": "[\"a\"]",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "[\"a\",\"b\",\"c\"]",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "[\"a\",\"ab\",\"abc\",\"abcd\"]",
+      "expected_output": "4",
+      "is_sample": false
+    },
+    {
+      "input": "[\"ba\",\"a\",\"abc\"]",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "[\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\",\"aaaaaaaaa\",\"aaaaaaaaaa\",\"aaaaaaaaaaa\",\"aaaaaaaaaaaa\",\"aaaaaaaaaaaaa\",\"aaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaa\",\"aaaaaaaaaaaaaaaa\",\"a\",\"aa\",\"aaa\",\"aaaa\",\"aaaaa\",\"aaaaaa\",\"aaaaaaa\",\"aaaaaaaa\"]",
+      "expected_output": "16",
+      "is_sample": false
+    },
+    {
+      "input": "[\"abcde\",\"abcd\",\"abc\",\"ab\",\"a\"]",
+      "expected_output": "5",
+      "is_sample": false
+    },
+    {
+      "input": "[\"pqrst\",\"pqr s\",\"pqr\",\"pq\",\"p\"]",
+      "expected_output": "",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Hash Table",
+    "Two Pointers",
+    "String",
+    "Dynamic Programming"
+  ],
+  "companyIndex": 16
+}

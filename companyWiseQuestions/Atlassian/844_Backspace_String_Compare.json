@@ -1,0 +1,89 @@
+{
+    "question_text": "<h3>Backspace String Compare</h3><p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if they are equal when both are typed into empty text editors. <code>'#'</code> means a backspace character.</p><p>Note that after backspacing an empty text, the text will continue empty.</p>",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "First line: string s. Second line: string t.",
+    "output_format": "Print \"true\" if the two strings are equal after processing, else \"false\".",
+    "constraints": [
+        "1 <= s.length, t.length <= 200",
+        "s and t only contain lowercase letters and '#' characters."
+    ],
+    "explanation": "The optimal O(N) time, O(1) space solution uses two pointers that traverse from the right end of each string. We maintain a \"skip\" counter for each string: when we see a '#', we increment the skip count; when we see a letter and skip > 0, we skip it (decrement skip); when we see a letter and skip == 0, this is the effective character. We compare the effective characters from both strings simultaneously. If at any point they differ, return false. If both pointers reach the start without mismatch, return true.",
+    "answer": "def solve(s, t):\n    def process(string):\n        stack = []\n        for c in string:\n            if c != '#': stack.append(c)\n            elif stack: stack.pop()\n        return ''.join(stack)\n    return process(s) == process(t)",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(s1, s2):\n    return False\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    if len(lines) >= 2:\n        print(str(solve(lines[0].strip(), lines[1].strip())).lower())",
+        "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\n\nbool solve(string s1, string s2) {\n    return false;\n}\n\nint main() {\n    string s1, s2;\n    if (getline(cin, s1) && getline(cin, s2))\n        cout << (solve(s1, s2) ? \"true\" : \"false\") << endl;\n    return 0;\n}",
+        "java": "import java.util.Scanner;\npublic class Main {\n    public static boolean solve(String s1, String s2) { return false; }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String s1 = sc.nextLine().trim();\n            if (sc.hasNextLine()) System.out.println(solve(s1, sc.nextLine().trim()));\n        }\n        sc.close();\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(s1, s2) { return false; }\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length >= 2) console.log(solve(input[0].trim(), input[1].trim()));",
+        "c": "#include <stdio.h>\n#include <string.h>\n#include <stdbool.h>\nbool solve(char* s1, char* s2) { return false; }\nint main() {\n    char s1[201], s2[201];\n    if (fgets(s1,sizeof(s1),stdin) && fgets(s2,sizeof(s2),stdin)) {\n        s1[strcspn(s1,\"\\n\")]=0; s2[strcspn(s2,\"\\n\")]=0;\n        printf(\"%s\\n\", solve(s1,s2) ? \"true\" : \"false\");\n    }\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "ab#c\nad#c",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "ab##\nc#d#",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "a#c\nb",
+            "expected_output": "false",
+            "is_sample": true
+        },
+        {
+            "input": "a\na",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "#\n#",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "a##\n#a#",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "bxj##tw\nbxo#j##tw",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa##################################################\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "abc#def#ghi#\nabc#def#ghi",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "a#b#c#d#e#f#g#h#i#j#\nz#y#x#w#v#u#t#s#r#q#",
+            "expected_output": "true",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "String",
+        "Stack",
+        "Two Pointers"
+    ],
+    "companyIndex": 23
+}

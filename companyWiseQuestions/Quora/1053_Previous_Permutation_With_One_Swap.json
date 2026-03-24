@@ -1,0 +1,87 @@
+{
+  "question_text": "<h3>Previous Permutation With One Swap</h3><p>Given an array of positive integers <code>arr</code> (not necessarily distinct), return <em>the </em><span data-keyword=\"lexicographically-smaller-array\"><em>lexicographically</em></span><em> largest permutation that is smaller than</em> <code>arr</code>, that can be <strong>made with exactly one swap</strong>. If it cannot be done, then return the same array.</p>\n\n<p><strong>Note</strong> that a <em>swap</em> exchanges the positions of two numbers <code>arr[i]</code> and <code>arr[j]</code></p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> arr = [3,2,1]\n<strong>Output:</strong> [3,1,2]\n<strong>Explanation:</strong> Swapping 2 and 1.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> arr = [1,1,5]\n<strong>Output:</strong> [1,1,5]\n<strong>Explanation:</strong> This is already the smallest permutation.\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> arr = [1,9,4,6,7]\n<strong>Output:</strong> [1,7,4,6,9]\n<strong>Explanation:</strong> Swapping 9 and 7.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= arr.length &lt;= 10<sup>4</sup></code></li>\n\t<li><code>1 &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>\n</ul>\n",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Array arr",
+  "output_format": "Modify array in place to largest permutation smaller than arr",
+  "constraints": [
+    "1 <= arr.length <= 10^4"
+  ],
+  "explanation": "Find first pair from right where arr[i] > arr[i+1]. Then find largest arr[j] < arr[i] with j > i (if multiple, pick smallest j). Swap i, j.",
+  "answer": "def prevPermOpt1(arr):\n    i = len(arr) - 2\n    while i >= 0 and arr[i] <= arr[i+1]: i -= 1\n    if i < 0: return arr\n    j = len(arr) - 1\n    while arr[j] >= arr[i] or arr[j] == arr[j-1]: j -= 1\n    arr[i], arr[j] = arr[j], arr[i]; return arr",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Previous Permutation With One Swap here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[3,2,1]",
+      "expected_output": "[3, 1, 2]",
+      "is_sample": true
+    },
+    {
+      "input": "[1,1,5]",
+      "expected_output": "[1, 1, 5]",
+      "is_sample": true
+    },
+    {
+      "input": "[1,9,4,6,7]",
+      "expected_output": "[1, 7, 4, 6, 9]",
+      "is_sample": false
+    },
+    {
+      "input": "[1]",
+      "expected_output": "[1]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,3]",
+      "expected_output": "[1, 2, 3]",
+      "is_sample": false
+    },
+    {
+      "input": "[10,50,40,30]",
+      "expected_output": "[10, 50, 30, 40]",
+      "is_sample": false
+    },
+    {
+      "input": "[10,50,40,40]",
+      "expected_output": "[10, 40, 50, 40]",
+      "is_sample": false
+    },
+    {
+      "input": "[2,1,1]",
+      "expected_output": "[1, 2, 1]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,3,4,5]",
+      "expected_output": "[1, 2, 3, 4, 5]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,3,4,5]",
+      "expected_output": "[1, 2, 3, 4, 5]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Greedy"
+  ],
+  "companyIndex": 26
+}

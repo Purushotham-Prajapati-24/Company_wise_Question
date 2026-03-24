@@ -1,0 +1,88 @@
+{
+    "id": "99",
+    "title": "Recover Binary Search Tree",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Space separated level order traversal.",
+    "output_format": "Corrected array.",
+    "constraints": [
+        "Tree height ~10"
+    ],
+    "explanation": "Standard tree. Format output correctly.",
+    "answer": "def solve(*args): return 'Placeholder'",
+    "boilerplate": {
+        "python": "print('Placeholder')",
+        "cpp": "#include <iostream>\\nusing namespace std;\\nint main() { return 0; }",
+        "java": "public class Main { public static void main(String[] args) {} }",
+        "javascript": "const fs = require('fs'); const input = fs.readFileSync(0, 'utf-8').trim().split('\\\\n');",
+        "c": "#include <stdio.h>\\nint main() { return 0; }"
+    },
+    "test_cases": [
+        {
+            "input": "1",
+            "expected_output": "Placeholder",
+            "is_sample": true
+        },
+        {
+            "input": "2",
+            "expected_output": "Placeholder",
+            "is_sample": true
+        },
+        {
+            "input": "3",
+            "expected_output": "Placeholder",
+            "is_sample": false
+        },
+        {
+            "input": "4",
+            "expected_output": "Placeholder",
+            "is_sample": false
+        },
+        {
+            "input": "5",
+            "expected_output": "Placeholder",
+            "is_sample": false
+        },
+        {
+            "input": "6",
+            "expected_output": "Placeholder",
+            "is_sample": false
+        },
+        {
+            "input": "7",
+            "expected_output": "Placeholder",
+            "is_sample": false
+        },
+        {
+            "input": "8",
+            "expected_output": "Placeholder",
+            "is_sample": false
+        },
+        {
+            "input": "9",
+            "expected_output": "Placeholder",
+            "is_sample": false
+        },
+        {
+            "input": "10",
+            "expected_output": "Placeholder",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Tree"
+    ],
+    "question_text": "<p>You are given the <code>root</code> of a binary search tree (BST), where the values of <strong>exactly</strong> two nodes of the tree were swapped by mistake. <em>Recover the tree without changing its structure</em>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2020/10/28/recover1.jpg\" style=\"width: 422px; height: 302px;\" />\n<pre>\n<strong>Input:</strong> root = [1,3,null,null,2]\n<strong>Output:</strong> [3,1,null,null,2]\n<strong>Explanation:</strong> 3 cannot be a left child of 1 because 3 &gt; 1. Swapping 1 and 3 makes the BST valid.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2020/10/28/recover2.jpg\" style=\"width: 581px; height: 302px;\" />\n<pre>\n<strong>Input:</strong> root = [3,1,4,null,null,2]\n<strong>Output:</strong> [2,1,4,null,null,3]\n<strong>Explanation:</strong> 2 cannot be in the right subtree of 3 because 2 &lt; 3. Swapping 2 and 3 makes the BST valid.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The number of nodes in the tree is in the range <code>[2, 1000]</code>.</li>\n\t<li><code>-2<sup>31</sup> &lt;= Node.val &lt;= 2<sup>31</sup> - 1</code></li>\n</ul>\n\n<p>&nbsp;</p>\n<strong>Follow up:</strong> A solution using <code>O(n)</code> space is pretty straight-forward. Could you devise a constant <code>O(1)</code> space solution?",
+    "companyIndex": 8,
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    }
+}

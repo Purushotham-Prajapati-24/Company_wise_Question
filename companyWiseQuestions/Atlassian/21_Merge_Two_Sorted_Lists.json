@@ -1,0 +1,89 @@
+{
+    "question_text": "<h3>Merge Two Sorted Lists</h3><p>You are given the heads of two sorted linked lists <code>list1</code> and <code>list2</code>.</p><p>Merge the two lists into one <b>sorted</b> list. The list should be made by splicing together the nodes of the first two lists.</p><p>Return the head of the merged linked list.</p>",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "First line: space-separated integers for list1 (use \"empty\" for empty list). Second line: space-separated integers for list2.",
+    "output_format": "A single line of space-separated integers representing the merged sorted list.",
+    "constraints": [
+        "The number of nodes in both lists is in the range [0, 50].",
+        "-100 <= Node.val <= 100",
+        "Both list1 and list2 are sorted in non-decreasing order."
+    ],
+    "explanation": "We use two pointers to merge iteratively (avoiding recursion stack overhead). We create a dummy head node. At each step, compare the current nodes of both lists and append the smaller one to our result list. After one list is exhausted, append the remainder of the other. This runs in O(N+M) time where N and M are the lengths of the two lists, and O(1) auxiliary space (excluding output). For competitive programming context, we simulate with arrays and output the merged sorted array.",
+    "answer": "def solve(a, b):\n    result = sorted(a + b)\n    return ' '.join(map(str, result)) if result else 'empty'",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(a, b):\n    result = sorted(a + b)\n    return ' '.join(map(str, result)) if result else 'empty'\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    a = [] if not lines or lines[0].strip() == 'empty' else list(map(int, lines[0].split()))\n    b = [] if len(lines) < 2 or lines[1].strip() == 'empty' else list(map(int, lines[1].split()))\n    print(solve(a, b))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <sstream>\nusing namespace std;\n\nint main() {\n    string line1, line2;\n    vector<int> a, b, res;\n    if (getline(cin, line1) && getline(cin, line2)) {\n        if (line1 != \"empty\") { stringstream ss(line1); int v; while(ss>>v) a.push_back(v); }\n        if (line2 != \"empty\") { stringstream ss(line2); int v; while(ss>>v) b.push_back(v); }\n    }\n    merge(a.begin(),a.end(),b.begin(),b.end(),back_inserter(res));\n    if (res.empty()) cout << \"empty\"; else for(int i=0;i<res.size();i++){if(i)cout<<' ';cout<<res[i];}\n    cout << endl;\n    return 0;\n}",
+        "java": "import java.util.*;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ArrayList<Integer> a = new ArrayList<>(), b = new ArrayList<>();\n        if (sc.hasNextLine()) {\n            String l = sc.nextLine().trim();\n            if (!l.equals(\"empty\")) for (String s : l.split(\"\\\\s+\")) a.add(Integer.parseInt(s));\n        }\n        if (sc.hasNextLine()) {\n            String l = sc.nextLine().trim();\n            if (!l.equals(\"empty\")) for (String s : l.split(\"\\\\s+\")) b.add(Integer.parseInt(s));\n        }\n        ArrayList<Integer> res = new ArrayList<>(a); res.addAll(b); Collections.sort(res);\n        if (res.isEmpty()) System.out.println(\"empty\");\n        else { StringBuilder sb = new StringBuilder(); for (int i=0;i<res.size();i++){if(i>0)sb.append(' ');sb.append(res.get(i));} System.out.println(sb); }\n    }\n}",
+        "javascript": "const fs = require('fs');\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nconst a = (!input[0] || input[0].trim()==='empty') ? [] : input[0].trim().split(/\\s+/).map(Number);\nconst b = (!input[1] || input[1].trim()==='empty') ? [] : input[1].trim().split(/\\s+/).map(Number);\nconst res = [...a, ...b].sort((x,y)=>x-y);\nconsole.log(res.length ? res.join(' ') : 'empty');",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\nint cmp(const void*a,const void*b){return *(int*)a-*(int*)b;}\nint main() {\n    int arr[200], n=0;\n    char buf[1024];\n    for(int l=0;l<2;l++) {\n        if(!fgets(buf,sizeof(buf),stdin)) break;\n        buf[strcspn(buf,\"\\n\")]=0;\n        if(strcmp(buf,\"empty\")==0) continue;\n        char*tok=strtok(buf,\" \");\n        while(tok){arr[n++]=atoi(tok);tok=strtok(NULL,\" \");}\n    }\n    if(n==0){printf(\"empty\\n\");return 0;}\n    qsort(arr,n,sizeof(int),cmp);\n    for(int i=0;i<n;i++){if(i)printf(\" \");printf(\"%d\",arr[i]);}printf(\"\\n\");\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "1 2 4\n1 3 4",
+            "expected_output": "1 1 2 3 4 4",
+            "is_sample": true
+        },
+        {
+            "input": "empty\nempty",
+            "expected_output": "empty",
+            "is_sample": true
+        },
+        {
+            "input": "empty\n0",
+            "expected_output": "0",
+            "is_sample": true
+        },
+        {
+            "input": "1\n2",
+            "expected_output": "1 2",
+            "is_sample": false
+        },
+        {
+            "input": "1 3 5\n2 4 6",
+            "expected_output": "1 2 3 4 5 6",
+            "is_sample": false
+        },
+        {
+            "input": "1 1 1\n1 1 1",
+            "expected_output": "1 1 1 1 1 1",
+            "is_sample": false
+        },
+        {
+            "input": "-100 -50 0\n-75 25 100",
+            "expected_output": "-100 -75 -50 0 25 100",
+            "is_sample": false
+        },
+        {
+            "input": "0 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48\n1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45 47 49",
+            "expected_output": "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 3 4 5 6 7 8 9 10\nempty",
+            "expected_output": "1 2 3 4 5 6 7 8 9 10",
+            "is_sample": false
+        },
+        {
+            "input": "-100\n100",
+            "expected_output": "-100 100",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Linked List",
+        "Recursion"
+    ],
+    "companyIndex": 23
+}

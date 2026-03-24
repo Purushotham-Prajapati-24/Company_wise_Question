@@ -1,0 +1,86 @@
+{
+  "question_text": "<p>Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string \"\".</p>",
+  "difficulty": "EASY",
+  "marks": 5,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply."
+  ],
+  "explanation": "FAANG-level explanation for Longest Common Prefix.",
+  "answer": "class Solution:\n    def solve(self, strs: List[str]) -> str:\n        if not strs: return \"\"\n        res = \"\"\n        strs.sort()\n        first, last = strs[0], strs[-1]\n        for i in range(min(len(first), len(last))):\n            if first[i] != last[i]: return res\n            res += first[i]\n        return res",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "flower' 'flow' 'flight",
+      "expected_output": "fl",
+      "is_sample": true
+    },
+    {
+      "input": "dog' 'racecar' 'car",
+      "expected_output": "''",
+      "is_sample": true
+    },
+    {
+      "input": "apple'  'ape'  'april",
+      "expected_output": "ap",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "''",
+      "is_sample": false
+    },
+    {
+      "input": "a",
+      "expected_output": "a",
+      "is_sample": false
+    },
+    {
+      "input": "abc'  'abc'  'abc",
+      "expected_output": "abc",
+      "is_sample": false
+    },
+    {
+      "input": "ab'  'a",
+      "expected_output": "a",
+      "is_sample": false
+    },
+    {
+      "input": "a'*200]*200",
+      "expected_output": "'a'*200",
+      "is_sample": false
+    },
+    {
+      "input": "a'*200  'a'*199+'b'  'b",
+      "expected_output": "''",
+      "is_sample": false
+    },
+    {
+      "input": "prefix'+str(i) for i in range(200)",
+      "expected_output": "prefix",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Strings"
+  ],
+  "companyIndex": 3
+}

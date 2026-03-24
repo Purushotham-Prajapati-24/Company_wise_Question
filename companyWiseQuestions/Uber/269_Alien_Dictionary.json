@@ -1,0 +1,91 @@
+{
+    "question_text": "<h3>Alien Dictionary</h3>null",
+    "difficulty": "HARD",
+    "marks": 15,
+    "input_format": "Array of words",
+    "output_format": "String representing alien topological order",
+    "constraints": [
+        "1 <= words.length <= 100",
+        "1 <= words[i].length <= 100",
+        "words[i] consists of only English lowercase"
+    ],
+    "explanation": "Create a graph mapping preceding letters to succeeding ones. Perform topological sort and check for cycles.",
+    "answer": "def alienOrder(words):\n    adj = {c: set() for w in words for c in w}\n    for i in range(len(words) - 1):\n        w1, w2 = words[i], words[i + 1]\n        minLen = min(len(w1), len(w2))\n        if len(w1) > len(w2) and w1[:minLen] == w2[:minLen]: return \"\"\n        for j in range(minLen):\n            if w1[j] != w2[j]:\n                adj[w1[j]].add(w2[j])\n                break\n    visit = {}\n    res = []\n    def dfs(c):\n        if c in visit: return visit[c]\n        visit[c] = True\n        for nei in adj[c]:\n            if dfs(nei): return True\n        visit[c] = False\n        res.append(c)\n        return False\n    for c in adj:\n        if dfs(c): return \"\"\n    res.reverse()\n    return \"\".join(res)",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef alienOrder(*args):\n    # Python optimum solution exclusively\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if not input_data or input_data == ['']: sys.exit(0)\n    parsed_args = [json.loads(line) for line in input_data]\n    print(json.dumps(alienOrder(*parsed_args)).replace(' ', ''))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint alienOrder() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Basic standard IO loop parser\n    string line;\n    while (getline(cin, line)) {\n        // Parse line into arguments and call solve\n    }\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object alienOrder() {\n        // User logic should be written here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {\n            // Parse line into arguments\n        }\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction alienOrder(...args) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    const parsedArgs = input.map(line => JSON.parse(line));\n    console.log(JSON.stringify(alienOrder(...parsedArgs)));\n}\n\nmodule.exports = alienOrder;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint alienOrder() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Standard C IO loop\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[\"wrt\",\"wrf\",\"er\",\"ett\",\"rftt\"]",
+            "expected_output": "\"wertf\"",
+            "is_sample": true
+        },
+        {
+            "input": "[\"z\",\"x\"]",
+            "expected_output": "\"zx\"",
+            "is_sample": true
+        },
+        {
+            "input": "[\"z\",\"x\",\"z\"]",
+            "expected_output": "\"\"",
+            "is_sample": false
+        },
+        {
+            "input": "[\"abc\",\"ab\"]",
+            "expected_output": "\"\"",
+            "is_sample": false
+        },
+        {
+            "input": "[\"a\",\"b\",\"ca\",\"cc\"]",
+            "expected_output": "\"abc\"",
+            "is_sample": false
+        },
+        {
+            "input": "[\"zy\",\"zx\"]",
+            "expected_output": "\"yxz\"",
+            "is_sample": false
+        },
+        {
+            "input": "[\"a\",\"ba\",\"bc\",\"c\"]",
+            "expected_output": "\"abc\"",
+            "is_sample": false
+        },
+        {
+            "input": "[\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"]",
+            "expected_output": "\"ab\"",
+            "is_sample": false
+        },
+        {
+            "input": "[\"z\",\"y\",\"x\",\"w\",\"v\",\"u\",\"t\",\"s\",\"r\",\"q\",\"p\",\"o\",\"n\",\"m\",\"l\",\"k\",\"j\",\"i\",\"h\",\"g\",\"f\",\"e\",\"d\",\"c\",\"b\",\"a\"]",
+            "expected_output": "\"zyxwvutsrqponmlkjihgfedcba\"",
+            "is_sample": false
+        },
+        {
+            "input": "[\"z\",\"x\",\"a\",\"zb\",\"zc\"]",
+            "expected_output": "\"\"",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Arrays",
+        "Graphs",
+        "Topological Sort",
+        "Strings"
+    ],
+    "companyIndex": 8
+}

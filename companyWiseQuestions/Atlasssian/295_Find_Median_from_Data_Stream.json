@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Find Median from Data Stream</h3><p>Find median of elements added so far.</p>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Operations (addNum, findMedian).",
+  "output_format": "Double medians.",
+  "constraints": [
+    "operations <= 5*10^4"
+  ],
+  "explanation": "Maintain two heaps: a max-heap for the smaller half and a min-heap for the larger half.",
+  "answer": "class MedianFinder:\n    def __init__(self): self.small, self.large = [], []\n    def addNum(self, num):\n        if len(self.small) == len(self.large): heapq.heappush(self.large, -heapq.heappushpop(self.small, -num))\n        else: heapq.heappush(self.small, -heapq.heappushpop(self.large, num))\n    def findMedian(self):\n        if len(self.small) == len(self.large): return (self.large[0] - self.small[0]) / 2.0\n        else: return float(self.large[0])",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 295 Find Median from Data Stream here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"addNum\",\"addNum\",\"findMedian\",\"addNum\",\"findMedian\"]\n[[1],[2],[],[3],[]]",
+      "expected_output": "[null,null,1.5,null,2.0]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"addNum\",\"findMedian\"]\n[[1],[]]",
+      "expected_output": "[null,1.0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"addNum\",\"addNum\",\"addNum\",\"findMedian\"]\n[[10],[20],[30],[]]",
+      "expected_output": "[null,null,null,20.0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"addNum\",\"addNum\",\"findMedian\"]\n[[1],[1],[]]",
+      "expected_output": "[null,null,1.0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"addNum\",\"addNum\",\"addNum\",\"addNum\",\"findMedian\"]\n[[1],[2],[3],[4],[]]",
+      "expected_output": "[null,null,null,null,2.5]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"addNum\",\"addNum\",\"addNum\",\"addNum\",\"addNum\",\"findMedian\"]\n[[1],[2],[3],[4],[5],[]]",
+      "expected_output": "[null,null,null,null,null,3.0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"addNum\",\"addNum\",\"findMedian\"]\n[[-1],[-2],[]]",
+      "expected_output": "[null,null,-1.5]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"addNum\",\"addNum\",\"findMedian\"]\n[[100000],[0],[]]",
+      "expected_output": "[null,null,50000.0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"addNum\",\"addNum\",\"addNum\",\"findMedian\"]\n[[1],[0],[0],[]]",
+      "expected_output": "[null,null,null,0.0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"addNum\",\"addNum\",\"addNum\",\"findMedian\"]\n[[0],[0],[1],[]]",
+      "expected_output": "[null,null,null,0.0]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Two Heaps",
+    "Design",
+    "Sorting",
+    "Heap (Priority Queue)",
+    "Data Stream"
+  ],
+  "companyIndex": 23
+}

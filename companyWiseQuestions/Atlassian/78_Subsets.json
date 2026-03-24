@@ -1,0 +1,90 @@
+{
+    "question_text": "<h3>Subsets</h3><p>Given an integer array <code>nums</code> of <b>unique</b> elements, return <i>all possible subsets</i> (the power set).</p><p>The solution set <b>must not</b> contain duplicate subsets. Return the solution in <b>any order</b>.</p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "A single line of space-separated integers.",
+    "output_format": "The count of all possible subsets (2^n).",
+    "constraints": [
+        "1 <= nums.length <= 10",
+        "-10 <= nums[i] <= 10",
+        "All the numbers of nums are unique."
+    ],
+    "explanation": "The total number of subsets for an array of n elements is always 2^n. This is because for each element, we independently choose to include or exclude it. We verify correctness by generating all subsets using backtracking: start with an empty subset, and at each step either include or skip the current element. The count of generated subsets serves as our answer. This confirms the mathematical formula while demonstrating the backtracking approach. O(N * 2^N) time, O(N) recursion space.",
+    "answer": "def solve(nums):\n    res = []\n    def bt(start, path):\n        res.append(path[:])\n        for i in range(start, len(nums)):\n            path.append(nums[i])\n            bt(i+1, path)\n            path.pop()\n    bt(0, [])\n    return len(res)",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(arr):\n    # User logic here\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().split()\n    if not input_data: sys.exit(0)\n    arr = list(map(int, input_data))\n    print(solve(arr))",
+        "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint solve(vector<int>& arr) {\n    return 0;\n}\n\nint main() {\n    int val;\n    vector<int> arr;\n    while (cin >> val) arr.push_back(val);\n    cout << solve(arr) << endl;\n    return 0;\n}",
+        "java": "import java.util.ArrayList;\nimport java.util.Scanner;\n\npublic class Main {\n    public static int solve(int[] arr) {\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ArrayList<Integer> list = new ArrayList<>();\n        while (sc.hasNextInt()) list.add(sc.nextInt());\n        int[] arr = new int[list.size()];\n        for (int i = 0; i < list.size(); i++) arr[i] = list.get(i);\n        System.out.println(solve(arr));\n        sc.close();\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve(arr) {\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split(/\\s+/);\nif (input.length > 0 && input[0] !== '') {\n    const arr = input.map(Number);\n    console.log(solve(arr));\n}",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint solve(int* arr, int n) {\n    return 0;\n}\n\nint main() {\n    int capacity = 1000;\n    int* arr = (int*)malloc(capacity * sizeof(int));\n    int n = 0, val;\n    while (scanf(\"%d\", &val) == 1) {\n        if (n == capacity) { capacity *= 2; arr = (int*)realloc(arr, capacity * sizeof(int)); }\n        arr[n++] = val;\n    }\n    printf(\"%d\\n\", solve(arr, n));\n    free(arr);\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "1 2 3",
+            "expected_output": "8",
+            "is_sample": true
+        },
+        {
+            "input": "0",
+            "expected_output": "2",
+            "is_sample": true
+        },
+        {
+            "input": "1",
+            "expected_output": "2",
+            "is_sample": false
+        },
+        {
+            "input": "1 2",
+            "expected_output": "4",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 3 4",
+            "expected_output": "16",
+            "is_sample": false
+        },
+        {
+            "input": "5 6 7 8 9",
+            "expected_output": "32",
+            "is_sample": false
+        },
+        {
+            "input": "-1 0 1",
+            "expected_output": "8",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 3 4 5 6 7 8 9 10",
+            "expected_output": "1024",
+            "is_sample": false
+        },
+        {
+            "input": "-10 -5 0 5 10",
+            "expected_output": "32",
+            "is_sample": false
+        },
+        {
+            "input": "1 3 5 7 9",
+            "expected_output": "32",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Backtracking",
+        "Bit Manipulation"
+    ],
+    "companyIndex": 23
+}

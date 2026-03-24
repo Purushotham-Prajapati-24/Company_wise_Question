@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>22 Generate Parentheses</h3><p><strong>Generate Parentheses</strong></p><p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply.",
+    "Time limit: 1s",
+    "Memory limit: 256MB"
+  ],
+  "explanation": "Use backtracking based on two rules: 1) You can only add an opening bracket if you have fewer than n open brackets. 2) You can only add a closing bracket if you have fewer closed brackets than open ones. Stop when you have n of each.",
+  "answer": "def solve(n: int) -> List[str]:\n    res = []\n    def backtrack(S = [], left = 0, right = 0):\n        if len(S) == 2 * n:\n            res.append(\"\".join(S))\n            return\n        if left < n:\n            S.append(\"(\")\n            backtrack(S, left + 1, right)\n            S.pop()\n        if right < left:\n            S.append(\")\")\n            backtrack(S, left, right + 1)\n            S.pop()\n    backtrack()\n    return res",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n\nint main() {\n    Solution sol;\n    sol.solve();\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n    public static void main(String[] args) {\n        new Solution().solve();\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "3",
+      "expected_output": "\"((()))\" \"(()())\" \"(())()\" \"()(())\" \"()()()\"",
+      "is_sample": true
+    },
+    {
+      "input": "1",
+      "expected_output": "\"()\"",
+      "is_sample": true
+    },
+    {
+      "input": "2",
+      "expected_output": "\"(())\" \"()()\"",
+      "is_sample": false
+    },
+    {
+      "input": "0",
+      "expected_output": "\"\"",
+      "is_sample": false
+    },
+    {
+      "input": "4",
+      "expected_output": "14 variants",
+      "is_sample": false
+    },
+    {
+      "input": "5",
+      "expected_output": "42 variants",
+      "is_sample": false
+    },
+    {
+      "input": "6",
+      "expected_output": "132 variants",
+      "is_sample": false
+    },
+    {
+      "input": "7",
+      "expected_output": "429 variants",
+      "is_sample": false
+    },
+    {
+      "input": "8",
+      "expected_output": "1430 variants",
+      "is_sample": false
+    },
+    {
+      "input": "3",
+      "expected_output": "((())) (()()) (())() ()(()) ()()()",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Recursion"
+  ],
+  "companyIndex": 2
+}

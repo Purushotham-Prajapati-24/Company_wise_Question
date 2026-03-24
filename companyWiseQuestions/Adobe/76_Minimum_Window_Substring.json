@@ -1,0 +1,86 @@
+{
+  "question_text": "<h3>Minimum Window Substring</h3><p>Given two strings `s` and `t` of lengths `m` and `n` respectively, return the minimum window substring of `s` such that every character in `t` (including duplicates) is included in the window. If there is no such substring, return the empty string `\"\"`.</p>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "1 <= N <= 10^5"
+  ],
+  "explanation": "We use a sliding window with two pointers. We expand the window until all characters of `t` are present, then contract it to find the minimum size. We use a frequency map to track character counts efficiently. O(N+M) time complexity.",
+  "answer": "class Solution:\n    def solve(self, s: str, t: str) -> str:\n        if not t or not s: return \"\"\n        dict_t = collections.Counter(t)\n        required = len(dict_t)\n        l, r = 0, 0\n        formed = 0\n        window_counts = {}\n        ans = float(\"inf\"), None, None\n        while r < len(s):\n            character = s[r]\n            window_counts[character] = window_counts.get(character, 0) + 1\n            if character in dict_t and window_counts[character] == dict_t[character]:\n                formed += 1\n            while l <= r and formed == required:\n                character = s[l]\n                if r - l + 1 < ans[0]:\n                    ans = (r - l + 1, l, r)\n                window_counts[character] -= 1\n                if character in dict_t and window_counts[character] < dict_t[character]:\n                    formed -= 1\n                l += 1\n            r += 1\n        return \"\" if ans[0] == float(\"inf\") else s[ans[1] : ans[2] + 1]",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "ADOBECODEBANC\nABC",
+      "expected_output": "\"BANC\"",
+      "is_sample": true
+    },
+    {
+      "input": "a\na",
+      "expected_output": "\"a\"",
+      "is_sample": true
+    },
+    {
+      "input": "a\naa",
+      "expected_output": "\"\"",
+      "is_sample": false
+    },
+    {
+      "input": "abc\nd",
+      "expected_output": "\"\"",
+      "is_sample": false
+    },
+    {
+      "input": "ABAACBA\nABC",
+      "expected_output": "\"ACB\"",
+      "is_sample": false
+    },
+    {
+      "input": "aaabbbccc\nabc",
+      "expected_output": "\"abbbc\"",
+      "is_sample": false
+    },
+    {
+      "input": "a\"*100\na\"*10",
+      "expected_output": "\"a\"*10",
+      "is_sample": false
+    },
+    {
+      "input": "a\"*10**5\na",
+      "expected_output": "\"a\"",
+      "is_sample": false
+    },
+    {
+      "input": "(\"ab\"*50000)\naa",
+      "expected_output": "\"aba\"",
+      "is_sample": false
+    },
+    {
+      "input": "abcdefg\"*10000\ngfedcba",
+      "expected_output": "\"abcdefg\"",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Trees"
+  ],
+  "companyIndex": 6
+}

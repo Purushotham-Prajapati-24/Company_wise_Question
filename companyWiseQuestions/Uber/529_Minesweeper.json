@@ -1,0 +1,94 @@
+{
+    "id": "529",
+    "title": "Minesweeper",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "The first line contains M and N (dimensions). The next M lines contain the grid characters without spaces. The final line contains space-separated click coordinates [click[0], click[1]].",
+    "output_format": "Print the updated grid line by line.",
+    "constraints": [
+        "m == board.length",
+        "n == board[i].length",
+        "1 <= m, n <= 50",
+        "board[i][j] is either 'M', 'E', 'B', or a digit from '1' to '8'"
+    ],
+    "explanation": "If a mine ('M') is revealed, change to 'X' and stop. If an empty square ('E') is revealed with adjacent mines, change to digit of adjacent mines. If 'E' has no adjacent mines, change to 'B' and recursively reveal 8 neighbors using DFS/BFS.",
+    "answer": "def solve(board, click):\n    if board[click[0]][click[1]] == 'M':\n        board[click[0]][click[1]] = 'X'\n        return board\n    def dfs(r, c):\n        if r < 0 or r >= len(board) or c < 0 or c >= len(board[0]) or board[r][c] != 'E': return\n        mines = 0\n        for dr in [-1,0,1]:\n            for dc in [-1,0,1]:\n                if dr == 0 and dc == 0: continue\n                nr, nc = r + dr, c + dc\n                if 0 <= nr < len(board) and 0 <= nc < len(board[0]) and board[nr][nc] == 'M':\n                    mines += 1\n        if mines > 0:\n            board[r][c] = str(mines)\n        else:\n            board[r][c] = 'B'\n            for dr in [-1,0,1]:\n                for dc in [-1,0,1]:\n                    if dr == 0 and dc == 0: continue\n                    dfs(r + dr, c + dc)\n    dfs(click[0], click[1])\n    return '\\n'.join(''.join(row) for row in board)",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(board, click):\n    pass\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    m, n = map(int, lines[0].split())\n    board = [list(lines[i].strip()) for i in range(1, m + 1)]\n    click = list(map(int, lines[m + 1].split()))\n    print(solve(board, click))",
+        "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nvector<string> solve(vector<string>& board, vector<int>& click) { return board; }\nint main() {\n    int m, n; cin >> m >> n;\n    vector<string> b(m);\n    for(int i=0; i<m; i++) cin >> b[i];\n    int r, c; cin >> r >> c;\n    vector<string> res = solve(b, {r, c});\n    for(auto s : res) cout << s << endl;\n    return 0;\n}",
+        "java": "import java.util.*;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        // Impl\n    }\n}",
+        "javascript": "const fs = require('fs');\nconst input = fs.readFileSync(0, 'utf-8').trim().split('\\n');\n// Impl",
+        "c": "#include <stdio.h>\nint main() { return 0; }"
+    },
+    "test_cases": [
+        {
+            "input": "4 5\nEEEEE\nEEMEE\nEEEEE\nEEEEE\n3 0",
+            "expected_output": "B1E1B\nB1M1B\nB111B\nBBBBB",
+            "is_sample": true
+        },
+        {
+            "input": "4 5\nB1E1B\nB1M1B\nB111B\nBBBBB\n1 2",
+            "expected_output": "B1E1B\nB1X1B\nB111B\nBBBBB",
+            "is_sample": true
+        },
+        {
+            "input": "1 1\nM\n0 0",
+            "expected_output": "X",
+            "is_sample": false
+        },
+        {
+            "input": "2 2\nEM\nEE\n0 0",
+            "expected_output": "1M\nEE",
+            "is_sample": false
+        },
+        {
+            "input": "2 2\nEE\nEE\n0 0",
+            "expected_output": "BB\nBB",
+            "is_sample": false
+        },
+        {
+            "input": "3 3\nMMM\nMMM\nMMM\n1 1",
+            "expected_output": "MMM\nMXM\nMMM",
+            "is_sample": false
+        },
+        {
+            "input": "3 3\nMEM\nEEM\nEEM\n1 1",
+            "expected_output": "MEM\nE4M\nEEM",
+            "is_sample": false
+        },
+        {
+            "input": "5 5\nEEEEE\nEEEEE\nEEEEE\nEEEEE\nEEEEE\n2 2",
+            "expected_output": "BBBBB\nBBBBB\nBBBBB\nBBBBB\nBBBBB",
+            "is_sample": false
+        },
+        {
+            "input": "4 4\nMEME\nEMEM\nMEME\nEMEM\n1 1",
+            "expected_output": "MEME\nE4EM\nMEME\nEMEM",
+            "is_sample": false
+        },
+        {
+            "input": "3 5\nEEEEE\nEEMEE\nEEEEE\n0 0",
+            "expected_output": "B1E1B\nB1M1B\nB111B",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "DFS",
+        "BFS",
+        "Matrix"
+    ],
+    "question_text": "<p>Let&#39;s play the minesweeper game (<a href=\"https://en.wikipedia.org/wiki/Minesweeper_(video_game)\" target=\"_blank\">Wikipedia</a>, <a href=\"http://minesweeperonline.com\" target=\"_blank\">online game</a>)!</p>\n\n<p>You are given an <code>m x n</code> char matrix <code>board</code> representing the game board where:</p>\n\n<ul>\n\t<li><code>&#39;M&#39;</code> represents an unrevealed mine,</li>\n\t<li><code>&#39;E&#39;</code> represents an unrevealed empty square,</li>\n\t<li><code>&#39;B&#39;</code> represents a revealed blank square that has no adjacent mines (i.e., above, below, left, right, and all 4 diagonals),</li>\n\t<li>digit (<code>&#39;1&#39;</code> to <code>&#39;8&#39;</code>) represents how many mines are adjacent to this revealed square, and</li>\n\t<li><code>&#39;X&#39;</code> represents a revealed mine.</li>\n</ul>\n\n<p>You are also given an integer array <code>click</code> where <code>click = [click<sub>r</sub>, click<sub>c</sub>]</code> represents the next click position among all the unrevealed squares (<code>&#39;M&#39;</code> or <code>&#39;E&#39;</code>).</p>\n\n<p>Return <em>the board after revealing this position according to the following rules</em>:</p>\n\n<ol>\n\t<li>If a mine <code>&#39;M&#39;</code> is revealed, then the game is over. You should change it to <code>&#39;X&#39;</code>.</li>\n\t<li>If an empty square <code>&#39;E&#39;</code> with no adjacent mines is revealed, then change it to a revealed blank <code>&#39;B&#39;</code> and all of its adjacent unrevealed squares should be revealed recursively.</li>\n\t<li>If an empty square <code>&#39;E&#39;</code> with at least one adjacent mine is revealed, then change it to a digit (<code>&#39;1&#39;</code> to <code>&#39;8&#39;</code>) representing the number of adjacent mines.</li>\n\t<li>Return the board when no more squares will be revealed.</li>\n</ol>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img src=\"https://assets.leetcode.com/uploads/2023/08/09/untitled.jpeg\" style=\"width: 500px; max-width: 400px; height: 269px;\" />\n<pre>\n<strong>Input:</strong> board = [[&quot;E&quot;,&quot;E&quot;,&quot;E&quot;,&quot;E&quot;,&quot;E&quot;],[&quot;E&quot;,&quot;E&quot;,&quot;M&quot;,&quot;E&quot;,&quot;E&quot;],[&quot;E&quot;,&quot;E&quot;,&quot;E&quot;,&quot;E&quot;,&quot;E&quot;],[&quot;E&quot;,&quot;E&quot;,&quot;E&quot;,&quot;E&quot;,&quot;E&quot;]], click = [3,0]\n<strong>Output:</strong> [[&quot;B&quot;,&quot;1&quot;,&quot;E&quot;,&quot;1&quot;,&quot;B&quot;],[&quot;B&quot;,&quot;1&quot;,&quot;M&quot;,&quot;1&quot;,&quot;B&quot;],[&quot;B&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;B&quot;],[&quot;B&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;]]\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n<img src=\"https://assets.leetcode.com/uploads/2023/08/09/untitled-2.jpeg\" style=\"width: 489px; max-width: 400px; height: 269px;\" />\n<pre>\n<strong>Input:</strong> board = [[&quot;B&quot;,&quot;1&quot;,&quot;E&quot;,&quot;1&quot;,&quot;B&quot;],[&quot;B&quot;,&quot;1&quot;,&quot;M&quot;,&quot;1&quot;,&quot;B&quot;],[&quot;B&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;B&quot;],[&quot;B&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;]], click = [1,2]\n<strong>Output:</strong> [[&quot;B&quot;,&quot;1&quot;,&quot;E&quot;,&quot;1&quot;,&quot;B&quot;],[&quot;B&quot;,&quot;1&quot;,&quot;X&quot;,&quot;1&quot;,&quot;B&quot;],[&quot;B&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;B&quot;],[&quot;B&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;,&quot;B&quot;]]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>m == board.length</code></li>\n\t<li><code>n == board[i].length</code></li>\n\t<li><code>1 &lt;= m, n &lt;= 50</code></li>\n\t<li><code>board[i][j]</code> is either <code>&#39;M&#39;</code>, <code>&#39;E&#39;</code>, <code>&#39;B&#39;</code>, or a digit from <code>&#39;1&#39;</code> to <code>&#39;8&#39;</code>.</li>\n\t<li><code>click.length == 2</code></li>\n\t<li><code>0 &lt;= click<sub>r</sub> &lt; m</code></li>\n\t<li><code>0 &lt;= click<sub>c</sub> &lt; n</code></li>\n\t<li><code>board[click<sub>r</sub>][click<sub>c</sub>]</code> is either <code>&#39;M&#39;</code> or <code>&#39;E&#39;</code>.</li>\n</ul>\n",
+    "companyIndex": 8,
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    }
+}

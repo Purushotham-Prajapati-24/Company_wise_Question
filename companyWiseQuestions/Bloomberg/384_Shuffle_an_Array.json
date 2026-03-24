@@ -1,0 +1,91 @@
+{
+    "question_text": "<p>Given an integer array <code>nums</code>, design an algorithm to randomly shuffle the array. All permutations of the array should be <strong>equally likely</strong> as a result of the shuffling.</p>\n\n<p>Implement the <code>Solution</code> class:</p>\n\n<ul>\n\t<li><code>Solution(int[] nums)</code> Initializes the object with the integer array <code>nums</code>.</li>\n\t<li><code>int[] reset()</code> Resets the array to its original configuration and returns it.</li>\n\t<li><code>int[] shuffle()</code> Returns a random shuffling of the array.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input</strong>\n[&quot;Solution&quot;, &quot;shuffle&quot;, &quot;reset&quot;, &quot;shuffle&quot;]\n[[[1, 2, 3]], [], [], []]\n<strong>Output</strong>\n[null, [3, 1, 2], [1, 2, 3], [1, 3, 2]]\n\n<strong>Explanation</strong>\nSolution solution = new Solution([1, 2, 3]);\nsolution.shuffle();    // Shuffle the array [1,2,3] and return its result.\n                       // Any permutation of [1,2,3] must be equally likely to be returned.\n                       // Example: return [3, 1, 2]\nsolution.reset();      // Resets the array back to its original configuration [1,2,3]. Return [1, 2, 3]\nsolution.shuffle();    // Returns the random shuffling of array [1,2,3]. Example: return [1, 3, 2]\n\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= nums.length &lt;= 50</code></li>\n\t<li><code>-10<sup>6</sup> &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>\n\t<li>All the elements of <code>nums</code> are <strong>unique</strong>.</li>\n\t<li>At most <code>10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>reset</code> and <code>shuffle</code>.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Solution method calls and int[] nums",
+    "output_format": "Shuffled or reset arrays",
+    "constraints": [
+        "1 <= nums.length <= 50",
+        "-10^6 <= nums[i] <= 10^6",
+        "All elements of nums are unique",
+        "At most 10^4 calls"
+    ],
+    "explanation": "Fisher-Yates shuffle: iterate from end to start, swap each element with a random position up to and including current index.",
+    "answer": "import random\n\nclass Solution:\n    def __init__(self, nums):\n        self.original = nums[:]; self.nums = nums[:]\n    def reset(self):\n        self.nums = self.original[:]; return self.nums\n    def shuffle(self):\n        for i in range(len(self.nums)-1, 0, -1):\n            j = random.randint(0, i)\n            self.nums[i], self.nums[j] = self.nums[j], self.nums[i]\n        return self.nums",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Shuffle an Array here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <unordered_map>\n#include <algorithm>\nusing namespace std;\n\nint solve() {\n    return 0;\n}\n\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object solve() {\n        return null;\n    }\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve(...args) {\n    return 0;\n}\n\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint solve() {\n    return 0;\n}\n\nint main() {\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[\"Solution\",\"shuffle\",\"reset\",\"shuffle\"]\n[[[1,2,3]],[],[],[]]",
+            "expected_output": "[null,[some permutation of 1,2,3],[1,2,3],[some permutation of 1,2,3]]",
+            "is_sample": true
+        },
+        {
+            "input": "[\"Solution\",\"reset\"]\n[[[1]],[]]",
+            "expected_output": "[null,[1]]",
+            "is_sample": true
+        },
+        {
+            "input": "[\"Solution\",\"reset\",\"shuffle\",\"reset\"]\n[[[1,2]],[],[],[]]",
+            "expected_output": "[null,[1,2],null,[1,2]]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Solution\",\"shuffle\",\"shuffle\",\"reset\"]\n[[[1,2,3,4]],[],[],[]]",
+            "expected_output": "[null,null,null,[1,2,3,4]]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Solution\",\"reset\",\"reset\"]\n[[[5,10,15]],[],[]]",
+            "expected_output": "[null,[5,10,15],[5,10,15]]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Solution\",\"shuffle\",\"reset\"]\n[[[0,-1,1]],[],[]]",
+            "expected_output": "[null,null,[0,-1,1]]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Solution\",\"shuffle\",\"reset\",\"shuffle\",\"reset\"]\n[[[1000000,-1000000,0]],[],[],[],[]]",
+            "expected_output": "[null,null,[1000000,-1000000,0],null,[1000000,-1000000,0]]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Solution\",\"shuffle\",\"reset\"]\n[[[1]],[],[]]",
+            "expected_output": "[null,[1],[1]]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Solution\",\"shuffle\",\"shuffle\",\"shuffle\",\"reset\"]\n[[[1,2,3,4,5,6,7,8,9,10]],[],[],[],[]]",
+            "expected_output": "[null,null,null,null,[1,2,3,4,5,6,7,8,9,10]]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Solution\",\"shuffle\",\"reset\",\"shuffle\",\"reset\",\"shuffle\",\"reset\"]\n[[[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]],[],[],[],[],[],[]]",
+            "expected_output": "[null,null,[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],null,[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],null,[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Math",
+        "Randomized"
+    ],
+    "companyIndex": 24
+}

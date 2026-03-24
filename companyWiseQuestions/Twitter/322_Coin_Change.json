@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>Coin Change</h3>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Array coins and amount",
+  "output_format": "Min coins or -1",
+  "constraints": [
+    "1 <= coins.length <= 12",
+    "0 <= amount <= 10^4"
+  ],
+  "explanation": "DP: dp[i] is min coins for amount i. dp[i] = min(dp[i - c] + 1) for each c in coins.",
+  "answer": "def coinChange(coins, amount):\n    dp = [0] + [float('inf')]*amount\n    for x in range(1, amount+1):\n        for c in coins:\n            if x >= c: dp[x] = min(dp[x], dp[x-c]+1)\n    return dp[amount] if dp[amount] != float('inf') else -1",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Coin Change here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[1,2,5]\n11",
+      "expected_output": "3",
+      "is_sample": true
+    },
+    {
+      "input": "[2]\n3",
+      "expected_output": "-1",
+      "is_sample": true
+    },
+    {
+      "input": "[1]\n0",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,5,10]\n10000",
+      "expected_output": "1000",
+      "is_sample": false
+    },
+    {
+      "input": "[1]\n1",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "[5,10,20]\n7",
+      "expected_output": "-1",
+      "is_sample": false
+    },
+    {
+      "input": "[2,5]\n12",
+      "expected_output": "3",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,5]\n100",
+      "expected_output": "20",
+      "is_sample": false
+    },
+    {
+      "input": "[25,10,5,1]\n30",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "[1,7,10]\n14",
+      "expected_output": "2",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Dynamic Programming"
+  ],
+  "companyIndex": 27
+}

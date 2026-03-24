@@ -1,0 +1,86 @@
+{
+  "question_text": "<p>You are given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in non-decreasing order, and two integers <code>m</code> and <code>n</code>, representing the number of elements in <code>nums1</code> and <code>nums2</code> respectively. Merge <code>nums1</code> and <code>nums2</code> into a single array sorted in non-decreasing order.</p>",
+  "difficulty": "EASY",
+  "marks": 5,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply."
+  ],
+  "explanation": "FAANG-level explanation for Merge Sorted Array.",
+  "answer": "class Solution:\n    def solve(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:\n        last = m + n - 1\n        while m > 0 and n > 0:\n            if nums1[m - 1] > nums2[n - 1]:\n                nums1[last] = nums1[m - 1]\n                m -= 1\n            else:\n                nums1[last] = nums2[n - 1]\n                n -= 1\n            last -= 1\n        while n > 0:\n            nums1[last] = nums2[n - 1]\n            n, last = n - 1, last - 1",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "1 2 3 0 0 0\n3\n2 5 6\n3",
+      "expected_output": "1 2 2 3 5 6",
+      "is_sample": true
+    },
+    {
+      "input": "1\n1\n\n0",
+      "expected_output": "1",
+      "is_sample": true
+    },
+    {
+      "input": "0\n0\n1\n1",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "2 0\n1\n1\n1",
+      "expected_output": "1 2",
+      "is_sample": false
+    },
+    {
+      "input": "4 5 6 0 0 0\n3\n1 2 3\n3",
+      "expected_output": "1 2 3 4 5 6",
+      "is_sample": false
+    },
+    {
+      "input": "1 2 3 0 0 0\n3\n4 5 6\n3",
+      "expected_output": "1 2 3 4 5 6",
+      "is_sample": false
+    },
+    {
+      "input": "1 1 1 0 0 0\n3\n1 1 1\n3",
+      "expected_output": "1 1 1 1 1 1",
+      "is_sample": false
+    },
+    {
+      "input": "1 0\n1\n2\n1",
+      "expected_output": "1 2",
+      "is_sample": false
+    },
+    {
+      "input": "2 0\n1\n1\n1",
+      "expected_output": "1 2",
+      "is_sample": false
+    },
+    {
+      "input": "1]*100 + [0]*100\n100\n1]*100\n100",
+      "expected_output": "1]*200",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Arrays"
+  ],
+  "companyIndex": 3
+}

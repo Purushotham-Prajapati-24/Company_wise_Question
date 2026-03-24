@@ -1,0 +1,84 @@
+{
+    "question_text": "<h3>642. Design Search Autocomplete System</h3>\n<p>Design a search autocomplete system for a search engine. Users may input a sentence (at least one word and end with a special character <code>'#'</code>).</p>\n<p>You are given a string array <code>sentences</code> and an integer array <code>times</code> both of length <code>n</code> where <code>sentences[i]</code> is a previously typed sentence and <code>times[i]</code> is the corresponding number of times the sentence was typed. For each input character except <code>'#'</code>, return the top <code>3</code> historical hot sentences that have the same prefix as the part of the sentence already typed.</p>\n<p>Here are the specific rules:</p>\n<ul>\n    <li>The hot degree for a sentence is defined as the number of times a user typed the exactly same sentence before.</li>\n    <li>The returned top 3 hot sentences should be sorted by hot degree (The first is the hottest one). If several sentences have the same hot degree, use ASCII-code order (smaller one appears first).</li>\n    <li>If less than 3 hot sentences exist, return as many as you can.</li>\n    <li>When the input is a special character, it means the sentence ends, and in this case, you need to return an empty list.</li>\n</ul>\n\n<p>Implement the <code>AutocompleteSystem</code> class:</p>\n<ul>\n    <li><code>AutocompleteSystem(String[] sentences, int[] times)</code> Initializes the object with the <code>sentences</code> and <code>times</code> arrays.</li>\n    <li><code>List&lt;String&gt; input(char c)</code> This indicates that the user typed the character <code>c</code>.\n    <ul>\n        <li>Returns an empty array <code>[]</code> if <code>c == '#'</code> and stores the typed sentence in the system.</li>\n        <li>Returns the top 3 historical hot sentences that have the same prefix as the part of the sentence already typed. If there are fewer than 3 matches, return them all.</li>\n    </ul>\n    </li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre>\n<strong>Input:</strong>\n[\"AutocompleteSystem\", \"input\", \"input\", \"input\", \"input\"]\n[[[\"i love you\", \"island\", \"iroman\", \"i love leetcode\"], [5, 3, 2, 2]], [\"i\"], [\" \"], [\"a\"], [\"#\"]]\n<strong>Output:</strong>\n[null, [\"i love you\", \"island\", \"i love leetcode\"], [\"i love you\", \"i love leetcode\"], [], []]\n\n<strong>Explanation:</strong>\nAutocompleteSystem obj = new AutocompleteSystem([\"i love you\", \"island\", \"iroman\", \"i love leetcode\"], [5, 3, 2, 2]);\nobj.input(\"i\"); // return [\"i love you\", \"island\", \"i love leetcode\"]. There are four sentences that have prefix \"i\". Among them, \"ironman\" and \"i love leetcode\" have same hot degree. Since ' ' has ASCII code 32 and 'r' has ASCII code 114, \"i love leetcode\" should be in front of \"ironman\". Also we only need to output top 3 hot sentences, so \"ironman\" will be ignored.\nobj.input(\" \"); // return [\"i love you\", \"i love leetcode\"]. There are only two sentences that have prefix \"i \".\nobj.input(\"a\"); // return []. There are no sentences that have prefix \"i a\".\nobj.input(\"#\"); // return []. The user finished the input, the sentence \"i a\" should be saved as a historical sentence in system. And the following input will be counted as a new search.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n<ul>\n    <li><code>n == sentences.length</code></li>\n    <li><code>n == times.length</code></li>\n    <li><code>1 &lt;= n &lt;= 100</code></li>\n    <li><code>1 &lt;= sentences[i].length &lt;= 100</code></li>\n    <li><code>1 &lt;= times[i] &lt;= 50</code></li>\n    <li><code>c</code> is a lowercase English letter, a hash <code>'#'</code>, or space <code>' '</code>.</li>\n    <li>Each tested sentence will be a sequence of characters <code>c</code> that end with the character <code>'#'</code>.</li>\n    <li>Each tested sentence will have a length in the range <code>[1, 200]</code>.</li>\n    <li>The words in each input sentence are separated by single spaces.</li>\n    <li>At most <code>5000</code> calls will be made to <code>input</code>.</li>\n</ul>",
+    "difficulty": "HARD",
+    "marks": 20,
+    "input_format": "Space-separated values as per problem arguments.",
+    "output_format": "A single line representing the result.",
+    "constraints": [],
+    "explanation": "Use a Trie where each node stores a hash map of all sentences passing through it and their hot degrees. This allows O(L) prefix search (where L is length of input) and quick retrieval of top 3 hot sentences by sorting the hash map entries.",
+    "answer": "class AutocompleteSystem:\n    def solve(self, sentences: List[str], times: List[int]):\n        self.trie = {}\n        self.cur_node = self.trie\n        self.cur_str = ''\n        for s, t in zip(sentences, times): self.insert(s, t)\n    def insert(self, s, t):\n        node = self.trie\n        for c in s:\n            if c not in node: node[c] = {'_data': collections.defaultdict(int)}\n            node = node[c]\n            node['_data'][s] += t\n    def input(self, c: str) -> List[str]:\n        if c == '#':\n            self.insert(self.cur_str, 1)\n            self.cur_str = ''\n            self.cur_node = self.trie\n            return []\n        self.cur_str += c\n        if self.cur_node and c in self.cur_node:\n            self.cur_node = self.cur_node[c]\n            data = self.cur_node['_data']\n            res = sorted(data.items(), key=lambda x: (-x[1], x[0]))\n            return [r[0] for r in res[:3]]\n        self.cur_node = None\n        return []",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {}\n};\n\nint main() {\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "AutocompleteSystem'  'input'  'input'  'input'  'input']\n[[['i love you'  'island'  'ironman'  'i love leetcode']  [5  3  2  2]]  ['i']  [' ']  ['a']  ['#",
+            "expected_output": "null  ['i love you'  'island'  'i love leetcode']  ['i love you'  'i love leetcode']  []  ",
+            "is_sample": true
+        },
+        {
+            "input": "AutocompleteSystem'  'input'  'input'  'input'  'input']\n[[['i love you'  'island'  'ironman'  'i love leetcode']  [5  3  2  2]]  ['i']  [' ']  ['a']  ['#",
+            "expected_output": "null  ['i love you'  'island'  'i love leetcode']  ['i love you'  'i love leetcode']  []  ",
+            "is_sample": true
+        },
+        {
+            "input": "AutocompleteSystem'  'input'  'input'  'input'  'input']\n[[['i love you'  'island'  'ironman'  'i love leetcode']  [5  3  2  2]]  ['i']  [' ']  ['a']  ['#",
+            "expected_output": "null  ['i love you'  'island'  'i love leetcode']  ['i love you'  'i love leetcode']  []  ",
+            "is_sample": true
+        },
+        {
+            "input": "AutocompleteSystem'  'input'  'input'  'input'  'input']\n[[['i love you'  'island'  'ironman'  'i love leetcode']  [5  3  2  2]]  ['i']  [' ']  ['a']  ['#",
+            "expected_output": "null  ['i love you'  'island'  'i love leetcode']  ['i love you'  'i love leetcode']  []  ",
+            "is_sample": true
+        },
+        {
+            "input": "AutocompleteSystem'  'input'  'input'  'input'  'input']\n[[['i love you'  'island'  'ironman'  'i love leetcode']  [5  3  2  2]]  ['i']  [' ']  ['a']  ['#",
+            "expected_output": "null  ['i love you'  'island'  'i love leetcode']  ['i love you'  'i love leetcode']  []  ",
+            "is_sample": true
+        },
+        {
+            "input": "AutocompleteSystem'  'input'  'input'  'input'  'input']\n[[['i love you'  'island'  'ironman'  'i love leetcode']  [5  3  2  2]]  ['i']  [' ']  ['a']  ['#",
+            "expected_output": "null  ['i love you'  'island'  'i love leetcode']  ['i love you'  'i love leetcode']  []  ",
+            "is_sample": true
+        },
+        {
+            "input": "AutocompleteSystem'  'input'  'input'  'input'  'input']\n[[['i love you'  'island'  'ironman'  'i love leetcode']  [5  3  2  2]]  ['i']  [' ']  ['a']  ['#",
+            "expected_output": "null  ['i love you'  'island'  'i love leetcode']  ['i love you'  'i love leetcode']  []  ",
+            "is_sample": true
+        },
+        {
+            "input": "AutocompleteSystem'  'input'  'input'  'input'  'input']\n[[['i love you'  'island'  'ironman'  'i love leetcode']  [5  3  2  2]]  ['i']  [' ']  ['a']  ['#",
+            "expected_output": "null  ['i love you'  'island'  'i love leetcode']  ['i love you'  'i love leetcode']  []  ",
+            "is_sample": false
+        },
+        {
+            "input": "AutocompleteSystem'  'input'  'input'  'input'  'input']\n[[['i love you'  'island'  'ironman'  'i love leetcode']  [5  3  2  2]]  ['i']  [' ']  ['a']  ['#",
+            "expected_output": "null  ['i love you'  'island'  'i love leetcode']  ['i love you'  'i love leetcode']  []  ",
+            "is_sample": false
+        },
+        {
+            "input": "AutocompleteSystem'  'input'  'input'  'input'  'input']\n[[['i love you'  'island'  'ironman'  'i love leetcode']  [5  3  2  2]]  ['i']  [' ']  ['a']  ['#",
+            "expected_output": "null  ['i love you'  'island'  'i love leetcode']  ['i love you'  'i love leetcode']  []  ",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Searching"
+    ],
+    "companyIndex": 7
+}

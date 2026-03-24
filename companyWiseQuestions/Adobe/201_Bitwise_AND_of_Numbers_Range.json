@@ -1,0 +1,86 @@
+{
+  "question_text": "<h3>Bitwise AND of Numbers Range</h3><p>Given two integers `left` and `right` that represent the range `[left, right]`, return the bitwise AND of all numbers in this range, inclusive.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "1 <= N <= 10^5"
+  ],
+  "explanation": "The bitwise AND of a range is the common prefix of the binary representations of the start and end numbers. Any bits that differ between them will eventually flip to 0 during the AND operations in the range. O(log N) time.",
+  "answer": "class Solution:\n    def solve(self, left: int, right: int) -> int:\n        shift = 0\n        while left < right:\n            left >>= 1\n            right >>= 1\n            shift += 1\n        return left << shift",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "5\n7",
+      "expected_output": "4",
+      "is_sample": true
+    },
+    {
+      "input": "0\n0",
+      "expected_output": "0",
+      "is_sample": true
+    },
+    {
+      "input": "1\n2147483647",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "10\n15",
+      "expected_output": "8",
+      "is_sample": false
+    },
+    {
+      "input": "26\n30",
+      "expected_output": "24",
+      "is_sample": false
+    },
+    {
+      "input": "7\n8",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "100\n200",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "2**31 - 10\n2**31 - 1",
+      "expected_output": "2147483632",
+      "is_sample": false
+    },
+    {
+      "input": "2147483646\n2147483647",
+      "expected_output": "2147483646",
+      "is_sample": false
+    },
+    {
+      "input": "0\n2**31 - 1",
+      "expected_output": "0",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Math"
+  ],
+  "companyIndex": 6
+}

@@ -1,0 +1,88 @@
+{
+  "question_text": "<p>There are n gas stations along a circular route, where the amount of gas at the ith station is <code>gas[i]</code>. You have a car with an unlimited gas tank and it costs <code>cost[i]</code> of gas to travel from the ith station to its next (i + 1)th station. You begin the journey with an empty tank at one of the gas stations. Given two integer arrays <code>gas</code> and <code>cost</code>, return the starting gas station's index if you can travel around the circuit once in the clockwise direction, otherwise return -1. If there exists a solution, it is guaranteed to be unique.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "n == gas.length == cost.length",
+    "1 <= n <= 10^5",
+    "0 <= gas[i], cost[i] <= 10^4"
+  ],
+  "explanation": "FAANG-level explanation for Gas Station.",
+  "answer": "class Solution:\n    def solve(self, gas: List[int], cost: List[int]) -> int:\n        if sum(gas) < sum(cost): return -1\n        total, start = 0, 0\n        for i in range(len(gas)):\n            total += gas[i] - cost[i]\n            if total < 0:\n                total = 0\n                start = i + 1\n        return start",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "1 2 3 4 5\n3 4 5 1 2",
+      "expected_output": "3",
+      "is_sample": true
+    },
+    {
+      "input": "2 3 4\n3 4 3",
+      "expected_output": "-1",
+      "is_sample": true
+    },
+    {
+      "input": "5 1 2 3 4\n4 4 1 5 1",
+      "expected_output": "4",
+      "is_sample": false
+    },
+    {
+      "input": "1 1 1\n1 1 1",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "0\n0",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "5 8 2 8\n6 5 6 6",
+      "expected_output": "3",
+      "is_sample": false
+    },
+    {
+      "input": "1 2\n2 1",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "1]*100000\n1]*100000",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "0]*100000\n1]*100000",
+      "expected_output": "-1",
+      "is_sample": false
+    },
+    {
+      "input": "2]*100000\n1]*100000",
+      "expected_output": "0",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Greedy"
+  ],
+  "companyIndex": 3
+}

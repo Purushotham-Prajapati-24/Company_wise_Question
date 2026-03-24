@@ -1,0 +1,92 @@
+{
+  "question_text": "<h3>Word Break</h3><p>Check if string $s$ can be segmented into words from $wordDict$.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "s, wordDict.",
+  "output_format": "bool.",
+  "constraints": [
+    "len(s) <= 300",
+    "dict <= 1000"
+  ],
+  "explanation": "Use DP where $dp[i]$ is true if $s[0:i]$ is segmentable. $dp[i] = dp[j] \text{ and } s[j:i] in \text{dict}$.",
+  "answer": "def wordBreak(s, wordDict):\n    words = set(wordDict); dp = [True] + [False]*len(s)\n    for i in range(1, len(s)+1):\n        for j in range(i): \n            if dp[j] and s[j:i] in words: dp[i] = True; break\n    return dp[len(s)]",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 139 Word Break here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "\"leetcode\"\n[\"leet\",\"code\"]",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "\"applepenapple\"\n[\"apple\",\"pen\"]",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "\"catsandog\"\n[\"cats\",\"dog\",\"sand\",\"and\",\"cat\"]",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "\"a\"\n[\"a\"]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "\"a\"\n[\"b\"]",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "\"abc\"\n[\"a\",\"bc\"]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"\n[\"a\",\"aa\",\"aaa\"]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab\"\n[\"a\",\"aa\"]",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "\"aaaaaaa\"\n[\"aaaa\",\"aaa\"]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "\"goalspecial\"\n[\"go\",\"goal\",\"special\"]",
+      "expected_output": "true",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Hash Table",
+    "String",
+    "Dynamic Programming",
+    "Trie",
+    "Memoization"
+  ],
+  "companyIndex": 3
+}

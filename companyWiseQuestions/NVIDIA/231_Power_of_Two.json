@@ -1,0 +1,87 @@
+{
+  "question_text": "<h3>Power of Two</h3><p>Given an integer <code>n</code>, return <code>true</code> if it is a power of two. Otherwise, return <code>false</code>.</p>",
+  "difficulty": "EASY",
+  "marks": 5,
+  "input_format": "A single integer.",
+  "output_format": "Print \"true\" or \"false\".",
+  "constraints": [
+    "-2^31 <= n <= 2^31 - 1"
+  ],
+  "explanation": "Bitwise mapping perfectly encapsulates powers of explicitly identical twos because their absolute binary footprint consists of exactly one strictly singular 1-bit natively. Modifying `n` via pure binary `n & (n - 1)` essentially definitively strips exactly the lowest operational 1-bit out smoothly returning 0 optimally immediately confirming its constraints.",
+  "answer": "def solve(n):\n    return n > 0 and (n & (n - 1)) == 0",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve(n):\n    return \"false\"\n\nif __name__ == '__main__':\n    s = sys.stdin.read().strip()\n    if s:\n        res = solve(int(s))\n        print(str(res).lower() if isinstance(res, bool) else res)",
+    "cpp": "#include <iostream>\nusing namespace std;\n\nbool solve(int n) {\n    return false;\n}\n\nint main() {\n    int n;\n    if (cin >> n) {\n        bool res = solve(n);\n        cout << ((res ? \"true\" : \"false\")) << endl;\n    }\n    return 0;\n}",
+    "java": "import java.util.Scanner;\n\npublic class Main {\n    public static boolean solve(int n) {\n        return false;\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextInt()) System.out.println(solve(sc.nextInt()));\n        sc.close();\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(n) { return \"false\"; }\nconst input = fs.readFileSync(0, 'utf8').trim();\nif (input) console.log(solve(parseInt(input)));",
+    "c": "#include <stdio.h>\n#include <stdbool.h>\n\nbool solve(int n) {\n    return false;\n}\n\nint main() {\n    int n;\n    if (scanf(\"%d\", &n) == 1) {\n        bool res = solve(n);\n        printf(\"%s\\n\", res ? \"true\" : \"false\");\n    }\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "1",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "16",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "3",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "4",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "5",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "0",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "-16",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "1073741824",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "1073741823",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "-2147483648",
+      "expected_output": "false",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Math",
+    "Bit Manipulation"
+  ],
+  "companyIndex": 18
+}

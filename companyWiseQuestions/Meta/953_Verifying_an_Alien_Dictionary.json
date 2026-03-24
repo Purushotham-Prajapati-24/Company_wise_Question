@@ -1,0 +1,89 @@
+{
+  "question_text": "<h3>Verifying an Alien Dictionary</h3><p>Verify if a list of words is sorted lexicographically according to a specific alien alphabet order.</p>",
+  "difficulty": "EASY",
+  "marks": 10,
+  "input_format": "words, order.",
+  "output_format": "bool.",
+  "constraints": [
+    "words <= 100",
+    "len <= 20"
+  ],
+  "explanation": "Map the alien order to positions and compare adjacent words character by character.",
+  "answer": "def isAlienSorted(words, order):\n    m = {c: i for i, c in enumerate(order)}\n    for i in range(len(words)-1):\n        w1, w2 = words[i], words[i+1]\n        for j in range(min(len(w1), len(w2))):\n            if w1[j] != w2[j]:\n                if m[w1[j]] > m[w2[j]]: return False\n                break\n        else: # identical prefixes\n            if len(w1) > len(w2): return False\n    return True",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 953 Verifying an Alien Dictionary here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"hello\",\"leetcode\"]\n\"hlabcdefgijkmnopqrstuvwxyz\"",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "[\"word\",\"world\",\"row\"]\n\"worldabcefghijkmnpqstuvxyz\"",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "[\"apple\",\"app\"]\n\"abcdefghijklmnopqrstuvwxyz\"",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "[\"a\",\"b\",\"c\"]\n\"abcdefghijklmnopqrstuvwxyz\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[\"z\",\"y\",\"x\"]\n\"zyxwvutsrqponmlkjihgfedcba\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[\"apple\",\"apple\"]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[\"z\",\"z\"]\n\"abcdefghijklmnopqrstuvwxyz\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\"]\n\"abcdefghijklmnopqrstuvwxyz\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[\"ab\",\"ba\"]\n\"bacdefghijklmnopqrstuvwxyz\"",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "[\"a\",\"b\"]\n\"bacdefghijklmnopqrstuvwxyz\"",
+      "expected_output": "false",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Hash Table",
+    "String"
+  ],
+  "companyIndex": 4
+}

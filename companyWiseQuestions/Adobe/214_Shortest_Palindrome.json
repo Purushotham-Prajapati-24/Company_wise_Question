@@ -1,0 +1,86 @@
+{
+  "question_text": "<h3>Shortest Palindrome</h3><p>You are given a string `s`. You can convert `s` to a palindrome by adding characters in front of it. Find and return the shortest palindrome you can find by performing this transformation.</p>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "1 <= N <= 10^5"
+  ],
+  "explanation": "To make `s` a palindrome by adding characters in front, we need to find the longest palindromic prefix of `s`. We use the KMP algorithm's prefix function on the string `s + # + reversed(s)`. The last value in the `pi` array gives the length of the longest palindromic prefix.",
+  "answer": "class Solution:\n    def solve(self, s: str) -> str:\n        t = s + \"#\" + s[::-1]\n        n = len(t)\n        pi = [0] * n\n        for i in range(1, n):\n            j = pi[i - 1]\n            while j > 0 and t[i] != t[j]:\n                j = pi[j - 1]\n            if t[i] == t[j]:\n                j += 1\n            pi[i] = j\n        return s[pi[-1]:][::-1] + s",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "aacecaaa",
+      "expected_output": "\"aaacecaaa\"",
+      "is_sample": true
+    },
+    {
+      "input": "abcd",
+      "expected_output": "\"dcbabcd\"",
+      "is_sample": true
+    },
+    {
+      "input": "",
+      "expected_output": "\"\"",
+      "is_sample": false
+    },
+    {
+      "input": "a",
+      "expected_output": "\"a\"",
+      "is_sample": false
+    },
+    {
+      "input": "aa",
+      "expected_output": "\"aa\"",
+      "is_sample": false
+    },
+    {
+      "input": "abacaba",
+      "expected_output": "\"abacaba\"",
+      "is_sample": false
+    },
+    {
+      "input": "adcba",
+      "expected_output": "\"abcdadcba\"",
+      "is_sample": false
+    },
+    {
+      "input": "a\"*50000",
+      "expected_output": "\"a\"*50000",
+      "is_sample": false
+    },
+    {
+      "input": "ab\"*25000",
+      "expected_output": "(\"ba\"*24999) + \"b\" + (\"ab\"*25000)",
+      "is_sample": false
+    },
+    {
+      "input": "abcdefg\"*7000",
+      "expected_output": "gfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbagfedcbabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefgabcdefg",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Strings"
+  ],
+  "companyIndex": 6
+}

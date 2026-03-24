@@ -1,0 +1,84 @@
+{
+    "question_text": "<p>Design a data structure that follows the constraints of a <strong><a href=\"https://en.wikipedia.org/wiki/Cache_replacement_policies#LRU\" target=\"_blank\">Least Recently Used (LRU) cache</a></strong>.</p>\n\n<p>Implement the <code>LRUCache</code> class:</p>\n\n<ul>\n\t<li><code>LRUCache(int capacity)</code> Initialize the LRU cache with <strong>positive</strong> size <code>capacity</code>.</li>\n\t<li><code>int get(int key)</code> Return the value of the <code>key</code> if the key exists, otherwise return <code>-1</code>.</li>\n\t<li><code>void put(int key, int value)</code> Update the value of the <code>key</code> if the <code>key</code> exists. Otherwise, add the <code>key-value</code> pair to the cache. If the number of keys exceeds the <code>capacity</code> from this operation, <strong>evict</strong> the least recently used key.</li>\n</ul>\n\n<p>The functions <code>get</code> and <code>put</code> must each run in <code>O(1)</code> average time complexity.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input</strong>\n[&quot;LRUCache&quot;, &quot;put&quot;, &quot;put&quot;, &quot;get&quot;, &quot;put&quot;, &quot;get&quot;, &quot;put&quot;, &quot;get&quot;, &quot;get&quot;, &quot;get&quot;]\n[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]\n<strong>Output</strong>\n[null, null, null, 1, null, -1, null, -1, 3, 4]\n\n<strong>Explanation</strong>\nLRUCache lRUCache = new LRUCache(2);\nlRUCache.put(1, 1); // cache is {1=1}\nlRUCache.put(2, 2); // cache is {1=1, 2=2}\nlRUCache.get(1);    // return 1\nlRUCache.put(3, 3); // LRU key was 2, evicts key 2, cache is {1=1, 3=3}\nlRUCache.get(2);    // returns -1 (not found)\nlRUCache.put(4, 4); // LRU key was 1, evicts key 1, cache is {4=4, 3=3}\nlRUCache.get(1);    // return -1 (not found)\nlRUCache.get(3);    // return 3\nlRUCache.get(4);    // return 4\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= capacity &lt;= 3000</code></li>\n\t<li><code>0 &lt;= key &lt;= 10<sup>4</sup></code></li>\n\t<li><code>0 &lt;= value &lt;= 10<sup>5</sup></code></li>\n\t<li>At most <code>2 * 10<sup>5</sup></code> calls will be made to <code>get</code> and <code>put</code>.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Space-separated values as per problem arguments.",
+    "output_format": "A single line representing the result.",
+    "constraints": [],
+    "explanation": "Use a doubly linked list coupled with a hash map. The hash map provides O(1) access to nodes, and the doubly linked list maintains the order of usage, allowing O(1) removal and insertion at the tail (most recent).",
+    "answer": "class Node:\n    def solve(self, key, val):\n        self.key, self.val = key, val\n        self.prev = self.next = None\n\nclass LRUCache:\n    def __init__(self, capacity: int):\n        self.cap = capacity\n        self.cache = {}\n        self.left, self.right = Node(0, 0), Node(0, 0)\n        self.left.next, self.right.prev = self.right, self.left\n\n    def remove(self, node):\n        prev, nxt = node.prev, node.next\n        prev.next, nxt.prev = nxt, prev\n\n    def insert(self, node):\n        prev, nxt = self.right.prev, self.right\n        prev.next = nxt.prev = node\n        node.next, node.prev = nxt, prev\n\n    def get(self, key: int) -> int:\n        if key in self.cache:\n            self.remove(self.cache[key])\n            self.insert(self.cache[key])\n            return self.cache[key].val\n        return -1\n\n    def put(self, key: int, value: int) -> None:\n        if key in self.cache:\n            self.remove(self.cache[key])\n        self.cache[key] = Node(key, value)\n        self.insert(self.cache[key])\n        if len(self.cache) > self.cap:\n            lru = self.left.next\n            self.remove(lru)\n            del self.cache[lru.key]",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {}\n};\n\nint main() {\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "LRUCache'  'put'  'put'  'get'  'put'  'get'  'put'  'get'  'get'  'get']\n[[2]  [1  1]  [2  2]  [1]  [3  3]  [2]  [4  4]  [1]  [3]  [4",
+            "expected_output": "null  null  null  1  null  -1  null  -1  3  4",
+            "is_sample": true
+        },
+        {
+            "input": "LRUCache'  'put'  'get']\n[[1]  [2  1]  [2",
+            "expected_output": "null  null  1",
+            "is_sample": true
+        },
+        {
+            "input": "LRUCache'  'put'  'put'  'get'  'put'  'get']\n[[2]  [1  1]  [2  2]  [1]  [2  10]  [1",
+            "expected_output": "null  null  null  1  null  1",
+            "is_sample": false
+        },
+        {
+            "input": "LRUCache'  'get']\n[[1]  [1",
+            "expected_output": "null  -1",
+            "is_sample": false
+        },
+        {
+            "input": "LRUCache'  'put'  'put'  'put'  'put'  'get']\n[[2]  [1  1]  [2  2]  [3  3]  [4  4]  [1",
+            "expected_output": "null  null  null  null  null  -1",
+            "is_sample": false
+        },
+        {
+            "input": "LRUCache'  'put'  'put'  'get'  'put'  'put'  'get']\n[[2]  [1  1]  [2  2]  [1]  [3  3]  [1  10]  [1",
+            "expected_output": "null  null  null  1  null  null  10",
+            "is_sample": false
+        },
+        {
+            "input": "LRUCache'  'put'  'get'  'put'  'get']\n[[1]  [1  1]  [1]  [2  2]  [1",
+            "expected_output": "null  null  1  null  -1",
+            "is_sample": false
+        },
+        {
+            "input": "LRUCache'  'put'  'get']\n[[1]  [1  1]  [1",
+            "expected_output": "null  null  1",
+            "is_sample": false
+        },
+        {
+            "input": "LRUCache'  'put'  'put'  'get']\n[[1]  [1  1]  [2  2]  [1",
+            "expected_output": "null  null  null  -1",
+            "is_sample": false
+        },
+        {
+            "input": "LRUCache'  'put'  'get'  'put'  'get']\n[[2]  [1  1]  [1]  [2  2]  [1",
+            "expected_output": "null  null  1  null  1",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Data Structures / Algorithms"
+    ],
+    "companyIndex": 7
+}

@@ -1,0 +1,87 @@
+{
+  "question_text": "<h3>Add Two Numbers</h3><p>Sum two reversed linked lists.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Two arrays.",
+  "output_format": "Sum array.",
+  "constraints": [
+    "n <= 100"
+  ],
+  "explanation": "Digit-by-digit addition with carry.",
+  "answer": "def addTwoNumbers(l1, l2):\n    d=ListNode(0); c=d; cry=0\n    while l1 or l2 or cry:\n        v1=l1.val if l1 else 0; v2=l2.val if l2 else 0\n        s=v1+v2+cry; cry=s//10\n        c.next=ListNode(s%10); c=c.next\n        if l1: l1=l1.next\n        if l2: l2=l2.next\n    return d.next",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 2 Add Two Numbers here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[2,4,3]\n[5,6,4]",
+      "expected_output": "[7,0,8]",
+      "is_sample": true
+    },
+    {
+      "input": "[0]\n[0]",
+      "expected_output": "[0]",
+      "is_sample": true
+    },
+    {
+      "input": "[9,9,9]\n[1]",
+      "expected_output": "[0,0,0,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[1]\n[9,9]",
+      "expected_output": "[0,0,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9]\n[1]",
+      "expected_output": "[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[5]\n[5]",
+      "expected_output": "[0,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[1]\n[9]",
+      "expected_output": "[0,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[0,1]\n[0,9]",
+      "expected_output": "[0,0,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[8,3]\n[2,6]",
+      "expected_output": "[0,0,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]\n[8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8]",
+      "expected_output": "[9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Linked List",
+    "Math"
+  ],
+  "companyIndex": 17
+}

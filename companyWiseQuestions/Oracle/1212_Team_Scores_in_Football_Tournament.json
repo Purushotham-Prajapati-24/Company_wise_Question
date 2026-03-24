@@ -1,0 +1,89 @@
+{
+    "question_text": "<h3>1212. Team Scores in Football Tournament</h3>\n<p>Table: <code>Teams</code></p>\n<pre>\n+---------------+----------+\n| Column Name   | Type     |\n+---------------+----------+\n| team_id       | int      |\n| team_name     | varchar  |\n+---------------+----------+\n</pre>\n<p><code>team_id</code> is the column with unique values of this table. Each row of this table represents a single football team.</p>\n\n<p>Table: <code>Matches</code></p>\n<pre>\n+--------------+----------+\n| Column Name  | Type     |\n+--------------+----------+\n| match_id     | int      |\n| host_team    | int      |\n| guest_team   | int      |\n| host_goals   | int      |\n| guest_goals  | int      |\n+--------------+----------+\n</pre>\n<p>Write a solution to find the score of each team. The score of each team is the number of points won in all played matches (wins: 3 pts, draws: 1 pt, losses: 0 pts). Return the result table ordered by <code>num_points</code> in <strong>descending order</strong>. In case of a tie, order the teams by <code>team_name</code> in <strong>lexicographically ascending order</strong>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre>\n<strong>Input:</strong>\nTeams table:\n+---------+-----------+\n| team_id | team_name |\n+---------+-----------+\n| 10      | Leetcode  |\n| 20      | NewYork   |\n| 30      | Atlanta   |\n+---------+-----------+\nMatches table:\n+----------+-----------+------------+------------+-------------+\n| match_id | host_team | guest_team | host_goals | guest_goals |\n+----------+-----------+------------+------------+-------------+\n| 1        | 10        | 20         | 3          | 0           |\n| 2        | 30        | 10         | 2          | 2           |\n| 3        | 10        | 30         | 5          | 1           |\n| 4        | 20        | 30         | 1          | 0           |\n+----------+-----------+------------+------------+-------------+\n\n<strong>Output:</strong>\n+-----------+------------+\n| team_name | num_points |\n+-----------+------------+\n| Leetcode  | 7          |\n| NewYork   | 3          |\n| Atlanta   | 1          |\n+-----------+------------+\n</pre>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "SQL-based problem \u00e2\u20ac\u201d simulate with comma-separated rows. First line: header. Subsequent lines: match_id,host_team,guest_team,host_goals,guest_goals.",
+    "output_format": "team_name,num_points (sorted by num_points DESC, team_name ASC)",
+    "constraints": [
+        "1 <= num_teams <= 1000",
+        "0 <= goals <= 20",
+        "Guaranteed unique team IDs and match IDs."
+    ],
+    "explanation": "For each match, award 3 to winner or 1 to both on draw. Use a dict keyed by team_id to accumulate points, then sort descending by points, ascending by name.",
+    "answer": "def solve(header, rows):\n    teams = {}\n    for row in rows:\n        parts = row.split(',')\n        mid, host, guest, hg, gg = parts[0], parts[1], parts[2], int(parts[3]), int(parts[4])\n        if host not in teams: teams[host] = [host, 0]\n        if guest not in teams: teams[guest] = [guest, 0]\n        if hg > gg: teams[host][1] += 3\n        elif hg < gg: teams[guest][1] += 3\n        else: teams[host][1] += 1; teams[guest][1] += 1\n    sorted_teams = sorted(teams.values(), key=lambda x: (-x[1], x[0]))\n    return '\\n'.join(f\"{t[0]},{t[1]}\" for t in sorted_teams)",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(header, rows):\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().splitlines()\n    header = data[0] if data else ''\n    rows = data[1:]\n    print(solve(header, rows))",
+        "cpp": "#include <iostream>\nusing namespace std;\nint main() { return 0; }",
+        "java": "import java.util.*;\npublic class Main { public static void main(String[] args) {} }",
+        "javascript": "const fs = require('fs');\nconst input = fs.readFileSync(0,'utf-8').trim().split('\\n');",
+        "c": "#include <stdio.h>\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "match_id,host_team,guest_team,host_goals,guest_goals\n1,TeamA,TeamB,3,0\n2,TeamB,TeamC,2,2\n3,TeamC,TeamA,1,2",
+            "expected_output": "TeamA,6\nTeamB,1\nTeamC,1",
+            "is_sample": true
+        },
+        {
+            "input": "match_id,host_team,guest_team,host_goals,guest_goals\n1,X,Y,1,1\n2,Y,Z,1,1\n3,Z,X,0,0",
+            "expected_output": "X,2\nY,2\nZ,2",
+            "is_sample": true
+        },
+        {
+            "input": "match_id,host_team,guest_team,host_goals,guest_goals\n1,A,B,5,0",
+            "expected_output": "A,3\nB,0",
+            "is_sample": false
+        },
+        {
+            "input": "match_id,host_team,guest_team,host_goals,guest_goals\n1,A,B,0,1\n2,B,C,0,1\n3,C,A,0,1",
+            "expected_output": "A,3\nB,3\nC,3",
+            "is_sample": false
+        },
+        {
+            "input": "match_id,host_team,guest_team,host_goals,guest_goals\n1,Alpha,Beta,2,2\n2,Alpha,Gamma,3,0",
+            "expected_output": "Alpha,4\nBeta,1\nGamma,0",
+            "is_sample": false
+        },
+        {
+            "input": "match_id,host_team,guest_team,host_goals,guest_goals\n1,A,B,0,0\n2,A,B,0,0",
+            "expected_output": "A,2\nB,2",
+            "is_sample": false
+        },
+        {
+            "input": "match_id,host_team,guest_team,host_goals,guest_goals\n1,AA,BB,10,0",
+            "expected_output": "AA,3\nBB,0",
+            "is_sample": false
+        },
+        {
+            "input": "match_id,host_team,guest_team,host_goals,guest_goals\n1,Lions,Cubs,3,0\n2,Lions,Bears,3,0\n3,Lions,Wolves,3,0\n4,Lions,Eagles,3,0\n5,Lions,Hawks,3,0",
+            "expected_output": "Lions,15\nBears,0\nCubs,0\nEagles,0\nHawks,0\nWolves,0",
+            "is_sample": false
+        },
+        {
+            "input": "match_id,host_team,guest_team,host_goals,guest_goals\n1,T1,T2,1,1\n2,T1,T3,0,0\n3,T1,T4,2,2\n4,T2,T3,3,3\n5,T2,T4,0,0\n6,T3,T4,1,1",
+            "expected_output": "T1,3\nT2,3\nT3,3\nT4,3",
+            "is_sample": false
+        },
+        {
+            "input": "match_id,host_team,guest_team,host_goals,guest_goals\n1,Apollo,Zeta,20,0\n2,Apollo,Zeta,20,20",
+            "expected_output": "Apollo,4\nZeta,1",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Database",
+        "Sorting"
+    ],
+    "companyIndex": 12
+}

@@ -1,0 +1,87 @@
+{
+  "question_text": "<h3>Encode and Decode TinyURL</h3><p>Design TinyURL service.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Long URL.",
+  "output_format": "Short URL / Long URL.",
+  "constraints": [
+    "URL length <= 500"
+  ],
+  "explanation": "Map long URLs to unique short keys (e.g., using hashing or an incrementing counter).",
+  "answer": "class Codec:\n    def __init__(self): self.m = {}; self.c = 0\n    def encode(self, longUrl):\n        self.c += 1; key = str(self.c); self.m[key] = longUrl; return \"http://tinyurl.com/\" + key\n    def decode(self, shortUrl): return self.m[shortUrl.split('/')[-1]]",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 535 Encode and Decode TinyURL here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "\"https://leetcode.com/problems/design-tinyurl\"",
+      "expected_output": "\"https://leetcode.com/problems/design-tinyurl\"",
+      "is_sample": true
+    },
+    {
+      "input": "\"https://www.google.com\"",
+      "expected_output": "\"https://www.google.com\"",
+      "is_sample": true
+    },
+    {
+      "input": "\"http://a\"",
+      "expected_output": "\"http://a\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\"",
+      "expected_output": "\"hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"https://longurl.com/path?query=1\"",
+      "expected_output": "\"https://longurl.com/path?query=1\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"https://a.b.c/d/e\"",
+      "expected_output": "\"https://a.b.c/d/e\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"https://test.com\"",
+      "expected_output": "\"https://test.com\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"https://tinyurl.com/1\"",
+      "expected_output": "\"https://tinyurl.com/1\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"https://very.long.url.with.many.subdomains.and.queries.com\"",
+      "expected_output": "\"https://very.long.url.with.many.subdomains.and.queries.com\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"http://localhost\"",
+      "expected_output": "\"http://localhost\"",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "Design"
+  ],
+  "companyIndex": 1
+}

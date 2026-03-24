@@ -1,0 +1,87 @@
+{
+  "question_text": "<h3>Number of 1 Bits</h3><p>Write a function that takes the binary representation of an unsigned integer and returns the number of '1' bits it has (also known as the Hamming weight).</p>",
+  "difficulty": "EASY",
+  "marks": 5,
+  "input_format": "A single integer integer.",
+  "output_format": "A single integer count.",
+  "constraints": [
+    "The input must be a signed 32-bit integer."
+  ],
+  "explanation": "To actively extract strictly valid exactly '1'-bit populated occurrences independently irrespective of zeroes, standard masking with bitwise iterative shifts trivially validates correctly. An advanced algorithm definitively strips exactly one explicit lowest logical '1'-bit repeatedly utilizing `n = n & (n - 1)` mapping efficiently looping specifically mapped count operations uniquely.",
+  "answer": "def solve(n):\n    c = 0\n    if n < 0: n &= 0xFFFFFFFF\n    while n:\n        n &= (n - 1)\n        c += 1\n    return c",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve(n):\n    return 0\n\nif __name__ == '__main__':\n    s = sys.stdin.read().strip()\n    if s:\n        res = solve(int(s))\n        print(str(res).lower() if isinstance(res, bool) else res)",
+    "cpp": "#include <iostream>\nusing namespace std;\n\nint solve(int n) {\n    return 0;\n}\n\nint main() {\n    int n;\n    if (cin >> n) {\n        int res = solve(n);\n        cout << (res) << endl;\n    }\n    return 0;\n}",
+    "java": "import java.util.Scanner;\n\npublic class Main {\n    public static int solve(int n) {\n        return 0;\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextInt()) System.out.println(solve(sc.nextInt()));\n        sc.close();\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(n) { return 0; }\nconst input = fs.readFileSync(0, 'utf8').trim();\nif (input) console.log(solve(parseInt(input)));",
+    "c": "#include <stdio.h>\n#include <stdbool.h>\n\nint solve(int n) {\n    return 0;\n}\n\nint main() {\n    int n;\n    if (scanf(\"%d\", &n) == 1) {\n        int res = solve(n);\n        printf(\"%d\\n\", res);\n    }\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "11",
+      "expected_output": "3",
+      "is_sample": true
+    },
+    {
+      "input": "128",
+      "expected_output": "1",
+      "is_sample": true
+    },
+    {
+      "input": "-3",
+      "expected_output": "31",
+      "is_sample": true
+    },
+    {
+      "input": "0",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "1",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "2147483647",
+      "expected_output": "31",
+      "is_sample": false
+    },
+    {
+      "input": "1073741824",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "5",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "-2147483648",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "-1",
+      "expected_output": "32",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Divide and Conquer",
+    "Bit Manipulation"
+  ],
+  "companyIndex": 19
+}

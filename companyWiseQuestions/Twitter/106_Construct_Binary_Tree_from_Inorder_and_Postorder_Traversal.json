@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Construct Binary Tree from Inorder and Postorder Traversal</h3><p>Given two integer arrays <code>inorder</code> and <code>postorder</code> where <code>inorder</code> is the inorder traversal of a binary tree and <code>postorder</code> is the postorder traversal of the same tree, construct and return <em>the binary tree</em>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2021/02/19/tree.jpg\" style=\"width: 277px; height: 302px;\" />\n<pre>\n<strong>Input:</strong> inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]\n<strong>Output:</strong> [3,9,20,null,null,15,7]\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> inorder = [-1], postorder = [-1]\n<strong>Output:</strong> [-1]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= inorder.length &lt;= 3000</code></li>\n\t<li><code>postorder.length == inorder.length</code></li>\n\t<li><code>-3000 &lt;= inorder[i], postorder[i] &lt;= 3000</code></li>\n\t<li><code>inorder</code> and <code>postorder</code> consist of <strong>unique</strong> values.</li>\n\t<li>Each value of <code>postorder</code> also appears in <code>inorder</code>.</li>\n\t<li><code>inorder</code> is <strong>guaranteed</strong> to be the inorder traversal of the tree.</li>\n\t<li><code>postorder</code> is <strong>guaranteed</strong> to be the postorder traversal of the tree.</li>\n</ul>\n",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Inorder and postorder arrays",
+  "output_format": "Binary tree root",
+  "constraints": [
+    "Node count [1, 3000]"
+  ],
+  "explanation": "Last element in postorder is root. Find its index in inorder to split into left and right subtrees. Recursively build subtrees.",
+  "answer": "def buildTree(inorder, postorder):\n    if not inorder: return None\n    root = TreeNode(postorder.pop())\n    idx = inorder.index(root.val)\n    root.right = self.buildTree(inorder[idx+1:], postorder)\n    root.left = self.buildTree(inorder[:idx], postorder)\n    return root",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Construct Binary Tree from Inorder and Postorder Traversal here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[9,3,15,20,7]\n[9,15,7,20,3]",
+      "expected_output": "[3,9,20,null,null,15,7]",
+      "is_sample": true
+    },
+    {
+      "input": "[-1]\n[-1]",
+      "expected_output": "[-1]",
+      "is_sample": true
+    },
+    {
+      "input": "[2,1]\n[2,1]",
+      "expected_output": "[1,2]",
+      "is_sample": false
+    },
+    {
+      "input": "[3,2,1]\n[3,2,1]",
+      "expected_output": "[1,null,2,null,3] is wrong. [1,2,null,null,3]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,3]\n[3,2,1]",
+      "expected_output": "[1,null,2,null,3]",
+      "is_sample": false
+    },
+    {
+      "input": "[5,10,15]\n[5,15,10]",
+      "expected_output": "[10,5,15]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,3,4]\n[4,3,2,1]",
+      "expected_output": "[1,null,2,null,3,null,4]",
+      "is_sample": false
+    },
+    {
+      "input": "[4,2,1,3]\n[4,2,3,1]",
+      "expected_output": "[1,2,3,4]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,1,1]\n[1,1,1]",
+      "expected_output": "[1,null,1,null,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,1,1]\n[1,1,1]",
+      "expected_output": "[1,null,1,null,1]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Hash Table",
+    "Divide and Conquer",
+    "Tree",
+    "Binary Tree"
+  ],
+  "companyIndex": 27
+}

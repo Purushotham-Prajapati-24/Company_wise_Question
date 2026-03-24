@@ -1,0 +1,86 @@
+{
+  "question_text": "<h3>K-th Smallest in Lexicographical Order</h3>",
+  "difficulty": "HARD",
+  "marks": 15,
+  "input_format": "Two integers n and k",
+  "output_format": "k-th smallest integer in range [1, n]",
+  "constraints": [
+    "1 <= k <= n <= 10^9"
+  ],
+  "explanation": "Use a prefix-based greedy approach. Count how many numbers exist under the current prefix. If k > count, move right (prefix+1). If k <= count, move down (prefix*10).",
+  "answer": "def findKthNumber(n, k):\n    def count(p1, p2):\n        steps = 0\n        while p1 <= n:\n            steps += min(n + 1, p2) - p1\n            p1 *= 10; p2 *= 10\n        return steps\n    cur = 1; k -= 1\n    while k > 0:\n        s = count(cur, cur + 1)\n        if k >= s: k -= s; cur += 1\n        else: k -= 1; cur *= 10\n    return cur",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement K-th Smallest in Lexicographical Order here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "13\n2",
+      "expected_output": "10",
+      "is_sample": true
+    },
+    {
+      "input": "1\n1",
+      "expected_output": "1",
+      "is_sample": true
+    },
+    {
+      "input": "100\n10",
+      "expected_output": "18",
+      "is_sample": false
+    },
+    {
+      "input": "10^9\n10^9",
+      "expected_output": "999999999",
+      "is_sample": false
+    },
+    {
+      "input": "5\n2",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "20\n5",
+      "expected_output": "13",
+      "is_sample": false
+    },
+    {
+      "input": "30\n10",
+      "expected_output": "18",
+      "is_sample": false
+    },
+    {
+      "input": "100\n100",
+      "expected_output": "99",
+      "is_sample": false
+    },
+    {
+      "input": "10\n3",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "2\n2",
+      "expected_output": "2",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Trie"
+  ],
+  "companyIndex": 27
+}

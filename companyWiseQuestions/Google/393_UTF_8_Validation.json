@@ -1,0 +1,88 @@
+{
+    "question_text": "<h3>UTF-8 Validation</h3><p>Given an integer array <code>data</code> representing the data, return whether it is a valid UTF-8 encoding (i.e. it translates to a sequence of valid UTF-8 encoded characters).</p><p>A character in UTF8 can be from 1 to 4 bytes long, subjected to the following rules:</p><ol><li>For a 1-byte character, the first bit is a <code>0</code>, followed by its Unicode code.</li><li>For an n-bytes character, the first <code>n</code> bits are all one's, the <code>n + 1</code> bit is <code>0</code>, followed by <code>n - 1</code> bytes with the most significant 2 bits being <code>10</code>.</li></ol><p>This is how the UTF-8 encoding would work:</p><pre><code>Number of Bytes | UTF-8 Octet Sequence | (binary)\n--------------------+-----------------------------------------\n1          |   0xxxxxxx\n2          |   110xxxxx 10xxxxxx\n3          |   1110xxxx 10xxxxxx 10xxxxxx\n4          |   11110xxx 10xxxxxx 10xxxxxx 10xxxxxx\n</code></pre><p><code>x</code> denotes a bit in the binary form of a byte that may be either <code>0</code> or <code>1</code>.</p><p><b>Note:</b> The input is an array of integers. Only the <b>least significant 8 bits</b> of each integer is used to store the data. This means each integer represents only 1 byte of data.</p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "A single line containing space-separated integers representing the `data` array.",
+    "output_format": "A single line containing `true` if it is a valid UTF-8 encoding, or `false` otherwise.",
+    "constraints": [
+        "1 <= data.length <= 2 * 10^4",
+        "0 <= data[i] <= 255"
+    ],
+    "explanation": "To solve this, we simulate reading the bitstream byte by byte. We need to keep a count of how many 'continuation bytes' (bytes starting with '10') we expect to see. \nFor each integer in the array, we get its 8 least significant bits (using `num & 255` though the constraints guarantee values are already <= 255). \nIf our expected `bytesToProcess` count is 0, we look at the prefix of the current byte to determine how long the UTF-8 character should be via shifting operations:\n- If it starts with '0' (checked by `(num >> 7) == 0`), it's a 1-byte character (0 expected continuation bytes).\n- If it starts with '110' (`(num >> 5) == 6`), we expect 1 more byte.\n- If it starts with '1110' (`(num >> 4) == 14`), we expect 2 more bytes.\n- If it starts with '11110' (`(num >> 3) == 30`), we expect 3 more bytes.\n- Any other start is invalid.\n\nIf our `bytesToProcess` count is > 0, the current byte MUST be a continuation byte starting with '10' (checked by `(num >> 6) == 2`). If it is, we decrement the count. If not, the sequence is instantly invalid.\nAfter iterating the entire array, if `bytesToProcess` is exactly 0, the stream is fully formed and valid.",
+    "answer": "def solve(data):\n    bytes_to_process = 0\n    for num in data:\n        if bytes_to_process == 0:\n            if (num >> 7) == 0:\n                continue\n            elif (num >> 5) == 0b110:\n                bytes_to_process = 1\n            elif (num >> 4) == 0b1110:\n                bytes_to_process = 2\n            elif (num >> 3) == 0b11110:\n                bytes_to_process = 3\n            else:\n                return \"false\"\n        else:\n            if (num >> 6) != 0b10:\n                return \"false\"\n            bytes_to_process -= 1\n            \n    return \"true\" if bytes_to_process == 0 else \"false\"",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(arr):\n    # User logic should be written here\n    return \"\"\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().split()\n    if not input_data: sys.exit(0)\n    arr = list(map(int, input_data))\n    print(solve(arr))",
+        "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nstring solve(vector<int>& arr) {\n    // User logic should be written here\n    return \"\";\n}\n\nint main() {\n    int val;\n    vector<int> arr;\n    while (cin >> val) arr.push_back(val);\n    cout << solve(arr) << endl;\n    return 0;\n}",
+        "java": "import java.util.ArrayList;\nimport java.util.Scanner;\n\npublic class Main {\n    public static String solve(int[] arr) {\n        // User logic should be written here\n        return \"\";\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ArrayList<Integer> list = new ArrayList<>();\n        while (sc.hasNextInt()) list.add(sc.nextInt());\n        int[] arr = new int[list.size()];\n        for (int i = 0; i < list.size(); i++) arr[i] = list.get(i);\n        System.out.println(solve(arr));\n        sc.close();\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve(arr) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split(/\\s+/);\nif (input.length > 0 && input[0] !== '') {\n    const arr = input.map(Number);\n    console.log(solve(arr));\n}",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nchar* solve(int* arr, int n) {\n    // User logic should be written here\n    return \"\";\n}\n\nint main() {\n    int capacity = 1000;\n    int* arr = (int*)malloc(capacity * sizeof(int));\n    int n = 0, val;\n    while (scanf(\"%d\", &val) == 1) {\n        if (n == capacity) {\n            capacity *= 2;\n            arr = (int*)realloc(arr, capacity * sizeof(int));\n        }\n        arr[n++] = val;\n    }\n    printf(\"%s\\n\", solve(arr, n));\n    free(arr);\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "197 130 1",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "235 140 4",
+            "expected_output": "false",
+            "is_sample": true
+        },
+        {
+            "input": "255",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "145",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "228 189 160 229 165 189 13 10",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "250 145 145 145 145",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "0",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "11000000 10000000",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "240 162 138 145 228 189 160 97",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "240 162 138 145 228 189 160 97 128",
+            "expected_output": "false",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Bit Manipulation"
+    ],
+    "companyIndex": 0
+}

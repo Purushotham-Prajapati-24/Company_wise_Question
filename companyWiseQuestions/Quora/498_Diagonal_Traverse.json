@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>Diagonal Traverse</h3><p>Given an <code>m x n</code> matrix <code>mat</code>, return <em>an array of all the elements of the array in a diagonal order</em>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2021/04/10/diag1-grid.jpg\" style=\"width: 334px; height: 334px;\" />\n<pre>\n<strong>Input:</strong> mat = [[1,2,3],[4,5,6],[7,8,9]]\n<strong>Output:</strong> [1,2,4,7,5,3,6,8,9]\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> mat = [[1,2],[3,4]]\n<strong>Output:</strong> [1,2,3,4]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>m == mat.length</code></li>\n\t<li><code>n == mat[i].length</code></li>\n\t<li><code>1 &lt;= m, n &lt;= 10<sup>4</sup></code></li>\n\t<li><code>1 &lt;= m * n &lt;= 10<sup>4</sup></code></li>\n\t<li><code>-10<sup>5</sup> &lt;= mat[i][j] &lt;= 10<sup>5</sup></code></li>\n</ul>\n",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "m x n matrix",
+  "output_format": "Flattened array in diagonal order",
+  "constraints": [
+    "m, n <= 100"
+  ],
+  "explanation": "Group elements by i + j. For each group k, if k is even, reverse the list of elements. Concatenate all group lists.",
+  "answer": "def findDiagonalOrder(matrix):\n    if not matrix: return []\n    m, n = len(matrix), len(matrix[0]); res = []; d = collections.defaultdict(list)\n    for i in range(m):\n        for j in range(n): d[i+j].append(matrix[i][j])\n    for k in range(m + n - 1):\n        if k % 2 == 0: res.extend(d[k][::-1])\n        else: res.extend(d[k])\n    return res",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Diagonal Traverse here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[[1,2,3],[4,5,6],[7,8,9]]",
+      "expected_output": "[1, 2, 4, 7, 5, 3, 6, 8, 9]",
+      "is_sample": true
+    },
+    {
+      "input": "[[1,2],[3,4]]",
+      "expected_output": "[1, 2, 3, 4]",
+      "is_sample": true
+    },
+    {
+      "input": "[[1]]",
+      "expected_output": "[1]",
+      "is_sample": false
+    },
+    {
+      "input": "[[1,2,3]]",
+      "expected_output": "[1, 2, 3]",
+      "is_sample": false
+    },
+    {
+      "input": "[[1],[2],[3]]",
+      "expected_output": "[1, 2, 3]",
+      "is_sample": false
+    },
+    {
+      "input": "[[1,1],[1,1]]",
+      "expected_output": "[1, 1, 1, 1]",
+      "is_sample": false
+    },
+    {
+      "input": "[[5,10],[15,20]]",
+      "expected_output": "[5, 10, 15, 20]",
+      "is_sample": false
+    },
+    {
+      "input": "[[1,2,3,4],[5,6,7,8]]",
+      "expected_output": "[1, 2, 5, 6, 3, 4, 7, 8]",
+      "is_sample": false
+    },
+    {
+      "input": "[[0,0],[0,0]]",
+      "expected_output": "[0, 0, 0, 0]",
+      "is_sample": false
+    },
+    {
+      "input": "[[0,0],[0,0]]",
+      "expected_output": "[0, 0, 0, 0]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Matrix",
+    "Simulation"
+  ],
+  "companyIndex": 26
+}

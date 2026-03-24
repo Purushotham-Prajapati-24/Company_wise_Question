@@ -1,0 +1,89 @@
+{
+  "question_text": "<h3>Design In-Memory File System</h3><p>Design a file system with ls, mkdir, addContentToFile, and readContentFromFile.</p>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Operations.",
+  "output_format": "Outputs list.",
+  "constraints": [
+    "total path components <= 100"
+  ],
+  "explanation": "Use a Trie-like structure where each node represents a directory or file. Directories store children (other nodes), and files store content (string).",
+  "answer": "class FileSystem:\n    def __init__(self):\n        self.root = {\"dirs\": {}, \"files\": {}}\n    def ls(self, path):\n        node = self.root\n        if path != \"/\":\n            for p in path.split(\"/\")[1:]:\n                if p in node[\"dirs\"]: node = node[\"dirs\"][p]\n                else: return [p]\n        return sorted(list(node[\"dirs\"].keys()) + list(node[\"files\"].keys()))\n    def mkdir(self, path):\n        node = self.root\n        for p in path.split(\"/\")[1:]:\n            node = node[\"dirs\"].setdefault(p, {\"dirs\": {}, \"files\": {}})\n    def addContentToFile(self, filePath, content):\n        parts = filePath.split(\"/\"); node = self.root\n        for p in parts[1:-1]: node = node[\"dirs\"][p]\n        node[\"files\"][parts[-1]] = node[\"files\"].get(parts[-1], \"\") + content\n    def readContentFromFile(self, filePath):\n        parts = filePath.split(\"/\"); node = self.root\n        for p in parts[1:-1]: node = node[\"dirs\"][p]\n        return node[\"files\"][parts[-1]]",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 588 Design In-Memory File System here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"FileSystem\",\"ls\",\"mkdir\",\"addContentToFile\",\"ls\",\"readContentFromFile\"]\n[[],[\"/\"],[\"/a/b/c\"],[\"/a/b/c/d\",\"hello\"],[\"/\"],[\"/a/b/c/d\"]]",
+      "expected_output": "[null,[],null,null,[\"a\"],\"hello\"]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"FileSystem\",\"ls\"]\n[[],[\"/\"]]",
+      "expected_output": "[null,[]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"ls\"]\n[[],[\"/a\"],[\"/a\"]]",
+      "expected_output": "[null,null,[]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"ls\"]\n[[],[\"/a\"],[\"/\"]]",
+      "expected_output": "[null,null,[\"a\"]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"addContentToFile\",\"readContentFromFile\"]\n[[],[\"/a\",\"hi\"],[\"/a\"]]",
+      "expected_output": "[null,null,\"hi\"]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"mkdir\",\"ls\"]\n[[],[\"/a\"],[\"/b\"],[\"/\"]]",
+      "expected_output": "[null,null,null,[\"a\",\"b\"]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"ls\"]\n[[],[\"/\"]]",
+      "expected_output": "[null,[]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"mkdir\",\"ls\"]\n[[],[\"/dir1\"],[\"/dir2\"],[\"/\"]]",
+      "expected_output": "[null,null,null,[\"dir1\",\"dir2\"]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"addContentToFile\",\"addContentToFile\",\"readContentFromFile\"]\n[[],[\"/f\",\"a\"],[\"/f\",\"b\"],[\"/f\"]]",
+      "expected_output": "[null,null,null,\"ab\"]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"addContentToFile\",\"ls\"]\n[[],[\"/a\"],[\"/a/f\",\"v\"],[\"/a\"]]",
+      "expected_output": "[null,null,null,[\"f\"]]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "String",
+    "Design",
+    "Trie"
+  ],
+  "companyIndex": 3
+}

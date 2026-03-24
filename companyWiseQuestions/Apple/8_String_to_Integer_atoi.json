@@ -1,0 +1,86 @@
+{
+  "question_text": "<h3>String to Integer (atoi)</h3><p>Convert string to signed 32-bit integer.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "s.",
+  "output_format": "Int.",
+  "constraints": [
+    "len <= 200"
+  ],
+  "explanation": "Trim whitespace, handle sign, read digits until non-digit, and clamp to 32-bit range.",
+  "answer": "def myAtoi(s):\n    s = s.strip()\n    if not s: return 0\n    sign = -1 if s[0] == \"-\" else 1\n    if s[0] in \"+-\": s = s[1:]\n    res = 0\n    for c in s:\n        if not c.isdigit(): break\n        res = res*10 + int(c)\n    res *= sign\n    return max(-2**31, min(res, 2**31-1))",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 8 String to Integer atoi here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "\"42\"",
+      "expected_output": "42",
+      "is_sample": true
+    },
+    {
+      "input": "\" -042\"",
+      "expected_output": "-42",
+      "is_sample": true
+    },
+    {
+      "input": "\"1337c0d3\"",
+      "expected_output": "1337",
+      "is_sample": true
+    },
+    {
+      "input": "\"0-1\"",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "\"words and 987\"",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "\"-91283472332\"",
+      "expected_output": "-2147483648",
+      "is_sample": false
+    },
+    {
+      "input": "\"2147483648\"",
+      "expected_output": "2147483647",
+      "is_sample": false
+    },
+    {
+      "input": "\"+1\"",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "\"  +  42\"",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "\"00000123\"",
+      "expected_output": "123",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "String"
+  ],
+  "companyIndex": 3
+}

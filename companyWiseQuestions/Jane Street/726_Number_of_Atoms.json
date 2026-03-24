@@ -1,0 +1,91 @@
+{
+  "question_text": "<h3>Number of Atoms</h3><p>Given a string <code>formula</code> representing a chemical formula, return the count of each atom. The output should be a string of pairs (name, count) sorted by name, where count == 1 means no number after the name.</p>\n<p><strong>Constraints:</strong></p><ul><li><code>1 &lt;= formula.length &lt;= 1000</code></li><li><code>formula</code> consists of English letters, digits, <code>(</code>, and <code>)</code>.</li><li><code>formula</code> is always valid.</li></ul>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "A string formula representing a chemical formula.",
+  "output_format": "A string of atom-count pairs sorted alphabetically by atom name, omitting count when it is 1.",
+  "constraints": [
+    "1 <= formula.length <= 1000",
+    "formula is always a valid chemical formula"
+  ],
+  "explanation": "<h4>Stack-Based Parsing</h4><p>Use a stack of Counter dictionaries. On open paren, push new Counter. On close paren, pop, read following number, multiply all counts by it, merge into new top. On element (uppercase + lowercase letters), read following digits as count (default 1), add to top of stack. Merge stacks and format the output sorted.</p><p><strong>Time:</strong> O(N²) worst case. <strong>Space:</strong> O(N).</p>",
+  "answer": "from collections import Counter\ndef countOfAtoms(formula):\n    i, n = 0, len(formula)\n    def parse():\n        nonlocal i\n        count = Counter()\n        while i < n and formula[i] != ')':\n            if formula[i] == '(':\n                i += 1\n                inner = parse()\n                i += 1  # skip ')'\n                num = 0\n                while i < n and formula[i].isdigit():\n                    num = num * 10 + int(formula[i]); i += 1\n                if num == 0: num = 1\n                for k in inner: count[k] += inner[k] * num\n            elif formula[i].isupper():\n                j = i + 1\n                while j < n and formula[j].islower(): j += 1\n                elem = formula[i:j]; i = j\n                num = 0\n                while i < n and formula[i].isdigit():\n                    num = num * 10 + int(formula[i]); i += 1\n                count[elem] += num if num else 1\n        return count\n    c = parse()\n    return ''.join(k + (str(c[k]) if c[k] > 1 else '') for k in sorted(c))",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 726 Number of Atoms here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "\"H2O\"",
+      "expected_output": "\"H2O\"",
+      "is_sample": true
+    },
+    {
+      "input": "\"Mg(OH)2\"",
+      "expected_output": "\"H2MgO2\"",
+      "is_sample": true
+    },
+    {
+      "input": "\"K4(ON(SO3)2)2\"",
+      "expected_output": "\"K4N2O14S4\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"H\"",
+      "expected_output": "\"H\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"C6H12O6\"",
+      "expected_output": "\"C6H12O6\"",
+      "is_input": false,
+      "is_sample": false
+    },
+    {
+      "input": "\"Be32\"",
+      "expected_output": "\"Be32\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"(H2O2)3\"",
+      "expected_output": "\"H6O6\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"Na2SO4\"",
+      "expected_output": "\"Na2O4S\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"Ca(OH)2\"",
+      "expected_output": "\"CaH2O2\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"Fe2(SO4)3\"",
+      "expected_output": "\"Fe2O12S3\"",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "String",
+    "Stack",
+    "Sorting"
+  ],
+  "companyIndex": 29
+}

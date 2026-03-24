@@ -1,0 +1,86 @@
+{
+  "question_text": "<h3>ZigZag Conversion</h3><p>The string <code>'PAYPALISHIRING'</code> is written in a zigzag pattern on a given number of rows...</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "1 <= N <= 10^5"
+  ],
+  "explanation": "We use an array of strings to represent each row. We iterate through the input string, appending each character to the current row and moving the index up or down the rows in a zigzag fashion. This runs in O(N) time.",
+  "answer": "def solve(s, numRows):\n    if numRows == 1: return s\n    res = ''\n    for r in range(numRows):\n        increment = 2 * (numRows - 1)\n        for i in range(r, len(s), increment):\n            res += s[i]\n            if r > 0 and r < numRows - 1 and i + increment - 2 * r < len(s):\n                res += s[i + increment - 2 * r]\n    return res",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "PAYPALISHIRING\n3",
+      "expected_output": "PAHNAPLSIIGYIR",
+      "is_sample": true
+    },
+    {
+      "input": "PAYPALISHIRING\n4",
+      "expected_output": "PINALSIGYAHRPI",
+      "is_sample": true
+    },
+    {
+      "input": "A\n1",
+      "expected_output": "A",
+      "is_sample": false
+    },
+    {
+      "input": "AB\n1",
+      "expected_output": "AB",
+      "is_sample": false
+    },
+    {
+      "input": "ABCD\n2",
+      "expected_output": "ACBD",
+      "is_sample": false
+    },
+    {
+      "input": "ABCDE\n4",
+      "expected_output": "ABCED",
+      "is_sample": false
+    },
+    {
+      "input": "ABC\n2",
+      "expected_output": "ACB",
+      "is_sample": false
+    },
+    {
+      "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n50",
+      "expected_output": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "is_sample": false
+    },
+    {
+      "input": "ABCDE\n10",
+      "expected_output": "ABCDE",
+      "is_sample": false
+    },
+    {
+      "input": "AB\n2",
+      "expected_output": "AB",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Data Structures / Algorithms"
+  ],
+  "companyIndex": 6
+}

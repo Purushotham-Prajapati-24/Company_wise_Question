@@ -1,0 +1,90 @@
+{
+    "question_text": "<h3>Basic Calculator III</h3><p>Implement a basic calculator to evaluate a simple expression string. The expression string contains only non-negative integers, <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> operators, and empty spaces. The integer division should truncate towards zero. May contain parentheses.</p>\n<p><strong>Constraints:</strong></p><ul><li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li><li><code>s</code> consists of digits, <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>(</code>, <code>)</code>, and spaces.</li><li><code>s</code> is a valid expression.</li></ul>",
+    "difficulty": "HARD",
+    "marks": 15,
+    "input_format": "A string s representing a mathematical expression with +,-,*,/ and parentheses.",
+    "output_format": "The integer result of evaluating the expression.",
+    "constraints": [
+        "1 <= s.length <= 10^4",
+        "s is a valid expression with digits, operators, and parentheses"
+    ],
+    "explanation": "<h4>Recursive Descent / Stack with Parentheses</h4><p>Use a recursive approach: parse digits, handle operator precedence by processing * and / immediately (using a running product), and + and - by pushing onto a stack. For parentheses, recurse to compute the sub-expression value, then continue. Sum the stack at the end.</p><p><strong>Time:</strong> O(N). <strong>Space:</strong> O(N).</p>",
+    "answer": "def calculate(s):\n    def helper(it):\n        stack = []\n        num = 0\n        op = '+'\n        while it < len(s):\n            c = s[it]\n            if c.isdigit():\n                num = num * 10 + int(c)\n            if c == '(':\n                it, num = helper(it + 1)\n            if (not c.isdigit() and c != ' ') or it == len(s) - 1:\n                if op == '+': stack.append(num)\n                elif op == '-': stack.append(-num)\n                elif op == '*': stack.append(stack.pop() * num)\n                elif op == '/': stack.append(int(stack.pop() / num))\n                op = c; num = 0\n                if c == ')': return it, sum(stack)\n            it += 1\n        return it, sum(stack)\n    return helper(0)[1]",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 772 Basic Calculator III here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "\"1 + 1\"",
+            "expected_output": "2",
+            "is_sample": true
+        },
+        {
+            "input": "\" 6-4 / 2 \"",
+            "expected_output": "4",
+            "is_sample": true
+        },
+        {
+            "input": "\"2*(5+5*2)/3+(6/2+8)\"",
+            "expected_output": "21",
+            "is_sample": false
+        },
+        {
+            "input": "\"(2+6* 3+5- (3*14/7+2)*5)+3\"",
+            "expected_output": "-12",
+            "is_sample": false
+        },
+        {
+            "input": "\"0\"",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "\"1+2*3\"",
+            "expected_output": "7",
+            "is_sample": false
+        },
+        {
+            "input": "\"10/3\"",
+            "expected_output": "3",
+            "is_sample": false
+        },
+        {
+            "input": "\"(1+(4+5+2)-3)+(6+8)\"",
+            "expected_output": "23",
+            "is_sample": false
+        },
+        {
+            "input": "\"100*100\"",
+            "expected_output": "10000",
+            "is_sample": false
+        },
+        {
+            "input": "\"2*(3+4)*5\"",
+            "expected_output": "70",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Math",
+        "String",
+        "Stack",
+        "Recursion"
+    ],
+    "companyIndex": 8
+}

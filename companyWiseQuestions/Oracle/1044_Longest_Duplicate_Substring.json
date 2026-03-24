@@ -1,0 +1,91 @@
+{
+    "question_text": "<p>Given a string <code>s</code>, consider all <em>duplicated substrings</em>: (contiguous) substrings of s that occur 2 or more times.&nbsp;The occurrences&nbsp;may overlap.</p>\n\n<p>Return <strong>any</strong> duplicated&nbsp;substring that has the longest possible length.&nbsp;If <code>s</code> does not have a duplicated substring, the answer is <code>&quot;&quot;</code>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre><strong>Input:</strong> s = \"banana\"\n<strong>Output:</strong> \"ana\"\n</pre><p><strong class=\"example\">Example 2:</strong></p>\n<pre><strong>Input:</strong> s = \"abcd\"\n<strong>Output:</strong> \"\"\n</pre>\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>2 &lt;= s.length &lt;= 3 * 10<sup>4</sup></code></li>\n\t<li><code>s</code> consists of lowercase English letters.</li>\n</ul>\n",
+    "difficulty": "HARD",
+    "marks": 15,
+    "input_format": "A single string s.",
+    "output_format": "The longest duplicated substring, or empty string if none.",
+    "constraints": [
+        "2 <= s.length <= 3 * 10^4",
+        "s consists of lowercase English letters."
+    ],
+    "explanation": "Use binary search on the length of the duplicate substring. For a given length `mid`, use the Rabin-Karp rolling hash algorithm to check if any substring of length `mid` appears more than once. Binary search over `mid` in [1, n-1].",
+    "answer": "def solve(s):\n    n = len(s)\n    MOD = (1 << 61) - 1\n    BASE = 31\n\n    def check(length):\n        h = 0; power = 1\n        for c in s[:length]:\n            h = (h * BASE + ord(c) - ord('a') + 1) % MOD\n        power = pow(BASE, length, MOD)\n        seen = {h: [0]}\n        for i in range(1, n - length + 1):\n            h = (h * BASE - (ord(s[i-1]) - ord('a') + 1) * power + ord(s[i+length-1]) - ord('a') + 1) % MOD\n            if h in seen:\n                curr = s[i:i+length]\n                for prev in seen[h]:\n                    if s[prev:prev+length] == curr:\n                        return curr\n                seen[h].append(i)\n            else:\n                seen[h] = [i]\n        return ''\n\n    lo, hi = 1, n - 1\n    res = ''\n    while lo <= hi:\n        mid = (lo + hi) // 2\n        dup = check(mid)\n        if dup:\n            res = dup; lo = mid + 1\n        else:\n            hi = mid - 1\n    return res",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(s):\n    pass\n\nif __name__ == '__main__':\n    s = sys.stdin.read().strip()\n    print(solve(s))",
+        "cpp": "#include <iostream>\n#include <string>\n#include <unordered_set>\nusing namespace std;\nint main() { return 0; }",
+        "java": "import java.util.*;\npublic class Main { public static void main(String[] args) {} }",
+        "javascript": "const fs = require('fs');\nconst s = fs.readFileSync(0,'utf-8').trim();",
+        "c": "#include <stdio.h>\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "banana",
+            "expected_output": "ana",
+            "is_sample": true
+        },
+        {
+            "input": "abcd",
+            "expected_output": "",
+            "is_sample": true
+        },
+        {
+            "input": "aaaa",
+            "expected_output": "aaa",
+            "is_sample": false
+        },
+        {
+            "input": "aab",
+            "expected_output": "a",
+            "is_sample": false
+        },
+        {
+            "input": "abcabc",
+            "expected_output": "abc",
+            "is_sample": false
+        },
+        {
+            "input": "mississippi",
+            "expected_output": "issi",
+            "is_sample": false
+        },
+        {
+            "input": "aa",
+            "expected_output": "a",
+            "is_sample": false
+        },
+        {
+            "input": "abababababababababababababababababababababababababababababababab",
+            "expected_output": "ababababababababababababababababababababababababababababababab",
+            "is_sample": false
+        },
+        {
+            "input": "xyzyzxyzyz",
+            "expected_output": "xyzyz",
+            "is_sample": false
+        },
+        {
+            "input": "aaaaaaaaaaaaaaaa",
+            "expected_output": "aaaaaaaaaaaaaaa",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "String",
+        "Binary Search",
+        "Sliding Window",
+        "Rolling Hash",
+        "Suffix Array"
+    ],
+    "companyIndex": 12
+}

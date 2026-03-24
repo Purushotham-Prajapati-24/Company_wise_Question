@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>Happy Number</h3><p>Determine if a number settles to 1 after squaring digits repeatedly.</p>",
+  "difficulty": "EASY",
+  "marks": 10,
+  "input_format": "Int.",
+  "output_format": "Bool.",
+  "constraints": [
+    "n <= 2^31 - 1"
+  ],
+  "explanation": "Detect cycles using Floyd’s Cycle-Finding Algorithm (slow/fast pointers) or a hash set.",
+  "answer": "def isHappy(n):\n    seen = set()\n    while n != 1 and n not in seen:\n        seen.add(n)\n        n = sum(int(i)**2 for i in str(n))\n    return n == 1",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 202 Happy Number here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "19",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "2",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "7",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "1",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "2147483647",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "100",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "1111111",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "999999999",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "44",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "4",
+      "expected_output": "false",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "Math",
+    "Two Pointers"
+  ],
+  "companyIndex": 11
+}

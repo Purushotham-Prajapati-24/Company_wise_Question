@@ -1,0 +1,91 @@
+{
+    "id": "291",
+    "title": "Word Pattern II",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "The first line is the string pattern. The second line is the string s.",
+    "output_format": "Print boolean 'true' or 'false'.",
+    "constraints": [
+        "1 <= pattern.length <= 20",
+        "1 <= s.length <= 50"
+    ],
+    "explanation": "This is a backtracking problem. We try to map each character in pattern to a substring in s. We maintain a hash map of char to string and a set of used strings to ensure bijection.",
+    "answer": "def solve(pattern, s):\n    d, used = {}, set()\n    def backtrack(p_idx, s_idx):\n        if p_idx == len(pattern) and s_idx == len(s): return True\n        if p_idx == len(pattern) or s_idx == len(s): return False\n        c = pattern[p_idx]\n        if c in d:\n            w = d[c]\n            if s.startswith(w, s_idx):\n                return backtrack(p_idx + 1, s_idx + len(w))\n            return False\n        for end in range(s_idx + 1, len(s) + 1):\n            w = s[s_idx:end]\n            if w not in used:\n                d[c] = w\n                used.add(w)\n                if backtrack(p_idx + 1, end): return True\n                del d[c]\n                used.remove(w)\n        return False\n    return str(backtrack(0, 0)).lower()",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(pattern, s):\n    pass\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    pattern = lines[0].strip() if len(lines) > 0 else \"\"\n    s = lines[1].strip() if len(lines) > 1 else \"\"\n    print(solve(pattern, s))",
+        "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\nstring solve(string pattern, string s) { return \"false\"; }\nint main() {\n    string p, s;\n    if (cin >> p >> s) cout << solve(p, s) << endl;\n    return 0;\n}",
+        "java": "import java.util.*;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if(sc.hasNext()) {\n            String p = sc.next(), s = sc.next();\n            System.out.println(\"false\");\n        }\n    }\n}",
+        "javascript": "const fs = require('fs');\nconst input = fs.readFileSync(0, 'utf-8').trim().split('\\n');\nif(input.length >= 2) {\n    const p = input[0].trim();\n    const s = input[1].trim();\n    console.log(\"false\");\n}",
+        "c": "#include <stdio.h>\nint main() { printf(\"false\\n\"); return 0; }"
+    },
+    "test_cases": [
+        {
+            "input": "abab\nredblueredblue",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "aaaa\nasdasdasdasd",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "aabb\nxyzabcxzyabc",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "ab\naa",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "a\na",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "abc\nxyz",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "d\ne",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "aba\naaaaa",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "ababab\nredblueredblueredblue",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "abcdef\nighjklmno",
+            "expected_output": "false",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Hash Table",
+        "String",
+        "Backtracking"
+    ],
+    "question_text": "<h3>Word Pattern II</h3><p>Description unavailable.</p>",
+    "companyIndex": 8,
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    }
+}

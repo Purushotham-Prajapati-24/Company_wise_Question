@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>146 LRU Cache</h3><p><strong>LRU Cache</strong></p><p>Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply.",
+    "Time limit: 1s",
+    "Memory limit: 256MB"
+  ],
+  "explanation": "Use an OrderedDict in Python to maintain insertion order while providing O(1) average lookup. Moving a key to the end on every access ensures the least recently used element is at the beginning. If capacity is exceeded, pop the first item.",
+  "answer": "class Node:\n    def __init__(self, key, val):\n        self.key, self.val = key, val\n        self.prev = self.next = None\n\nclass LRUCache:\n    def __init__(self, capacity: int):\n        self.cap = capacity\n        self.cache = {}\n        self.left, self.right = Node(0, 0), Node(0, 0)\n        self.left.next, self.right.prev = self.right, self.left\n\n    def _remove(self, node):\n        prev, nxt = node.prev, node.next\n        prev.next, nxt.prev = nxt, prev\n\n    def _insert(self, node):\n        prev, nxt = self.right.prev, self.right\n        prev.next = nxt.prev = node\n        node.next, node.prev = nxt, prev\n\n    def get(self, key: int) -> int:\n        if key in self.cache:\n            self._remove(self.cache[key])\n            self._insert(self.cache[key])\n            return self.cache[key].val\n        return -1\n\n    def put(self, key: int, value: int) -> None:\n        if key in self.cache:\n            self._remove(self.cache[key])\n        self.cache[key] = Node(key, value)\n        self._insert(self.cache[key])\n        if len(self.cache) > self.cap:\n            lru = self.left.next\n            self._remove(lru)\n            del self.cache[lru.key]\n\ndef solve(commands):\n    # Dispatcher for complex class-based problems\n    lines = commands.strip().split('\\n')\n    capacity = int(lines[0])\n    obj = LRUCache(capacity)\n    results = []\n    for line in lines[1:]:\n        parts = line.split()\n        cmd = parts[0]\n        if cmd == 'put':\n            obj.put(int(parts[1]), int(parts[2]))\n            results.append('null')\n        elif cmd == 'get':\n            results.append(str(obj.get(int(parts[1]))))\n    return ' '.join(results)",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n\nint main() {\n    Solution sol;\n    sol.solve();\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n    public static void main(String[] args) {\n        new Solution().solve();\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "2\nput 1 1\nput 2 2\nget 1\nput 3 3\nget 2\nput 4 4\nget 1\nget 3\nget 4",
+      "expected_output": "null null 1 null -1 null -1 3 4",
+      "is_sample": true
+    },
+    {
+      "input": "1\nput 2 1\nget 2\nput 3 2\nget 2\nget 3",
+      "expected_output": "null 1 null -1 2",
+      "is_sample": true
+    },
+    {
+      "input": "2\nget 2\nput 2 6\nget 1\nput 1 5\nput 1 2\nget 1\nget 2",
+      "expected_output": "-1 null -1 null null 2 6",
+      "is_sample": false
+    },
+    {
+      "input": "3\nput 1 1\nput 2 2\nput 3 3\nput 4 4\nget 4\nget 3\nget 2\nget 1",
+      "expected_output": "null null null null 4 3 2 -1",
+      "is_sample": false
+    },
+    {
+      "input": "2\nput 2 1\nput 1 1\nput 2 3\nput 4 1\nget 1\nget 2",
+      "expected_output": "null null null null -1 3",
+      "is_sample": false
+    },
+    {
+      "input": "10\nput 0 0\nput 1 1\nput 2 2\nput 3 3\nput 4 4\nput 5 5\nput 6 6\nput 7 7\nput 8 8\nput 9 9\nput 10 10\nput 11 11\nput 12 12\nput 13 13\nput 14 14\nput 15 15\nput 16 16\nput 17 17\nput 18 18\nput 19 19\nget 0\nget 10\nget 19",
+      "expected_output": "null null null null null null null null null null null null null null null null null null null null -1 10 19",
+      "is_sample": false
+    },
+    {
+      "input": "2\nput 1 1\nput 2 2\nget 1\nget 1\nget 1",
+      "expected_output": "null null 1 1 1",
+      "is_sample": false
+    },
+    {
+      "input": "2\nput 1 1\nput 2 2\nput 1 10\nput 3 3\nget 2\nget 1",
+      "expected_output": "null null null null -1 10",
+      "is_sample": false
+    },
+    {
+      "input": "3\nput 1 1\nput 2 2\nput 3 3\nget 1\nput 4 4\nget 2",
+      "expected_output": "null null null 1 null -1",
+      "is_sample": false
+    },
+    {
+      "input": "1\nput 1 1\nput 1 2\nget 1",
+      "expected_output": "null null 2",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Design"
+  ],
+  "companyIndex": 2
+}

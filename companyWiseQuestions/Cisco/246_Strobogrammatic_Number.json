@@ -1,0 +1,89 @@
+{
+  "question_text": "<h3>Strobogrammatic Number</h3><p>Given a string <code>num</code> which represents an integer, return <code>true</code><em> if </em><code>num</code><em> is a <strong>strobogrammatic number</strong></em>.</p>\n\n<p>A <strong>strobogrammatic number</strong> is a number that looks the same when rotated 180 degrees (looked at upside down).</p>",
+  "difficulty": "EASY",
+  "marks": 10,
+  "input_format": "String num.",
+  "output_format": "bool.",
+  "constraints": [
+    "1 <= num.length <= 50",
+    "num consists of digits only."
+  ],
+  "explanation": "Check rotated pairs: (0,0), (1,1), (6,9), (8,8), (9,6). Use two pointers starting from ends and check if they form a valid pair.",
+  "answer": "def isStrobogrammatic(num):\n    d = {'0':'0', '1':'1', '6':'9', '8':'8', '9':'6'}\n    l, r = 0, len(num) - 1\n    while l <= r:\n        if num[l] not in d or d[num[l]] != num[r]: return False\n        l += 1; r -= 1\n    return True",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 246 Strobogrammatic Number here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "\"69\"",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "\"88\"",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "\"962\"",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "\"1\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "\"0\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "\"8\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "\"11\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "\"609\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "\"619\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "\"2\"",
+      "expected_output": "false",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "Two Pointers",
+    "String"
+  ],
+  "companyIndex": 20
+}

@@ -1,0 +1,91 @@
+{
+    "question_text": "<h3>353. Design Snake Game</h3>\n<p>Design a <a href=\"https://en.wikipedia.org/wiki/Snake_(video_game_genre)\" target=\"_blank\">Snake game</a> that is played on a device with screen size <code>height x width</code>. <a href=\"http://patorjk.com/games/snake/\" target=\"_blank\">Play the game online</a> if you are not familiar with the game.</p>\n<p>The snake is initially positioned at the top left corner <code>(0, 0)</code> with a length of <code>1</code> unit.</p>\n<p>You are given an array <code>food</code> where <code>food[i] = (r<sub>i</sub>, c<sub>i</sub>)</code> is the row and column position of a piece of food that the snake can eat. When a snake eats a piece of food, its length and the game's score both increase by <code>1</code>.</p>\n<p>Each piece of food appears one by one on the screen, meaning the second piece of food will not appear until the snake eats the first piece of food.</p>\n<p>When a piece of food appears on the screen, it is <strong>guaranteed</strong> that it will not appear on a block occupied by the snake.</p>\n<p>The game is over if the snake goes out of bounds (hits a wall) or if its head occupies a space that its body occupies <strong>after</strong> moving (i.e. a snake of length 4 cannot run into itself).</p>\n<p>Implement the <code>SnakeGame</code> class:</p>\n<ul>\n    <li><code>SnakeGame(int width, int height, int[][] food)</code> Initializes the object with a screen of size <code>height x width</code> and the positions of the <code>food</code>.</li>\n    <li><code>int move(String direction)</code> Returns the score of the game after applying one <code>direction</code> move by the snake. If the game is over, return <code>-1</code>.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img src=\"https://assets.leetcode.com/uploads/2021/01/13/snake.jpg\" style=\"width: 296px; height: 162px;\"/>\n<pre>\n<strong>Input:</strong>\n[\"SnakeGame\", \"move\", \"move\", \"move\", \"move\", \"move\", \"move\"]\n[[3, 2, [[1, 2], [0, 1]]], [\"R\"], [\"D\"], [\"R\"], [\"U\"], [\"L\"], [\"U\"]]\n<strong>Output:</strong>\n[null, 0, 0, 1, 1, 2, -1]\n<strong>Explanation:</strong>\nSnakeGame snakeGame = new SnakeGame(3, 2, [[1, 2], [0, 1]]);\nsnakeGame.move(\"R\"); // return 0\nsnakeGame.move(\"D\"); // return 0\nsnakeGame.move(\"R\"); // return 1, snake eats the first piece of food. The second piece of food appears at (0, 1).\nsnakeGame.move(\"U\"); // return 1\nsnakeGame.move(\"L\"); // return 2, snake eats the second food. No more food appears.\nsnakeGame.move(\"U\"); // return -1, game over because snake collides with border\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n<ul>\n    <li><code>1 &lt;= width, height &lt;= 10<sup>4</sup></code></li>\n    <li><code>1 &lt;= food.length &lt;= 50</code></li>\n    <li><code>food[i].length == 2</code></li>\n    <li><code>0 &lt;= r<sub>i</sub> &lt; height</code></li>\n    <li><code>0 &lt;= c<sub>i</sub> &lt; width</code></li>\n    <li><code>direction.length == 1</code></li>\n    <li><code>direction</code> is <code>'U'</code>, <code>'D'</code>, <code>'L'</code>, or <code>'R'</code>.</li>\n    <li>At most <code>10<sup>4</sup></code> calls will be made to <code>move</code>.</li>\n</ul>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Snake game setup and move calls",
+    "output_format": "Score after each move",
+    "constraints": [
+        "1 <= width, height <= 10^4",
+        "1 <= food.length <= 50"
+    ],
+    "explanation": "Use deque for snake body. On move, compute new head. If food, add head and increment score. Otherwise, remove tail. Check for wall and self collision via a set of positions.",
+    "answer": "from collections import deque\n\nclass SnakeGame:\n    def __init__(self, width, height, food):\n        self.w, self.h, self.food, self.fi = width, height, food, 0\n        self.snake = deque([(0,0)])\n        self.body = {(0,0)}\n        self.score = 0\n    def move(self, direction):\n        r, c = self.snake[0]\n        dr, dc = {'U':(-1,0),'D':(1,0),'L':(0,-1),'R':(0,1)}[direction]\n        nr, nc = r+dr, c+dc\n        if not (0<=nr<self.h and 0<=nc<self.w): return -1\n        tail = self.snake[-1]\n        if self.fi < len(self.food) and [nr,nc] == self.food[self.fi]:\n            self.fi += 1; self.score += 1\n        else:\n            self.snake.pop(); self.body.discard(tail)\n        if (nr,nc) in self.body: return -1\n        self.snake.appendleft((nr,nc)); self.body.add((nr,nc))\n        return self.score",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Design Snake Game here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static Object solve() { return null; }\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[\"SnakeGame\",\"move\",\"move\",\"move\",\"move\",\"move\",\"move\"]\n[[3,2,[[1,2],[0,1]]],[\"R\"],[\"D\"],[\"R\"],[\"U\"],[\"L\"],[\"U\"]]",
+            "expected_output": "[null,0,0,1,1,2,-1]",
+            "is_sample": true
+        },
+        {
+            "input": "[\"SnakeGame\",\"move\",\"move\",\"move\"]\n[[2,2,[[0,1]]],[\"R\"],[\"D\"],[\"L\"]]",
+            "expected_output": "[null,1,1,1]",
+            "is_sample": true
+        },
+        {
+            "input": "[\"SnakeGame\",\"move\"]\n[[1,1,[]],[\"U\"]]",
+            "expected_output": "[null,-1]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"SnakeGame\",\"move\"]\n[[3,2,[]],[\"R\"]]",
+            "expected_output": "[null,0]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"SnakeGame\",\"move\",\"move\"]\n[[2,2,[]],[\"R\"],[\"D\"]]",
+            "expected_output": "[null,0,0]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"SnakeGame\",\"move\",\"move\",\"move\",\"move\"]\n[[2,2,[[0,1]]],[\"R\"],[\"D\"],[\"L\"],[\"U\"]]",
+            "expected_output": "[null,1,1,1,-1]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"SnakeGame\",\"move\",\"move\",\"move\",\"move\",\"move\",\"move\"]\n[[3,3,[[0,1],[0,2],[1,2]]],[\"R\"],[\"R\"],[\"D\"],[\"L\"],[\"L\"],[\"U\"]]",
+            "expected_output": "[null,1,2,3,3,3,-1]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"SnakeGame\",\"move\",\"move\",\"move\",\"move\"]\n[[2,1,[[0,1]]],[\"R\"],[\"L\"],[\"R\"],[\"L\"]]",
+            "expected_output": "[null,1,1,1,1]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"SnakeGame\",\"move\",\"move\",\"move\",\"move\",\"move\"]\n[[3,2,[[0,2],[1,2]]],[\"R\"],[\"R\"],[\"D\"],[\"L\"],[\"L\"]]",
+            "expected_output": "[null,1,2,2,2,2]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"SnakeGame\",\"move\",\"move\",\"move\",\"move\",\"move\",\"move\",\"move\",\"move\",\"move\"]\n[[3,2,[[0,1],[0,2],[1,0],[1,1],[1,2]]],[\"R\"],[\"R\"],[\"D\"],[\"L\"],[\"L\"],[\"R\"],[\"R\"],[\"U\"],[\"L\"]]",
+            "expected_output": "[null,1,2,3,4,5,5,5,5,-1]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Hash Table",
+        "Design",
+        "Queue",
+        "Simulation"
+    ],
+    "companyIndex": 24
+}

@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Insert Delete GetRandom O(1) - Duplicates allowed</h3>",
+  "difficulty": "HARD",
+  "marks": 20,
+  "input_format": "insert, remove, and getRandom calls",
+  "output_format": "Boolean for insert/remove, int for getRandom",
+  "constraints": [
+    "At most 2*10^5 calls"
+  ],
+  "explanation": "Similar to O(1) set, but map value to a set of indices. To remove, pick any index from value's set and swap with last element. Update last element's index set.",
+  "answer": "class RandomizedCollection:\n    def __init__(self):\n        self.nums = []; self.pos = collections.defaultdict(set)\n    def insert(self, val):\n        self.pos[val].add(len(self.nums)); self.nums.append(val); return len(self.pos[val]) == 1\n    def remove(self, val):\n        if not self.pos[val]: return False\n        idx = self.pos[val].pop(); last = self.nums[-1]\n        self.nums[idx] = last\n        self.pos[last].add(idx); self.pos[last].remove(len(self.nums)-1)\n        self.nums.pop(); return True\n    def getRandom(self):\n        return random.choice(self.nums)",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Insert Delete GetRandom O(1) - Duplicates allowed here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"RandomizedCollection\",\"insert\",\"insert\",\"insert\",\"getRandom\",\"remove\",\"getRandom\"]\n[[],[1],[1],[2],[],[1],[]]",
+      "expected_output": "[null,true,false,true,1 or 2,true,1 or 2]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"RandomizedCollection\",\"insert\",\"getRandom\"]\n[[],[5],[]]",
+      "expected_output": "[null,true,5]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"RandomizedCollection\",\"insert\",\"insert\",\"remove\",\"remove\"]\n[[],[1],[1],[1],[1]]",
+      "expected_output": "[null,true,false,true,true]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"RandomizedCollection\",\"insert\",\"remove\",\"insert\",\"remove\"]\n[[],[1],[1],[1],[1]]",
+      "expected_output": "[null,true,true,true,true]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"RandomizedCollection\",\"insert\",\"insert\",\"insert\"]\n[[],[1],[2],[3]]",
+      "expected_output": "[null,true,true,true]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"RandomizedCollection\",\"insert\",\"insert\",\"getRandom\"]\n[[],[10],[10],[]]",
+      "expected_output": "[null,true,false,10]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"RandomizedCollection\",\"remove\"]\n[[],[1]]",
+      "expected_output": "[null,false]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"RandomizedCollection\",\"insert\",\"remove\",\"remove\"]\n[[],[1],[1],[1]]",
+      "expected_output": "[null,true,true,false]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"RandomizedCollection\",\"insert\",\"insert\",\"remove\",\"getRandom\"]\n[[],[1],[2],[1],[]]",
+      "expected_output": "[null,true,true,true,2]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"RandomizedCollection\",\"insert\",\"insert\",\"remove\",\"getRandom\"]\n[[],[1],[2],[1],[]]",
+      "expected_output": "[null,true,true,true,2]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Hash Table",
+    "Math",
+    "Design",
+    "Randomized"
+  ],
+  "companyIndex": 27
+}

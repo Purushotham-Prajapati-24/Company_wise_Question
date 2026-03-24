@@ -1,0 +1,88 @@
+{
+    "question_text": "<h3>Maximum Product Subarray</h3><p>Given an integer array <code>nums</code>, find a contiguous non-empty subarray within the array that has the largest product, and return the product.</p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "A single line of space-separated integers.",
+    "output_format": "A single integer.",
+    "constraints": [
+        "1 <= nums.length <= 2 * 10^4",
+        "-10 <= nums[i] <= 10"
+    ],
+    "explanation": "Because products of negative numbers can instantly become massive positive numbers if multiplied again by a negative, we must dynamically track BOTH the `max_product` and the `min_product` ending at any index `i`. For each num, the new max is the max of `(num, num*old_max, num*old_min)` and similarly for min. We then aggressively track the global maximum result encountered. Runs sequentially in O(N) time and O(1) space.",
+    "answer": "def solve(nums):\n    res = float('-inf')\n    cmax, cmin = 1, 1\n    for n in nums:\n        if n < 0: cmax, cmin = cmin, cmax\n        cmax = max(n, cmax * n)\n        cmin = min(n, cmin * n)\n        res = max(res, cmax)\n    return res",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(arr):\n    # User logic here\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().split()\n    if not input_data: sys.exit(0)\n    arr = list(map(int, input_data))\n    res = solve(arr)\n    print(str(res).lower() if isinstance(res, bool) else res)",
+        "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint solve(vector<int>& arr) {\n    // User logic here\n    return 0;\n}\n\nint main() {\n    int val;\n    vector<int> arr;\n    while (cin >> val) arr.push_back(val);\n    int res = solve(arr);\n    cout << (res) << endl;\n    return 0;\n}",
+        "java": "import java.util.*;\n\npublic class Main {\n    public static int solve(int[] arr) {\n        // User logic here\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ArrayList<Integer> list = new ArrayList<>();\n        while (sc.hasNextInt()) list.add(sc.nextInt());\n        int[] arr = new int[list.size()];\n        for (int i = 0; i < list.size(); i++) arr[i] = list.get(i);\n        System.out.println(solve(arr));\n        sc.close();\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve(arr) {\n    // User logic here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split(/\\s+/);\nif (input.length > 0 && input[0] !== '') {\n    const arr = input.map(Number);\n    console.log(solve(arr));\n}",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\nint solve(int* arr, int n) {\n    // User logic here\n    return 0;\n}\n\nint main() {\n    int capacity = 1000;\n    int* arr = (int*)malloc(capacity * sizeof(int));\n    int n = 0, val;\n    while (scanf(\"%d\", &val) == 1) {\n        if (n == capacity) {\n            capacity *= 2;\n            arr = (int*)realloc(arr, capacity * sizeof(int));\n        }\n        arr[n++] = val;\n    }\n    int res = solve(arr, n);\n    printf(\"%d\\n\", res);\n    free(arr);\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "2 3 -2 4",
+            "expected_output": "6",
+            "is_sample": true
+        },
+        {
+            "input": "-2 0 -1",
+            "expected_output": "0",
+            "is_sample": true
+        },
+        {
+            "input": "-2 3 -4",
+            "expected_output": "24",
+            "is_sample": false
+        },
+        {
+            "input": "0 2",
+            "expected_output": "2",
+            "is_sample": false
+        },
+        {
+            "input": "-1 -2 -9 -6",
+            "expected_output": "108",
+            "is_sample": false
+        },
+        {
+            "input": "-1 -2 -3 0",
+            "expected_output": "6",
+            "is_sample": false
+        },
+        {
+            "input": "-2",
+            "expected_output": "-2",
+            "is_sample": false
+        },
+        {
+            "input": "2 2 2 2 2 2 2 2 2 2 2 2 2 2 2",
+            "expected_output": "32768",
+            "is_sample": false
+        },
+        {
+            "input": "-2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2 -2",
+            "expected_output": "16384",
+            "is_sample": false
+        },
+        {
+            "input": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+            "expected_output": "0",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Dynamic Programming"
+    ],
+    "companyIndex": 0
+}

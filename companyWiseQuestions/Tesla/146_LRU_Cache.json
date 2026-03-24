@@ -1,0 +1,86 @@
+{
+  "question_text": "<p>Design a data structure that follows the constraints of a <strong>Least Recently Used (LRU) cache</strong>.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply."
+  ],
+  "explanation": "FAANG-level explanation for LRU Cache.",
+  "answer": "class Node:\n    def solve(self, key, val):\n        self.key, self.val = key, val\n        self.prev = self.next = None\n\nclass LRUCache:\n    def __init__(self, capacity: int):\n        self.cap = capacity\n        self.cache = {}\n        self.left, self.right = Node(0, 0), Node(0, 0)\n        self.left.next, self.right.prev = self.right, self.left\n\n    def remove(self, node):\n        prev, nxt = node.prev, node.next\n        prev.next, nxt.prev = nxt, prev\n\n    def insert(self, node):\n        prev, nxt = self.right.prev, self.right\n        prev.next = nxt.prev = node\n        node.next, node.prev = nxt, prev\n\n    def get(self, key: int) -> int:\n        if key in self.cache:\n            self.remove(self.cache[key])\n            self.insert(self.cache[key])\n            return self.cache[key].val\n        return -1\n\n    def put(self, key: int, value: int) -> None:\n        if key in self.cache:\n            self.remove(self.cache[key])\n        self.cache[key] = Node(key, value)\n        self.insert(self.cache[key])\n        if len(self.cache) > self.cap:\n            lru = self.left.next\n            self.remove(lru)\n            del self.cache[lru.key]",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "LRUCache\"  \"put\"  \"put\"  \"get\"  \"put\"  \"get\"  \"put\"  \"get\"  \"get\"  \"get\"]\n[[2]  [1  1]  [2  2]  [1]  [3  3]  [2]  [4  4]  [1]  [3]  [4",
+      "expected_output": "null  null  null  1  null  -1  null  -1  3  4",
+      "is_sample": true
+    },
+    {
+      "input": "LRUCache\"  \"put\"  \"get\"]\n[[1]  [2  1]  [2",
+      "expected_output": "null  null  1",
+      "is_sample": true
+    },
+    {
+      "input": "LRUCache\"  \"put\"  \"put\"  \"get\"  \"put\"  \"get\"]\n[[2]  [1  1]  [2  2]  [1]  [2  10]  [1",
+      "expected_output": "null  null  null  1  null  1",
+      "is_sample": false
+    },
+    {
+      "input": "LRUCache\"  \"get\"]\n[[1]  [1",
+      "expected_output": "null  -1",
+      "is_sample": false
+    },
+    {
+      "input": "LRUCache\"  \"put\"  \"put\"  \"put\"  \"put\"  \"get\"]\n[[2]  [1  1]  [2  2]  [3  3]  [4  4]  [1",
+      "expected_output": "null  null  null  null  null  -1",
+      "is_sample": false
+    },
+    {
+      "input": "LRUCache\"  \"put\"  \"put\"  \"get\"  \"put\"  \"put\"  \"get\"]\n[[2]  [1  1]  [2  2]  [1]  [3  3]  [1  10]  [1",
+      "expected_output": "null  null  null  1  null  null  10",
+      "is_sample": false
+    },
+    {
+      "input": "LRUCache\"  \"put\"  \"get\"  \"put\"  \"get\"]\n[[1]  [1  1]  [1]  [2  2]  [1",
+      "expected_output": "null  null  1  null  -1",
+      "is_sample": false
+    },
+    {
+      "input": "LRUCache\"  \"put\"  \"get\"]\n[[1]  [1  1]  [1",
+      "expected_output": "null  null  1",
+      "is_sample": false
+    },
+    {
+      "input": "LRUCache\"  \"put\"  \"put\"  \"get\"]\n[[1]  [1  1]  [2  2]  [1",
+      "expected_output": "null  null  null  -1",
+      "is_sample": false
+    },
+    {
+      "input": "LRUCache\"  \"put\"  \"get\"  \"put\"  \"get\"]\n[[2]  [1  1]  [1]  [2  2]  [1",
+      "expected_output": "null  null  1  null  1",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Design"
+  ],
+  "companyIndex": 4
+}

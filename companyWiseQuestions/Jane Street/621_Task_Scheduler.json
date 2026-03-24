@@ -1,0 +1,93 @@
+{
+  "question_text": "<h3>Task Scheduler</h3><p>Given a characters array tasks, representing the tasks a CPU needs to do, where each letter represents a different task. Tasks could be done in any order. Each task is done in one unit of time. For each unit of time, the CPU could complete either one task or just be idle.</p><p>The CPU can repeat, complete, and choose among tasks in any order, but there is a cooldown interval <code>n</code> between two same tasks — at least <code>n</code> units of time must pass before the same task can be done again.</p><p>Return the minimum number of units of time the CPU will take to finish all the given tasks.</p>\n<p><strong>Constraints:</strong></p><ul><li><code>1 &lt;= task.length &lt;= 10<sup>4</sup></code></li><li><code>tasks[i]</code> is upper-case English letter.</li><li><code>0 &lt;= n &lt;= 100</code></li></ul>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "An array of characters tasks and an integer n (cooldown).",
+  "output_format": "The minimum number of units of time needed to execute all tasks.",
+  "constraints": [
+    "1 <= tasks.length <= 10^4",
+    "tasks[i] is uppercase English letter",
+    "0 <= n <= 100"
+  ],
+  "explanation": "<h4>Math / Greedy Formula</h4><p>Count frequency of each task. Let max_count = highest frequency, num_max = tasks with that frequency. Result = max(len(tasks), (max_count-1)*(n+1)+num_max). The formula fills a grid of (max_count-1) rows of width (n+1), plus the final row. If tasks overflow the grid, no idle time is needed.</p><p><strong>Time:</strong> O(N). <strong>Space:</strong> O(1).</p>",
+  "answer": "from collections import Counter\ndef leastInterval(tasks, n):\n    count = Counter(tasks)\n    max_count = max(count.values())\n    num_max = sum(1 for v in count.values() if v == max_count)\n    return max(len(tasks), (max_count - 1) * (n + 1) + num_max)",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 621 Task Scheduler here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"]\n2",
+      "expected_output": "8",
+      "is_sample": true
+    },
+    {
+      "input": "[\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"]\n0",
+      "expected_output": "6",
+      "is_sample": true
+    },
+    {
+      "input": "[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"B\",\"C\",\"D\",\"E\",\"F\",\"G\"]\n2",
+      "expected_output": "16",
+      "is_sample": false
+    },
+    {
+      "input": "[\"A\"]\n0",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "[\"A\",\"A\"]\n2",
+      "expected_output": "4",
+      "is_sample": false
+    },
+    {
+      "input": "[\"A\",\"A\",\"A\",\"B\",\"B\",\"B\",\"C\",\"C\",\"C\",\"D\",\"D\",\"E\"]\n2",
+      "expected_output": "12",
+      "is_sample": false
+    },
+    {
+      "input": "[\"A\",\"B\",\"C\",\"D\",\"E\",\"F\"]\n1",
+      "expected_output": "6",
+      "is_sample": false
+    },
+    {
+      "input": "[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"]\n3",
+      "expected_output": "37",
+      "is_sample": false
+    },
+    {
+      "input": "[\"A\",\"A\",\"A\",\"B\",\"B\",\"B\",\"C\",\"C\",\"C\"]\n2",
+      "expected_output": "9",
+      "is_sample": false
+    },
+    {
+      "input": "[\"A\",\"A\",\"B\",\"A\",\"B\",\"C\",\"D\",\"D\",\"D\",\"D\",\"D\",\"D\",\"D\",\"D\",\"D\",\"D\"]\n3",
+      "expected_output": "37",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Hash Table",
+    "Greedy",
+    "Sorting",
+    "Heap (Priority Queue)",
+    "Counting"
+  ],
+  "companyIndex": 21
+}

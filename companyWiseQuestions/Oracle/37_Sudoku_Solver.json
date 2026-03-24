@@ -1,0 +1,92 @@
+{
+    "question_text": "<p>Write a program to solve a Sudoku puzzle by filling the empty cells.</p>\n\n<p>A sudoku solution must satisfy <strong>all of the following rules</strong>:</p>\n\n<ol>\n\t<li>Each of the digits <code>1-9</code> must occur exactly once in each row.</li>\n\t<li>Each of the digits <code>1-9</code> must occur exactly once in each column.</li>\n\t<li>Each of the digits <code>1-9</code> must occur exactly once in each of the 9 <code>3x3</code> sub-boxes of the grid.</li>\n</ol>\n\n<p>The <code>&#39;.&#39;</code> character indicates empty cells.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png\" style=\"height:250px; width:250px\" />\n<pre>\n<strong>Input:</strong> board = [[&quot;5&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;,&quot;9&quot;,&quot;5&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;9&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;],[&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;3&quot;],[&quot;4&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;],[&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;],[&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;8&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;4&quot;,&quot;1&quot;,&quot;9&quot;,&quot;.&quot;,&quot;.&quot;,&quot;5&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;9&quot;]]\n<strong>Output:</strong> [[&quot;5&quot;,&quot;3&quot;,&quot;4&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;1&quot;,&quot;2&quot;],[&quot;6&quot;,&quot;7&quot;,&quot;2&quot;,&quot;1&quot;,&quot;9&quot;,&quot;5&quot;,&quot;3&quot;,&quot;4&quot;,&quot;8&quot;],[&quot;1&quot;,&quot;9&quot;,&quot;8&quot;,&quot;3&quot;,&quot;4&quot;,&quot;2&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;],[&quot;8&quot;,&quot;5&quot;,&quot;9&quot;,&quot;7&quot;,&quot;6&quot;,&quot;1&quot;,&quot;4&quot;,&quot;2&quot;,&quot;3&quot;],[&quot;4&quot;,&quot;2&quot;,&quot;6&quot;,&quot;8&quot;,&quot;5&quot;,&quot;3&quot;,&quot;7&quot;,&quot;9&quot;,&quot;1&quot;],[&quot;7&quot;,&quot;1&quot;,&quot;3&quot;,&quot;9&quot;,&quot;2&quot;,&quot;4&quot;,&quot;8&quot;,&quot;5&quot;,&quot;6&quot;],[&quot;9&quot;,&quot;6&quot;,&quot;1&quot;,&quot;5&quot;,&quot;3&quot;,&quot;7&quot;,&quot;2&quot;,&quot;8&quot;,&quot;4&quot;],[&quot;2&quot;,&quot;8&quot;,&quot;7&quot;,&quot;4&quot;,&quot;1&quot;,&quot;9&quot;,&quot;6&quot;,&quot;3&quot;,&quot;5&quot;],[&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;2&quot;,&quot;8&quot;,&quot;6&quot;,&quot;1&quot;,&quot;7&quot;,&quot;9&quot;]]\n<strong>Explanation:</strong>&nbsp;The input board is shown above and the only valid solution is shown below:\n\n<img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Sudoku-by-L2G-20050714_solution.svg/250px-Sudoku-by-L2G-20050714_solution.svg.png\" style=\"height:250px; width:250px\" />\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>board.length == 9</code></li>\n\t<li><code>board[i].length == 9</code></li>\n\t<li><code>board[i][j]</code> is a digit or <code>&#39;.&#39;</code>.</li>\n\t<li>It is <strong>guaranteed</strong> that the input board has only one solution.</li>\n</ul>\n",
+    "difficulty": "HARD",
+    "marks": 15,
+    "input_format": "9 lines, each with 9 characters (digits 1-9 or '.').",
+    "output_format": "9 lines of the solved Sudoku board.",
+    "constraints": [
+        "board.length == 9",
+        "board[i].length == 9",
+        "board[i][j] is a digit or '.'.",
+        "It is guaranteed that the input board has only one solution."
+    ],
+    "explanation": "Classic backtracking. For each empty cell '.', try digits 1-9. Check validity against row, column, and 3x3 box constraints. If valid, place the digit and recurse. If recursion fails, backtrack. Optimise with bit-masking rows/cols/boxes.",
+    "answer": "def solve(board):\n    rows = [set() for _ in range(9)]\n    cols = [set() for _ in range(9)]\n    boxes = [set() for _ in range(9)]\n    empty = []\n    for r in range(9):\n        for c in range(9):\n            if board[r][c] != '.':\n                d = board[r][c]\n                rows[r].add(d); cols[c].add(d); boxes[(r//3)*3+c//3].add(d)\n            else:\n                empty.append((r, c))\n    def bt(idx):\n        if idx == len(empty): return True\n        r, c = empty[idx]\n        box = (r//3)*3+c//3\n        for d in '123456789':\n            if d not in rows[r] and d not in cols[c] and d not in boxes[box]:\n                board[r][c] = d; rows[r].add(d); cols[c].add(d); boxes[box].add(d)\n                if bt(idx+1): return True\n                board[r][c] = '.'; rows[r].discard(d); cols[c].discard(d); boxes[box].discard(d)\n        return False\n    bt(0)\n    return '\\n'.join(''.join(row) for row in board)",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(board):\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().splitlines()\n    board = [list(data[i]) for i in range(9)]\n    print(solve(board))",
+        "cpp": "#include <iostream>\n#include <array>\nusing namespace std;\nint main() { return 0; }",
+        "java": "import java.util.*;\npublic class Main { public static void main(String[] args) {} }",
+        "javascript": "const fs = require('fs');\nconst input = fs.readFileSync(0,'utf-8').trim().split('\\n');",
+        "c": "#include <stdio.h>\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "53..7....\n6..195...\n.98....6.\n8...6...3\n4..8.3..1\n7...2...6\n.6....28.\n...419..5\n....8..79",
+            "expected_output": "534678912\n672195348\n198342567\n859761423\n426853791\n713924856\n961537284\n287419635\n345286179",
+            "is_sample": true
+        },
+        {
+            "input": "..9748...\n7........\n.2.1.9...\n..7...24.\n.64.1.59.\n.98...3..\n...8.3.2.\n........6\n...2759..",
+            "expected_output": "519748632\n783652419\n426139875\n357986241\n264317598\n198524367\n975863124\n832491756\n641275983",
+            "is_sample": true
+        },
+        {
+            "input": "1........\n.2.......\n..3......\n...4.....\n....5....\n.....6...\n......7..\n.......8.\n........9",
+            "expected_output": "152467398\n428319657\n963875124\n291648735\n374592861\n685731249\n816924573\n547183962\n739256418",
+            "is_sample": false
+        },
+        {
+            "input": ".........\n.........\n.........\n.........\n.........\n.........\n.........\n.........\n.........",
+            "expected_output": "123456789\n456789123\n789123456\n214365897\n365897214\n897214365\n531642978\n642978531\n978531642",
+            "is_sample": false
+        },
+        {
+            "input": "8........\n..36.....\n.7..9.2..\n.5...7...\n....457..\n...1...3.\n..1....68\n..85...1.\n.9....4..",
+            "expected_output": "812753649\n943682175\n675491283\n154237896\n369845721\n287169534\n521974368\n438526917\n796318452",
+            "is_sample": false
+        },
+        {
+            "input": ".....5.8.\n1..2..9..\n.....3.1.\n.4....7..\n..8.3....\n.7.......\n...8.....\n....65..7\n.43......",
+            "expected_output": "392615874\n154278936\n876493512\n543162798\n918734625\n271589463\n625847391\n489361257\n737925486",
+            "is_sample": false
+        },
+        {
+            "input": "2...8...6\n.........\n.1.......\n.8......3\n......5..\n..6......\n......4..\n......8..\n.......7.",
+            "expected_output": "231489756\n846523179\n715637248\n489175623\n327864591\n156298437\n572941864\n963752418\n498616375",
+            "is_sample": false
+        },
+        {
+            "input": "1....7.9.\n.3..2...8\n..96..5..\n..53.9..1\n.1...8...6\n3.......0\n..4..3...3\n.6.......\n...........",
+            "expected_output": "162857493\n534129678\n789643521\n475398216\n913286745\n326471859\n241934387\n697512834\n858764132",
+            "is_sample": false
+        },
+        {
+            "input": "534678912\n672195348\n198342567\n859761423\n426853791\n713924856\n961537284\n287419635\n34528617.",
+            "expected_output": "534678912\n672195348\n198342567\n859761423\n426853791\n713924856\n961537284\n287419635\n345286179",
+            "is_sample": false
+        },
+        {
+            "input": "123456789\n.........\n.........\n.........\n.........\n.........\n.........\n.........\n.........",
+            "expected_output": "123456789\n456789123\n789123456\n214365897\n365897214\n897214365\n531642978\n642978531\n978531642",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Hash Table",
+        "Backtracking",
+        "Matrix"
+    ],
+    "companyIndex": 12
+}

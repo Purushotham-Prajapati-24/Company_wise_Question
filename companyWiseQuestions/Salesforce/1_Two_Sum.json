@@ -1,0 +1,84 @@
+{
+    "question_text": "<p>Given an array of integers <code>nums</code>&nbsp;and an integer <code>target</code>, return <em>indices of the two numbers such that they add up to <code>target</code></em>.</p>\n\n<p>You may assume that each input would have <strong><em>exactly</em> one solution</strong>, and you may not use the <em>same</em> element twice.</p>\n\n<p>You can return the answer in any order.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [2,7,11,15], target = 9\n<strong>Output:</strong> [0,1]\n<strong>Explanation:</strong> Because nums[0] + nums[1] == 9, we return [0, 1].\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [3,2,4], target = 6\n<strong>Output:</strong> [1,2]\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [3,3], target = 6\n<strong>Output:</strong> [0,1]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>2 &lt;= nums.length &lt;= 10<sup>4</sup></code></li>\n\t<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>\n\t<li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>\n\t<li><strong>Only one valid answer exists.</strong></li>\n</ul>\n\n<p>&nbsp;</p>\n<strong>Follow-up:&nbsp;</strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>)</code><font face=\"monospace\">&nbsp;</font>time complexity?",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "Space-separated values as per problem arguments.",
+    "output_format": "A single line representing the result.",
+    "constraints": [],
+    "explanation": "Use a hash map to store the value and its index as we iterate through the array. For each element, calculate the required complement (target - current) and check if it exists in the map. This ensures a one-pass O(n) time complexity.",
+    "answer": "class Solution:\n    def solve(self, nums: List[int], target: int) -> List[int]:\n        prevMap = {}\n        for i, n in enumerate(nums):\n            diff = target - n\n            if diff in prevMap: return [prevMap[diff], i]\n            prevMap[n] = i",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {}\n};\n\nint main() {\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "2 7 11 15\n9",
+            "expected_output": "0 1",
+            "is_sample": true
+        },
+        {
+            "input": "3 2 4\n6",
+            "expected_output": "1 2",
+            "is_sample": true
+        },
+        {
+            "input": "3 3\n6",
+            "expected_output": "0 1",
+            "is_sample": false
+        },
+        {
+            "input": "1 1 1 1 7 2\n9",
+            "expected_output": "4 5",
+            "is_sample": false
+        },
+        {
+            "input": "-10  7  19  15\n9",
+            "expected_output": "0 2",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 3 4 5\n9",
+            "expected_output": "3 4",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 3 4\n7",
+            "expected_output": "2 3",
+            "is_sample": false
+        },
+        {
+            "input": "i for i in range(100)\n197",
+            "expected_output": "98  99",
+            "is_sample": false
+        },
+        {
+            "input": "10**9  10**9\n2*10**9",
+            "expected_output": "0 1",
+            "is_sample": false
+        },
+        {
+            "input": "0]*100\n0",
+            "expected_output": "0 1",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Arrays"
+    ],
+    "companyIndex": 7
+}

@@ -11,12 +11,22 @@
     ],
     "explanation": "This problem perfectly maps to finding an Eulerian path (specifically a De Bruijn sequence) on a directed graph. In a De Bruijn sequence, we uniquely traverse every possible password combination compactly. The nodes of our graph will be sequences of length `n-1`, and the edges represent the appended `k` character. Walking over an edge from one `n-1` node to another effectively simulates typing one digit on the safe. \nSince an Eulerian Circuit exists on this graph, we can find it via a Depth First Search (DFS). We start with a string of `n-1` zeros. At each node, we try to append all characters from `k-1` down to `0`. If appending a certain character forms an unvisited edge (a unique combination of length `n`), we mark it as visited and DFS recursively. Post-traversal, we append the character to our sequence result. Due to backtracking post-order recursion, reversing the generated result at the end paired with our initial `n-1` zeros gives us our minimum length string cracking the safe optimally.",
     "answer": "def solve(n, k):\n    visited = set()\n    ans = []\n    \n    def dfs(node):\n        for x in range(k):\n            nei = node + str(x)\n            if nei not in visited:\n                visited.add(nei)\n                dfs(nei[1:])\n                ans.append(str(x))\n                \n    start = \"0\" * (n - 1)\n    dfs(start)\n    \n    return start + \"\".join(ans[::-1])",
-    "boilerplate": "import sys\n\ndef solve(n, k):\n    # User logic should be written here\n    return \"\"\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().split()\n    if len(input_data) >= 2:\n        print(solve(int(input_data[0]), int(input_data[1])))",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(n, k):\n    # User logic should be written here\n    return \"\"\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().split()\n    if len(input_data) >= 2:\n        print(solve(int(input_data[0]), int(input_data[1])))",
+        "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\n\nstring solve(int n, int k) {\n    // User logic should be written here\n    return \"\";\n}\n\nint main() {\n    int n, k;\n    if (cin >> n >> k) {\n        cout << solve(n, k) << endl;\n    }\n    return 0;\n}",
+        "java": "import java.util.Scanner;\n\npublic class Main {\n    public static String solve(int n, int k) {\n        // User logic should be written here\n        return \"\";\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextInt()) {\n            int n = sc.nextInt();\n            int k = sc.nextInt();\n            System.out.println(solve(n, k));\n        }\n        sc.close();\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve(n, k) {\n    // User logic should be written here\n    return \"\";\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split(/\\s+/);\nif (input.length >= 2) {\n    console.log(solve(parseInt(input[0]), parseInt(input[1])));\n}",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nchar* solve(int n, int k) {\n    // User logic should be written here\n    return \"\";\n}\n\nint main() {\n    int n, k;\n    if (scanf(\"%d %d\", &n, &k) == 2) {\n        printf(\"%s\\n\", solve(n, k));\n    }\n    return 0;\n}"
+    },
     "metadata": {
         "time_limit_ms": 1000,
         "memory_limit_mb": 256,
         "allowed_languages": [
-            "python"
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
         ]
     },
     "test_cases": [
@@ -56,18 +66,18 @@
             "is_sample": false
         },
         {
-            "input": "3 3",
-            "expected_output": "0001002011012021022111212220",
+            "input": "4 8",
+            "expected_output": "000000000",
             "is_sample": false
         },
         {
-            "input": "1 10",
-            "expected_output": "0123456789",
+            "input": "3 10",
+            "expected_output": "0000",
             "is_sample": false
         },
         {
-            "input": "2 4",
-            "expected_output": "00102031121322330",
+            "input": "2 10",
+            "expected_output": "000",
             "is_sample": false
         }
     ],

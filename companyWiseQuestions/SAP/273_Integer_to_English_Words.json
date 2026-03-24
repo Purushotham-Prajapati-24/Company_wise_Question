@@ -1,0 +1,87 @@
+{
+  "question_text": "<h3>Integer to English Words</h3><p>Convert integer to English words.</p>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Number.",
+  "output_format": "English string.",
+  "constraints": [
+    "num <= 2^31 - 1"
+  ],
+  "explanation": "Recursive processing of 3-digit chunks.",
+  "answer": "def numberToWords(num):\n    if num == 0: return \"Zero\"\n    ones = [\"\", \"One\", \"Two\", \"Three\", \"Four\", \"Five\", \"Six\", \"Seven\", \"Eight\", \"Nine\", \"Ten\", \"Eleven\", \"Twelve\", \"Thirteen\", \"Fourteen\", \"Fifteen\", \"Sixteen\", \"Seventeen\", \"Eighteen\", \"Nineteen\"]\n    tens = [\"\", \"\", \"Twenty\", \"Thirty\", \"Forty\", \"Fifty\", \"Sixty\", \"Seventy\", \"Eighty\", \"Ninety\"]\n    thousands = [\"\", \"Thousand\", \"Million\", \"Billion\"]\n    def helper(n):\n        if n==0: return \"\"\n        if n<20: return ones[n] + \" \"\n        if n<100: return tens[n//10] + \" \" + helper(n%10)\n        return ones[n//100] + \" Hundred \" + helper(n%100)\n    res = \"\"\n    for i in range(len(thousands)):\n        if num%1000 != 0: res = helper(num%1000) + thousands[i] + \" \" + res\n        num //= 1000\n    return res.strip()",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 273 Integer to English Words here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "123",
+      "expected_output": "\"One Hundred Twenty Three\"",
+      "is_sample": true
+    },
+    {
+      "input": "1234567",
+      "expected_output": "\"One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven\"",
+      "is_sample": true
+    },
+    {
+      "input": "2147483647",
+      "expected_output": "\"Two Billion One Hundred Forty Seven Million Four Hundred Eighty Three Thousand Six Hundred Forty Seven\"",
+      "is_sample": false
+    },
+    {
+      "input": "0",
+      "expected_output": "\"Zero\"",
+      "is_sample": false
+    },
+    {
+      "input": "1000000",
+      "expected_output": "\"One Million\"",
+      "is_sample": false
+    },
+    {
+      "input": "1000000000",
+      "expected_output": "\"One Billion\"",
+      "is_sample": false
+    },
+    {
+      "input": "1000",
+      "expected_output": "\"One Thousand\"",
+      "is_sample": false
+    },
+    {
+      "input": "1010101",
+      "expected_output": "\"One Million Ten Thousand One Hundred One\"",
+      "is_sample": false
+    },
+    {
+      "input": "999999999",
+      "expected_output": "\"Nine Hundred Ninety Nine Million Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine\"",
+      "is_sample": false
+    },
+    {
+      "input": "1000000001",
+      "expected_output": "\"One Billion One\"",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "String",
+    "Math"
+  ],
+  "companyIndex": 16
+}

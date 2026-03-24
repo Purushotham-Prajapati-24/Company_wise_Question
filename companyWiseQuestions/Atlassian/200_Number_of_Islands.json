@@ -1,0 +1,92 @@
+{
+    "question_text": "<h3>Number of Islands</h3><p>Given an <code>m x n</code> 2D binary grid <code>grid</code> which represents a map of <code>'1'</code>s (land) and <code>'0'</code>s (water), return the <b>number of islands</b>.</p><p>An island is surrounded by water and is formed by connecting adjacent lands <b>horizontally</b> or <b>vertically</b>. You may assume all four edges of the grid are all surrounded by water.</p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Multiple lines, each containing the characters of the corresponding row (e.g. \"11110\"). Each row is on a new line.",
+    "output_format": "A single integer representing the number of islands.",
+    "constraints": [
+        "m == grid.length",
+        "n == grid[i].length",
+        "1 <= m, n <= 300",
+        "grid[i][j] is '0' or '1'."
+    ],
+    "explanation": "We perform a DFS/BFS flood-fill approach. Iterate every cell; when we encounter a '1', we increment our island counter and recursively mark all adjacent '1' cells as visited (by setting them to '0' or using a visited set). This ensures each island is counted exactly once. Time complexity is O(M*N) since every cell is visited at most once. Space complexity is O(M*N) in the worst case for the recursion stack (all land). This is optimal as we must inspect every cell at least once.",
+    "answer": "def solve(grid):\n    if not grid: return 0\n    rows, cols = len(grid), len(grid[0])\n    count = 0\n    def dfs(r, c):\n        if r < 0 or r >= rows or c < 0 or c >= cols or grid[r][c] != '1': return\n        grid[r][c] = '0'\n        dfs(r+1,c); dfs(r-1,c); dfs(r,c+1); dfs(r,c-1)\n    for r in range(rows):\n        for c in range(cols):\n            if grid[r][c] == '1':\n                count += 1\n                dfs(r, c)\n    return count",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(grid):\n    return 0\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    grid = [list(line.strip()) for line in lines if line.strip()]\n    print(solve(grid))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\n\nint solve(vector<vector<char>>& grid) {\n    return 0;\n}\n\nint main() {\n    vector<vector<char>> grid;\n    string line;\n    while (getline(cin, line)) {\n        if (!line.empty()) {\n            vector<char> row(line.begin(), line.end());\n            grid.push_back(row);\n        }\n    }\n    cout << solve(grid) << endl;\n    return 0;\n}",
+        "java": "import java.util.*;\npublic class Main {\n    public static int solve(char[][] grid) { return 0; }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ArrayList<char[]> rows = new ArrayList<>();\n        while (sc.hasNextLine()) {\n            String line = sc.nextLine().trim();\n            if (!line.isEmpty()) rows.add(line.toCharArray());\n        }\n        char[][] grid = rows.toArray(new char[0][]);\n        System.out.println(solve(grid));\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(grid) { return 0; }\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n').filter(l => l.trim());\nconst grid = input.map(l => l.trim().split(''));\nconsole.log(solve(grid));",
+        "c": "#include <stdio.h>\n#include <string.h>\n\nint solve(char grid[][301], int rows, int cols) { return 0; }\n\nint main() {\n    char grid[300][301];\n    int rows = 0, cols = 0;\n    while (fgets(grid[rows], 301, stdin)) {\n        grid[rows][strcspn(grid[rows], \"\\n\")] = 0;\n        if (strlen(grid[rows]) > 0) {\n            if (rows == 0) cols = strlen(grid[rows]);\n            rows++;\n        }\n    }\n    printf(\"%d\\n\", solve(grid, rows, cols));\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "11110\n11010\n11000\n00000",
+            "expected_output": "1",
+            "is_sample": true
+        },
+        {
+            "input": "11000\n11000\n00100\n00011",
+            "expected_output": "3",
+            "is_sample": true
+        },
+        {
+            "input": "1",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "0",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "10101\n01010\n10101",
+            "expected_output": "8",
+            "is_sample": false
+        },
+        {
+            "input": "111\n010\n111",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "000\n000\n000",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "1111111111\n1111111111\n1111111111\n1111111111\n1111111111\n1111111111\n1111111111\n1111111111\n1111111111\n1111111111",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "0101010101\n0101010101\n0101010101\n0101010101\n0101010101\n0101010101\n0101010101\n0101010101\n0101010101\n0101010101",
+            "expected_output": "50",
+            "is_sample": false
+        },
+        {
+            "input": "1010101010\n0101010101\n1010101010\n0101010101\n1010101010\n0101010101\n1010101010\n0101010101\n1010101010\n0101010101",
+            "expected_output": "50",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Union Find"
+    ],
+    "companyIndex": 23
+}

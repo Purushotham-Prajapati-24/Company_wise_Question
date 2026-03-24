@@ -1,0 +1,89 @@
+{
+  "question_text": "<h3>Alien Dictionary</h3><p>Derive the order of characters in an alien language based on a sorted list of words. If no valid order exists, return an empty string.</p>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "words.",
+  "output_format": "string.",
+  "constraints": [
+    "small number of unique chars"
+  ],
+  "explanation": "Build a directed graph where an edge $u \to v$ exists if character $u$ comes before $v$ in consecutive words. Perform topological sort on this graph. If a cycle is detected or invalid prefixes occur, return `\"\"`.",
+  "answer": "def alienOrder(words):\n    adj = {c: set() for w in words for c in w}\n    for i in range(len(words)-1):\n        w1, w2 = words[i], words[i+1]\n        if len(w1) > len(w2) and w1.startswith(w2): return \"\"\n        for c1, c2 in zip(w1, w2):\n            if c1 != c2: adj[c1].add(c2); break\n    res, visit = [], {} # 0=not vis, 1=visiting, 2=visited\n    def dfs(c):\n        if c in visit: return visit[c] == 1\n        visit[c] = 1\n        for nxt in adj[c]:\n            if dfs(nxt): return True\n        visit[c] = 2; res.append(c); return False\n    for c in adj: \n        if dfs(c): return \"\"\n    return \"\".join(res[::-1])",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 269 Alien Dictionary here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"wrt\",\"wrf\",\"er\",\"ett\",\"rftt\"]",
+      "expected_output": "\"wertf\"",
+      "is_sample": true
+    },
+    {
+      "input": "[\"z\",\"x\"]",
+      "expected_output": "\"zx\"",
+      "is_sample": true
+    },
+    {
+      "input": "[\"z\",\"x\",\"z\"]",
+      "expected_output": "\"\"",
+      "is_sample": true
+    },
+    {
+      "input": "[\"abc\",\"ab\"]",
+      "expected_output": "\"\"",
+      "is_sample": false
+    },
+    {
+      "input": "[\"abc\",\"abd\"]",
+      "expected_output": "\"abcd\"",
+      "is_sample": false
+    },
+    {
+      "input": "[\"z\",\"z\"]",
+      "expected_output": "\"z\"",
+      "is_sample": false
+    },
+    {
+      "input": "[\"a\",\"b\",\"c\"]",
+      "expected_output": "\"abc\"",
+      "is_sample": false
+    },
+    {
+      "input": "[\"zy\",\"zx\"]",
+      "expected_output": "\"yxz\"",
+      "is_sample": false
+    },
+    {
+      "input": "[\"alien\",\"dictionary\"]",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "[\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\"]",
+      "expected_output": "\"a\"",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "String",
+    "Graph",
+    "Topological Sort"
+  ],
+  "companyIndex": 5
+}

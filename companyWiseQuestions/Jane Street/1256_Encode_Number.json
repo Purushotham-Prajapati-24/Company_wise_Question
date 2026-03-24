@@ -1,0 +1,87 @@
+{
+  "question_text": "<h3>Encode Number</h3><p>Given a non-negative integer <code>num</code>, return its encoding string.</p>\n\n<p>The encoding is done by the following rules:</p>\n<ul>\n\t<li>The number is first converted to binary.</li>\n\t<li>The leading <code>1</code> bit is removed.</li>\n</ul>\n\n<p><strong>Example 1:</strong></p>\n<pre><strong>Input:</strong> num = 23\n<strong>Output:</strong> \"01110\"\n<strong>Explanation:</strong> 23 is 10111 in binary. Remove the leading 1 to get \"0111\". Wait — 23 → binary 10111 → remove leading 1 → \"0111\". Hmm, but 24 → 11000 → \"1000\".</pre>\n\n<p><strong>Constraints:</strong></p>\n<ul>\n\t<li><code>0 &lt;= num &lt;= 10<sup>8</sup></code></li>\n</ul>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "A non-negative integer num.",
+  "output_format": "The encoded string by converting num+1 to binary and removing the leading '1'.",
+  "constraints": [
+    "0 <= num <= 10^8"
+  ],
+  "explanation": "<h4>Binary Trick</h4><p>The encoding of num is equivalent to converting (num + 1) to binary and removing the leading '1' bit. This maps 0 → '' (empty), 1 → '0', 2 → '1', 3 → '00', etc.</p><p><strong>Time:</strong> O(log N). <strong>Space:</strong> O(log N).</p>",
+  "answer": "def encode(num):\n    return bin(num + 1)[3:]",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 1256 Encode Number here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "23",
+      "expected_output": "\"1000\"",
+      "is_sample": true
+    },
+    {
+      "input": "0",
+      "expected_output": "\"\"",
+      "is_sample": true
+    },
+    {
+      "input": "1",
+      "expected_output": "\"0\"",
+      "is_sample": false
+    },
+    {
+      "input": "2",
+      "expected_output": "\"1\"",
+      "is_sample": false
+    },
+    {
+      "input": "3",
+      "expected_output": "\"00\"",
+      "is_sample": false
+    },
+    {
+      "input": "7",
+      "expected_output": "\"000\"",
+      "is_sample": false
+    },
+    {
+      "input": "100",
+      "expected_output": "\"100101\"",
+      "is_sample": false
+    },
+    {
+      "input": "99999999",
+      "expected_output": "\"01111101011110000100000000\"",
+      "is_sample": false
+    },
+    {
+      "input": "1000",
+      "expected_output": "\"111101001\"",
+      "is_sample": false
+    },
+    {
+      "input": "100000000",
+      "expected_output": "\"01111101011110000100000001\"",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Math",
+    "Bit Manipulation"
+  ],
+  "companyIndex": 5
+}

@@ -1,0 +1,91 @@
+{
+    "question_text": "<p>Implement the <code>BSTIterator</code> class that represents an iterator over the <strong><a href=\"https://en.wikipedia.org/wiki/Tree_traversal#In-order_(LNR)\" target=\"_blank\">in-order traversal</a></strong> of a binary search tree (BST):</p>\n\n<ul>\n\t<li><code>BSTIterator(TreeNode root)</code> Initializes an object of the <code>BSTIterator</code> class. The <code>root</code> of the BST is given as part of the constructor. The pointer should be initialized to a non-existent number smaller than any element in the BST.</li>\n\t<li><code>boolean hasNext()</code> Returns <code>true</code> if there exists a number in the traversal to the right of the pointer, otherwise returns <code>false</code>.</li>\n\t<li><code>int next()</code> Moves the pointer to the right, then returns the number at the pointer.</li>\n</ul>\n\n<p>Notice that by initializing the pointer to a non-existent smallest number, the first call to <code>next()</code> will return the smallest element in the BST.</p>\n\n<p>You may assume that <code>next()</code> calls will always be valid. That is, there will be at least a next number in the in-order traversal when <code>next()</code> is called.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2018/12/25/bst-tree.png\" style=\"width: 189px; height: 178px;\" />\n<pre>\n<strong>Input</strong>\n[&quot;BSTIterator&quot;, &quot;next&quot;, &quot;next&quot;, &quot;hasNext&quot;, &quot;next&quot;, &quot;hasNext&quot;, &quot;next&quot;, &quot;hasNext&quot;, &quot;next&quot;, &quot;hasNext&quot;]\n[[[7, 3, 15, null, null, 9, 20]], [], [], [], [], [], [], [], [], []]\n<strong>Output</strong>\n[null, 3, 7, true, 9, true, 15, true, 20, false]\n\n<strong>Explanation</strong>\nBSTIterator bSTIterator = new BSTIterator([7, 3, 15, null, null, 9, 20]);\nbSTIterator.next();    // return 3\nbSTIterator.next();    // return 7\nbSTIterator.hasNext(); // return True\nbSTIterator.next();    // return 9\nbSTIterator.hasNext(); // return True\nbSTIterator.next();    // return 15\nbSTIterator.hasNext(); // return True\nbSTIterator.next();    // return 20\nbSTIterator.hasNext(); // return False\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The number of nodes in the tree is in the range <code>[1, 10<sup>5</sup>]</code>.</li>\n\t<li><code>0 &lt;= Node.val &lt;= 10<sup>6</sup></code></li>\n\t<li>At most <code>10<sup>5</sup></code> calls will be made to <code>hasNext</code>, and <code>next</code>.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong>Follow up:</strong></p>\n\n<ul>\n\t<li>Could you implement <code>next()</code> and <code>hasNext()</code> to run in average <code>O(1)</code> time and use&nbsp;<code>O(h)</code> memory, where <code>h</code> is the height of the tree?</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "BST ops.",
+    "output_format": "Values.",
+    "constraints": [
+        "nodes <= 10^5"
+    ],
+    "explanation": "Use a stack to perform controlled in-order traversal. Push all left nodes onto the stack at each step.",
+    "answer": "class BSTIterator:\n    def __init__(self, root):\n        self.s = []\n        self.push(root)\n    def push(self, node):\n        while node: self.s.append(node); node = node.left\n    def next(self):\n        node = self.s.pop()\n        if node.right: self.push(node.right)\n        return node.val\n    def hasNext(self):\n        return len(self.s) > 0",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 173 Binary Search Tree Iterator here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 512,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[\"BSTIterator\",\"next\",\"next\",\"hasNext\",\"next\",\"hasNext\",\"next\",\"hasNext\",\"next\",\"hasNext\"]\n[[[7,3,15,null,null,9,20]],[],[],[],[],[],[],[],[],[]]",
+            "expected_output": "[null,3,7,true,9,true,15,true,20,false]",
+            "is_sample": true
+        },
+        {
+            "input": "[\"BSTIterator\",\"hasNext\"]\n[[[1]],[]]",
+            "expected_output": "[null,true]",
+            "is_sample": true
+        },
+        {
+            "input": "[\"BSTIterator\",\"next\"]\n[[[10]],[]]",
+            "expected_output": "[null,10]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"BSTIterator\",\"next\",\"next\",\"next\",\"next\",\"next\",",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "[\"BSTIterator\",\"next\",\"next\"]\n[[[2,1,3]],[],[]]",
+            "expected_output": "[null,1,2]",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "[\"BSTIterator\",\"next\"]\n[[[5,null,10]],[]]",
+            "expected_output": "[null,5]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"BSTIterator\",\"next\",\"hasNext\"]\n[[[1]],[],[]]",
+            "expected_output": "[null,1,false]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"BSTIterator\",\"next\",\"next\"]\n[[[1,null,2]],[],[]]",
+            "expected_output": "[null,1,2]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"BSTIterator\",\"hasNext\"]\n[[[5,2,7]],[]]",
+            "expected_output": "[null,true]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Stack",
+        "Tree",
+        "Design",
+        "Binary Search Tree",
+        "Binary Tree",
+        "Iterator"
+    ],
+    "companyIndex": 12
+}

@@ -1,0 +1,89 @@
+{
+  "question_text": "<h3>Split Concatenated Strings</h3><p>Given a list of strings, you can reverse any string. Concatenate them. Then choose a cut position and cyclic order. Return the lexicographically largest resulting string.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "List of strings.",
+  "output_format": "String.",
+  "constraints": [
+    "n <= 1000",
+    "total len <= 1000"
+  ],
+  "explanation": "First, maximize each individual string by choosing the larger of its original and reversed versions. Concatenate them. Then, iterate through each string, and for each character position, consider the cut. For the cutting string, try both its original and reversed forms. Combine it with the pre-calculated maximized versions of the other strings.",
+  "answer": "def splitLoopedString(strs):\n    ss = [max(s, s[::-1]) for s in strs]\n    res = \"\"\n    for i, s in enumerate(ss):\n        other = \"\".join(ss[i+1:] + ss[:i])\n        for cur in (s, s[::-1]):\n            for j in range(len(cur)):\n                res = max(res, cur[j:] + other + cur[:j])\n    return res",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 555 Split Concatenated Strings here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"abc\", \"xyz\"]",
+      "expected_output": "\"zyxcba\"",
+      "is_sample": true
+    },
+    {
+      "input": "[\"abc\"]",
+      "expected_output": "\"cba\"",
+      "is_sample": true
+    },
+    {
+      "input": "[\"a\", \"b\", \"c\"]",
+      "expected_output": "\"cba\"",
+      "is_sample": false
+    },
+    {
+      "input": "[\"aba\", \"aca\"]",
+      "expected_output": "\"acaaba\"",
+      "is_sample": false
+    },
+    {
+      "input": "[\"z\", \"a\"]",
+      "expected_output": "\"za\"",
+      "is_sample": false
+    },
+    {
+      "input": "[\"p\", \"q\", \"r\"]",
+      "expected_output": "\"rqp\"",
+      "is_sample": false
+    },
+    {
+      "input": "[\"leetcode\"]",
+      "expected_output": "\"teedocel\"",
+      "is_sample": false
+    },
+    {
+      "input": "[\"ab\", \"cd\"]",
+      "expected_output": "\"dcba\"",
+      "is_sample": false
+    },
+    {
+      "input": "[\"aaa\", \"aaa\"]",
+      "expected_output": "\"aaaaaa\"",
+      "is_sample": false
+    },
+    {
+      "input": "[\"abc\", \"def\", \"ghi\"]",
+      "expected_output": "\"ihgfedcba\"",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "String",
+    "Greedy"
+  ],
+  "companyIndex": 22
+}

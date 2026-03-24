@@ -1,0 +1,89 @@
+{
+    "question_text": "<p>A Range Module is a module that tracks ranges of numbers. Design a data structure to track the ranges represented as <strong>half-open intervals</strong> and query about them.</p>\n\n<p>A <strong>half-open interval</strong> <code>[left, right)</code> denotes all the real numbers <code>x</code> where <code>left &lt;= x &lt; right</code>.</p>\n\n<p>Implement the <code>RangeModule</code> class:</p>\n\n<ul>\n\t<li><code>RangeModule()</code> Initializes the object of the data structure.</li>\n\t<li><code>void addRange(int left, int right)</code> Adds the <strong>half-open interval</strong> <code>[left, right)</code>, tracking every real number in that interval. Adding an interval that partially overlaps with currently tracked numbers should add any numbers in the interval <code>[left, right)</code> that are not already tracked.</li>\n\t<li><code>boolean queryRange(int left, int right)</code> Returns <code>true</code> if every real number in the interval <code>[left, right)</code> is currently being tracked, and <code>false</code> otherwise.</li>\n\t<li><code>void removeRange(int left, int right)</code> Stops tracking every real number currently being tracked in the <strong>half-open interval</strong> <code>[left, right)</code>.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input</strong>\n[&quot;RangeModule&quot;, &quot;addRange&quot;, &quot;removeRange&quot;, &quot;queryRange&quot;, &quot;queryRange&quot;, &quot;queryRange&quot;]\n[[], [10, 20], [14, 16], [10, 14], [13, 15], [16, 17]]\n<strong>Output</strong>\n[null, null, null, true, false, true]\n\n<strong>Explanation</strong>\nRangeModule rangeModule = new RangeModule();\nrangeModule.addRange(10, 20);\nrangeModule.removeRange(14, 16);\nrangeModule.queryRange(10, 14); // return True,(Every number in [10, 14) is being tracked)\nrangeModule.queryRange(13, 15); // return False,(Numbers like 14, 14.03, 14.17 in [13, 15) are not being tracked)\nrangeModule.queryRange(16, 17); // return True, (The number 16 in [16, 17) is still being tracked, despite the remove operation)\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= left &lt; right &lt;= 10<sup>9</sup></code></li>\n\t<li>At most <code>10<sup>4</sup></code> calls will be made to <code>addRange</code>, <code>queryRange</code>, and <code>removeRange</code>.</li>\n</ul>\n",
+    "difficulty": "HARD",
+    "marks": 15,
+    "input_format": "First line N (operations). Each line: 'addRange l r', 'queryRange l r', or 'removeRange l r'.",
+    "output_format": "For each queryRange, print 'true' or 'false'.",
+    "constraints": [
+        "1 <= left < right <= 10^9",
+        "At most 10^4 calls will be made to addRange, queryRange, and removeRange."
+    ],
+    "explanation": "Use a sorted list of disjoint intervals [start, end). For addRange: merge overlapping intervals. For removeRange: split and trim overlapping intervals. For queryRange: check if a single continuous interval covers [left, right).",
+    "answer": "def solve(ops):\n    from sortedcontainers import SortedList\n    # Store sorted disjoint half-open intervals as list of [start, end]\n    sl = SortedList(key=lambda x: x[0])\n\n    def add(l, r):\n        nl, nr = l, r\n        to_remove = []\n        idx = sl.bisect_key_left(l)\n        if idx > 0 and sl[idx-1][1] >= l:\n            idx -= 1\n        while idx < len(sl) and sl[idx][0] <= r:\n            iv = sl[idx]\n            nl = min(nl, iv[0]); nr = max(nr, iv[1])\n            to_remove.append(iv); idx += 1\n        for iv in to_remove: sl.remove(iv)\n        sl.add([nl, nr])\n\n    def query(l, r):\n        idx = sl.bisect_key_right(l) - 1\n        if idx < 0: return 'false'\n        iv = sl[idx]\n        return 'true' if iv[0] <= l and iv[1] >= r else 'false'\n\n    def remove(l, r):\n        to_remove = []; to_add = []\n        idx = sl.bisect_key_left(l)\n        if idx > 0 and sl[idx-1][1] > l:\n            idx -= 1\n        while idx < len(sl) and sl[idx][0] < r:\n            iv = sl[idx]; to_remove.append(iv)\n            if iv[0] < l: to_add.append([iv[0], l])\n            if iv[1] > r: to_add.append([r, iv[1]])\n            idx += 1\n        for iv in to_remove: sl.remove(iv)\n        for iv in to_add: sl.add(iv)\n\n    results = []\n    for op in ops:\n        parts = op.strip().split()\n        cmd = parts[0]; l, r = int(parts[1]), int(parts[2])\n        if cmd == 'addRange': add(l, r)\n        elif cmd == 'queryRange': results.append(query(l, r))\n        else: remove(l, r)\n    return '\\n'.join(results)",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(ops):\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().splitlines()\n    n = int(data[0])\n    ops = data[1:n+1]\n    print(solve(ops))",
+        "cpp": "#include <iostream>\n#include <map>\nusing namespace std;\nint main() { return 0; }",
+        "java": "import java.util.*;\npublic class Main { public static void main(String[] args) {} }",
+        "javascript": "const fs = require('fs');\nconst input = fs.readFileSync(0,'utf-8').trim().split('\\n');",
+        "c": "#include <stdio.h>\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "4\naddRange 10 20\nremoveRange 14 16\nqueryRange 10 14\nqueryRange 13 15",
+            "expected_output": "true\nfalse",
+            "is_sample": true
+        },
+        {
+            "input": "5\naddRange 6 8\nremoveRange 7 8\nremoveRange 6 7\naddRange 8 9\nqueryRange 6 9",
+            "expected_output": "false",
+            "is_sample": true
+        },
+        {
+            "input": "3\naddRange 1 5\nqueryRange 1 3\nqueryRange 3 6",
+            "expected_output": "true\nfalse",
+            "is_sample": false
+        },
+        {
+            "input": "4\naddRange 1 10\nremoveRange 3 5\nqueryRange 1 3\nqueryRange 3 5",
+            "expected_output": "true\nfalse",
+            "is_sample": false
+        },
+        {
+            "input": "4\naddRange 1 5\naddRange 5 10\nqueryRange 1 10\nqueryRange 10 11",
+            "expected_output": "true\nfalse",
+            "is_sample": false
+        },
+        {
+            "input": "5\naddRange 1 100\nremoveRange 50 60\nqueryRange 1 50\nqueryRange 50 51\nqueryRange 60 100",
+            "expected_output": "true\nfalse\ntrue",
+            "is_sample": false
+        },
+        {
+            "input": "3\naddRange 1 3\naddRange 2 4\nqueryRange 1 4",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "2\naddRange 1 1000000000\nqueryRange 1 1000000000",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "4\naddRange 1 1000000000\nremoveRange 500000000 500000001\nqueryRange 1 500000000\nqueryRange 500000000 1000000000",
+            "expected_output": "true\nfalse",
+            "is_sample": false
+        },
+        {
+            "input": "5\naddRange 999999990 1000000000\nqueryRange 999999999 1000000000\nremoveRange 999999999 1000000000\nqueryRange 999999990 999999999\nqueryRange 999999999 1000000000",
+            "expected_output": "true\ntrue\nfalse",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Design",
+        "Segment Tree",
+        "Ordered Set"
+    ],
+    "companyIndex": 12
+}

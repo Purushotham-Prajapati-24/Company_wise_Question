@@ -1,0 +1,86 @@
+{
+  "question_text": "<p>Given an array of strings <code>strs</code>, group the anagrams together. You can return the answer in any order.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply."
+  ],
+  "explanation": "FAANG-level explanation for Group Anagrams.",
+  "answer": "class Solution:\n    def solve(self, strs: List[str]) -> List[List[str]]:\n        ans = collections.defaultdict(list)\n        for s in strs:\n            count = [0] * 26\n            for c in s:\n                count[ord(c) - ord('a')] += 1\n            ans[tuple(count)].append(s)\n        return ans.values()",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "eat' 'tea' 'tan' 'ate' 'nat' 'bat",
+      "expected_output": "'eat' 'tea' 'ate'] ['tan' 'nat'] ['bat'",
+      "is_sample": true
+    },
+    {
+      "input": "",
+      "expected_output": "''",
+      "is_sample": true
+    },
+    {
+      "input": "a",
+      "expected_output": "'a'",
+      "is_sample": false
+    },
+    {
+      "input": "abc'  'cba'  'bac'  'def'  'fed",
+      "expected_output": "'abc'  'cba'  'bac']  ['def'  'fed'",
+      "is_sample": false
+    },
+    {
+      "input": "a'  'b'  'c",
+      "expected_output": "'a']  ['b']  ['c'",
+      "is_sample": false
+    },
+    {
+      "input": "aa'  'aa'  'bb",
+      "expected_output": "'aa'  'aa']  ['bb'",
+      "is_sample": false
+    },
+    {
+      "input": "abc'  'def",
+      "expected_output": "'abc']  ['def'",
+      "is_sample": false
+    },
+    {
+      "input": "a']*50",
+      "expected_output": "'a']*50",
+      "is_sample": false
+    },
+    {
+      "input": "abc']*10",
+      "expected_output": "'abc']*10",
+      "is_sample": false
+    },
+    {
+      "input": "a' 'b']*5",
+      "expected_output": "'a']*5  ['b']*5",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Map"
+  ],
+  "companyIndex": 4
+}

@@ -1,0 +1,84 @@
+{
+    "question_text": "<p>Given an array of integers <code>nums</code> and an integer <code>threshold</code>, we will choose a positive integer <code>divisor</code>, divide all the array by it, and sum the division&#39;s result. Find the <strong>smallest</strong> <code>divisor</code> such that the result mentioned above is less than or equal to <code>threshold</code>.</p>\n\n<p>Each result of the division is rounded to the nearest integer greater than or equal to that element. (For example: <code>7/3 = 3</code> and <code>10/2 = 5</code>).</p>\n\n<p>The test cases are generated so&nbsp;that there will be an answer.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [1,2,5,9], threshold = 6\n<strong>Output:</strong> 5\n<strong>Explanation:</strong> We can get a sum to 17 (1+2+5+9) if the divisor is 1. \nIf the divisor is 4 we can get a sum of 7 (1+1+2+3) and if the divisor is 5 the sum will be 5 (1+1+1+2). \n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [44,22,33,11,1], threshold = 5\n<strong>Output:</strong> 44\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= nums.length &lt;= 5 * 10<sup>4</sup></code></li>\n\t<li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>\n\t<li><code>nums.length &lt;= threshold &lt;= 10<sup>6</sup></code></li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Space-separated values as per problem arguments.",
+    "output_format": "A single line representing the result.",
+    "constraints": [],
+    "explanation": "Use binary search on the range of possible divisors [1, max(nums)]. For each divisor, check if the sum of ceilings meets the threshold. Since the sum is monotonically non-increasing as the divisor increases, binary search works efficiently in O(n log(max(nums))).",
+    "answer": "class Solution:\n    def solve(self, nums: List[int], threshold: int) -> int:\n        l, r = 1, max(nums)\n        def compute(d):\n            return sum(math.ceil(n/d) for n in nums)\n        while l <= r:\n            mid = (l + r) // 2\n            if compute(mid) <= threshold: r = mid - 1\n            else: l = mid + 1\n        return l",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {}\n};\n\nint main() {\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "1 2 5 9\n6",
+            "expected_output": "5",
+            "is_sample": true
+        },
+        {
+            "input": "2 3 5 7 11\n11",
+            "expected_output": "3",
+            "is_sample": true
+        },
+        {
+            "input": "19\n5",
+            "expected_output": "4",
+            "is_sample": false
+        },
+        {
+            "input": "1]*10\n10",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "10**6\n1",
+            "expected_output": "1000000",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 3\n3",
+            "expected_output": "3",
+            "is_sample": false
+        },
+        {
+            "input": "1 1 1\n1",
+            "expected_output": "3",
+            "is_sample": false
+        },
+        {
+            "input": "list(range(1\n101))\n100",
+            "expected_output": "100",
+            "is_sample": false
+        },
+        {
+            "input": "10**6]*10\n10",
+            "expected_output": "1000000",
+            "is_sample": false
+        },
+        {
+            "input": "10]*10\n5",
+            "expected_output": "2",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Searching"
+    ],
+    "companyIndex": 7
+}

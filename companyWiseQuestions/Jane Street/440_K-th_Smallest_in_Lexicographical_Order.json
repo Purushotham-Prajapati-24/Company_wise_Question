@@ -1,0 +1,87 @@
+{
+  "question_text": "<h3>K-th Smallest in Lexicographical Order</h3><p>Given two integers <code>n</code> and <code>k</code>, return the <code>k<sup>th</sup></code> lexicographically smallest integer in the range <code>[1, n]</code>.</p>\n<p><strong>Constraints:</strong></p><ul><li><code>1 &lt;= k &lt;= n &lt;= 10<sup>9</sup></code></li></ul>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Two integers n and k.",
+  "output_format": "The kth lexicographically smallest integer in [1, n].",
+  "constraints": [
+    "1 <= k <= n <= 10^9"
+  ],
+  "explanation": "<h4>10-ary Tree Traversal</h4><p>Think of integers 1..n as a 10-ary prefix trie. Walk the trie: at each node, count how many numbers are under the subtree rooted at prefix cur to next=cur+1. If count < k, skip this subtree (cur++, k-=count). Otherwise, go deeper (cur*=10, k-=1). Count is computed as min(n+1, next) - cur for each level of the subtree.</p><p><strong>Time:</strong> O(log²N). <strong>Space:</strong> O(1).</p>",
+  "answer": "def findKthNumber(n, k):\n    def count_steps(n, cur, nxt):\n        steps = 0\n        while cur <= n:\n            steps += min(n + 1, nxt) - cur\n            cur *= 10; nxt *= 10\n        return steps\n    cur = 1; k -= 1\n    while k > 0:\n        steps = count_steps(n, cur, cur + 1)\n        if steps <= k:\n            k -= steps; cur += 1\n        else:\n            k -= 1; cur *= 10\n    return cur",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 440 K-th Smallest in Lexicographical Order here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "13\n2",
+      "expected_output": "10",
+      "is_sample": true
+    },
+    {
+      "input": "1\n1",
+      "expected_output": "1",
+      "is_sample": true
+    },
+    {
+      "input": "100\n10",
+      "expected_output": "19",
+      "is_sample": false
+    },
+    {
+      "input": "10\n3",
+      "expected_output": "3",
+      "is_sample": false
+    },
+    {
+      "input": "10\n10",
+      "expected_output": "9",
+      "is_sample": false
+    },
+    {
+      "input": "100\n1",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "100\n100",
+      "expected_output": "99",
+      "is_sample": false
+    },
+    {
+      "input": "1000000000\n1000000000",
+      "expected_output": "999999937",
+      "is_sample": false
+    },
+    {
+      "input": "999999999\n500000000",
+      "expected_output": "534522484",
+      "is_sample": false
+    },
+    {
+      "input": "1000000000\n1",
+      "expected_output": "1",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Trie",
+    "Sorting"
+  ],
+  "companyIndex": 25
+}

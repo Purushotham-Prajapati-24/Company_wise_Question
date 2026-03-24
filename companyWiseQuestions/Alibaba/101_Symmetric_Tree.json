@@ -1,0 +1,84 @@
+{
+  "question_text": "<p>Given the <code>root</code> of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).</p>",
+  "difficulty": "EASY",
+  "marks": 5,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [],
+  "explanation": "Two trees are mirrored if their roots have the same value, and the left subtree of one is a mirror of the right subtree of the other, and vice-versa. Use a recursive helper function to compare these mirror pairs.",
+  "answer": "class Solution:\n    def solve(self, root: Optional[TreeNode]) -> bool:\n        if not root: return True\n        def isMirror(left, right):\n            if not left and not right: return True\n            if not left or not right: return False\n            return (left.val == right.val and \n                    isMirror(left.left, right.right) and \n                    isMirror(left.right, right.left))\n        return isMirror(root.left, root.right)",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {}\n};\n\nint main() {\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "1 2 2 3 4 4 3",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "1 2 2 null 3 null 3",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "1",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "1 2 2 3 3 3 3",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "1 2 3",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "1 2 2 2 null null 2",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "1 2 2 null 2 null 2",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "Full tree depth 10",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "Skewed tree",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "1] + [2 2]*50",
+      "expected_output": "true",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Trees"
+  ],
+  "companyIndex": 22
+}

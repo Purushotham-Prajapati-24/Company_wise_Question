@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>480 Sliding Window Median</h3><p><strong>Sliding Window Median</strong></p><p>The median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle values. Given an array nums and a window of size k, return the median array for each window of size k as it slides from left to right.</p>",
+  "difficulty": "HARD",
+  "marks": 20,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply.",
+    "Time limit: 1s",
+    "Memory limit: 256MB"
+  ],
+  "explanation": "Maintain a sorted window of size k. For each step, calculate the median, then remove the outgoing element using binary search and insert the incoming element using bisect.insort. Complexity is O(n * k).",
+  "answer": "def solve(nums: List[int], k: int) -> List[float]:\n    import bisect\n    window = sorted(nums[:k])\n    res = []\n    for i in range(k, len(nums) + 1):\n        if k % 2 == 1:\n            res.append(float(window[k // 2]))\n        else:\n            res.append((window[k // 2 - 1] + window[k // 2]) / 2.0)\n        if i < len(nums):\n            bisect.insort(window, nums[i])\n            window.pop(bisect.bisect_left(window, nums[i - k]))\n    return res",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n\nint main() {\n    Solution sol;\n    sol.solve();\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n    public static void main(String[] args) {\n        new Solution().solve();\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "1 3 -1 -3 5 3 6 7\n3",
+      "expected_output": "1.00000 -1.00000 -1.00000 3.00000 5.00000 6.00000",
+      "is_sample": true
+    },
+    {
+      "input": "1 2 3 4 2 3 1 4 2\n3",
+      "expected_output": "2.00000 3.00000 3.00000 3.00000 3.00000 3.00000 2.00000",
+      "is_sample": true
+    },
+    {
+      "input": "1\n1",
+      "expected_output": "1.00000",
+      "is_sample": false
+    },
+    {
+      "input": "1 2\n1",
+      "expected_output": "1.00000 2.00000",
+      "is_sample": false
+    },
+    {
+      "input": "1 2\n2",
+      "expected_output": "1.50000",
+      "is_sample": false
+    },
+    {
+      "input": "5 5 5 5\n2",
+      "expected_output": "5.00000 5.00000 5.00000",
+      "is_sample": false
+    },
+    {
+      "input": "-1 -1 -1\n3",
+      "expected_output": "-1.00000",
+      "is_sample": false
+    },
+    {
+      "input": "10 20 30 40 50\n3",
+      "expected_output": "20.00000 30.00000 40.00000",
+      "is_sample": false
+    },
+    {
+      "input": "1 10 1 10 1\n2",
+      "expected_output": "5.50000 5.50000 5.50000 5.50000",
+      "is_sample": false
+    },
+    {
+      "input": "1 2 3 4 5 6 7 8 9 10\n5",
+      "expected_output": "3.00000 4.00000 5.00000 6.00000 7.00000 8.00000",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Heaps"
+  ],
+  "companyIndex": 2
+}

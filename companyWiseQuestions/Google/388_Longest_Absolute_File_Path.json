@@ -11,12 +11,22 @@
     ],
     "explanation": "To find the longest absolute file path, we can process the given string line by line (splitting by '\\n'). The depth of any file or directory is exactly the number of tab characters ('\\t') preceding its name. We can maintain a dictionary `path_lens` that records the current absolute path length at each depth. For example, `path_lens[depth]` will store the length of the directory path up to that depth. As we iterate through each line, we calculate its depth, strip the tabs to get the actual name, and check if it represents a file (contains a '.'). If it's a file, we calculate the absolute path length to this file by taking the length of its parent directory path `path_lens[depth]` and adding the file's length. We update our maximum length tracking variable. If it's a directory, we simply update `path_lens[depth + 1]` to encompass the parent directory's length plus this directory's length, plus 1 (for the '/' separator implicitly added). This O(N) approach is optimal as we parse each character exactly once.",
     "answer": "def solve(input_str):\n    max_len = 0\n    path_lens = {0: 0}\n    for line in input_str.split('\\n'):\n        depth = line.count('\\t')\n        name = line.replace('\\t', '')\n        if '.' in name:\n            max_len = max(max_len, path_lens[depth] + len(name))\n        else:\n            path_lens[depth + 1] = path_lens[depth] + len(name) + 1\n    return max_len",
-    "boilerplate": "import sys\n\ndef solve(input_str):\n    # User logic should be written here\n    return 0\n\nif __name__ == '__main__':\n    print(solve(sys.stdin.read()))",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(s):\n    # User logic should be written here\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read()\n    print(solve(input_data))",
+        "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint solve(string s) {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    string s((istreambuf_iterator<char>(cin)), istreambuf_iterator<char>());\n    cout << solve(s) << endl;\n    return 0;\n}",
+        "java": "import java.util.Scanner;\n\npublic class Main {\n    public static int solve(String s) {\n        // User logic should be written here\n        return 0;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        sc.useDelimiter(\"\\\\A\");\n        String s = sc.hasNext() ? sc.next() : \"\";\n        System.out.println(solve(s));\n        sc.close();\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve(s) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8');\nconsole.log(solve(input));",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint solve(char* s) {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    char buffer[200000];\n    size_t len = fread(buffer, 1, sizeof(buffer) - 1, stdin);\n    buffer[len] = '\\0';\n    printf(\"%d\\n\", solve(buffer));\n    return 0;\n}"
+    },
     "metadata": {
         "time_limit_ms": 1000,
         "memory_limit_mb": 256,
         "allowed_languages": [
-            "python"
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
         ]
     },
     "test_cases": [
@@ -56,18 +66,18 @@
             "is_sample": false
         },
         {
-            "input": "a\n\tb\n\t\tc\n\t\t\td.ext",
-            "expected_output": "9",
+            "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "expected_output": "0",
             "is_sample": false
         },
         {
-            "input": "a.txt\nb.txt\nc.txt",
-            "expected_output": "5",
+            "input": "dir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\tdir\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\ta.txt",
+            "expected_output": "205",
             "is_sample": false
         },
         {
-            "input": "thisIsAVeryLongDirectoryNameThatTestsTheLimitsOfLengths1234567890\n\tsubdir\n\t\tsubsubdir\n\t\t\tdeepestlyNestedFileWhichAlsoHasAVeryLongName.extension",
-            "expected_output": "136",
+            "input": "root\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tf.ext",
+            "expected_output": "110",
             "is_sample": false
         }
     ],

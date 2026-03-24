@@ -1,0 +1,89 @@
+{
+  "question_text": "<h3>Decode String</h3><p>Given an encoded string, return its decoded string.</p>\n\n<p>The encoding rule is: <code>k[encoded_string]</code>, where the <code>encoded_string</code> inside the square brackets is being repeated exactly <code>k</code> times. Note that <code>k</code> is guaranteed to be a positive integer.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "String s.",
+  "output_format": "String.",
+  "constraints": [
+    "1 <= s.length <= 30",
+    "s consists of lowercase English letters, digits, and square brackets '[]'."
+  ],
+  "explanation": "Use two stacks: one for numbers and one for strings. For each character: if digit, build the number; if '[', push current number and current string to stacks; if ']', pop the multiplier and the previous string, and append current string multiplied by the multiplier to the popped string; otherwise, just append character to current string.",
+  "answer": "def decodeString(s):\n    stack = []\n    curr_str = \"\"\n    curr_num = 0\n    for char in s:\n        if char.isdigit():\n            curr_num = curr_num * 10 + int(char)\n        elif char == \"[\":\n            stack.append((curr_str, curr_num))\n            curr_str = \"\"\n            curr_num = 0\n        elif char == \"]\":\n            prev_str, num = stack.pop()\n            curr_str = prev_str + num * curr_str\n        else:\n            curr_str += char\n    return curr_str",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 394 Decode String here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "\"3[a]2[bc]\"",
+      "expected_output": "\"aaabcbc\"",
+      "is_sample": true
+    },
+    {
+      "input": "\"3[a2[c]]\"",
+      "expected_output": "\"accaccacc\"",
+      "is_sample": true
+    },
+    {
+      "input": "\"2[abc]3[cd]ef\"",
+      "expected_output": "\"abcabccdcdcdef\"",
+      "is_sample": true
+    },
+    {
+      "input": "\"abc\"",
+      "expected_output": "\"abc\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"10[a]\"",
+      "expected_output": "\"aaaaaaaaaa\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"2[2[2[a]]]\"",
+      "expected_output": "\"aaaaaaaa\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"1[a]1[b]1[c]\"",
+      "expected_output": "\"abc\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"2[ab]3[ec]\"",
+      "expected_output": "\"ababececec\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"1[abc]def\"",
+      "expected_output": "\"abcdef\"",
+      "is_sample": false
+    },
+    {
+      "input": "\"z\"",
+      "expected_output": "\"z\"",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "String",
+    "Stack",
+    "Recursion"
+  ],
+  "companyIndex": 22
+}

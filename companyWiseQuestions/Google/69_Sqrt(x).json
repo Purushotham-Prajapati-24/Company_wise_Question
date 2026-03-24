@@ -1,0 +1,87 @@
+{
+    "question_text": "<h3>Sqrt(x)</h3><p>Given a non-negative integer <code>x</code>, return the square root of <code>x</code> rounded down to the nearest integer. The returned integer should be <b>non-negative</b> as well.</p>",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "A single integer.",
+    "output_format": "A single integer.",
+    "constraints": [
+        "0 <= x <= 2^31 - 1"
+    ],
+    "explanation": "By enforcing strict bounded geometric iteration rather than raw physical loops dynamically mapping pure standard O(logN) Binary Search implicitly perfectly extracts the accurate bound mapping perfectly mathematically rounding the explicitly mapped boundaries down directly into optimized safe integer constraint returns inherently isolated accurately mapping results dynamically.",
+    "answer": "def solve(x):\n    if x == 0: return 0\n    l, r = 1, x\n    while l <= r:\n        mid = (l + r) // 2\n        if mid * mid <= x:\n            res = mid\n            l = mid + 1\n        else:\n            r = mid - 1\n    return res",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(n):\n    return 0\n\nif __name__ == '__main__':\n    s = sys.stdin.read().strip()\n    if s:\n        res = solve(int(s))\n        print(str(res).lower() if isinstance(res, bool) else res)",
+        "cpp": "#include <iostream>\nusing namespace std;\n\nint solve(int n) {\n    return 0;\n}\n\nint main() {\n    int n;\n    if (cin >> n) {\n        int res = solve(n);\n        cout << (res) << endl;\n    }\n    return 0;\n}",
+        "java": "import java.util.Scanner;\n\npublic class Main {\n    public static int solve(int n) {\n        return 0;\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextInt()) System.out.println(solve(sc.nextInt()));\n        sc.close();\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(n) { return 0; }\nconst input = fs.readFileSync(0, 'utf8').trim();\nif (input) console.log(solve(parseInt(input)));",
+        "c": "#include <stdio.h>\n#include <stdbool.h>\n\nint solve(int n) {\n    return 0;\n}\n\nint main() {\n    int n;\n    if (scanf(\"%d\", &n) == 1) {\n        int res = solve(n);\n        printf(\"%d\\n\", res);\n    }\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "4",
+            "expected_output": "2",
+            "is_sample": true
+        },
+        {
+            "input": "8",
+            "expected_output": "2",
+            "is_sample": true
+        },
+        {
+            "input": "0",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "1",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "2",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "9",
+            "expected_output": "3",
+            "is_sample": false
+        },
+        {
+            "input": "15",
+            "expected_output": "3",
+            "is_sample": false
+        },
+        {
+            "input": "2147395599",
+            "expected_output": "46339",
+            "is_sample": false
+        },
+        {
+            "input": "2147483647",
+            "expected_output": "46340",
+            "is_sample": false
+        },
+        {
+            "input": "1000000",
+            "expected_output": "1000",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Math",
+        "Binary Search"
+    ],
+    "companyIndex": 0
+}

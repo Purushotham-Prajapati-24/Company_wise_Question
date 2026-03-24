@@ -1,0 +1,86 @@
+{
+  "question_text": "<p>A <strong>transformation sequence</strong> from word <code>beginWord</code> to word <code>endWord</code> using a dictionary <code>wordList</code> is a sequence of words <code>beginWord -> s1 -> s2 -> ... -> sk</code> such that...</p>",
+  "difficulty": "HARD",
+  "marks": 20,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply."
+  ],
+  "explanation": "FAANG-level explanation for Word Ladder.",
+  "answer": "class Solution:\n    def solve(self, beginWord: str, endWord: str, wordList: List[str]) -> int:\n        wordSet = set(wordList)\n        if endWord not in wordSet: return 0\n        queue = collections.deque([(beginWord, 1)])\n        visited = set([beginWord])\n        while queue:\n            word, length = queue.popleft()\n            if word == endWord: return length\n            for i in range(len(word)):\n                for char in 'abcdefghijklmnopqrstuvwxyz':\n                    nextWord = word[:i] + char + word[i+1:]\n                    if nextWord in wordSet and nextWord not in visited:\n                        visited.add(nextWord)\n                        queue.append((nextWord, length + 1))\n        return 0",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "hit\ncog\nhot' 'dot' 'dog' 'lot' 'log' 'cog",
+      "expected_output": "5",
+      "is_sample": true
+    },
+    {
+      "input": "hit\ncog\nhot' 'dot' 'dog' 'lot' 'log",
+      "expected_output": "0",
+      "is_sample": true
+    },
+    {
+      "input": "a\nc\na' 'b' 'c",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "talk\ntail\ntalk' 'tail",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "hot\ndog\nhot' 'dog' 'dot",
+      "expected_output": "3",
+      "is_sample": false
+    },
+    {
+      "input": "hot\nhot\nhot",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "hot\ndot\nhot' 'dot",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "Large word list\nno path",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "a\nc\nb' 'c",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "hot\ndog\nhot' 'dog' 'dot",
+      "expected_output": "3",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Graphs"
+  ],
+  "companyIndex": 4
+}

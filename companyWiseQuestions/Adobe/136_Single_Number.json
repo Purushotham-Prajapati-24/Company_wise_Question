@@ -1,0 +1,86 @@
+{
+  "question_text": "<h3>Single Number</h3><p>Given a non-empty array of integers `nums`, every element appears twice except for one. Find that single one.</p>",
+  "difficulty": "EASY",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "1 <= N <= 10^5"
+  ],
+  "explanation": "We use the XOR operation. XORing zero with a number gives the number, and XORing a number with itself gives zero. By XORing all numbers in the array, the pairs will cancel each other out, leaving only the single number. O(N) time, O(1) space.",
+  "answer": "class Solution:\n    def solve(self, nums: List[int]) -> int:\n        res = 0\n        for n in nums:\n            res ^= n\n        return res",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "2 2 1",
+      "expected_output": "1",
+      "is_sample": true
+    },
+    {
+      "input": "4 1 2 1 2",
+      "expected_output": "4",
+      "is_sample": true
+    },
+    {
+      "input": "1",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "1 0 1",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "-1 -1 -2",
+      "expected_output": "-2",
+      "is_sample": false
+    },
+    {
+      "input": "10  20  10  30  20",
+      "expected_output": "30",
+      "is_sample": false
+    },
+    {
+      "input": "1234567  1234567  9876543",
+      "expected_output": "9876543",
+      "is_sample": false
+    },
+    {
+      "input": "1]*1000 + [5",
+      "expected_output": "5",
+      "is_sample": false
+    },
+    {
+      "input": "i for i in range(50000)] + [i for i in range(49999)",
+      "expected_output": "49999",
+      "is_sample": false
+    },
+    {
+      "input": "list(range(50000)) + list(range(50000)) + [10**9",
+      "expected_output": "1000000000",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Math"
+  ],
+  "companyIndex": 6
+}

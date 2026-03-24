@@ -1,0 +1,88 @@
+{
+    "question_text": "<h3>Lemonade Change</h3><p>At a lemonade stand, each lemonade costs <code>$5</code>. Customers are standing in a queue to buy from you and order one at a time (in the order specified by <code>bills</code>). Each customer will only buy one lemonade and pay with either a <code>$5</code>, <code>$10</code>, or <code>$20</code> bill. You must provide the correct change to each customer so that the net transaction is that the customer pays <code>$5</code>.</p><p>Note that you do not have any change in hand at first.</p><p>Given an integer array <code>bills</code> where <code>bills[i]</code> is the bill the <b>i</b>th customer pays, return <code>true</code> if you can provide every customer with the correct change, or <code>false</code> otherwise.</p>",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "A single line of space-separated integers (each is 5, 10, or 20) representing the bills array.",
+    "output_format": "Print \"true\" if you can provide correct change for every customer, else \"false\".",
+    "constraints": [
+        "1 <= bills.length <= 10^5",
+        "bills[i] is either 5, 10, or 20."
+    ],
+    "explanation": "We greedily track the count of $5 and $10 bills we have. For a $5 bill, we simply pocket it. For a $10 bill, we need to return one $5 bill. For a $20 bill, we prefer to return one $10 + one $5 (to conserve our precious $5 stock), and only if no $10 is available do we return three $5 bills. If at any point we cannot make change, we return false. This greedy strategy is optimal because $5 bills are the most versatile currency for making change, and preserving them maximizes our flexibility for future transactions. O(N) time, O(1) space.",
+    "answer": "def solve(bills):\n    five = ten = 0\n    for b in bills:\n        if b == 5:\n            five += 1\n        elif b == 10:\n            if five == 0: return False\n            five -= 1\n            ten += 1\n        else:\n            if ten > 0 and five > 0:\n                ten -= 1\n                five -= 1\n            elif five >= 3:\n                five -= 3\n            else:\n                return False\n    return True",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(arr):\n    # User logic here\n    return False\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().split()\n    if not input_data: sys.exit(0)\n    arr = list(map(int, input_data))\n    print(str(solve(arr)).lower())",
+        "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nbool solve(vector<int>& arr) {\n    // User logic here\n    return false;\n}\n\nint main() {\n    int val;\n    vector<int> arr;\n    while (cin >> val) arr.push_back(val);\n    cout << (solve(arr) ? \"true\" : \"false\") << endl;\n    return 0;\n}",
+        "java": "import java.util.ArrayList;\nimport java.util.Scanner;\n\npublic class Main {\n    public static boolean solve(int[] arr) {\n        return false;\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ArrayList<Integer> list = new ArrayList<>();\n        while (sc.hasNextInt()) list.add(sc.nextInt());\n        int[] arr = new int[list.size()];\n        for (int i = 0; i < list.size(); i++) arr[i] = list.get(i);\n        System.out.println(solve(arr));\n        sc.close();\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(arr) { return false; }\nconst input = fs.readFileSync(0, 'utf8').trim().split(/\\s+/);\nif (input.length > 0 && input[0] !== '') {\n    const arr = input.map(Number);\n    console.log(solve(arr));\n}",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\nbool solve(int* arr, int n) {\n    return false;\n}\n\nint main() {\n    int capacity = 1000;\n    int* arr = (int*)malloc(capacity * sizeof(int));\n    int n = 0, val;\n    while (scanf(\"%d\", &val) == 1) {\n        if (n == capacity) {\n            capacity *= 2;\n            arr = (int*)realloc(arr, capacity * sizeof(int));\n        }\n        arr[n++] = val;\n    }\n    printf(\"%s\\n\", solve(arr, n) ? \"true\" : \"false\");\n    free(arr);\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "5 5 5 10 20",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "5 5 10 10 20",
+            "expected_output": "false",
+            "is_sample": true
+        },
+        {
+            "input": "5",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "10",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "5 5 10 20 5 5 5 10 20",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "5 5 5 5 20 20",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "20 20 20",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "5 5 5 10 5 20 5 10 20 5 5 10 5 20 5 5 5 10 5 20",
+            "expected_output": "true",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Greedy"
+    ],
+    "companyIndex": 23
+}

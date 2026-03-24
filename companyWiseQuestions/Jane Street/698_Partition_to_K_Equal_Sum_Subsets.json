@@ -1,0 +1,92 @@
+{
+  "question_text": "<h3>Partition to K Equal Sum Subsets</h3><p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <code>true</code> if it is possible to divide this array into <code>k</code> non-empty subsets whose sums are all equal.</p>\n<p><strong>Constraints:</strong></p><ul><li><code>1 &lt;= k &lt;= nums.length &lt;= 16</code></li><li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li><li>The frequency of each element is in the range [1, 4].</li></ul>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "An integer array nums and integer k.",
+  "output_format": "true if it is possible to partition nums into k equal-sum subsets, false otherwise.",
+  "constraints": [
+    "1 <= k <= nums.length <= 16",
+    "1 <= nums[i] <= 10^4"
+  ],
+  "explanation": "<h4>Backtracking with Bucket Pruning</h4><p>Sort nums descending. Use k buckets each targeting sum/k. At each step, try placing nums[idx] into a bucket where it fits. Skip buckets with the same current sum (pruning identical states). Return true when all elements are placed.</p><p><strong>Time:</strong> O(k × 2^N). <strong>Space:</strong> O(N).</p>",
+  "answer": "def canPartitionKSubsets(nums, k):\n    total = sum(nums)\n    if total % k != 0: return False\n    target = total // k\n    nums.sort(reverse=True)\n    if nums[0] > target: return False\n    buckets = [0] * k\n    def dfs(idx):\n        if idx == len(nums): return True\n        seen = set()\n        for i in range(k):\n            if buckets[i] in seen: continue\n            if buckets[i] + nums[idx] <= target:\n                seen.add(buckets[i])\n                buckets[i] += nums[idx]\n                if dfs(idx + 1): return True\n                buckets[i] -= nums[idx]\n        return False\n    return dfs(0)",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 698 Partition to K Equal Sum Subsets here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[4,3,2,3,5,2,1]\n4",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "[1,2,3,4]\n3",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "[1,2,3,4]\n2",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[1]\n1",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[2,2,2,2,3,4,5]\n4",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]\n4",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[3,3,3,3,3,3,3,3]\n4",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[2,2,2,2,2,2,2]\n7",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[10,10,10,10,10,10,10,10,10,10]\n5",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]\n8",
+      "expected_output": "true",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Dynamic Programming",
+    "Backtracking",
+    "Bit Manipulation",
+    "Memoization",
+    "Bitmask"
+  ],
+  "companyIndex": 18
+}

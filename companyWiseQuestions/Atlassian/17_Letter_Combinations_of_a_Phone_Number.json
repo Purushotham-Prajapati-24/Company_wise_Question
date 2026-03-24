@@ -1,0 +1,88 @@
+{
+    "question_text": "<h3>Letter Combinations of a Phone Number</h3><p>Given a string containing digits from <code>2-9</code> inclusive, return all possible letter combinations that the number could represent. Return the answer in <b>any order</b>.</p><p>A mapping of digits to letters (just like on the telephone buttons) is given below:</p><ul><li>2: abc, 3: def, 4: ghi, 5: jkl, 6: mno, 7: pqrs, 8: tuv, 9: wxyz</li></ul>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "A single string of digits (2-9).",
+    "output_format": "The total count of possible letter combinations.",
+    "constraints": [
+        "0 <= digits.length <= 4",
+        "digits[i] is a digit in the range ['2', '9']."
+    ],
+    "explanation": "We use backtracking to generate all possible combinations. Define a mapping of each digit to its letters. We recursively build combinations: at each position, try all letters for the current digit and recurse for the next position. For empty input, return 0 combinations. The total count equals the product of the number of letters for each digit (3 or 4 letters per digit). We return the count of generated combinations, verifying the backtracking logic is correct. O(3^N × 4^M) time where N is digits with 3 letters and M is digits with 4 letters (7,9).",
+    "answer": "def solve(digits):\n    if not digits: return 0\n    phone = {'2':'abc','3':'def','4':'ghi','5':'jkl','6':'mno','7':'pqrs','8':'tuv','9':'wxyz'}\n    res = []\n    def bt(idx, path):\n        if idx == len(digits):\n            res.append(''.join(path))\n            return\n        for c in phone[digits[idx]]:\n            path.append(c)\n            bt(idx+1, path)\n            path.pop()\n    bt(0, [])\n    return len(res)",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(s):\n    return 0\n\nif __name__ == '__main__':\n    s = sys.stdin.read().strip()\n    print(solve(s))",
+        "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint solve(string s) {\n    return 0;\n}\n\nint main() {\n    string s;\n    if (getline(cin, s)) cout << solve(s) << endl;\n    return 0;\n}",
+        "java": "import java.util.Scanner;\n\npublic class Main {\n    public static int solve(String s) {\n        return 0;\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) System.out.println(solve(sc.nextLine().trim()));\n        sc.close();\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(s) { return 0; }\nconst input = fs.readFileSync(0, 'utf8').trim();\nif (input) console.log(solve(input));",
+        "c": "#include <stdio.h>\n#include <string.h>\n\nint solve(char* s) {\n    return 0;\n}\n\nint main() {\n    char buffer[300001];\n    if (fgets(buffer, sizeof(buffer), stdin)) {\n        buffer[strcspn(buffer, \"\\n\")] = 0;\n        printf(\"%d\\n\", solve(buffer));\n    }\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "23",
+            "expected_output": "9",
+            "is_sample": true
+        },
+        {
+            "input": "2",
+            "expected_output": "3",
+            "is_sample": true
+        },
+        {
+            "input": "",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "9",
+            "expected_output": "4",
+            "is_sample": false
+        },
+        {
+            "input": "99",
+            "expected_output": "16",
+            "is_sample": false
+        },
+        {
+            "input": "22",
+            "expected_output": "9",
+            "is_sample": false
+        },
+        {
+            "input": "234",
+            "expected_output": "27",
+            "is_sample": false
+        },
+        {
+            "input": "7777",
+            "expected_output": "256",
+            "is_sample": false
+        },
+        {
+            "input": "2345",
+            "expected_output": "81",
+            "is_sample": false
+        },
+        {
+            "input": "9876",
+            "expected_output": "144",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "String",
+        "Backtracking"
+    ],
+    "companyIndex": 23
+}

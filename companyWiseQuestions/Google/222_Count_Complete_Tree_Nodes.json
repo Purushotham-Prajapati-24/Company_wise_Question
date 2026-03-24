@@ -1,0 +1,90 @@
+{
+    "question_text": "<h3>Count Complete Tree Nodes</h3><p>Given the <code>root</code> of a <b>complete</b> binary tree, return the number of the nodes in the tree.</p><p>According to Wikipedia, every level, except possibly the last, is completely filled in a complete binary tree, and all nodes in the last level are as far left as possible. It can have between <code>1</code> and <code>2^h</code> nodes inclusive at the last level <code>h</code>.</p><p>Design an algorithm that runs in less than <code>O(n)</code> time complexity.</p>",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "A single line containing space-separated integers representing the level-order traversal of the tree. `null` represents a missing node.",
+    "output_format": "A single integer denoting the total number of nodes in the entire tree.",
+    "constraints": [
+        "The number of nodes in the tree is in the range [0, 5 * 10^4].",
+        "0 <= Node.val <= 5 * 10^4",
+        "The tree is guaranteed to be complete."
+    ],
+    "explanation": "To achieve less than O(n) time complexity (specifically O(log^2 n)), we can leverage the property of a complete binary tree. We compute the depth of the left-most path and the right-most path from the root. If these depths are equal, the tree is a full binary tree with exactly `(2^depth) - 1` nodes. We return this value immediately. If they differ, we recursively calculate the nodes in the left and right subtrees and add 1 (for the root). This elegantly bypasses counting every single node by skipping fully populated subtrees.",
+    "answer": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef solve(root):\n    if not root:\n        return 0\n    def get_depth(node, get_left):\n        d = 0\n        while node:\n            node = node.left if get_left else node.right\n            d += 1\n        return d\n\n    left_d = get_depth(root, True)\n    right_d = get_depth(root, False)\n    \n    if left_d == right_d:\n        return (1 << left_d) - 1\n    return 1 + solve(root.left) + solve(root.right)",
+    "boilerplate": {
+        "python": "import sys\nfrom collections import deque\n\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef solve(root):\n    # User logic should be written here\n    return 0\n\nif __name__ == '__main__':\n    arr_str = sys.stdin.read().strip()\n    if not arr_str or arr_str == '[]':\n        print(0)\n        sys.exit()\n    arr = arr_str.strip('[]').split(',')\n    if not arr or arr[0].strip() == 'null':\n        print(0)\n        sys.exit()\n    root = TreeNode(int(arr[0].strip()))\n    queue = deque([root])\n    i = 1\n    while queue and i < len(arr):\n        node = queue.popleft()\n        left_val = arr[i].strip()\n        if left_val != 'null':\n            node.left = TreeNode(int(left_val))\n            queue.append(node.left)\n        i += 1\n        if i < len(arr):\n            right_val = arr[i].strip()\n            if right_val != 'null':\n                node.right = TreeNode(int(right_val))\n                queue.append(node.right)\n            i += 1\n    print(solve(root))",
+        "cpp": "#include <iostream>\n#include <string>\n#include <vector>\n#include <queue>\nusing namespace std;\n\nstruct TreeNode {\n    int val;\n    TreeNode *left;\n    TreeNode *right;\n    TreeNode(int x) : val(x), left(NULL), right(NULL) {}\n};\n\nint solve(TreeNode* root) {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Implementation of level order parsing into tree\n    return 0;\n}",
+        "java": "import java.util.*;\n\nclass TreeNode {\n    int val;\n    TreeNode left;\n    TreeNode right;\n    TreeNode(int x) { val = x; }\n}\n\npublic class Main {\n    public static int solve(TreeNode root) {\n        // User logic should be written here\n        return 0;\n    }\n    public static void main(String[] args) {\n        // Parsing array to tree implementation\n    }\n}",
+        "javascript": "class TreeNode {\n    constructor(val) {\n        this.val = val;\n        this.left = this.right = null;\n    }\n}\n\nfunction solve(root) {\n    // User logic should be written here\n    return 0;\n}\n\n// Fast I/O tree builder stub",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct TreeNode {\n    int val;\n    struct TreeNode *left;\n    struct TreeNode *right;\n};\n\nint solve(struct TreeNode* root) {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "1 2 3 4 5 6 null",
+            "expected_output": "6",
+            "is_sample": true
+        },
+        {
+            "input": "null",
+            "expected_output": "0",
+            "is_sample": true
+        },
+        {
+            "input": "1",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 null",
+            "expected_output": "2",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 3",
+            "expected_output": "3",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 3 4 5 6 7",
+            "expected_output": "7",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15",
+            "expected_output": "15",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 3 4 5 6 7 8 9 10",
+            "expected_output": "10",
+            "is_sample": false
+        },
+        {
+            "input": "0 1 2 3 4 5 6 7 8 9 10 11",
+            "expected_output": "12",
+            "is_sample": false
+        },
+        {
+            "input": "0 1 2 3 4 5 6 7 8 9 10 11 12 13",
+            "expected_output": "14",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Tree",
+        "Binary Search",
+        "Depth-First Search"
+    ],
+    "companyIndex": 0
+}

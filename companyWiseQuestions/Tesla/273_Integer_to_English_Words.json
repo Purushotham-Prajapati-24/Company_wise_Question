@@ -1,0 +1,86 @@
+{
+  "question_text": "<p><strong>Integer to English Words</strong></p><p>Standard LeetCode description for Integer to English Words.</p>",
+  "difficulty": "HARD",
+  "marks": 20,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply."
+  ],
+  "explanation": "FAANG-level explanation for Integer to English Words.",
+  "answer": "def solve(num: int):\nif num == 0: return ''\n    elif num < 20: return self.less_than_20[num] + ' '\n    elif num < 100: return self.tens[num // 10] + ' ' + self.helper(num % 10)\n    else: return self.less_than_20[num // 100] + ' Hundred ' + self.helper(num % 100)",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "123",
+      "expected_output": "One Hundred Twenty Three",
+      "is_sample": true
+    },
+    {
+      "input": "12345",
+      "expected_output": "Twelve Thousand Three Hundred Forty Five",
+      "is_sample": true
+    },
+    {
+      "input": "1234567",
+      "expected_output": "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven",
+      "is_sample": false
+    },
+    {
+      "input": "0",
+      "expected_output": "Zero",
+      "is_sample": false
+    },
+    {
+      "input": "10",
+      "expected_output": "Ten",
+      "is_sample": false
+    },
+    {
+      "input": "100",
+      "expected_output": "One Hundred",
+      "is_sample": false
+    },
+    {
+      "input": "1000",
+      "expected_output": "One Thousand",
+      "is_sample": false
+    },
+    {
+      "input": "2147483647",
+      "expected_output": "Two Billion One Hundred Forty Seven Million Four Hundred Eighty Three Thousand Six Hundred Forty Seven",
+      "is_sample": false
+    },
+    {
+      "input": "1000000000",
+      "expected_output": "One Billion",
+      "is_sample": false
+    },
+    {
+      "input": "999999999",
+      "expected_output": "Nine Hundred Ninety Nine Million Nine Hundred Ninety Nine Thousand Nine Hundred Ninety Nine",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Strings"
+  ],
+  "companyIndex": 4
+}

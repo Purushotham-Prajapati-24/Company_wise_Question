@@ -1,0 +1,90 @@
+{
+    "question_text": "<p>You are given a nested list of integers <code>nestedList</code>. Each element is either an integer or a list whose elements may also be integers or other lists. Implement an iterator to flatten it.</p>\n\n<p>Implement the <code>NestedIterator</code> class:</p>\n\n<ul>\n\t<li><code>NestedIterator(List&lt;NestedInteger&gt; nestedList)</code> Initializes the iterator with the nested list <code>nestedList</code>.</li>\n\t<li><code>int next()</code> Returns the next integer in the nested list.</li>\n\t<li><code>boolean hasNext()</code> Returns <code>true</code> if there are still some integers in the nested list and <code>false</code> otherwise.</li>\n</ul>\n\n<p>Your code will be tested with the following pseudocode:</p>\n\n<pre>\ninitialize iterator with nestedList\nres = []\nwhile iterator.hasNext()\n    append iterator.next() to the end of res\nreturn res\n</pre>\n\n<p>If <code>res</code> matches the expected flattened list, then your code will be judged as correct.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> nestedList = [[1,1],2,[1,1]]\n<strong>Output:</strong> [1,1,2,1,1]\n<strong>Explanation:</strong> By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,1,2,1,1].\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> nestedList = [1,[4,[6]]]\n<strong>Output:</strong> [1,4,6]\n<strong>Explanation:</strong> By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,4,6].\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= nestedList.length &lt;= 500</code></li>\n\t<li>The values of the integers in the nested list is in the range <code>[-10<sup>6</sup>, 10<sup>6</sup>]</code>.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Nested integer array",
+    "output_format": "Flattened integers",
+    "constraints": [
+        "1 <= nestedList.length <= 500",
+        "Values up to 10^6"
+    ],
+    "explanation": "Use a simple DFS on initialization to extract all integers, or stack to unravel lazily.",
+    "answer": "class NestedIterator {\n  constructor(nestedList) { this.res = []; const dfs = (arr) => { for(let a of arr) { if(a.isInteger()) this.res.push(a.getInteger()); else dfs(a.getList()); } }; dfs(nestedList); this.i = 0; }\n  next() { return this.res[this.i++]; }\n  hasNext() { return this.i < this.res.length; }\n}",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Python optimum solution exclusively\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if not input_data or input_data == ['']: sys.exit(0)\n    parsed_args = [json.loads(line) for line in input_data]\n    print(json.dumps(solve(*parsed_args)).replace(' ', ''))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint solve() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Basic standard IO loop parser\n    string line;\n    while (getline(cin, line)) {\n        // Parse line into arguments and call solve\n    }\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object solve() {\n        // User logic should be written here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {\n            // Parse line into arguments\n        }\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve(...args) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    const parsedArgs = input.map(line => JSON.parse(line));\n    console.log(JSON.stringify(solve(...parsedArgs)));\n}\n\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint solve() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Standard C IO loop\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[[1,1],2,[1,1]]",
+            "expected_output": "[1,1,2,1,1]",
+            "is_sample": true
+        },
+        {
+            "input": "[1,[4,[6]]]",
+            "expected_output": "[1,4,6]",
+            "is_sample": true
+        },
+        {
+            "input": "[[]]",
+            "expected_output": "[]",
+            "is_sample": false
+        },
+        {
+            "input": "[[[]]]",
+            "expected_output": "[]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,[],2]",
+            "expected_output": "[1,2]",
+            "is_sample": false
+        },
+        {
+            "input": "[[-1],-2,[-3]]",
+            "expected_output": "[-1,-2,-3]",
+            "is_sample": false
+        },
+        {
+            "input": "[[[1]],[2],[3,4]]",
+            "expected_output": "[1,2,3,4]",
+            "is_sample": false
+        },
+        {
+            "input": "[10, 20, 30]",
+            "expected_output": "[10,20,30]",
+            "is_sample": false
+        },
+        {
+            "input": "[[[],1],[]]",
+            "expected_output": "[1]",
+            "is_sample": false
+        },
+        {
+            "input": "[[[[[[[1]]]]]]]",
+            "expected_output": "[1]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Stacks",
+        "Trees",
+        "Depth-First Search",
+        "Design"
+    ],
+    "companyIndex": 5
+}

@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>Read N Characters Given Read4 II</h3><p>Implement read() such that it reads $N$ characters correctly across multiple calls.</p>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Read commands.",
+  "output_format": "Outputs.",
+  "constraints": [
+    "n <= 500"
+  ],
+  "explanation": "Use a local buffer and a pointer/size tracker to remember characters read by `read4` that weren't used in the previous `read` call.",
+  "answer": "class Solution:\n    def __init__(self): self.buf4, self.p, self.s = [\"\"], 0, 0\n    def read(self, buf, n):\n        i = 0\n        while i < n:\n            if self.p == self.s:\n                self.s = read4(self.buf4)\n                self.p = 0\n                if self.s == 0: break\n            buf[i] = self.buf4[self.p]\n            i += 1; self.p += 1\n        return i",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 158 Read N Characters Given Read4 II Call multiple times here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "\"abc\"\n[1,2,1]",
+      "expected_output": "[1,2,0]",
+      "is_sample": true
+    },
+    {
+      "input": "\"abc\"\n[4,1]",
+      "expected_output": "[3,0]",
+      "is_sample": true
+    },
+    {
+      "input": "\"leetcode\"\n[5,2,2]",
+      "expected_output": "[5,2,1]",
+      "is_sample": false
+    },
+    {
+      "input": "\"apple\"\n[1,1,1,1,1,1]",
+      "expected_output": "[1,1,1,1,1,0]",
+      "is_sample": false
+    },
+    {
+      "input": "\"\"\n[10]",
+      "expected_output": "[0]",
+      "is_sample": false
+    },
+    {
+      "input": "\"a\"\n[1]",
+      "expected_output": "[1]",
+      "is_sample": false
+    },
+    {
+      "input": "\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"\n[100,200,300]",
+      "expected_output": "[100,200,200]",
+      "is_sample": false
+    },
+    {
+      "input": "\"abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabc\"\n[3,3,3]",
+      "expected_output": "[3,3,3]",
+      "is_sample": false
+    },
+    {
+      "input": "\"abcd\"\n[1,1,1,1]",
+      "expected_output": "[1,1,1,1]",
+      "is_sample": false
+    },
+    {
+      "input": "\"abcde\"\n[1,4]",
+      "expected_output": "[1,4]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Simulation",
+    "Interactive"
+  ],
+  "companyIndex": 4
+}

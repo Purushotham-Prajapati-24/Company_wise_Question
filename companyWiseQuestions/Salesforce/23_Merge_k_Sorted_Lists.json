@@ -1,0 +1,84 @@
+{
+    "question_text": "<p>You are given an array of <code>k</code> linked-lists <code>lists</code>, each linked-list is sorted in ascending order.</p>\n\n<p><em>Merge all the linked-lists into one sorted linked-list and return it.</em></p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> lists = [[1,4,5],[1,3,4],[2,6]]\n<strong>Output:</strong> [1,1,2,3,4,4,5,6]\n<strong>Explanation:</strong> The linked-lists are:\n[\n  1-&gt;4-&gt;5,\n  1-&gt;3-&gt;4,\n  2-&gt;6\n]\nmerging them into one sorted linked list:\n1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> lists = []\n<strong>Output:</strong> []\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> lists = [[]]\n<strong>Output:</strong> []\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>k == lists.length</code></li>\n\t<li><code>0 &lt;= k &lt;= 10<sup>4</sup></code></li>\n\t<li><code>0 &lt;= lists[i].length &lt;= 500</code></li>\n\t<li><code>-10<sup>4</sup> &lt;= lists[i][j] &lt;= 10<sup>4</sup></code></li>\n\t<li><code>lists[i]</code> is sorted in <strong>ascending order</strong>.</li>\n\t<li>The sum of <code>lists[i].length</code> will not exceed <code>10<sup>4</sup></code>.</li>\n</ul>\n",
+    "difficulty": "HARD",
+    "marks": 20,
+    "input_format": "Space-separated values as per problem arguments.",
+    "output_format": "A single line representing the result.",
+    "constraints": [],
+    "explanation": "Use a min-heap to keep track of the smallest current element among all k lists. Each time an element is extracted, push the next element from the same list into the heap. The time complexity is O(N log k), where N is the total number of nodes.",
+    "answer": "def solve(lists: List[Optional[ListNode]]):\nl1 = lists[i]\n        l2 = lists[i + 1] if (i + 1) < len(lists) else None\n        mergedLists.append(self.mergeTwoLists(l1, l2))\n    lists = mergedLists\n    return lists[0]\n    def mergeTwoLists(self, l1, l2):\n    dummy = ListNode()\n    tail = dummy\n    while l1 and l2:\n    if l1.val < l2.val:\n        tail.next = l1\n        l1 = l1.next\n    else:\n        tail.next = l2\n        l2 = l2.next\n    tail = tail.next\n    if l1: tail.next = l1\n    if l2: tail.next = l2\n    return dummy.next",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {}\n};\n\nint main() {\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "1 4 5] [1 3 4] [2 6",
+            "expected_output": "1 1 2 3 4 4 5 6",
+            "is_sample": true
+        },
+        {
+            "input": "1 4 5] [1 3 4] [2 6",
+            "expected_output": "1 1 2 3 4 4 5 6",
+            "is_sample": true
+        },
+        {
+            "input": "1 4 5] [1 3 4] [2 6",
+            "expected_output": "1 1 2 3 4 4 5 6",
+            "is_sample": true
+        },
+        {
+            "input": "1 4 5] [1 3 4] [2 6",
+            "expected_output": "1 1 2 3 4 4 5 6",
+            "is_sample": true
+        },
+        {
+            "input": "1 4 5] [1 3 4] [2 6",
+            "expected_output": "1 1 2 3 4 4 5 6",
+            "is_sample": true
+        },
+        {
+            "input": "1 4 5] [1 3 4] [2 6",
+            "expected_output": "1 1 2 3 4 4 5 6",
+            "is_sample": true
+        },
+        {
+            "input": "1 4 5] [1 3 4] [2 6",
+            "expected_output": "1 1 2 3 4 4 5 6",
+            "is_sample": true
+        },
+        {
+            "input": "1 4 5] [1 3 4] [2 6",
+            "expected_output": "1 1 2 3 4 4 5 6",
+            "is_sample": false
+        },
+        {
+            "input": "1 4 5] [1 3 4] [2 6",
+            "expected_output": "1 1 2 3 4 4 5 6",
+            "is_sample": false
+        },
+        {
+            "input": "1 4 5] [1 3 4] [2 6",
+            "expected_output": "1 1 2 3 4 4 5 6",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Linked Lists / Heap"
+    ],
+    "companyIndex": 7
+}

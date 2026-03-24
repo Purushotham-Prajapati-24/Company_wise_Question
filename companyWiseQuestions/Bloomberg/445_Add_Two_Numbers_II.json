@@ -1,0 +1,90 @@
+{
+    "question_text": "<p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.</p>\n\n<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2021/04/09/sumii-linked-list.jpg\" style=\"width: 523px; height: 342px;\" />\n<pre>\n<strong>Input:</strong> l1 = [7,2,4,3], l2 = [5,6,4]\n<strong>Output:</strong> [7,8,0,7]\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> l1 = [2,4,3], l2 = [5,6,4]\n<strong>Output:</strong> [8,0,7]\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> l1 = [0], l2 = [0]\n<strong>Output:</strong> [0]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The number of nodes in each linked list is in the range <code>[1, 100]</code>.</li>\n\t<li><code>0 &lt;= Node.val &lt;= 9</code></li>\n\t<li>It is guaranteed that the list represents a number that does not have leading zeros.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong>Follow up:</strong>&nbsp;Could you solve it without reversing the input lists?</p>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Two linked lists l1 and l2 (most significant first)",
+    "output_format": "Linked list representing the sum",
+    "constraints": [
+        "The number of nodes 1 to 100",
+        "0 <= Node.val <= 9",
+        "No leading zeros except zero itself"
+    ],
+    "explanation": "Use two stacks to store digits in reverse. Pop digits simultaneously and create result list with carry propagation.",
+    "answer": "def addTwoNumbers(l1, l2):\n    s1, s2 = [], []\n    while l1: s1.append(l1.val); l1 = l1.next\n    while l2: s2.append(l2.val); l2 = l2.next\n    carry, head = 0, None\n    while s1 or s2 or carry:\n        val = carry\n        if s1: val += s1.pop()\n        if s2: val += s2.pop()\n        carry, val = divmod(val, 10)\n        node = ListNode(val); node.next = head; head = node\n    return head",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Add Two Numbers II here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <unordered_map>\n#include <algorithm>\nusing namespace std;\n\nint solve() {\n    // Implement Add Two Numbers II here\n    return 0;\n}\n\nint main() {\n    string line;\n    while (getline(cin, line)) { /* parse and call solve */ }\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object solve() {\n        // Implement Add Two Numbers II here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) { /* parse and call */ }\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve(...args) {\n    // Implement Add Two Numbers II here\n    return 0;\n}\n\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    const args = lines.map(l => JSON.parse(l));\n    console.log(JSON.stringify(solve(...args)));\n}\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint solve() {\n    // Implement Add Two Numbers II here\n    return 0;\n}\n\nint main() {\n    // Standard C IO\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[7,2,4,3]\n[5,6,4]",
+            "expected_output": "[7,8,0,7]",
+            "is_sample": true
+        },
+        {
+            "input": "[2,4,3]\n[5,6,4]",
+            "expected_output": "[8,0,7]",
+            "is_sample": true
+        },
+        {
+            "input": "[0]\n[0]",
+            "expected_output": "[0]",
+            "is_sample": false
+        },
+        {
+            "input": "[9]\n[1]",
+            "expected_output": "[1,0]",
+            "is_sample": false
+        },
+        {
+            "input": "[1]\n[9,9,9]",
+            "expected_output": "[1,0,0,0]",
+            "is_sample": false
+        },
+        {
+            "input": "[9,9,9]\n[1]",
+            "expected_output": "[1,0,0,0]",
+            "is_sample": false
+        },
+        {
+            "input": "[5,0,0]\n[5,0,0]",
+            "expected_output": "[1,0,0,0]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3]\n[9,8,7]",
+            "expected_output": "[1,1,1,0]",
+            "is_sample": false
+        },
+        {
+            "input": "[9,9,9,9,9,9,9]\n[9,9,9,9]",
+            "expected_output": "[1,0,0,0,9,9,9,8]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]\n[5,6,4]",
+            "expected_output": "[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,6,9,4]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Linked List",
+        "Math",
+        "Stack"
+    ],
+    "companyIndex": 24
+}

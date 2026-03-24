@@ -1,0 +1,89 @@
+{
+  "question_text": "<h3>Find Leaves of Binary Tree</h3>null",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Binary Tree root",
+  "output_format": "List of lists of leaf values removed in order",
+  "constraints": [
+    "Node count [1, 100]",
+    "-100 <= Node.val <= 100"
+  ],
+  "explanation": "DFS computes height (distance from leaf). Group nodes by height. Leaf height = 0, next parent = 1, etc.",
+  "answer": "def findLeaves(root):\n    res = []\n    def dfs(node):\n        if not node: return -1\n        h = max(dfs(node.left), dfs(node.right)) + 1\n        if h >= len(res): res.append([])\n        res[h].append(node.val)\n        return h\n    dfs(root); return res",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Find Leaves of Binary Tree here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint solve() { return 0; }\n\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve(...args) { return 0; }\n\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint solve() { return 0; }\n\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[1,2,3,4,5]",
+      "expected_output": "[[4,5,3],[2],[1]]",
+      "is_sample": true
+    },
+    {
+      "input": "[1]",
+      "expected_output": "[[1]]",
+      "is_sample": true
+    },
+    {
+      "input": "[1,2,null,3,null,4,null,5]",
+      "expected_output": "[[5],[4],[3],[2],[1]]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,3,4,null,null,5]",
+      "expected_output": "[[4,5],[2,3],[1]]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,null,2,null,3]",
+      "expected_output": "[[3],[2],[1]]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,3]",
+      "expected_output": "[[2,3],[1]]",
+      "is_sample": false
+    },
+    {
+      "input": "[]",
+      "expected_output": "[]",
+      "is_sample": false
+    },
+    {
+      "input": "[10,20,30,null,null,null,40]",
+      "expected_output": "[[20,40],[30],[10]]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,2,3,4,4,3]",
+      "expected_output": "[[3,4,4,3],[2,2],[1]]",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,3,4,5,6,7,8,9]",
+      "expected_output": "[[8,9,5,6,7],[4,2,3],[1]]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Tree",
+    "DFS",
+    "Binary Tree"
+  ],
+  "companyIndex": 23
+}

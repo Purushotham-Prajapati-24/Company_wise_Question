@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>Decode Ways</h3><p>A message containing letters from A-Z can be encoded into numbers using the mapping A -> 1, B -> 2 ... Z -> 26.</p><p>Given a string <code>s</code> containing only digits, return the number of ways to decode it.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "A single string `s` of digits.",
+  "output_format": "Number of ways to decode.",
+  "constraints": [
+    "1 <= s.length <= 100",
+    "s contains only digits and may contain leading zero(s)."
+  ],
+  "explanation": "This is an optimal dynamic programming problem. We track `dp[i]`, the number of ways to decode prefix of length `i`. A single digit > 0 contributes to `dp[i] += dp[i-1]`. A pair of digits between 10 and 26 contributes to `dp[i] += dp[i-2]`. Instead of an array, we only need the last two states, resulting in O(N) time and strictly O(1) space!",
+  "answer": "def solve(s):\n    if not s or s[0] == '0': return 0\n    p1, p2 = 1, 1\n    for i in range(1, len(s)):\n        curr = 0\n        if s[i] != '0': curr += p1\n        if 10 <= int(s[i-1:i+1]) <= 26: curr += p2\n        p2, p1 = p1, curr\n    return p1",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve(s):\n    return 0\n\nif __name__ == '__main__':\n    s = sys.stdin.read().strip()\n    res = solve(s)\n    print(str(res).lower() if isinstance(res, bool) else res)",
+    "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint solve(string s) {\n    return 0;\n}\n\nint main() {\n    string s;\n    if (cin >> s) {\n        int res = solve(s);\n        cout << (res) << endl;\n    }\n    return 0;\n}",
+    "java": "import java.util.Scanner;\n\npublic class Main {\n    public static int solve(String s) {\n        return 0;\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) System.out.println(solve(sc.next()));\n        sc.close();\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(s) { return 0; }\nconst input = fs.readFileSync(0, 'utf8').trim();\nif (input) console.log(solve(input));",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\nint solve(char* s) {\n    return 0;\n}\n\nint main() {\n    char buffer[100000];\n    if (scanf(\"%s\", buffer) == 1) {\n        int res = solve(buffer);\n        printf(\"%d\\n\", res);\n    }\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "12",
+      "expected_output": "2",
+      "is_sample": true
+    },
+    {
+      "input": "226",
+      "expected_output": "3",
+      "is_sample": true
+    },
+    {
+      "input": "06",
+      "expected_output": "0",
+      "is_sample": true
+    },
+    {
+      "input": "10",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "2101",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "27",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "100",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "1111111111111111111111111111111111111111",
+      "expected_output": "10946",
+      "is_sample": false
+    },
+    {
+      "input": "2626262626262626262626262626262626262626",
+      "expected_output": "10946",
+      "is_sample": false
+    },
+    {
+      "input": "99999999999999999999999999999999999999999999999999",
+      "expected_output": "1",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "String",
+    "Dynamic Programming"
+  ],
+  "companyIndex": 20
+}

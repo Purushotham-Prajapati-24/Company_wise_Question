@@ -1,0 +1,84 @@
+{
+    "question_text": "<p>Given the <code>head</code> of a sorted linked list, <em>delete all duplicates such that each element appears only once</em>. Return <em>the linked list <strong>sorted</strong> as well</em>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2021/01/04/list1.jpg\" style=\"width: 302px; height: 242px;\" />\n<pre>\n<strong>Input:</strong> head = [1,1,2]\n<strong>Output:</strong> [1,2]\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2021/01/04/list2.jpg\" style=\"width: 542px; height: 222px;\" />\n<pre>\n<strong>Input:</strong> head = [1,1,2,3,3]\n<strong>Output:</strong> [1,2,3]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The number of nodes in the list is in the range <code>[0, 300]</code>.</li>\n\t<li><code>-100 &lt;= Node.val &lt;= 100</code></li>\n\t<li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>\n</ul>\n",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "Space-separated values as per problem arguments.",
+    "output_format": "A single line representing the result.",
+    "constraints": [],
+    "explanation": "Iterate through the sorted linked list. For each node, if the next node has the same value, bypass the next node. Otherwise, move the current pointer forward.",
+    "answer": "class Solution:\n    def solve(self, head: Optional[ListNode]) -> Optional[ListNode]:\n        cur = head\n        while cur:\n            while cur.next and cur.next.val == cur.val:\n                cur.next = cur.next.next\n            cur = cur.next\n        return head",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {}\n};\n\nint main() {\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "1 1 2",
+            "expected_output": "1 2",
+            "is_sample": true
+        },
+        {
+            "input": "1 1 2",
+            "expected_output": "1 2",
+            "is_sample": true
+        },
+        {
+            "input": "1 1 2",
+            "expected_output": "1 2",
+            "is_sample": true
+        },
+        {
+            "input": "1 1 2",
+            "expected_output": "1 2",
+            "is_sample": true
+        },
+        {
+            "input": "1 1 2",
+            "expected_output": "1 2",
+            "is_sample": true
+        },
+        {
+            "input": "1 1 2",
+            "expected_output": "1 2",
+            "is_sample": true
+        },
+        {
+            "input": "1 1 2",
+            "expected_output": "1 2",
+            "is_sample": true
+        },
+        {
+            "input": "1 1 2",
+            "expected_output": "1 2",
+            "is_sample": false
+        },
+        {
+            "input": "1 1 2",
+            "expected_output": "1 2",
+            "is_sample": false
+        },
+        {
+            "input": "1 1 2",
+            "expected_output": "1 2",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Linked Lists"
+    ],
+    "companyIndex": 7
+}

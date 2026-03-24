@@ -1,0 +1,89 @@
+{
+  "question_text": "<h3>Design Log Storage System</h3>null",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "put and retrieve calls",
+  "output_format": "retrieve returns list of IDs within range based on granularity",
+  "constraints": [
+    "At most 300 calls"
+  ],
+  "explanation": "Store logs with IDs and timestamps. For retrieve, truncate the range boundaries and all stored timestamps to the specified granularity, then compare for containment.",
+  "answer": "class LogSystem:\n    def __init__(self):\n        self.logs = []; self.g = {'Year': 4, 'Month': 7, 'Day': 10, 'Hour': 13, 'Minute': 16, 'Second': 19}\n    def put(self, id, timestamp): self.logs.append((id, timestamp))\n    def retrieve(self, start, end, granularity):\n        idx = self.g[granularity]; s, e = start[:idx], end[:idx]\n        return [id for id, t in self.logs if s <= t[:idx] <= e]",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Design Log Storage System here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"LogSystem\",\"put\",\"put\",\"put\",\"retrieve\",\"retrieve\"]\n[[],[1,\"2017:01:01:23:59:59\"],[2,\"2017:01:01:22:59:59\"],[3,\"2016:01:01:00:00:00\"],[\"2016:01:01:01:01:01\",\"2017:01:01:23:00:00\",\"Year\"],[\"2016:01:01:01:01:01\",\"2017:01:01:23:00:00\",\"Hour\"]]",
+      "expected_output": "[null,null,null,null,[3,2,1],[2,1]]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"LogSystem\",\"put\",\"retrieve\"]\n[[],[10,\"2020:01:01:00:00:00\"],[\"2020:01:01:00:00:00\",\"2020:01:01:00:00:00\",\"Day\"]]",
+      "expected_output": "[null,null,[10]]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"LogSystem\",\"retrieve\"]\n[[],[\"2015:01:01:00:00:00\",\"2020:01:01:00:00:00\",\"Year\"]]",
+      "expected_output": "[null,[]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"LogSystem\",\"put\",\"put\",\"retrieve\"]\n[[],[1,\"2010:01:01:00:00:00\"],[2,\"2011:01:01:00:00:00\"],[\"2010:01:01:00:00:00\",\"2010:12:31:23:59:59\",\"Year\"]]",
+      "expected_output": "[null,null,null,[1]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"LogSystem\",\"put\",\"retrieve\"]\n[[],[1,\"2024:05:01:12:00:00\"],[\"2024:01:01:00:00:00\",\"2024:12:31:23:59:59\",\"Month\"]]",
+      "expected_output": "[null,null,[1]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"LogSystem\",\"put\",\"retrieve\"]\n[[],[1,\"2020:01:01:10:10:10\"],[\"2020:01:01:10:10:00\",\"2020:01:01:10:10:59\",\"Second\"]]",
+      "expected_output": "[null,null,[1]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"LogSystem\",\"put\",\"retrieve\"]\n[[],[1,\"2015:01:01:00:00:00\"],[\"2014:01:01:00:00:00\",\"2016:01:01:00:00:00\",\"Year\"]]",
+      "expected_output": "[null,null,[1]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"LogSystem\",\"put\",\"retrieve\"]\n[[],[1,\"2015:01:01:00:00:00\"],[\"2014:01:01:00:00:00\",\"2014:12:31:23:59:59\",\"Year\"]]",
+      "expected_output": "[null,null,[]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"LogSystem\",\"put\",\"retrieve\"]\n[[],[5,\"2017:05:15:10:30:00\"],[\"2017:05:15:10:29:59\",\"2017:05:15:10:30:01\",\"Minute\"]]",
+      "expected_output": "[null,null,[5]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"LogSystem\",\"put\",\"retrieve\"]\n[[],[5,\"2017:05:15:10:30:00\"],[\"2017:05:15:10:29:59\",\"2017:05:15:10:30:01\",\"Minute\"]]",
+      "expected_output": "[null,null,[5]]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "String",
+    "Design",
+    "Ordered Set"
+  ],
+  "companyIndex": 27
+}

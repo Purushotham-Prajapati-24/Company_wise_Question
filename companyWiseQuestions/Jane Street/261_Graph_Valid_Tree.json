@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Graph Valid Tree</h3><p>You have a graph of <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. You are given an integer <code>n</code> and a list of <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an undirected edge between nodes <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code>. Return <code>true</code> if the edges of the given graph make up a valid tree, and <code>false</code> otherwise.</p>\n<p><strong>Constraints:</strong></p><ul><li><code>1 &lt;= n &lt;= 2000</code></li><li><code>0 &lt;= edges.length &lt;= 5000</code></li><li>edges[i].length == 2</li><li>All edges are unique.</li></ul>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Integer n (number of nodes) and array edges [[ai,bi],…].",
+  "output_format": "true if the edges form a valid tree (connected, no cycle, n-1 edges), false otherwise.",
+  "constraints": [
+    "1 <= n <= 2000",
+    "0 <= edges.length <= 5000"
+  ],
+  "explanation": "<h4>Union-Find</h4><p>A valid tree has exactly n-1 edges and is connected (no cycles). First check if edges.length == n-1. Then use Union-Find: for each edge, if both nodes share the same root, a cycle exists → return false. If all edges merge successfully, return true.</p><p><strong>Time:</strong> O(N×α(N)) ≈ O(N). <strong>Space:</strong> O(N).</p>",
+  "answer": "def validTree(n, edges):\n    if len(edges) != n - 1: return False\n    parent = list(range(n))\n    def find(x):\n        while parent[x] != x:\n            parent[x] = parent[parent[x]]; x = parent[x]\n        return x\n    def union(x, y):\n        px, py = find(x), find(y)\n        if px == py: return False\n        parent[px] = py; return True\n    for u, v in edges:\n        if not union(u, v): return False\n    return True",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 261 Graph Valid Tree here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "5\n[[0,1],[0,2],[0,3],[1,4]]",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "5\n[[0,1],[1,2],[2,3],[1,3],[1,4]]",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "1\n[]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "2\n[[0,1]]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "3\n[[0,1],[1,2]]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "3\n[[0,1],[1,2],[0,2]]",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "4\n[[0,1],[2,3]]",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "4\n[[0,1],[1,2],[2,3]]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "5\n[[0,1],[0,2],[0,3],[0,4]]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "5\n[[0,1],[1,2],[2,3],[3,4]]",
+      "expected_output": "true",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Depth-First Search",
+    "Breadth-First Search",
+    "Union Find",
+    "Graph"
+  ],
+  "companyIndex": 23
+}

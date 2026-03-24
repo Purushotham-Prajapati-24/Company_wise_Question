@@ -1,0 +1,91 @@
+{
+  "question_text": "<h3>Exam Room</h3><p>There is an exam room with <code>n</code> seats in a single row labeled from <code>0</code> to <code>n - 1</code>.</p>\n\n<p>When a student enters the room, they must sit in the seat that maximizes the distance to the closest person. If there are multiple such seats, they sit in the seat with the lowest number. If no one is in the room, then the student sits at seat number <code>0</code>.</p>\n\n<p>Design a class that simulates the mentioned exam room.</p>\n\n<p>Implement the <code>ExamRoom</code> class:</p>\n\n<ul>\n\t<li><code>ExamRoom(int n)</code> Initializes the object of the exam room with the number of the seats <code>n</code>.</li>\n\t<li><code>int seat()</code> Returns the label of the seat at which the next student will set.</li>\n\t<li><code>void leave(int p)</code> Indicates that the student sitting at seat <code>p</code> will leave the room. It is guaranteed that there will be a student sitting at seat <code>p</code>.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input</strong>\n[&quot;ExamRoom&quot;, &quot;seat&quot;, &quot;seat&quot;, &quot;seat&quot;, &quot;seat&quot;, &quot;leave&quot;, &quot;seat&quot;]\n[[10], [], [], [], [], [4], []]\n<strong>Output</strong>\n[null, 0, 9, 4, 2, null, 5]\n\n<strong>Explanation</strong>\nExamRoom examRoom = new ExamRoom(10);\nexamRoom.seat(); // return 0, no one is in the room, then the student sits at seat number 0.\nexamRoom.seat(); // return 9, the student sits at the last seat number 9.\nexamRoom.seat(); // return 4, the student sits at the last seat number 4.\nexamRoom.seat(); // return 2, the student sits at the last seat number 2.\nexamRoom.leave(4);\nexamRoom.seat(); // return 5, the student sits at the last seat number 5.\n\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= n &lt;= 10<sup>9</sup></code></li>\n\t<li>It is guaranteed that there is a student sitting at seat <code>p</code>.</li>\n\t<li>At most <code>10<sup>4</sup></code> calls will be made to <code>seat</code> and <code>leave</code>.</li>\n</ul>\n",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Room size n, seat() and leave(seat) calls",
+  "output_format": "Seat index assigned",
+  "constraints": [
+    "1 <= n <= 10^9",
+    "At most 10^4 calls"
+  ],
+  "explanation": "Keep a sorted list of seated indices. For seat(), find the gap (x, y) that maximizes min(dist to x, dist to y). Add newly seated index to list.",
+  "answer": "class ExamRoom:\n    def __init__(self, n):\n        self.n = n; self.seats = []\n    def seat(self):\n        if not self.seats: res = 0\n        else:\n            mx = self.seats[0]; res = 0\n            for i in range(len(self.seats)-1):\n                d = (self.seats[i+1] - self.seats[i]) // 2\n                if d > mx: mx = d; res = self.seats[i] + d\n            if self.n - 1 - self.seats[-1] > mx: res = self.n - 1\n        bisect.insort(self.seats, res); return res\n    def leave(self, p):\n        self.seats.remove(p)",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Exam Room here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"ExamRoom\",\"seat\",\"seat\",\"seat\",\"seat\",\"leave\",\"seat\"]\n[[10],[],[],[],[],[4],[]]",
+      "expected_output": "[null,0,9,4,2,null,5]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"ExamRoom\",\"seat\"]\n[[10],[]]",
+      "expected_output": "[null,0]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"ExamRoom\",\"seat\",\"seat\"]\n[[2],[],[]]",
+      "expected_output": "[null,0,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"ExamRoom\",\"seat\",\"seat\",\"leave\",\"seat\"]\n[[5],[],[],[0],[]]",
+      "expected_output": "[null,0,4,null,0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"ExamRoom\",\"seat\",\"seat\",\"seat\",\"seat\"]\n[[4],[],[],[],[]]",
+      "expected_output": "[null,0,3,1,2]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"ExamRoom\",\"seat\",\"leave\",\"seat\"]\n[[10],[],[0],[]]",
+      "expected_output": "[null,0,null,0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"ExamRoom\",\"seat\",\"seat\",\"leave\",\"seat\"]\n[[3],[],[],[0],[]]",
+      "expected_output": "[null,0,2,null,0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"ExamRoom\",\"seat\",\"seat\",\"seat\"]\n[[5],[],[],[]]",
+      "expected_output": "[null,0,4,2]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"ExamRoom\",\"seat\",\"seat\",\"seat\",\"seat\"]\n[[10],[],[],[],[]]",
+      "expected_output": "[null,0,9,4,2]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"ExamRoom\",\"seat\",\"seat\",\"seat\",\"seat\"]\n[[10],[],[],[],[]]",
+      "expected_output": "[null,0,9,4,2]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Design",
+    "Sorting",
+    "Heap",
+    "Ordered Set",
+    "Simulation"
+  ],
+  "companyIndex": 26
+}

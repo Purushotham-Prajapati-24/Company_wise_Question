@@ -1,0 +1,86 @@
+{
+  "question_text": "<p>Given an integer array nums, return all the triplets <code>[nums[i], nums[j], nums[k]]</code> such that <code>i != j, i != k, and j != k</code>, and <code>nums[i] + nums[j] + nums[k] == 0</code>.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply."
+  ],
+  "explanation": "FAANG-level explanation for 3Sum.",
+  "answer": "class Solution:\n    def solve(self, nums: List[int]) -> List[List[int]]:\n        res = []\n        nums.sort()\n        for i, a in enumerate(nums):\n            if i > 0 and a == nums[i - 1]: continue\n            l, r = i + 1, len(nums) - 1\n            while l < r:\n                threeSum = a + nums[l] + nums[r]\n                if threeSum > 0: r -= 1\n                elif threeSum < 0: l += 1\n                else:\n                    res.append([a, nums[l], nums[r]])\n                    l += 1\n                    while nums[l] == nums[l - 1] and l < r: l += 1\n        return res",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "-1 0 1 2 -1 -4",
+      "expected_output": "-1 -1 2] [-1 0 1",
+      "is_sample": true
+    },
+    {
+      "input": "0 1 1",
+      "expected_output": "",
+      "is_sample": true
+    },
+    {
+      "input": "0 0 0",
+      "expected_output": "0 0 0",
+      "is_sample": false
+    },
+    {
+      "input": "1 -1 0 0",
+      "expected_output": "-1 0 1",
+      "is_sample": false
+    },
+    {
+      "input": "-2 0 0 2 2",
+      "expected_output": "-2 0 2",
+      "is_sample": false
+    },
+    {
+      "input": "-1 0 1",
+      "expected_output": "-1 0 1",
+      "is_sample": false
+    },
+    {
+      "input": "0]*3000",
+      "expected_output": "0 0 0",
+      "is_sample": false
+    },
+    {
+      "input": "-1 -1 2",
+      "expected_output": "-1 -1 2",
+      "is_sample": false
+    },
+    {
+      "input": "=0 else -10**5 for i in range(3000)",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "-1  -1  -1  2  2  2",
+      "expected_output": "-1 -1 2",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Arrays"
+  ],
+  "companyIndex": 3
+}

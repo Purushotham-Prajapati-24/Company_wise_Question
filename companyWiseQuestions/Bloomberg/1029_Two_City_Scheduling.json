@@ -1,0 +1,90 @@
+{
+    "question_text": "<p>A company is planning to interview <code>2n</code> people. Given the array <code>costs</code> where <code>costs[i] = [aCost<sub>i</sub>, bCost<sub>i</sub>]</code>,&nbsp;the cost of flying the <code>i<sup>th</sup></code> person to city <code>a</code> is <code>aCost<sub>i</sub></code>, and the cost of flying the <code>i<sup>th</sup></code> person to city <code>b</code> is <code>bCost<sub>i</sub></code>.</p>\n\n<p>Return <em>the minimum cost to fly every person to a city</em> such that exactly <code>n</code> people arrive in each city.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> costs = [[10,20],[30,200],[400,50],[30,20]]\n<strong>Output:</strong> 110\n<strong>Explanation: </strong>\nThe first person goes to city A for a cost of 10.\nThe second person goes to city A for a cost of 30.\nThe third person goes to city B for a cost of 50.\nThe fourth person goes to city B for a cost of 20.\n\nThe total minimum cost is 10 + 30 + 50 + 20 = 110 to have half the people interviewing in each city.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> costs = [[259,770],[448,54],[926,667],[184,139],[840,118],[577,469]]\n<strong>Output:</strong> 1859\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> costs = [[515,563],[451,713],[537,709],[343,819],[855,779],[457,60],[650,359],[631,42]]\n<strong>Output:</strong> 3086\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>2 * n == costs.length</code></li>\n\t<li><code>2 &lt;= costs.length &lt;= 100</code></li>\n\t<li><code>costs.length</code> is even.</li>\n\t<li><code>1 &lt;= aCost<sub>i</sub>, bCost<sub>i</sub> &lt;= 1000</code></li>\n</ul>\n",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "2D costs array where costs[i] = [aCost, bCost]",
+    "output_format": "Minimum cost integer",
+    "constraints": [
+        "2 <= costs.length <= 100",
+        "costs.length is even",
+        "1 <= aCost, bCost <= 1000"
+    ],
+    "explanation": "Greedily sort by the difference (aCost - bCost). Send the first half to city A, second half to city B.",
+    "answer": "def twoCitySchedCost(costs):\n    costs.sort(key=lambda x: x[0] - x[1])\n    n = len(costs) // 2\n    return sum(c[0] for c in costs[:n]) + sum(c[1] for c in costs[n:])",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Two City Scheduling here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <unordered_map>\n#include <algorithm>\nusing namespace std;\n\nint solve() {\n    // Implement Two City Scheduling here\n    return 0;\n}\n\nint main() {\n    string line;\n    while (getline(cin, line)) { /* parse and call solve */ }\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object solve() {\n        // Implement Two City Scheduling here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) { /* parse and call */ }\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve(...args) {\n    // Implement Two City Scheduling here\n    return 0;\n}\n\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    const args = lines.map(l => JSON.parse(l));\n    console.log(JSON.stringify(solve(...args)));\n}\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint solve() {\n    // Implement Two City Scheduling here\n    return 0;\n}\n\nint main() {\n    // Standard C IO\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[[10,20],[30,200],[400,50],[30,20]]",
+            "expected_output": "110",
+            "is_sample": true
+        },
+        {
+            "input": "[[259,770],[448,54],[926,667],[184,139],[840,118],[577,469]]",
+            "expected_output": "1859",
+            "is_sample": true
+        },
+        {
+            "input": "[[10,20],[20,10]]",
+            "expected_output": "30",
+            "is_sample": false
+        },
+        {
+            "input": "[[1,1000],[1000,1]]",
+            "expected_output": "2",
+            "is_sample": false
+        },
+        {
+            "input": "[[1,1],[1,1]]",
+            "expected_output": "2",
+            "is_sample": false
+        },
+        {
+            "input": "[[1,2],[3,4],[5,6],[7,8]]",
+            "expected_output": "14",
+            "is_sample": false
+        },
+        {
+            "input": "[[100,100],[100,100],[100,100],[100,100]]",
+            "expected_output": "400",
+            "is_sample": false
+        },
+        {
+            "input": "[[1,1000],[1000,1],[1,1000],[1000,1]]",
+            "expected_output": "4",
+            "is_sample": false
+        },
+        {
+            "input": "[[400,10],[500,20],[600,30],[700,40],[800,50],[900,60],[1000,70],[1000,80],[1000,90],[1000,100]]",
+            "expected_output": "630",
+            "is_sample": false
+        },
+        {
+            "input": "[[1,1000],[1,1000],[1,1000],[1,1000],[1,1000],[1,1000],[1000,1],[1000,1],[1000,1],[1000,1],[1000,1],[1000,1]]",
+            "expected_output": "12",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Greedy",
+        "Sorting"
+    ],
+    "companyIndex": 24
+}

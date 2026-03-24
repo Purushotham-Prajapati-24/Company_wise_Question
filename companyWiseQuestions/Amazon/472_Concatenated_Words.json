@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Concatenated Words</h3><p>Find all words that are formed by concatenating at least two other words in the list.</p>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Array of strings.",
+  "output_format": "Array of strings.",
+  "constraints": [
+    "n <= 10^4",
+    "word length <= 30"
+  ],
+  "explanation": "Sort by length. For each word, use DP to check if it can be split into smaller words already in the set.",
+  "answer": "def findAllConcatenatedWordsInADict(words):\n    wordSet = set(words)\n    res = []\n    memo = {}\n    def canSplit(word):\n        if word in memo: return memo[word]\n        for i in range(1, len(word)):\n            prefix = word[:i]\n            suffix = word[i:]\n            if prefix in wordSet and (suffix in wordSet or canSplit(suffix)):\n                memo[word] = True; return True\n        memo[word] = False; return False\n    for w in words:\n        if canSplit(w): res.append(w)\n    return res",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 472 Concatenated Words here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"cat\",\"cats\",\"catsdogcats\",\"dog\",\"dogcatsdog\",\"hippopotamuses\",\"rat\",\"ratcatdogcat\"]",
+      "expected_output": "[\"catsdogcats\",\"dogcatsdog\",\"ratcatdogcat\"]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"cat\",\"dog\",\"catdog\"]",
+      "expected_output": "[\"catdog\"]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"a\",\"b\",\"ab\",\"abc\"]",
+      "expected_output": "[\"ab\"]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"a\",\"aa\",\"aaa\"]",
+      "expected_output": "[\"aa\",\"aaa\"]",
+      "is_sample": false
+    },
+    {
+      "input": "[]",
+      "expected_output": "[]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"word\"]",
+      "expected_output": "[]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"a\",\"b\",\"c\",\"abc\"]",
+      "expected_output": "[\"abc\"]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\", \"aa\"]",
+      "expected_output": "[\"aa\"]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\", \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"]",
+      "expected_output": "[\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"a\",\"\"]",
+      "expected_output": "[]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "String",
+    "Dynamic Programming",
+    "Trie"
+  ],
+  "companyIndex": 3
+}

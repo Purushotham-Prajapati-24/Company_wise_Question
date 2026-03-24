@@ -1,0 +1,92 @@
+{
+  "question_text": "<p>Given an equation, represented by <code>words</code> on the left side and the <code>result</code> on the right side.</p>\n\n<p>You need to check if the equation is solvable under the following rules:</p>\n\n<ul>\n\t<li>Each character is decoded as one digit (0 - 9).</li>\n\t<li>No two characters can map to the same digit.</li>\n\t<li>Each <code>words[i]</code> and <code>result</code> are decoded as one number <strong>without</strong> leading zeros.</li>\n\t<li>Sum of numbers on the left side (<code>words</code>) will equal to the number on the right side (<code>result</code>).</li>\n</ul>\n\n<p>Return <code>true</code> <em>if the equation is solvable, otherwise return</em> <code>false</code>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> words = [&quot;SEND&quot;,&quot;MORE&quot;], result = &quot;MONEY&quot;\n<strong>Output:</strong> true\n<strong>Explanation:</strong> Map &#39;S&#39;-&gt; 9, &#39;E&#39;-&gt;5, &#39;N&#39;-&gt;6, &#39;D&#39;-&gt;7, &#39;M&#39;-&gt;1, &#39;O&#39;-&gt;0, &#39;R&#39;-&gt;8, &#39;Y&#39;-&gt;&#39;2&#39;\nSuch that: &quot;SEND&quot; + &quot;MORE&quot; = &quot;MONEY&quot; ,  9567 + 1085 = 10652</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> words = [&quot;SIX&quot;,&quot;SEVEN&quot;,&quot;SEVEN&quot;], result = &quot;TWENTY&quot;\n<strong>Output:</strong> true\n<strong>Explanation:</strong> Map &#39;S&#39;-&gt; 6, &#39;I&#39;-&gt;5, &#39;X&#39;-&gt;0, &#39;E&#39;-&gt;8, &#39;V&#39;-&gt;7, &#39;N&#39;-&gt;2, &#39;T&#39;-&gt;1, &#39;W&#39;-&gt;&#39;3&#39;, &#39;Y&#39;-&gt;4\nSuch that: &quot;SIX&quot; + &quot;SEVEN&quot; + &quot;SEVEN&quot; = &quot;TWENTY&quot; ,  650 + 68782 + 68782 = 138214</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> words = [&quot;LEET&quot;,&quot;CODE&quot;], result = &quot;POINT&quot;\n<strong>Output:</strong> false\n<strong>Explanation:</strong> There is no possible mapping to satisfy the equation, so we return false.\nNote that two different characters cannot map to the same digit.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>2 &lt;= words.length &lt;= 5</code></li>\n\t<li><code>1 &lt;= words[i].length, result.length &lt;= 7</code></li>\n\t<li><code>words[i], result</code> contain only uppercase English letters.</li>\n\t<li>The number of different characters used in the expression is at most <code>10</code>.</li>\n</ul>\n",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "String array words, string result.",
+  "output_format": "bool.",
+  "constraints": [
+    "2 <= words.length <= 5",
+    "1 <= words[i].length <= 7",
+    "1 <= result.length <= 7",
+    "Uppercase English only."
+  ],
+  "explanation": "Backtracking: collect all unique characters. Process column by column (from the rightmost). At each column depth, try assigning digits to each character. Track carry. Prune early when impossible.",
+  "answer": "def isSolvable(words, result):\n    chars = list({c for w in words + [result] for c in w})\n    if len(chars) > 10: return False\n    no_leading = set()\n    for w in words + [result]:\n        if len(w) > 1: no_leading.add(w[0])\n    n = len(chars)\n    used = [False] * 10\n    assign = {}\n    def check(col, idx, carry):\n        if col == max(len(result), max(len(w) for w in words)):\n            return carry == 0\n        if idx == len(words) + 1:\n            s = carry\n            for w in words:\n                if col < len(w): s += assign[w[-(col+1)]]\n            if col < len(result):\n                r = assign[result[-(col+1)]]\n                return s % 10 == r and check(col + 1, 0, s // 10)\n            else:\n                return s == 0\n        c = chars[idx] if idx < len(chars) else None\n        if c is None: return check(col, len(chars) + 1, carry)\n        if c in assign: return check(col, idx + 1, carry)\n        for d in range(10):\n            if not used[d] and not (d == 0 and c in no_leading):\n                used[d] = True; assign[c] = d\n                if check(col, idx + 1, carry): return True\n                used[d] = False; del assign[c]\n        return False\n    def bt(i, carry_start):\n        if i == n:\n            total = carry_start\n            for w in words:\n                num = sum(assign[c] * 10**(len(w)-1-j) for j,c in enumerate(w))\n                total += num\n            r = sum(assign[c] * 10**(len(result)-1-j) for j,c in enumerate(result))\n            return total == r\n        c = chars[i]\n        for d in range(10):\n            if not used[d] and not (d == 0 and c in no_leading):\n                used[d] = True; assign[c] = d\n                if bt(i + 1, 0): return True\n                used[d] = False; del assign[c]\n        return False\n    return bt(0, 0)",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 1307 Verbal Arithmetic Puzzle here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']:\n        sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l)))));\n}\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"SEND\",\"MORE\"]\n\"MONEY\"",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "[\"SIX\",\"SEVEN\",\"SEVEN\"]\n\"TWENTY\"",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "[\"LEET\",\"CODE\"]\n\"POINT\"",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "[\"A\",\"B\"]\n\"A\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[\"AB\",\"AB\"]\n\"ABC\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[\"A\"]\n\"A\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[\"A\"]\n\"B\"",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[\"IN\",\"OUT\"]\n\"COUT\"",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "[\"ABCD\",\"DC\",\"DCBA\"]\n\"DDDD\"",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "[\"AA\",\"BB\"]\n\"CC\"",
+      "expected_output": "false",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Math",
+    "String",
+    "Backtracking"
+  ],
+  "companyIndex": 23
+}

@@ -1,0 +1,86 @@
+{
+  "question_text": "<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply."
+  ],
+  "explanation": "FAANG-level explanation for Add Two Numbers.",
+  "answer": "class Solution:\n    def solve(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:\n        dummy = ListNode()\n        cur = dummy\n        carry = 0\n        while l1 or l2 or carry:\n            v1 = l1.val if l1 else 0\n            v2 = l2.val if l2 else 0\n            val = v1 + v2 + carry\n            carry = val // 10\n            val = val % 10\n            cur.next = ListNode(val)\n            cur = cur.next\n            l1 = l1.next if l1 else None\n            l2 = l2.next if l2 else None\n        return dummy.next",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "2 4 3\n5 6 4",
+      "expected_output": "7 0 8",
+      "is_sample": true
+    },
+    {
+      "input": "0\n0",
+      "expected_output": "0",
+      "is_sample": true
+    },
+    {
+      "input": "9 9 9 9 9 9 9\n9 9 9 9",
+      "expected_output": "8 9 9 9 0 0 0 1",
+      "is_sample": false
+    },
+    {
+      "input": "1\n9 9",
+      "expected_output": "0 0 1",
+      "is_sample": false
+    },
+    {
+      "input": "5\n5",
+      "expected_output": "0 1",
+      "is_sample": false
+    },
+    {
+      "input": "1 8\n0",
+      "expected_output": "1 8",
+      "is_sample": false
+    },
+    {
+      "input": "2 4 9\n5 6 4 9",
+      "expected_output": "7 0 4 0 1",
+      "is_sample": false
+    },
+    {
+      "input": "9]*100\n1",
+      "expected_output": "0]*100 + [1",
+      "is_sample": false
+    },
+    {
+      "input": "1] + [0]*99\n9] + [0]*99",
+      "expected_output": "0 1] + [0]*98",
+      "is_sample": false
+    },
+    {
+      "input": "1 2 3\n7 8 9",
+      "expected_output": "8 0 3 1",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Linked Lists"
+  ],
+  "companyIndex": 3
+}

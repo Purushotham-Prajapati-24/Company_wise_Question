@@ -1,0 +1,84 @@
+{
+    "question_text": "<p>Given a string containing digits from <code>2-9</code> inclusive, return all possible letter combinations that the number could represent. Return the answer in <strong>any order</strong>.</p>\n\n<p>A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.</p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2022/03/15/1200px-telephone-keypad2svg.png\" style=\"width: 300px; height: 243px;\" />\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> digits = &quot;23&quot;\n<strong>Output:</strong> [&quot;ad&quot;,&quot;ae&quot;,&quot;af&quot;,&quot;bd&quot;,&quot;be&quot;,&quot;bf&quot;,&quot;cd&quot;,&quot;ce&quot;,&quot;cf&quot;]\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> digits = &quot;2&quot;\n<strong>Output:</strong> [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= digits.length &lt;= 4</code></li>\n\t<li><code>digits[i]</code> is a digit in the range <code>[&#39;2&#39;, &#39;9&#39;]</code>.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Space-separated values as per problem arguments.",
+    "output_format": "A single line representing the result.",
+    "constraints": [],
+    "explanation": "Use a backtracking approach. Maintain a mapping of digits to characters. For each digit in the input string, iterate through its corresponding characters and recursively call the function to build combinations.",
+    "answer": "class Solution:\n    def solve(self, digits: str) -> List[str]:\n        if not digits: return []\n        res = []\n        digitToChar = {'2':'abc', '3':'def', '4':'ghi', '5':'jkl', '6':'mno', '7':'pqrs', '8':'tuv', '9':'wxyz'}\n        def backtrack(i, curStr):\n            if len(curStr) == len(digits):\n                res.append(curStr)\n                return\n            for c in digitToChar[digits[i]]:\n                backtrack(i + 1, curStr + c)\n        backtrack(0, \"\")\n        return res",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {}\n};\n\nint main() {\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Solution {\n    public static void main(String[] args) {\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "23",
+            "expected_output": "'ad' 'ae' 'af' 'bd' 'be' 'bf' 'cd' 'ce' 'cf'",
+            "is_sample": true
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": true
+        },
+        {
+            "input": "2",
+            "expected_output": "'a' 'b' 'c'",
+            "is_sample": false
+        },
+        {
+            "input": "22",
+            "expected_output": "'aa' 'ab' 'ac' 'ba' 'bb' 'bc' 'ca' 'cb' 'cc'",
+            "is_sample": false
+        },
+        {
+            "input": "9",
+            "expected_output": "'w' 'x' 'y' 'z'",
+            "is_sample": false
+        },
+        {
+            "input": "234",
+            "expected_output": "a b c",
+            "is_sample": false
+        },
+        {
+            "input": "7",
+            "expected_output": "'p' 'q' 'r' 's'",
+            "is_sample": false
+        },
+        {
+            "input": "2345",
+            "expected_output": "a b c",
+            "is_sample": false
+        },
+        {
+            "input": "2222",
+            "expected_output": "a b c",
+            "is_sample": false
+        },
+        {
+            "input": "23456",
+            "expected_output": "a b c",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Math"
+    ],
+    "companyIndex": 7
+}

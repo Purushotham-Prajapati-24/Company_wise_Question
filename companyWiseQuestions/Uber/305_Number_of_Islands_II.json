@@ -1,0 +1,94 @@
+{
+    "id": "305",
+    "title": "Number of Islands II",
+    "difficulty": "HARD",
+    "marks": 15,
+    "input_format": "The first line contains M and N (rows and cols). The second line contains P (number of positions). The next P lines contain space-separated r and c for each position.",
+    "output_format": "Print space separated integers representing the number of islands after each addLand operation.",
+    "constraints": [
+        "1 <= m, n, positions.length <= 10^4",
+        "1 <= m * n <= 10^4",
+        "positions[i].length == 2",
+        "0 <= positions[i][0] < m",
+        "0 <= positions[i][1] < n"
+    ],
+    "explanation": "This is a classic Union-Find problem. By maintaining a disjoint-set data structure of 1D coordinates (r * n + c), whenever a land is added, we increase island count by 1, and union it with its 4-direction land neighbors, decrementing the count upon each successful union.",
+    "answer": "def solve(m, n, positions):\n    parent, rank = {}, {}\n    def find(i):\n        if parent[i] != i:\n            parent[i] = find(parent[i])\n        return parent[i]\n    def union(i, j):\n        root_i, root_j = find(i), find(j)\n        if root_i == root_j: return False\n        if rank[root_i] < rank[root_j]:\n            parent[root_i] = root_j\n        elif rank[root_i] > rank[root_j]:\n            parent[root_j] = root_i\n        else:\n            parent[root_j] = root_i\n            rank[root_i] += 1\n        return True\n\n    count = 0\n    res = []\n    for r, c in positions:\n        idx = r * n + c\n        if idx in parent:\n            res.append(str(count))\n            continue\n        parent[idx] = idx\n        rank[idx] = 1\n        count += 1\n        for dr, dc in [(-1,0),(1,0),(0,-1),(0,1)]:\n            nr, nc = r + dr, c + dc\n            n_idx = nr * n + nc\n            if 0 <= nr < m and 0 <= nc < n and n_idx in parent:\n                if union(idx, n_idx):\n                    count -= 1\n        res.append(str(count))\n    return ' '.join(res)",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(m, n, positions):\n    pass\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    if not lines: sys.exit(0)\n    m, n = map(int, lines[0].split())\n    p = int(lines[1])\n    positions = []\n    for i in range(2, 2 + p):\n        positions.append(list(map(int, lines[i].split())))\n    print(solve(m, n, positions))",
+        "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\nint main() { return 0; }",
+        "java": "import java.util.*;\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+        "javascript": "const fs = require('fs');\nconst input = fs.readFileSync(0, 'utf-8').trim().split('\\n');",
+        "c": "#include <stdio.h>\nint main() { return 0; }"
+    },
+    "test_cases": [
+        {
+            "input": "3 3\n4\n0 0\n0 1\n1 2\n2 1",
+            "expected_output": "1 1 2 3",
+            "is_sample": true
+        },
+        {
+            "input": "1 1\n1\n0 0",
+            "expected_output": "1",
+            "is_sample": true
+        },
+        {
+            "input": "3 3\n7\n0 0\n0 1\n0 2\n1 2\n2 2\n2 1\n2 0",
+            "expected_output": "1 1 1 1 1 1 1",
+            "is_sample": false
+        },
+        {
+            "input": "3 3\n4\n0 0\n2 2\n0 2\n2 0",
+            "expected_output": "1 2 3 4",
+            "is_sample": false
+        },
+        {
+            "input": "4 4\n5\n0 0\n1 1\n2 2\n3 3\n1 0",
+            "expected_output": "1 2 3 4 3",
+            "is_sample": false
+        },
+        {
+            "input": "5 5\n8\n0 0\n0 4\n4 0\n4 4\n0 2\n4 2\n2 0\n2 4",
+            "expected_output": "1 2 3 4 5 6 7 8",
+            "is_sample": false
+        },
+        {
+            "input": "3 3\n3\n0 0\n0 1\n0 0",
+            "expected_output": "1 1 1",
+            "is_sample": false
+        },
+        {
+            "input": "2 2\n4\n0 0\n0 1\n1 1\n1 0",
+            "expected_output": "1 1 1 1",
+            "is_sample": false
+        },
+        {
+            "input": "5 5\n6\n1 1\n3 1\n1 3\n3 3\n2 2\n2 2",
+            "expected_output": "1 2 3 4 5 5",
+            "is_sample": false
+        },
+        {
+            "input": "10 10\n10\n0 0\n1 1\n2 2\n3 3\n4 4\n5 5\n6 6\n7 7\n8 8\n9 9",
+            "expected_output": "1 2 3 4 5 6 7 8 9 10",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Union Find",
+        "Hash Table"
+    ],
+    "question_text": "<h3>Number of Islands II</h3><p>Description unavailable.</p>",
+    "companyIndex": 8,
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    }
+}

@@ -1,0 +1,86 @@
+{
+  "question_text": "<p>Given an input string <code>s</code> and a pattern <code>p</code>, implement regular expression matching with support for <code>'.'</code> and <code>'*'</code>.</p>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "1 <= N <= 10^5"
+  ],
+  "explanation": "We use recursion with memoization (top-down DP). The key cases are handling the '*' quantifier (skip the quantifier or use it if characters match) and '.' matching any character. Time complexity O(SP).",
+  "answer": "def solve(s, p):\n    cache = {}\n    def dfs(i, j):\n        if (i, j) in cache: return cache[(i, j)]\n        if i >= len(s) and j >= len(p): return True\n        if j >= len(p): return False\n        match = i < len(s) and (s[i] == p[j] or p[j] == \".\")\n        if (j + 1) < len(p) and p[j + 1] == \"*\":\n            cache[(i, j)] = (dfs(i, j + 2) or (match and dfs(i + 1, j)))\n            return cache[(i, j)]\n        if match: \n            cache[(i, j)] = dfs(i + 1, j + 1)\n            return cache[(i, j)]\n        cache[(i, j)] = False\n        return False\n    return dfs(0, 0)",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "aa\na",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "aa\na*",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "ab\n.*",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "aab\nc*a*b",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "mississippi\nmis*is*p*.",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "aaa\na*a",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "aaa\nab*a*c*a",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "aaaaaaaaaa\na*b*c*d*e*f*g*h*i*j*",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "ab\n.*c",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "ab\n.b",
+      "expected_output": "true",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Data Structures / Algorithms"
+  ],
+  "companyIndex": 6
+}

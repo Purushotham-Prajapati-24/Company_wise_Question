@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>66 Plus One</h3><p><strong>Plus One</strong></p><p>You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. Increment the large integer by one and return the resulting array of digits.</p>",
+  "difficulty": "EASY",
+  "marks": 5,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply.",
+    "Time limit: 1s",
+    "Memory limit: 256MB"
+  ],
+  "explanation": "Traverse the array from right to left. If a digit is less than 9, increment it and return. Otherwise, set it to 0 and continue to the left. If all digits were 9, add a new digit 1 at the beginning.",
+  "answer": "def solve(digits: List[int]) -> List[int]:\n    for i in range(len(digits) - 1, -1, -1):\n        if digits[i] < 9:\n            digits[i] += 1\n            return digits\n        digits[i] = 0\n    return [1] + digits",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n\nint main() {\n    Solution sol;\n    sol.solve();\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n    public static void main(String[] args) {\n        new Solution().solve();\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "1 2 3",
+      "expected_output": "1 2 4",
+      "is_sample": true
+    },
+    {
+      "input": "4 3 2 1",
+      "expected_output": "4 3 2 2",
+      "is_sample": true
+    },
+    {
+      "input": "9",
+      "expected_output": "1 0",
+      "is_sample": false
+    },
+    {
+      "input": "9 9 9",
+      "expected_output": "1 0 0 0",
+      "is_sample": false
+    },
+    {
+      "input": "0",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "1 9 9",
+      "expected_output": "2 0 0",
+      "is_sample": false
+    },
+    {
+      "input": "8 9 9",
+      "expected_output": "9 0 0",
+      "is_sample": false
+    },
+    {
+      "input": "9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9",
+      "expected_output": "1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "is_sample": false
+    },
+    {
+      "input": "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1",
+      "expected_output": "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2",
+      "is_sample": false
+    },
+    {
+      "input": "1 0 0",
+      "expected_output": "1 0 1",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Arrays"
+  ],
+  "companyIndex": 2
+}

@@ -1,0 +1,89 @@
+{
+    "id": "254",
+    "title": "Factor Combinations",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "A single integer n.",
+    "output_format": "JSON array of factor combinations.",
+    "constraints": [
+        "1 <= n <= 10^7"
+    ],
+    "explanation": "Backtracking problem to find all distinct factor combinations. Start with factor 2 up to sqrt(n). If n is divisible, recurse.",
+    "answer": "def solve(n):\n    def backtrack(n, start):\n        res = []\n        for i in range(start, int(math.sqrt(n)) + 1):\n            if n % i == 0:\n                res.append([i, n // i])\n                for sub in backtrack(n // i, i):\n                    res.append([i] + sub)\n        return res\n    import math\n    return str(backtrack(n, 2)).replace(' ', '')",
+    "boilerplate": {
+        "python": "import sys\nimport math\ndef solve(n):\n    pass\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().split()\n    if lines: print(solve(int(lines[0])))",
+        "cpp": "#include <iostream>\\nusing namespace std;\\nint main() { return 0; }",
+        "java": "public class Main { public static void main(String[] args) {} }",
+        "javascript": "const fs = require('fs'); const input = fs.readFileSync(0, 'utf-8').trim().split('\\\\n');",
+        "c": "#include <stdio.h>\\nint main() { return 0; }"
+    },
+    "test_cases": [
+        {
+            "input": "1",
+            "expected_output": "[]",
+            "is_sample": true
+        },
+        {
+            "input": "12",
+            "expected_output": "[[2,6],[2,2,3],[3,4]]",
+            "is_sample": true
+        },
+        {
+            "input": "37",
+            "expected_output": "[]",
+            "is_sample": false
+        },
+        {
+            "input": "32",
+            "expected_output": "[[2,16],[2,2,8],[2,2,2,4],[2,2,2,2,2],[2,4,4],[4,8]]",
+            "is_sample": false
+        },
+        {
+            "input": "24",
+            "expected_output": "[[2,12],[2,2,6],[2,2,2,3],[2,3,4],[3,8],[4,6]]",
+            "is_sample": false
+        },
+        {
+            "input": "4",
+            "expected_output": "[[2,2]]",
+            "is_sample": false
+        },
+        {
+            "input": "8",
+            "expected_output": "[[2,4],[2,2,2]]",
+            "is_sample": false
+        },
+        {
+            "input": "16",
+            "expected_output": "[[2,8],[2,2,4],[2,2,2,2],[4,4]]",
+            "is_sample": false
+        },
+        {
+            "input": "100",
+            "expected_output": "[[2,50],[2,2,25],[2,5,10],[4,25],[5,20],[10,10]]",
+            "is_sample": false
+        },
+        {
+            "input": "10",
+            "expected_output": "[[2,5]]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Backtracking",
+        "Math"
+    ],
+    "question_text": "<h3>Factor Combinations</h3>",
+    "companyIndex": 8,
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    }
+}

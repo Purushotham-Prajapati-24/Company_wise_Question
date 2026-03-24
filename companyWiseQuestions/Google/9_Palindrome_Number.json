@@ -1,0 +1,86 @@
+{
+    "question_text": "<h3>Palindrome Number</h3><p>Given an integer <code>x</code>, return <code>true</code> if <code>x</code> is a palindrome, and <code>false</code> otherwise.</p>",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "A single integer string limit.",
+    "output_format": "Print \"true\" if palindrome, else \"false\".",
+    "constraints": [
+        "-2^31 <= x <= 2^31 - 1"
+    ],
+    "explanation": "While directly casting mapping via dynamic string array indexing trivially mirrors, mathematically operating purely symmetrically via continuous modulo truncations iteratively halves boundaries avoiding integer memory over-allocation footprints safely without array initialization.",
+    "answer": "def solve(s):\n    return s == s[::-1]",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(s):\n    return \"false\"\n\nif __name__ == '__main__':\n    s = sys.stdin.read().strip()\n    res = solve(s)\n    print(str(res).lower() if isinstance(res, bool) else res)",
+        "cpp": "#include <iostream>\n#include <string>\nusing namespace std;\n\nbool solve(string s) {\n    return false;\n}\n\nint main() {\n    string s;\n    if (cin >> s) {\n        bool res = solve(s);\n        cout << ((res ? \"true\" : \"false\")) << endl;\n    }\n    return 0;\n}",
+        "java": "import java.util.Scanner;\n\npublic class Main {\n    public static boolean solve(String s) {\n        return false;\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) System.out.println(solve(sc.next()));\n        sc.close();\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(s) { return \"false\"; }\nconst input = fs.readFileSync(0, 'utf8').trim();\nif (input) console.log(solve(input));",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\nbool solve(char* s) {\n    return false;\n}\n\nint main() {\n    char buffer[100000];\n    if (scanf(\"%s\", buffer) == 1) {\n        bool res = solve(buffer);\n        printf(\"%s\\n\", res ? \"true\" : \"false\");\n    }\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "121",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "-121",
+            "expected_output": "false",
+            "is_sample": true
+        },
+        {
+            "input": "10",
+            "expected_output": "false",
+            "is_sample": true
+        },
+        {
+            "input": "0",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "11",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "12321",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "123321",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "2147483647",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "2147447412",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "9876543210",
+            "expected_output": "false",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Math"
+    ],
+    "companyIndex": 0
+}

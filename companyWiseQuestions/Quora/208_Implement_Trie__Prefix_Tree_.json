@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Implement Trie (Prefix Tree)</h3><p>A <a href=\"https://en.wikipedia.org/wiki/Trie\" target=\"_blank\"><strong>trie</strong></a> (pronounced as &quot;try&quot;) or <strong>prefix tree</strong> is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.</p>\n\n<p>Implement the Trie class:</p>\n\n<ul>\n\t<li><code>Trie()</code> Initializes the trie object.</li>\n\t<li><code>void insert(String word)</code> Inserts the string <code>word</code> into the trie.</li>\n\t<li><code>boolean search(String word)</code> Returns <code>true</code> if the string <code>word</code> is in the trie (i.e., was inserted before), and <code>false</code> otherwise.</li>\n\t<li><code>boolean startsWith(String prefix)</code> Returns <code>true</code> if there is a previously inserted string <code>word</code> that has the prefix <code>prefix</code>, and <code>false</code> otherwise.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input</strong>\n[&quot;Trie&quot;, &quot;insert&quot;, &quot;search&quot;, &quot;search&quot;, &quot;startsWith&quot;, &quot;insert&quot;, &quot;search&quot;]\n[[], [&quot;apple&quot;], [&quot;apple&quot;], [&quot;app&quot;], [&quot;app&quot;], [&quot;app&quot;], [&quot;app&quot;]]\n<strong>Output</strong>\n[null, null, true, false, true, null, true]\n\n<strong>Explanation</strong>\nTrie trie = new Trie();\ntrie.insert(&quot;apple&quot;);\ntrie.search(&quot;apple&quot;);   // return True\ntrie.search(&quot;app&quot;);     // return False\ntrie.startsWith(&quot;app&quot;); // return True\ntrie.insert(&quot;app&quot;);\ntrie.search(&quot;app&quot;);     // return True\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= word.length, prefix.length &lt;= 2000</code></li>\n\t<li><code>word</code> and <code>prefix</code> consist only of lowercase English letters.</li>\n\t<li>At most <code>3 * 10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>insert</code>, <code>search</code>, and <code>startsWith</code>.</li>\n</ul>\n",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "insert, search, startsWith calls",
+  "output_format": "Boolean result",
+  "constraints": [
+    "1 <= word.length, prefix.length <= 2000",
+    "At most 3*10^4 calls"
+  ],
+  "explanation": "<h3>Logic</h3><p>To solve <strong><h3>Implement Trie (Prefix Tree)</h3><p>A <a href=\"https://en.wikipedia.org/wiki/Trie\" target=\"_blank\"><strong>trie</strong></a> (pronounced as &quot;try&quot;) or <strong>prefix tree</strong> is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.</p>\n\n<p>Implement the Trie class:</p>\n\n<ul>\n\t<li><code>Trie()</code> Initializes the trie object.</li>\n\t<li><code>void insert(String word)</code> Inserts the string <code>word</code> into the trie.</li>\n\t<li><code>boolean search(String word)</code> Returns <code>true</code> if the string <code>word</code> is in the trie (i.e., was inserted before), and <code>false</code> otherwise.</li>\n\t<li><code>boolean startsWith(String prefix)</code> Returns <code>true</code> if there is a previously inserted string <code>word</code> that has the prefix <code>prefix</code>, and <code>false</code> otherwise.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input</strong>\n[&quot;Trie&quot;, &quot;insert&quot;, &quot;search&quot;, &quot;search&quot;, &quot;startsWith&quot;, &quot;insert&quot;, &quot;search&quot;]\n[[], [&quot;apple&quot;], [&quot;apple&quot;], [&quot;app&quot;], [&quot;app&quot;], [&quot;app&quot;], [&quot;app&quot;]]\n<strong>Output</strong>\n[null, null, true, false, true, null, true]\n\n<strong>Explanation</strong>\nTrie trie = new Trie();\ntrie.insert(&quot;apple&quot;);\ntrie.search(&quot;apple&quot;);   // return True\ntrie.search(&quot;app&quot;);     // return False\ntrie.startsWith(&quot;app&quot;); // return True\ntrie.insert(&quot;app&quot;);\ntrie.search(&quot;app&quot;);     // return True\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= word.length, prefix.length &lt;= 2000</code></li>\n\t<li><code>word</code> and <code>prefix</code> consist only of lowercase English letters.</li>\n\t<li>At most <code>3 * 10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>insert</code>, <code>search</code>, and <code>startsWith</code>.</li>\n</ul>\n</strong> efficiently, we use an optimized approach as implemented in the Python solution. This typically involves balancing time and space complexity to meet the required constraints.</p><h4>Complexity</h4><ul><li>Time: determined by the algorithmic approach (e.g., O(N) or O(N log N)).</li><li>Space: determined by auxiliary data structures used.</li></ul>",
+  "answer": "class TrieNode:\n    def __init__(self): self.ch = {}; self.end = False\nclass Trie:\n    def __init__(self): self.root = TrieNode()\n    def insert(self, word):\n        cur = self.root\n        for c in word:\n            if c not in cur.ch: cur.ch[c] = TrieNode()\n            cur = cur.ch[c]\n        cur.end = True\n    def search(self, word):\n        cur = self._find(word); return cur is not None and cur.end\n    def startsWith(self, prefix):\n        return self._find(prefix) is not None\n    def _find(self, s):\n        cur = self.root\n        for c in s:\n            if c not in cur.ch: return None\n            cur = cur.ch[c]\n        return cur",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Implement Trie (Prefix Tree) here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"Trie\",\"insert\",\"search\",\"search\",\"startsWith\",\"insert\",\"search\"]\n[[],[\"apple\"],[\"apple\"],[\"app\"],[\"app\"],[\"app\"],[\"app\"]]",
+      "expected_output": "[null,null,true,false,true,null,true]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"Trie\",\"search\"]\n[[],[\"a\"]]",
+      "expected_output": "[null,false]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"Trie\",\"startsWith\"]\n[[],[\"a\"]]",
+      "expected_output": "[null,false]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Trie\",\"insert\",\"insert\",\"search\"]\n[[],[\"a\"],[\"ab\"],[\"a\"]]",
+      "expected_output": "[null,null,null,true]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Trie\",\"insert\",\"search\"]\n[[],[\"testing\"],[\"test\"]]",
+      "expected_output": "[null,null,false]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Trie\",\"insert\",\"startsWith\"]\n[[],[\"testing\"],[\"test\"]]",
+      "expected_output": "[null,null,true]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Trie\",\"insert\",\"insert\",\"search\"]\n[[],[\"apple\"],[\"apply\"],[\"apple\"]]",
+      "expected_output": "[null,null,null,true]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Trie\",\"insert\",\"insert\",\"startsWith\"]\n[[],[\"apple\"],[\"apply\"],[\"app\"]]",
+      "expected_output": "[null,null,null,true]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Trie\",\"insert\",\"search\"]\n[[],[\"a\"],[\"b\"]]",
+      "expected_output": "[null,null,false]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Trie\",\"insert\",\"search\"]\n[[],[\"a\"],[\"b\"]]",
+      "expected_output": "[null,null,false]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "String",
+    "Design",
+    "Trie"
+  ],
+  "companyIndex": 26
+}

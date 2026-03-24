@@ -1,0 +1,88 @@
+{
+    "question_text": "<p>Given a <strong>non-empty</strong>&nbsp;array of integers <code>nums</code>, every element appears <em>twice</em> except for one. Find that single one.</p>\n\n<p>You must&nbsp;implement a solution with a linear runtime complexity and use&nbsp;only constant&nbsp;extra space.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">nums = [2,2,1]</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">1</span></p>\n</div>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">nums = [4,1,2,1,2]</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">4</span></p>\n</div>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">nums = [1]</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">1</span></p>\n</div>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= nums.length &lt;= 3 * 10<sup>4</sup></code></li>\n\t<li><code>-3 * 10<sup>4</sup> &lt;= nums[i] &lt;= 3 * 10<sup>4</sup></code></li>\n\t<li>Each element in the array appears twice except for one element which appears only once.</li>\n</ul>\n",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "Array of integers nums",
+    "output_format": "Single integer",
+    "constraints": [
+        "1 <= nums.length <= 3 * 10^4",
+        "-3 * 10^4 <= nums[i] <= 3 * 10^4"
+    ],
+    "explanation": "Using XOR operation over the whole array leaves only the unique member.",
+    "answer": "def singleNumber(nums):\n    res = 0\n    for(i=0 i<nums.length i++) res ^= nums[i]\n    return res\n",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef singleNumber(*args):\n    # Python optimum solution exclusively\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if not input_data or input_data == ['']: sys.exit(0)\n    parsed_args = [json.loads(line) for line in input_data]\n    print(json.dumps(singleNumber(*parsed_args)).replace(' ', ''))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint singleNumber() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Basic standard IO loop parser\n    string line;\n    while (getline(cin, line)) {\n        // Parse line into arguments and call solve\n    }\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object singleNumber() {\n        // User logic should be written here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {\n            // Parse line into arguments\n        }\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction singleNumber(...args) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    const parsedArgs = input.map(line => JSON.parse(line));\n    console.log(JSON.stringify(singleNumber(...parsedArgs)));\n}\n\nmodule.exports = singleNumber;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint singleNumber() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Standard C IO loop\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[2,2,1]",
+            "expected_output": "1",
+            "is_sample": true
+        },
+        {
+            "input": "[4,1,2,1,2]",
+            "expected_output": "4",
+            "is_sample": true
+        },
+        {
+            "input": "[1]",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "[0,0,5]",
+            "expected_output": "5",
+            "is_sample": false
+        },
+        {
+            "input": "[-1,-1,-2]",
+            "expected_output": "-2",
+            "is_sample": false
+        },
+        {
+            "input": "[3,3,9,9,11,11,15]",
+            "expected_output": "15",
+            "is_sample": false
+        },
+        {
+            "input": "[-10,10,20,-10,20]",
+            "expected_output": "10",
+            "is_sample": false
+        },
+        {
+            "input": "[100,-100,-100,50,50]",
+            "expected_output": "100",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3,4,3,2,1]",
+            "expected_output": "4",
+            "is_sample": false
+        },
+        {
+            "input": "[7,-7,9,-7,7]",
+            "expected_output": "9",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Arrays",
+        "Bit Manipulation"
+    ],
+    "companyIndex": 5
+}

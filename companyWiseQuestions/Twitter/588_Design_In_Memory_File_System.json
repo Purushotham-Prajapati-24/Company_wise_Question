@@ -1,0 +1,89 @@
+{
+  "question_text": "<h3>Design In-Memory File System</h3>",
+  "difficulty": "HARD",
+  "marks": 15,
+  "input_format": "ls, mkdir, addContentToFile, readContentFromFile calls",
+  "output_format": "List of files/dirs, or file content",
+  "constraints": [
+    "At most 100 calls"
+  ],
+  "explanation": "Use a Trie-like structure where each node represents a directory or file. Dirs have a map of children; files have a string content.",
+  "answer": "class FileSystem:\n    def __init__(self):\n        self.root = {'': {}}\n    def _find(self, path):\n        curr = self.root['']; pts = path.split('/')[1:]\n        for p in pts:\n            if not p: continue\n            curr = curr[p]\n        return curr\n    def ls(self, path):\n        curr = self._find(path)\n        if isinstance(curr, str): return [path.split('/')[-1]]\n        return sorted(curr.keys())\n    def mkdir(self, path):\n        curr = self.root['']; pts = path.split('/')[1:]\n        for p in pts:\n            if not p: continue\n            if p not in curr: curr[p] = {}\n            curr = curr[p]\n    def addContentToFile(self, path, content):\n        curr = self.root['']; pts = path.split('/')[1:]\n        for p in pts[:-1]:\n            if not p: continue\n            curr = curr[p]\n        if pts[-1] not in curr: curr[pts[-1]] = ''\n        curr[pts[-1]] += content\n    def readContentFromFile(self, path):\n        return self._find(path)",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Design In-Memory File System here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"FileSystem\",\"ls\",\"mkdir\",\"addContentToFile\",\"ls\",\"readContentFromFile\"]\n[[],[\"/\"],[\"/a/b/c\"],[\"/a/b/c/d\",\"hello\"],[\"/\"],[\"/a/b/c/d\"]]",
+      "expected_output": "[null,[],null,null,[\"a\"],\"hello\"]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"FileSystem\",\"ls\"]\n[[],[\"/\"]]",
+      "expected_output": "[null,[]]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"ls\"]\n[[],[\"/abc\"],[\"/\"]]",
+      "expected_output": "[null,null,[\"abc\"]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"addContentToFile\",\"readContentFromFile\"]\n[[],[\"/test\",\"content\"],[\"/test\"]]",
+      "expected_output": "[null,null,\"content\"]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"mkdir\",\"ls\"]\n[[],[\"/a\"],[\"/b\"],[\"/\"]]",
+      "expected_output": "[null,null,null,[\"a\",\"b\"]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"ls\"]\n[[],[\"/\"]] is wrong. mkdir /a then ls /a.",
+      "expected_output": "[null,null,[]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"addContentToFile\",\"addContentToFile\",\"readContentFromFile\"]\n[[],[\"/f1\",\"a\"],[\"/f1\",\"b\"],[\"/f1\"]]",
+      "expected_output": "[null,null,null,\"ab\"]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"ls\"]\n[[],[\"/dir\"],[\"/dir\"]]",
+      "expected_output": "[null,null,[]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"mkdir\",\"ls\"]\n[[],[\"/a/b\"],[\"/a/c\"],[\"/a\"]]",
+      "expected_output": "[null,null,null,[\"b\",\"c\"]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"addContentToFile\",\"ls\"]\n[[],[\"/f1\",\"test\"],[\"/f1\"]]",
+      "expected_output": "[null,null,[\"f1\"]]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "String",
+    "Design",
+    "Trie"
+  ],
+  "companyIndex": 27
+}

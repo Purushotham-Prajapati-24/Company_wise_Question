@@ -1,0 +1,86 @@
+{
+  "question_text": "<h3>Maximal Rectangle</h3><p>Given a `rows x cols` binary `matrix` filled with `0`'s and `1`'s, find the largest rectangle containing only `1`'s and return its area.</p>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "1 <= N <= 10^5"
+  ],
+  "explanation": "We can reduce this problem to 'Largest Rectangle in Histogram' by treating each row as a base. For each row, we maintain a 'height' array representing the number of consecutive 1s ending at that row. We then solve the histogram problem for each row. O(rows * cols) time.",
+  "answer": "def solve(matrix: List[List[str]]):\nif row[i] == '1': heights[i] += 1\n        else: heights[i] = 0\n    max_area = max(max_area, self.largestRectangleArea(heights))\n    return max_area\n    def largestRectangleArea(self, heights):\n    stack = []\n    max_area = 0\n    heights.append(0)\n    for i, h in enumerate(heights):\n    while stack and heights[stack[-1]] >= h:\n        H = heights[stack.pop()]\n        W = i if not stack else i - stack[-1] - 1\n        max_area = max(max_area, H * W)\n    stack.append(i)\n    heights.pop()\n    return max_area",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "1\" \"0\" \"1\" \"0\" \"0\"] [\"1\" \"0\" \"1\" \"1\" \"1\"] [\"1\" \"1\" \"1\" \"1\" \"1\"] [\"1\" \"0\" \"0\" \"1\" \"0",
+      "expected_output": "6",
+      "is_sample": true
+    },
+    {
+      "input": "0",
+      "expected_output": "0",
+      "is_sample": true
+    },
+    {
+      "input": "1",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "0\" \"0",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "0\" \"1\"] [\"1\" \"0",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "1\" \"1\"] [\"1\" \"1",
+      "expected_output": "4",
+      "is_sample": false
+    },
+    {
+      "input": "1\"]*10 for _ in range(10)",
+      "expected_output": "100",
+      "is_sample": false
+    },
+    {
+      "input": "=0 else \"0\" for j in range(100)] for i in range(100)",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "1\"]*200 for _ in range(200)",
+      "expected_output": "40000",
+      "is_sample": false
+    },
+    {
+      "input": "0\"]*300 for _ in range(300)",
+      "expected_output": "0",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Data Structures / Algorithms"
+  ],
+  "companyIndex": 6
+}

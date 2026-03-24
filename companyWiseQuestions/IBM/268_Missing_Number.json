@@ -1,0 +1,89 @@
+{
+  "question_text": "<p>Given an array <code>nums</code> containing <code>n</code> distinct numbers in the range <code>[0, n]</code>, return the only number in the range that is missing from the array.</p>",
+  "difficulty": "EASY",
+  "marks": 5,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "n == nums.length",
+    "1 <= n <= 10^4",
+    "0 <= nums[i] <= n",
+    "All the numbers of nums are unique."
+  ],
+  "explanation": "FAANG-level explanation for Missing Number.",
+  "answer": "class Solution:\n    def solve(self, nums: List[int]) -> int:\n        res = len(nums)\n        for i in range(len(nums)):\n            res += i - nums[i]\n        return res",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "3 0 1",
+      "expected_output": "2",
+      "is_sample": true
+    },
+    {
+      "input": "0 1",
+      "expected_output": "2",
+      "is_sample": true
+    },
+    {
+      "input": "9 6 4 2 3 5 7 0 1",
+      "expected_output": "8",
+      "is_sample": false
+    },
+    {
+      "input": "0",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "1",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "2 0",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "1 2",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "list(range(10001)) -> remove 5000",
+      "expected_output": "5000",
+      "is_sample": false
+    },
+    {
+      "input": "list(range(10001)) -> remove 0",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "list(range(10001)) -> remove 10000",
+      "expected_output": "10000",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Math"
+  ],
+  "companyIndex": 3
+}

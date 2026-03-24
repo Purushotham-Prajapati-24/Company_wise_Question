@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Design Hit Counter</h3>null",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Hit(timestamp) and GetHits(timestamp) calls",
+  "output_format": "Number of hits in last 300 seconds",
+  "constraints": [
+    "1 <= timestamp <= 2*10^9",
+    "All timestamps strictly increasing",
+    "At most 300 calls to hit/getHits"
+  ],
+  "explanation": "Keep a circular array of size 300 or a deque of (timestamp, count). On hit/get, remove hits older than timestamp-300.",
+  "answer": "class HitCounter:\n    def __init__(self):\n        self.hits = []\n    def hit(self, timestamp):\n        self.hits.append(timestamp)\n    def getHits(self, timestamp):\n        while self.hits and self.hits[0] <= timestamp - 300: self.hits.pop(0)\n        return len(self.hits)",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Design Hit Counter here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint solve() { return 0; }\n\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve(...args) { return 0; }\n\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint solve() { return 0; }\n\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"HitCounter\",\"hit\",\"hit\",\"hit\",\"getHits\",\"hit\",\"getHits\",\"getHits\"]\n[[],[1],[2],[3],[4],[300],[300],[301]]",
+      "expected_output": "[null,null,null,null,3,null,4,3]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"HitCounter\",\"getHits\"]\n[[],[300]]",
+      "expected_output": "[null,0]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"HitCounter\",\"hit\",\"getHits\"]\n[[],[1],[600]]",
+      "expected_output": "[null,null,0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"HitCounter\",\"hit\",\"hit\",\"getHits\"]\n[[],[1],[300],[300]]",
+      "expected_output": "[null,null,null,2]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"HitCounter\",\"hit\",\"getHits\"]\n[[],[1000],[1000]]",
+      "expected_output": "[null,null,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"HitCounter\",\"hit\",\"hit\",\"hit\",\"getHits\"]\n[[],[1],[1],[1],[2]]",
+      "expected_output": "[null,null,null,null,3]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"HitCounter\",\"hit\",\"getHits\"]\n[[],[1],[301]]",
+      "expected_output": "[null,null,0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"HitCounter\",\"hit\",\"hit\",\"getHits\"]\n[[],[1],[299],[300]]",
+      "expected_output": "[null,null,null,2]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"HitCounter\",\"hit\",\"getHits\"]\n[[],[1],[1000000]]",
+      "expected_output": "[null,null,0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"HitCounter\",\"hit\",\"hit\",\"hit\",\"getHits\"]\n[[],[0],[1],[2],[300]]",
+      "expected_output": "[null,null,null,null,2]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Design",
+    "Queue"
+  ],
+  "companyIndex": 23
+}

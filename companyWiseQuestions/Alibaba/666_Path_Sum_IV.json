@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Path Sum IV</h3><p>Given a list of three-digit integers representing a binary tree (each integer digit $D$, $P$, $V$ is depth, position, and value), return the sum of all paths from the root to the leaves.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "List of integers.",
+  "output_format": "Int.",
+  "constraints": [
+    "1 <= nums.length <= 15",
+    "1 <= n <= 455"
+  ],
+  "explanation": "Map the tree nodes by their coordinates $(depth, position)$. Perform a depth-first search or iterative approach to sum paths. If a node has no children, it's a leaf, and its current path sum is added to the total.",
+  "answer": "def pathSum(nums):\n    nodes = {n // 10: n % 10 for n in nums}\n    self.res = 0\n    def dfs(node, cur_sum):\n        d, p = node // 10, node % 10\n        cur_sum += nodes[node]\n        left = (d + 1) * 10 + 2 * p - 1\n        right = (d + 1) * 10 + 2 * p\n        if left not in nodes and right not in nodes:\n            self.res += cur_sum\n            return\n        if left in nodes: dfs(left, cur_sum)\n        if right in nodes: dfs(right, cur_sum)\n    if nums: dfs(nums[0] // 10, 0)\n    return self.res",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 666 Path Sum IV here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[113,215,221]",
+      "expected_output": "12",
+      "is_sample": true
+    },
+    {
+      "input": "[113,221]",
+      "expected_output": "4",
+      "is_sample": true
+    },
+    {
+      "input": "[113]",
+      "expected_output": "3",
+      "is_sample": false
+    },
+    {
+      "input": "[111,212,313,324,225,336]",
+      "expected_output": "41",
+      "is_sample": false
+    },
+    {
+      "input": "[111,211,221,311,321,331,341]",
+      "expected_output": "16",
+      "is_sample": false
+    },
+    {
+      "input": "[110,210,220]",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "[119,219,229]",
+      "expected_output": "36",
+      "is_sample": false
+    },
+    {
+      "input": "[111,212,223,314,325,336,347]",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "[111,211,311,411]",
+      "expected_output": "4",
+      "is_sample": false
+    },
+    {
+      "input": "[111,222,343,484]",
+      "expected_output": "",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Hash Table",
+    "Tree",
+    "Binary Tree"
+  ],
+  "companyIndex": 22
+}

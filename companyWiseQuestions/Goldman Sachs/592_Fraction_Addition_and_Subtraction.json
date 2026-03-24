@@ -1,0 +1,88 @@
+{
+    "question_text": "<p>Given a string <code>expression</code> representing an expression of fraction addition and subtraction, return the calculation result in string format.</p>\n\n<p>The final result should be an <a href=\"https://en.wikipedia.org/wiki/Irreducible_fraction\" target=\"_blank\">irreducible fraction</a>. If your final result is an integer, change it to the format of a fraction that has a denominator <code>1</code>. So in this case, <code>2</code> should be converted to <code>2/1</code>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> expression = &quot;-1/2+1/2&quot;\n<strong>Output:</strong> &quot;0/1&quot;\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> expression = &quot;-1/2+1/2+1/3&quot;\n<strong>Output:</strong> &quot;1/3&quot;\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> expression = &quot;1/3-1/2&quot;\n<strong>Output:</strong> &quot;-1/6&quot;\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The input string only contains <code>&#39;0&#39;</code> to <code>&#39;9&#39;</code>, <code>&#39;/&#39;</code>, <code>&#39;+&#39;</code> and <code>&#39;-&#39;</code>. So does the output.</li>\n\t<li>Each fraction (input and output) has the format <code>&plusmn;numerator/denominator</code>. If the first input fraction or the output is positive, then <code>&#39;+&#39;</code> will be omitted.</li>\n\t<li>The input only contains valid <strong>irreducible fractions</strong>, where the <strong>numerator</strong> and <strong>denominator</strong> of each fraction will always be in the range <code>[1, 10]</code>. If the denominator is <code>1</code>, it means this fraction is actually an integer in a fraction format defined above.</li>\n\t<li>The number of given fractions will be in the range <code>[1, 10]</code>.</li>\n\t<li>The numerator and denominator of the <strong>final result</strong> are guaranteed to be valid and in the range of <strong>32-bit</strong> int.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "String expression.",
+    "output_format": "Simplified fraction string.",
+    "constraints": [
+        "len <= 100"
+    ],
+    "explanation": "Use a common denominator approach. Initialize a result fraction as 0/1. Parse the string using regex or manual scanning to identify numerators and denominators. Add/subtract each fraction using the formula (a/b + c/d = (ad+bc)/bd). Simplify the final result by dividing both terms by their GCD.",
+    "answer": "def fractionAddition(expression):\n    def get_gcd(a, b):\n        while b: a, b = b, a % b\n        return a\n    res_num, res_den = 0, 1\n    nums = re.findall(r'[+-]?\\d+', expression)\n    for i in range(0, len(nums), 2):\n        num, den = int(nums[i]), int(nums[i+1])\n        res_num = res_num * den + num * res_den\n        res_den *= den\n        g = abs(get_gcd(res_num, res_den))\n        res_num //= g\n        res_den //= g\n    return str(res_num) + \"/\" + str(res_den)",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 592 Fraction Addition and Subtraction here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 512,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "\"-1/2+1/2\"",
+            "expected_output": "\"0/1\"",
+            "is_sample": true
+        },
+        {
+            "input": "\"-1/2+1/2+1/3\"",
+            "expected_output": "\"1/3\"",
+            "is_sample": true
+        },
+        {
+            "input": "\"1/3-1/2\"",
+            "expected_output": "\"-1/6\"",
+            "is_sample": true
+        },
+        {
+            "input": "\"5/3+1/3\"",
+            "expected_output": "\"2/1\"",
+            "is_sample": false
+        },
+        {
+            "input": "\"1/10+1/10+1/10+1/10+1/10+1/10+1/10+1/10+1/10+1/10\"",
+            "expected_output": "\"1/1\"",
+            "is_sample": false
+        },
+        {
+            "input": "\"0/1\"",
+            "expected_output": "\"0/1\"",
+            "is_sample": false
+        },
+        {
+            "input": "\"-1/7+1/7\"",
+            "expected_output": "\"0/1\"",
+            "is_sample": false
+        },
+        {
+            "input": "\"1/2+3/4+5/6+7/8+9/10\"",
+            "expected_output": "\"463/120\"",
+            "is_sample": false
+        },
+        {
+            "input": "\"9/10-9/10+1/1\"",
+            "expected_output": "\"1/1\"",
+            "is_sample": false
+        },
+        {
+            "input": "\"-5/2+10/3\"",
+            "expected_output": "\"5/6\"",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Math",
+        "String",
+        "Simulation"
+    ],
+    "companyIndex": 14
+}

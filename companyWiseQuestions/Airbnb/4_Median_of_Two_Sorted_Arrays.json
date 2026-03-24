@@ -1,0 +1,89 @@
+{
+    "question_text": "<p>Given two sorted arrays <code>nums1</code> and <code>nums2</code> of size <code>m</code> and <code>n</code> respectively, return <strong>the median</strong> of the two sorted arrays.</p>\n\n<p>The overall run time complexity should be <code>O(log (m+n))</code>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums1 = [1,3], nums2 = [2]\n<strong>Output:</strong> 2.00000\n<strong>Explanation:</strong> merged array = [1,2,3] and median is 2.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums1 = [1,2], nums2 = [3,4]\n<strong>Output:</strong> 2.50000\n<strong>Explanation:</strong> merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>nums1.length == m</code></li>\n\t<li><code>nums2.length == n</code></li>\n\t<li><code>0 &lt;= m &lt;= 1000</code></li>\n\t<li><code>0 &lt;= n &lt;= 1000</code></li>\n\t<li><code>1 &lt;= m + n &lt;= 2000</code></li>\n\t<li><code>-10<sup>6</sup> &lt;= nums1[i], nums2[i] &lt;= 10<sup>6</sup></code></li>\n</ul>\n",
+    "difficulty": "HARD",
+    "marks": 15,
+    "input_format": "nums1 and nums2",
+    "output_format": "Median",
+    "constraints": [
+        "0 <= nums1.length, nums2.length <= 1000",
+        "1 <= nums1.length + nums2.length <= 2000"
+    ],
+    "explanation": "Use binary search to partition the two arrays into two halves with equal number of elements and valid order.",
+    "answer": "def findMedianSortedArrays(nums1, nums2):\n    A, B = nums1, nums2\n    total = len(nums1) + len(nums2)\n    half = total // 2\n    if len(B) < len(A): A, B = B, A\n    l, r = 0, len(A) - 1\n    while True:\n        i = l + (r - l) // 2\n        j = half - i - 2\n        Aleft = A[i] if i >= 0 else float('-infinity')\n        Aright = A[i + 1] if (i + 1) < len(A) else float('infinity')\n        Bleft = B[j] if j >= 0 else float('-infinity')\n        Bright = B[j + 1] if (j + 1) < len(B) else float('infinity')\n        if Aleft <= Bright and Bleft <= Aright:\n            if total % 2:\n                return min(Aright, Bright)\n            return (max(Aleft, Bleft) + min(Aright, Bright)) / 2\n        elif Aleft > Bright:\n            r = i - 1\n        else:\n            l = i + 1",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef findMedianSortedArrays(*args):\n    # Python optimum solution exclusively\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if not input_data or input_data == ['']: sys.exit(0)\n    parsed_args = [json.loads(line) for line in input_data]\n    print(json.dumps(findMedianSortedArrays(*parsed_args)).replace(' ', ''))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint findMedianSortedArrays() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Basic standard IO loop parser\n    string line;\n    while (getline(cin, line)) {\n        // Parse line into arguments and call solve\n    }\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object findMedianSortedArrays() {\n        // User logic should be written here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {\n            // Parse line into arguments\n        }\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction findMedianSortedArrays(...args) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    const parsedArgs = input.map(line => JSON.parse(line));\n    console.log(JSON.stringify(findMedianSortedArrays(...parsedArgs)));\n}\n\nmodule.exports = findMedianSortedArrays;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint findMedianSortedArrays() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Standard C IO loop\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[1,3]\n[2]",
+            "expected_output": "2.00000",
+            "is_sample": true
+        },
+        {
+            "input": "[1,2]\n[3,4]",
+            "expected_output": "2.50000",
+            "is_sample": true
+        },
+        {
+            "input": "[0,0]\n[0,0]",
+            "expected_output": "0.00000",
+            "is_sample": false
+        },
+        {
+            "input": "[]\n[1]",
+            "expected_output": "1.00000",
+            "is_sample": false
+        },
+        {
+            "input": "[2]\n[]",
+            "expected_output": "2.00000",
+            "is_sample": false
+        },
+        {
+            "input": "[1,3,5]\n[2,4,6]",
+            "expected_output": "3.50000",
+            "is_sample": false
+        },
+        {
+            "input": "[10,20]\n[5,15,25]",
+            "expected_output": "15.00000",
+            "is_sample": false
+        },
+        {
+            "input": "[1,1,1]\n[1,1,1]",
+            "expected_output": "1.0",
+            "is_sample": false
+        },
+        {
+            "input": "[10000]\n[10001]",
+            "expected_output": "10000.5",
+            "is_sample": false
+        },
+        {
+            "input": "[-5,-3,-1]\n[-2,0,2]",
+            "expected_output": "-1.5",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Arrays",
+        "Binary Search",
+        "Divide and Conquer"
+    ],
+    "companyIndex": 5
+}

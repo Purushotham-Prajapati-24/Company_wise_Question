@@ -1,0 +1,87 @@
+{
+    "question_text": "<h3>1188. Design Bounded Blocking Queue</h3>\n<p>Implement a thread-safe bounded blocking queue that has the following methods:</p>\n<ul>\n    <li><code>BoundedBlockingQueue(int capacity)</code> The constructor initializes the queue with a maximum <code>capacity</code>.</li>\n    <li><code>void enqueue(int element)</code> Adds an <code>element</code> to the front of the queue. If the queue is full, the calling thread is blocked until the queue is no longer full.</li>\n    <li><code>int dequeue()</code> Returns the element at the rear of the queue and removes it. If the queue is empty, the calling thread is blocked until the queue is no longer empty.</li>\n    <li><code>int size()</code> Returns the number of elements currently in the queue.</li>\n</ul>\n<p>Your implementation will be tested with multiple threads for concurrent access on the queue. Each thread will either be a producer thread that only makes calls to the <code>enqueue</code> method or a consumer thread that only makes calls to the <code>dequeue</code> method.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre>\n<strong>Input:</strong>\n1\n1\n[\"BoundedBlockingQueue\",\"enqueue\",\"dequeue\",\"dequeue\",\"enqueue\",\"enqueue\",\"enqueue\",\"size\",\"dequeue\",\"size\"]\n[[2],[1],[],[],[0],[2],[3],[],[],[]]\n\n<strong>Output:</strong>\n[1,0,2,2]\n\n<strong>Explanation:</strong>\nNumber of producer threads = 1\nNumber of consumer threads = 1\nBoundedBlockingQueue capacity = 2.\nproducer thread calls enqueue(1).\nconsumer thread calls dequeue() and returns 1.\nconsumer thread calls dequeue(), queue is empty, blocked.\nproducer thread calls enqueue(0).\nconsumer thread unblocked, returns 0.\nproducer thread calls enqueue(2).\nproducer thread calls enqueue(3), queue is full, blocked.\nconsumer thread calls size(), returns 2.\nconsumer thread calls dequeue() and returns 2.\nproducer thread unblocked.\nconsumer thread calls size(), returns 2.\n</pre>\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n<ul>\n    <li><code>1 &lt;= capacity &lt;= 10<sup>4</sup></code></li>\n    <li><code>0 &lt;= element &lt;= 10<sup>5</sup></code></li>\n    <li><code>1 &lt;= Number of producer threads &lt;= 15</code></li>\n    <li><code>1 &lt;= Number of consumer threads &lt;= 15</code></li>\n    <li><code>1 &lt;= Number of enqueue calls &lt;= 10<sup>5</sup></code></li>\n    <li><code>1 &lt;= Number of dequeue calls &lt;= 10<sup>5</sup></code></li>\n</ul>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "BoundedBlockingQueue capacity and method calls",
+    "output_format": "Output from producer/consumer calls",
+    "constraints": [
+        "1 <= capacity <= 100",
+        "0 <= num <= capacity"
+    ],
+    "explanation": "Use a deque/list with a semaphore or conditional variable to block producers when queue is full and consumers when empty. In Python use threading.Semaphore or queue.Queue.",
+    "answer": "from collections import deque\nimport threading\n\nclass BoundedBlockingQueue:\n    def __init__(self, capacity):\n        self.q = deque()\n        self.cap = capacity\n        self.not_full = threading.Semaphore(capacity)\n        self.not_empty = threading.Semaphore(0)\n    def enqueue(self, element):\n        self.not_full.acquire()\n        self.q.append(element)\n        self.not_empty.release()\n    def dequeue(self):\n        self.not_empty.acquire()\n        val = self.q.popleft()\n        self.not_full.release()\n        return val\n    def size(self):\n        return len(self.q)",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Design Bounded Blocking Queue here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static Object solve() { return null; }\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[\"BoundedBlockingQueue\",\"enqueue\",\"dequeue\",\"dequeue\",\"enqueue\",\"enqueue\",\"enqueue\",\"enqueue\",\"dequeue\"]\n[[2],[1],[],[],[0],[2],[3],[4],[]]",
+            "expected_output": "[null,null,1,0,null,null,null,null,2]",
+            "is_sample": true
+        },
+        {
+            "input": "[\"BoundedBlockingQueue\",\"enqueue\",\"size\"]\n[[1],[5],[]]",
+            "expected_output": "[null,null,1]",
+            "is_sample": true
+        },
+        {
+            "input": "[\"BoundedBlockingQueue\",\"enqueue\",\"dequeue\"]\n[[1],[1],[]]",
+            "expected_output": "[null,null,1]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"BoundedBlockingQueue\",\"enqueue\",\"enqueue\",\"size\"]\n[[2],[1],[2],[]]",
+            "expected_output": "[null,null,null,2]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"BoundedBlockingQueue\",\"enqueue\",\"dequeue\",\"size\"]\n[[1],[1],[],[]]",
+            "expected_output": "[null,null,1,0]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"BoundedBlockingQueue\",\"enqueue\",\"enqueue\",\"dequeue\",\"dequeue\",\"size\"]\n[[2],[1],[2],[],[],[]]",
+            "expected_output": "[null,null,null,1,2,0]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"BoundedBlockingQueue\",\"enqueue\",\"size\",\"dequeue\",\"size\"]\n[[3],[1],[],[],[]]",
+            "expected_output": "[null,null,1,1,0]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"BoundedBlockingQueue\",\"enqueue\",\"enqueue\",\"enqueue\",\"size\"]\n[[3],[1],[2],[3],[]]",
+            "expected_output": "[null,null,null,null,3]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"BoundedBlockingQueue\",\"enqueue\",\"dequeue\",\"enqueue\",\"dequeue\",\"size\"]\n[[1],[1],[],[2],[],[]]",
+            "expected_output": "[null,null,1,null,2,0]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"BoundedBlockingQueue\",\"enqueue\",\"enqueue\",\"enqueue\",\"dequeue\",\"dequeue\",\"dequeue\",\"size\"]\n[[3],[1],[2],[3],[],[],[],[]]",
+            "expected_output": "[null,null,null,null,1,2,3,0]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Concurrency"
+    ],
+    "companyIndex": 24
+}

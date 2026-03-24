@@ -1,0 +1,89 @@
+{
+  "question_text": "<h3>Construct Target Array With Multiple Sums</h3><p>You are given an array <code>target</code> of n integers. From a starting array arr consisting of <code>n</code> 1's, you may perform the following procedure:</p><ul><li>Choose any subarray of arr and replace it with its sum.</li></ul><p>Return <code>true</code> if it is possible to construct the <code>target</code> array from arr, otherwise return <code>false</code>.</p>\n<p><strong>Constraints:</strong></p><ul><li><code>n == target.length</code></li><li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code></li><li><code>1 &lt;= target[i] &lt;= 10<sup>9</sup></code></li></ul>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "An integer array target.",
+  "output_format": "true if target can be constructed from an array of all 1s using repeated subarray-sum replacements, false otherwise.",
+  "constraints": [
+    "1 <= n <= 5 * 10^4",
+    "1 <= target[i] <= 10^9"
+  ],
+  "explanation": "<h4>Max Heap + Reverse Simulation</h4><p>Work backwards: the largest element must have been produced last. At each step, extract the maximum, compute the rest sum = total - max. Simulate the reverse: max = max % rest (remove the effect). If max becomes 0 or 1, we succeeded. Edge cases: rest=1 means only one element, so max must be 1. If max%rest==0, treat remainder as rest (to avoid infinite loop).</p><p><strong>Time:</strong> O(N log N log M) where M = max element. <strong>Space:</strong> O(N).</p>",
+  "answer": "import heapq\ndef isPossible(target):\n    if len(target) == 1: return target[0] == 1\n    total = sum(target)\n    h = [-x for x in target]\n    heapq.heapify(h)\n    while True:\n        mx = -heapq.heappop(h)\n        rest = total - mx\n        if mx == 1: return True\n        if rest == 0 or rest >= mx: return False\n        r = mx % rest\n        if r == 0: r = rest\n        total = rest + r\n        heapq.heappush(h, -r)",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 1354 Construct Target Array With Multiple Sums here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[9,3,5]",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "[1,1,2]",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "[8,5]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[1]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[1,1]",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "[2]",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "[1,1,1,2]",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "[1,1000000000]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[2,900000001]",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "[5,7,9,13]",
+      "expected_output": "true",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Simulation",
+    "Heap (Priority Queue)"
+  ],
+  "companyIndex": 24
+}

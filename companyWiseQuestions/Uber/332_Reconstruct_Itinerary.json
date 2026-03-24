@@ -1,0 +1,92 @@
+{
+    "id": "332",
+    "title": "Reconstruct Itinerary",
+    "difficulty": "HARD",
+    "marks": 15,
+    "input_format": "The first line contains N. The next N lines contain space separated from-to pairs.",
+    "output_format": "Return an array of strings representing the itinerary.",
+    "constraints": [
+        "1 <= tickets.length <= 300",
+        "tickets[i].length == 2",
+        "from and to are 3 uppercase English letters"
+    ],
+    "explanation": "This is a Eulerian path problem. We build an adjacency list where destinations are sorted in lexical order. Using DFS (Hierholzer's Algorithm), we traverse paths and only add nodes to the result journey exactly when we finish visiting all their valid outgoing edges, resulting in a reversed valid path.",
+    "answer": "def solve(tickets):\n    import collections\n    adj = collections.defaultdict(list)\n    for f, t in sorted(tickets)[::-1]:\n        adj[f].append(t)\n    res = []\n    def dfs(node):\n        while adj[node]:\n            dfs(adj[node].pop())\n        res.append(node)\n    dfs('JFK')\n    return str(res[::-1]).replace(\"'\", '\"')",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(tickets):\n    pass\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    if not lines: sys.exit(0)\n    n = int(lines[0])\n    tickets = [lines[i].split() for i in range(1, n+1)]\n    print(solve(tickets))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\nusing namespace std;\nint main() { return 0; }",
+        "java": "import java.util.*;\npublic class Main { public static void main(String[] args) {} }",
+        "javascript": "const fs = require('fs'); const input = fs.readFileSync(0, 'utf-8').trim().split('\\n');",
+        "c": "#include <stdio.h>\nint main() { return 0; }"
+    },
+    "test_cases": [
+        {
+            "input": "4\nMUC LHR\nJFK MUC\nSFO SJC\nLHR SFO",
+            "expected_output": "[\"JFK\", \"MUC\", \"LHR\", \"SFO\", \"SJC\"]",
+            "is_sample": true
+        },
+        {
+            "input": "5\nJFK SFO\nJFK ATL\nSFO ATL\nATL JFK\nATL SFO",
+            "expected_output": "[\"JFK\", \"ATL\", \"JFK\", \"SFO\", \"ATL\", \"SFO\"]",
+            "is_sample": true
+        },
+        {
+            "input": "3\nJFK KUL\nJFK NRT\nNRT JFK",
+            "expected_output": "[\"JFK\", \"NRT\", \"JFK\", \"KUL\"]",
+            "is_sample": false
+        },
+        {
+            "input": "3\nJFK SFO\nJFK ATL\nSFO JFK",
+            "expected_output": "[\"JFK\", \"SFO\", \"JFK\", \"ATL\"]",
+            "is_sample": false
+        },
+        {
+            "input": "4\nJFK ATL\nATL JFK\nJFK ATL\nATL JFK",
+            "expected_output": "[\"JFK\", \"ATL\", \"JFK\", \"ATL\", \"JFK\"]",
+            "is_sample": false
+        },
+        {
+            "input": "5\nJFK ABC\nABC DEF\nDEF GHI\nGHI JKL\nJKL MNO",
+            "expected_output": "[\"JFK\", \"ABC\", \"DEF\", \"GHI\", \"JKL\", \"MNO\"]",
+            "is_sample": false
+        },
+        {
+            "input": "2\nJFK AAA\nAAA BBB",
+            "expected_output": "[\"JFK\", \"AAA\", \"BBB\"]",
+            "is_sample": false
+        },
+        {
+            "input": "7\nJFK AAA\nAAA JFK\nJFK BBB\nBBB JFK\nJFK CCC\nCCC JFK\nJFK DDD",
+            "expected_output": "[\"JFK\", \"AAA\", \"JFK\", \"BBB\", \"JFK\", \"CCC\", \"JFK\", \"DDD\"]",
+            "is_sample": false
+        },
+        {
+            "input": "1\nJFK ZZZ",
+            "expected_output": "[\"JFK\", \"ZZZ\"]",
+            "is_sample": false
+        },
+        {
+            "input": "3\nJFK ABC\nABC JFK\nJFK ABC",
+            "expected_output": "[\"JFK\", \"ABC\", \"JFK\", \"ABC\"]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "DFS",
+        "Graph",
+        "Eulerian Circuit"
+    ],
+    "question_text": "<p>You are given a list of airline <code>tickets</code> where <code>tickets[i] = [from<sub>i</sub>, to<sub>i</sub>]</code> represent the departure and the arrival airports of one flight. Reconstruct the itinerary in order and return it.</p>\n\n<p>All of the tickets belong to a man who departs from <code>&quot;JFK&quot;</code>, thus, the itinerary must begin with <code>&quot;JFK&quot;</code>. If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order when read as a single string.</p>\n\n<ul>\n\t<li>For example, the itinerary <code>[&quot;JFK&quot;, &quot;LGA&quot;]</code> has a smaller lexical order than <code>[&quot;JFK&quot;, &quot;LGB&quot;]</code>.</li>\n</ul>\n\n<p>You may assume all tickets form at least one valid itinerary. You must use all the tickets once and only once.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2021/03/14/itinerary1-graph.jpg\" style=\"width: 382px; height: 222px;\" />\n<pre>\n<strong>Input:</strong> tickets = [[&quot;MUC&quot;,&quot;LHR&quot;],[&quot;JFK&quot;,&quot;MUC&quot;],[&quot;SFO&quot;,&quot;SJC&quot;],[&quot;LHR&quot;,&quot;SFO&quot;]]\n<strong>Output:</strong> [&quot;JFK&quot;,&quot;MUC&quot;,&quot;LHR&quot;,&quot;SFO&quot;,&quot;SJC&quot;]\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2021/03/14/itinerary2-graph.jpg\" style=\"width: 222px; height: 230px;\" />\n<pre>\n<strong>Input:</strong> tickets = [[&quot;JFK&quot;,&quot;SFO&quot;],[&quot;JFK&quot;,&quot;ATL&quot;],[&quot;SFO&quot;,&quot;ATL&quot;],[&quot;ATL&quot;,&quot;JFK&quot;],[&quot;ATL&quot;,&quot;SFO&quot;]]\n<strong>Output:</strong> [&quot;JFK&quot;,&quot;ATL&quot;,&quot;JFK&quot;,&quot;SFO&quot;,&quot;ATL&quot;,&quot;SFO&quot;]\n<strong>Explanation:</strong> Another possible reconstruction is [&quot;JFK&quot;,&quot;SFO&quot;,&quot;ATL&quot;,&quot;JFK&quot;,&quot;ATL&quot;,&quot;SFO&quot;] but it is larger in lexical order.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= tickets.length &lt;= 300</code></li>\n\t<li><code>tickets[i].length == 2</code></li>\n\t<li><code>from<sub>i</sub>.length == 3</code></li>\n\t<li><code>to<sub>i</sub>.length == 3</code></li>\n\t<li><code>from<sub>i</sub></code> and <code>to<sub>i</sub></code> consist of uppercase English letters.</li>\n\t<li><code>from<sub>i</sub> != to<sub>i</sub></code></li>\n</ul>\n",
+    "companyIndex": 8,
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    }
+}

@@ -1,0 +1,86 @@
+{
+  "question_text": "<h3>Jewels and Stones</h3><p>You're given strings `jewels` representing the types of stones that are jewels, and `stones` representing the stones you have. Each character in `stones` is a type of stone you have. You want to know how many of the stones you have are also jewels.</p>",
+  "difficulty": "EASY",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "1 <= N <= 10^5"
+  ],
+  "explanation": "Convert jewels string to a hash set for O(1) lookup. Iterate through stones and count those that are present in the set. Time complexity O(J + S).",
+  "answer": "class Solution:\n    def solve(self, jewels: str, stones: str) -> int:\n        j_set = set(jewels)\n        return sum(1 for s in stones if s in j_set)",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "aA\naAAbbbb",
+      "expected_output": "3",
+      "is_sample": true
+    },
+    {
+      "input": "z\nZZ",
+      "expected_output": "0",
+      "is_sample": true
+    },
+    {
+      "input": "abc",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "abc",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "abc\nabcabc",
+      "expected_output": "6",
+      "is_sample": false
+    },
+    {
+      "input": "A\na",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "abcdef\nfedcba",
+      "expected_output": "6",
+      "is_sample": false
+    },
+    {
+      "input": "A\"*50\nA\"*10**5",
+      "expected_output": "100000",
+      "is_sample": false
+    },
+    {
+      "input": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\na\"*10**5",
+      "expected_output": "100000",
+      "is_sample": false
+    },
+    {
+      "input": "z\na\"*10**5",
+      "expected_output": "0",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Data Structures / Algorithms"
+  ],
+  "companyIndex": 6
+}

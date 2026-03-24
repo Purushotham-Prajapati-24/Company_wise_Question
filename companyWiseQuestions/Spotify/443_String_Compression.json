@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>443 String Compression</h3><p><strong>String Compression</strong></p><p>Given an array of characters chars, compress it using the following algorithm: Begin with an empty string s. For each group of consecutive repeating characters in chars: If the group's length is 1, append the character to s. Otherwise, append the character followed by the group's length. Return the new length of the array after modification.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply.",
+    "Time limit: 1s",
+    "Memory limit: 256MB"
+  ],
+  "explanation": "Use two pointers: one for reading group starts and one for writing results. Count the occurrences of each character group, write the character, and then write its count if it's greater than 1. The in-place modification is handled sequentially.",
+  "answer": "def solve(chars: List[str]) -> int:\n    i = 0\n    res = 0\n    while i < len(chars):\n        group_length = 1\n        while i + group_length < len(chars) and chars[i + group_length] == chars[i]:\n            group_length += 1\n        chars[res] = chars[i]\n        res += 1\n        if group_length > 1:\n            for c in str(group_length):\n                chars[res] = c\n                res += 1\n        i += group_length\n    return res",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n\nint main() {\n    Solution sol;\n    sol.solve();\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n    public static void main(String[] args) {\n        new Solution().solve();\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "a a b b c c c",
+      "expected_output": "6",
+      "is_sample": true
+    },
+    {
+      "input": "a",
+      "expected_output": "1",
+      "is_sample": true
+    },
+    {
+      "input": "a b b b b b b b b b b b",
+      "expected_output": "4",
+      "is_sample": false
+    },
+    {
+      "input": "a a a a a",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "a b c",
+      "expected_output": "3",
+      "is_sample": false
+    },
+    {
+      "input": "a b b c c c d d d d",
+      "expected_output": "8",
+      "is_sample": false
+    },
+    {
+      "input": "aaaaaaaaaa",
+      "expected_output": "3",
+      "is_sample": false
+    },
+    {
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "expected_output": "4",
+      "is_sample": false
+    },
+    {
+      "input": "A B C",
+      "expected_output": "3",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "1",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Strings"
+  ],
+  "companyIndex": 2
+}

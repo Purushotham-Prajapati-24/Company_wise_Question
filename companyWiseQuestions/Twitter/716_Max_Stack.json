@@ -1,0 +1,91 @@
+{
+  "question_text": "<h3>Max Stack</h3>null",
+  "difficulty": "HARD",
+  "marks": 20,
+  "input_format": "push, pop, top, peekMax, popMax calls",
+  "output_format": "int return for top, peekMax, popMax",
+  "constraints": [
+    "At most 10^4 calls"
+  ],
+  "explanation": "Use two stacks (standard and max) to support peekMax in O(1). For popMax, use a temporary stack to remove the max element from the standard stack.",
+  "answer": "class MaxStack:\n    def __init__(self):\n        self.st = []; self.mx = []\n    def push(self, x):\n        self.st.append(x)\n        self.mx.append(max(x, self.mx[-1] if self.mx else x))\n    def pop(self): self.mx.pop(); return self.st.pop()\n    def top(self): return self.st[-1]\n    def peekMax(self): return self.mx[-1]\n    def popMax(self):\n        m = self.mx[-1]; tmp = []\n        while self.st[-1] != m: tmp.append(self.pop())\n        self.pop()\n        while tmp: self.push(tmp.pop())\n        return m",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Max Stack here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"MaxStack\",\"push\",\"push\",\"push\",\"top\",\"popMax\",\"top\",\"peekMax\",\"pop\",\"top\"]\n[[],[5],[1],[5],[],[],[],[],[],[]]",
+      "expected_output": "[null,null,null,null,5,5,1,5,1,5]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"MaxStack\",\"push\",\"peekMax\"]\n[[],[10],[]]",
+      "expected_output": "[null,null,10]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"MaxStack\",\"push\",\"push\",\"popMax\",\"peekMax\"]\n[[],[5],[10],[],[]]",
+      "expected_output": "[null,null,null,10,5]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"MaxStack\",\"push\",\"push\",\"popMax\",\"popMax\"]\n[[],[5],[5],[],[]]",
+      "expected_output": "[null,null,null,5,5]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"MaxStack\",\"push\",\"top\",\"pop\"]\n[[],[1],[],[]]",
+      "expected_output": "[null,null,1,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"MaxStack\",\"push\",\"push\",\"peekMax\",\"popMax\"]\n[[],[1],[2],[],[]]",
+      "expected_output": "[null,null,null,2,2]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"MaxStack\",\"push\",\"push\",\"push\",\"popMax\"]\n[[],[1],[2],[1],[]]",
+      "expected_output": "[null,null,null,null,2]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"MaxStack\",\"push\",\"push\",\"peekMax\",\"top\"]\n[[],[5],[6],[],[]]",
+      "expected_output": "[null,null,null,6,6]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"MaxStack\",\"push\",\"popMax\"]\n[[],[100],[]]",
+      "expected_output": "[null,null,100]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"MaxStack\",\"push\",\"popMax\"]\n[[],[100],[]]",
+      "expected_output": "[null,null,100]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "Stack",
+    "Design",
+    "Linked List",
+    "Doubly-Linked List",
+    "Ordered Set"
+  ],
+  "companyIndex": 27
+}

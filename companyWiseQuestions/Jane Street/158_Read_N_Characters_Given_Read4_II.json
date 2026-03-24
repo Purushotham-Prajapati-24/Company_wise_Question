@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Read N Characters Given Read4 II - Call Multiple Times</h3><p>Given a file and assume that you can only read the file using a given method <code>read4</code>, implement a method <code>read</code> to read <code>n</code> characters. Your method <code>read</code> may be <strong>called multiple times</strong>.</p><p><code>read4</code> reads 4 consecutive characters from the file, copies them into buffer buf4, and returns the number of characters actually read.</p><p>Implement method read: reads <code>n</code> characters from the file and copies to buf — returns the number of characters actually read.</p>\n<p><strong>Constraints:</strong></p><ul><li><code>1 &lt;= file.length &lt;= 500</code></li><li><code>1 &lt;= queries.length &lt;= 10</code></li><li><code>1 &lt;= queries[i] &lt;= 500</code></li></ul>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Commands [\"Solution\",\"read\",\"read\",...], args [[],[n],[n],...] for multiple reads from a file.",
+  "output_format": "List of results: null for constructor, integer (chars actually read) for each read call.",
+  "constraints": [
+    "1 <= file.length <= 500",
+    "1 <= queries.length <= 10"
+  ],
+  "explanation": "<h4>Internal Buffer Queue</h4><p>Maintain a persistent queue/buffer across calls. Each call to read: drain leftover chars first, then call read4 only when more are needed, buffer any excess. Track file position with a class-level buffer and pointer. This handles the case where read4 pulls ahead of what was requested.</p><p><strong>Time:</strong> O(N) per call. <strong>Space:</strong> O(1) internal buffer.</p>",
+  "answer": "class Solution:\n    def __init__(self):\n        self.buf = []\n        self.buf_ptr = 0\n    def read(self, n):\n        res = []\n        while len(res) < n:\n            if self.buf_ptr < len(self.buf):\n                res.append(self.buf[self.buf_ptr])\n                self.buf_ptr += 1\n            else:\n                tmp = read4()  # provided by framework\n                if not tmp: break\n                self.buf = tmp\n                self.buf_ptr = 0\n        return len(res)",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 158 Read N Characters Given Read4 II here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"Solution\",\"read\",\"read\",\"read\"]\n[[\"fileleetcode\"],[4],[5],[4]]",
+      "expected_output": "[null,4,5,3]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"Solution\",\"read\",\"read\"]\n[[\"abc\"],[4],[5]]",
+      "expected_output": "[null,3,0]",
+      "is_sample": true
+    },
+    {
+      "input": "[\"Solution\",\"read\"]\n[[\"a\"],[1]]",
+      "expected_output": "[null,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Solution\",\"read\",\"read\"]\n[[\"abcde\"],[2],[3]]",
+      "expected_output": "[null,2,3]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Solution\",\"read\",\"read\"]\n[[\"leetcode\"],[5],[10]]",
+      "expected_output": "[null,5,3]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Solution\",\"read\",\"read\",\"read\"]\n[[\"abcdefgh\"],[2],[2],[4]]",
+      "expected_output": "[null,2,2,4]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Solution\",\"read\",\"read\"]\n[[\"a\"],[2],[2]]",
+      "expected_output": "[null,1,0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Solution\",\"read\",\"read\",\"read\"]\n[[\"ab\"],[1],[2],[1]]",
+      "expected_output": "[null,1,1,0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Solution\",\"read\",\"read\",\"read\",\"read\"]\n[[\"aaabbbccc\"],[3],[3],[3],[3]]",
+      "expected_output": "[null,3,3,3,0]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"Solution\",\"read\",\"read\"]\n[[\"abcdefghijklmnopqrst\"],[10],[10]]",
+      "expected_output": "[null,10,10]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Simulation",
+    "Interactive",
+    "Design"
+  ],
+  "companyIndex": 27
+}

@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Binary Tree Maximum Path Sum</h3><p>A <strong>path</strong> in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence <strong>at most once</strong>. Note that the path does not need to pass through the root.</p>\n\n<p>The <strong>path sum</strong> of a path is the sum of the node&#39;s values in the path.</p>\n\n<p>Given the <code>root</code> of a binary tree, return <em>the maximum <strong>path sum</strong> of any <strong>non-empty</strong> path</em>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2020/10/13/exx1.jpg\" style=\"width: 322px; height: 182px;\" />\n<pre>\n<strong>Input:</strong> root = [1,2,3]\n<strong>Output:</strong> 6\n<strong>Explanation:</strong> The optimal path is 2 -&gt; 1 -&gt; 3 with a path sum of 2 + 1 + 3 = 6.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2020/10/13/exx2.jpg\" />\n<pre>\n<strong>Input:</strong> root = [-10,9,20,null,null,15,7]\n<strong>Output:</strong> 42\n<strong>Explanation:</strong> The optimal path is 15 -&gt; 20 -&gt; 7 with a path sum of 15 + 20 + 7 = 42.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The number of nodes in the tree is in the range <code>[1, 3 * 10<sup>4</sup>]</code>.</li>\n\t<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>\n</ul>\n",
+  "difficulty": "HARD",
+  "marks": 15,
+  "input_format": "Binary tree root",
+  "output_format": "Maximum path sum",
+  "constraints": [
+    "Node count [1, 3*10^4]",
+    "-1000 <= val <= 1000"
+  ],
+  "explanation": "Recursive DFS: for each node, return maxPath that goes through node and at most one of its children (plus its own value). Update global max with node.val + leftMax + rightMax.",
+  "answer": "def maxPathSum(root):\n    self.res = float('-inf')\n    def dfs(node):\n        if not node: return 0\n        l = max(0, dfs(node.left)); r = max(0, dfs(node.right))\n        self.res = max(self.res, node.val + l + r)\n        return node.val + max(l, r)\n    dfs(root); return self.res",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Binary Tree Maximum Path Sum here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint solve() { return 0; }\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[1,2,3]",
+      "expected_output": "6",
+      "is_sample": true
+    },
+    {
+      "input": "[-10,9,20,null,null,15,7]",
+      "expected_output": "42",
+      "is_sample": true
+    },
+    {
+      "input": "[-3]",
+      "expected_output": "-3",
+      "is_sample": false
+    },
+    {
+      "input": "[-1, -2, -3]",
+      "expected_output": "-1",
+      "is_sample": false
+    },
+    {
+      "input": "[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]",
+      "expected_output": "100",
+      "is_sample": false
+    },
+    {
+      "input": "[10,2,10,20,1,null,-25,null,null,null,null,3,4]",
+      "expected_output": "42",
+      "is_sample": false
+    },
+    {
+      "input": "[10, -5, -5]",
+      "expected_output": "10",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,null,3,null,4,null,5]",
+      "expected_output": "15",
+      "is_sample": false
+    },
+    {
+      "input": "[1,-2,3]",
+      "expected_output": "4",
+      "is_sample": false
+    },
+    {
+      "input": "[5,4,8,11,null,13,4,7,2,null,null,null,1]",
+      "expected_output": "48",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Dynamic Programming",
+    "Tree",
+    "Binary Tree",
+    "DFS"
+  ],
+  "companyIndex": 27
+}

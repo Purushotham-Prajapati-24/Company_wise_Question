@@ -1,0 +1,89 @@
+{
+    "question_text": "<h3>Coin Change</h3><p>You are given an integer array <code>coins</code> representing coins of different denominations and an integer <code>amount</code> representing a total amount of money.</p><p>Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return <code>-1</code>.</p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "First line: space-separated array of coin denominations. Second line: target amount.",
+    "output_format": "A single integer (fewest coins, or -1 if impossible).",
+    "constraints": [
+        "1 <= coins.length <= 12",
+        "1 <= coins[i] <= 2^31 - 1",
+        "0 <= amount <= 10^4"
+    ],
+    "explanation": "We utilize dynamic programming array `dp` initialized to `amount + 1` (acting as infinity), where `dp[i]` is the minimum coins for amount `i`. We seed `dp[0] = 0`. For each coin and for each possible sub-amount from the coin value up to target `amount`, we transition `dp[i] = min(dp[i], dp[i - coin] + 1)`. If `dp[amount]` remains identically untouched, we return -1. This requires O(amount * N) time and O(amount) space.",
+    "answer": "def solve(coins, amount):\n    dp = [float('inf')] * (amount + 1)\n    dp[0] = 0\n    for coin in coins:\n        for i in range(coin, amount + 1):\n            dp[i] = min(dp[i], dp[i - coin] + 1)\n    return dp[amount] if dp[amount] != float('inf') else -1",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve(arr, k):\n    return 0\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    if len(lines) >= 2:\n        arr = list(map(int, lines[0].strip().split()))\n        k = int(lines[1].strip())\n        print(solve(arr, k))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <sstream>\nusing namespace std;\n\nint solve(vector<int>& arr, int k) {\n    return 0;\n}\n\nint main() {\n    string line;\n    if (getline(cin, line)) {\n        vector<int> arr;\n        stringstream ss(line);\n        int val, k;\n        while (ss >> val) arr.push_back(val);\n        if (cin >> k) cout << solve(arr, k) << endl;\n    }\n    return 0;\n}",
+        "java": "import java.util.*;\n\npublic class Main {\n    public static int solve(int[] arr, int k) {\n        return 0;\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String[] parts = sc.nextLine().trim().split(\"\\\\s+\");\n            if (parts.length == 0 || parts[0].isEmpty()) return;\n            int[] arr = new int[parts.length];\n            for (int i = 0; i < parts.length; i++) arr[i] = Integer.parseInt(parts[i]);\n            if (sc.hasNextInt()) System.out.println(solve(arr, sc.nextInt()));\n        }\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(arr, k) { return 0; }\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length >= 2) {\n    const arr = input[0].trim().split(/\\s+/).map(Number);\n    console.log(solve(arr, parseInt(input[1])));\n}",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve(int* arr, int n, int k) { return 0; }\nint main() {\n    int capacity = 1000;\n    int* arr = (int*)malloc(capacity * sizeof(int));\n    int n = 0, k;\n    char c;\n    while (scanf(\"%d\", &arr[n++]) == 1) {\n        if (n == capacity) {\n            capacity *= 2;\n            arr = (int*)realloc(arr, capacity * sizeof(int));\n        }\n        c = getchar();\n        if (c == '\\n' || c == EOF) break;\n    }\n    if (scanf(\"%d\", &k) == 1) printf(\"%d\\n\", solve(arr, n, k));\n    free(arr);\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "1 2 5\n11",
+            "expected_output": "3",
+            "is_sample": true
+        },
+        {
+            "input": "2\n3",
+            "expected_output": "-1",
+            "is_sample": true
+        },
+        {
+            "input": "1\n0",
+            "expected_output": "0",
+            "is_sample": true
+        },
+        {
+            "input": "1\n1",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "1\n2",
+            "expected_output": "2",
+            "is_sample": false
+        },
+        {
+            "input": "2 5 10 1\n27",
+            "expected_output": "4",
+            "is_sample": false
+        },
+        {
+            "input": "186 419 83 408\n6249",
+            "expected_output": "20",
+            "is_sample": false
+        },
+        {
+            "input": "1\n10000",
+            "expected_output": "10000",
+            "is_sample": false
+        },
+        {
+            "input": "2\n10000",
+            "expected_output": "5000",
+            "is_sample": false
+        },
+        {
+            "input": "200 400 500\n9999",
+            "expected_output": "-1",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Dynamic Programming"
+    ],
+    "companyIndex": 0
+}

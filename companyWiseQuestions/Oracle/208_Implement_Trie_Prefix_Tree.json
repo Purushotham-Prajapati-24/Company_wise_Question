@@ -1,0 +1,91 @@
+{
+    "question_text": "<p>A <a href=\"https://en.wikipedia.org/wiki/Trie\" target=\"_blank\"><strong>trie</strong></a> (pronounced as &quot;try&quot;) or <strong>prefix tree</strong> is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.</p>\n\n<p>Implement the Trie class:</p>\n\n<ul>\n\t<li><code>Trie()</code> Initializes the trie object.</li>\n\t<li><code>void insert(String word)</code> Inserts the string <code>word</code> into the trie.</li>\n\t<li><code>boolean search(String word)</code> Returns <code>true</code> if the string <code>word</code> is in the trie (i.e., was inserted before), and <code>false</code> otherwise.</li>\n\t<li><code>boolean startsWith(String prefix)</code> Returns <code>true</code> if there is a previously inserted string <code>word</code> that has the prefix <code>prefix</code>, and <code>false</code> otherwise.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input</strong>\n[&quot;Trie&quot;, &quot;insert&quot;, &quot;search&quot;, &quot;search&quot;, &quot;startsWith&quot;, &quot;insert&quot;, &quot;search&quot;]\n[[], [&quot;apple&quot;], [&quot;apple&quot;], [&quot;app&quot;], [&quot;app&quot;], [&quot;app&quot;], [&quot;app&quot;]]\n<strong>Output</strong>\n[null, null, true, false, true, null, true]\n\n<strong>Explanation</strong>\nTrie trie = new Trie();\ntrie.insert(&quot;apple&quot;);\ntrie.search(&quot;apple&quot;);   // return True\ntrie.search(&quot;app&quot;);     // return False\ntrie.startsWith(&quot;app&quot;); // return True\ntrie.insert(&quot;app&quot;);\ntrie.search(&quot;app&quot;);     // return True\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= word.length, prefix.length &lt;= 2000</code></li>\n\t<li><code>word</code> and <code>prefix</code> consist only of lowercase English letters.</li>\n\t<li>At most <code>3 * 10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>insert</code>, <code>search</code>, and <code>startsWith</code>.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Commands [\"Trie\",\"insert\",\"search\",\"startsWith\",...] and args [[],[word],[word],[prefix],...].",
+    "output_format": "List of results: null for insert/Trie, true/false for search/startsWith.",
+    "constraints": [
+        "1 <= word.length <= 2000",
+        "Lowercase English letters only",
+        "At most 3*10^4 calls"
+    ],
+    "explanation": "<h4>Hash Map Trie Nodes</h4><p>Each trie node stores a dictionary of children and an is_end boolean. Insert walks the trie creating nodes as needed, then marks the last node. Search walks the trie and checks is_end. StartsWith only walks and returns whether the prefix path exists.</p><p><strong>Time:</strong> O(L) per operation where L is word length. <strong>Space:</strong> O(total chars).</p>",
+    "answer": "class TrieNode:\n    def __init__(self):\n        self.children = {}\n        self.is_end = False\n\nclass Trie:\n    def __init__(self):\n        self.root = TrieNode()\n    def insert(self, word):\n        node = self.root\n        for c in word:\n            if c not in node.children:\n                node.children[c] = TrieNode()\n            node = node.children[c]\n        node.is_end = True\n    def search(self, word):\n        node = self.root\n        for c in word:\n            if c not in node.children: return False\n            node = node.children[c]\n        return node.is_end\n    def startsWith(self, prefix):\n        node = self.root\n        for c in prefix:\n            if c not in node.children: return False\n            node = node.children[c]\n        return True",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 208 Implement Trie Prefix Tree here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[\"Trie\",\"insert\",\"search\",\"search\",\"startsWith\",\"insert\",\"search\"]\n[[],[\"apple\"],[\"apple\"],[\"app\"],[\"app\"],[\"app\"],[\"app\"]]",
+            "expected_output": "[null,null,true,false,true,null,true]",
+            "is_sample": true
+        },
+        {
+            "input": "[\"Trie\",\"insert\",\"search\",\"startsWith\"]\n[[],[\"hello\"],[\"hell\"],[\"hell\"]]",
+            "expected_output": "[null,null,false,true]",
+            "is_sample": true
+        },
+        {
+            "input": "[\"Trie\",\"insert\",\"insert\",\"search\",\"search\"]\n[[],[\"a\"],[\"ab\"],[\"a\"],[\"ab\"]]",
+            "expected_output": "[null,null,null,true,true]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Trie\",\"insert\",\"search\",\"startsWith\"]\n[[],[\"abc\"],[\"ab\"],[\"ab\"]]",
+            "expected_output": "[null,null,false,true]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Trie\",\"insert\",\"startsWith\",\"search\"]\n[[],[\"word\"],[\"wor\"],[\"wor\"]]",
+            "expected_output": "[null,null,true,false]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Trie\",\"insert\",\"search\",\"search\",\"startsWith\"]\n[[],[\"banana\"],[\"ban\"],[\"banana\"],[\"ban\"]]",
+            "expected_output": "[null,null,false,true,true]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Trie\",\"insert\",\"insert\",\"search\",\"startsWith\",\"search\",\"startsWith\"]\n[[],[\"dog\"],[\"door\"],[\"do\"],[\"do\"],[\"dog\"],[\"dog\"]]",
+            "expected_output": "[null,null,null,false,true,true,true]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Trie\",\"insert\",\"insert\",\"insert\",\"search\",\"search\",\"search\",\"startsWith\"]\n[[],[\"z\"],[\"zy\"],[\"zyx\"],[\"z\"],[\"zy\"],[\"zyx\"],[\"zy\"]]",
+            "expected_output": "[null,null,null,null,true,true,true,true]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Trie\",\"insert\",\"search\",\"startsWith\",\"search\",\"startsWith\"]\n[[],[\"aaaa\"],[\"a\"],[\"a\"],[\"aa\"],[\"aa\"]]",
+            "expected_output": "[null,null,false,true,false,true]",
+            "is_sample": false
+        },
+        {
+            "input": "[\"Trie\",\"insert\",\"insert\",\"insert\",\"insert\",\"search\",\"startsWith\"]\n[[],[\"ab\"],[\"abc\"],[\"abcd\"],[\"abcde\"],[\"abcde\"],[\"abcde\"]]",
+            "expected_output": "[null,null,null,null,null,true,true]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Hash Table",
+        "String",
+        "Design",
+        "Trie"
+    ],
+    "companyIndex": 12
+}

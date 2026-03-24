@@ -1,0 +1,86 @@
+{
+  "question_text": "<p>Given an integer <code>x</code>, return <code>true</code> if <code>x</code> is palindrome integer.</p>",
+  "difficulty": "EASY",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "1 <= N <= 10^5"
+  ],
+  "explanation": "We can reverse the second half of the number and compare it with the first half. This avoids converting to a string and handles potential overflow. O(log10(N)) time complexity.",
+  "answer": "def solve(x):\n    if x < 0: return False\n    div = 1\n    while x >= 10 * div:\n        div *= 10\n    while x:\n        right = x % 10\n        left = x // div\n        if left != right: return False\n        x = (x % div) // 10\n        div = div / 100\n    return True",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "121",
+      "expected_output": "true",
+      "is_sample": true
+    },
+    {
+      "input": "-121",
+      "expected_output": "false",
+      "is_sample": true
+    },
+    {
+      "input": "10",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "0",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "12321",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "11",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "1001",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "2147483647",
+      "expected_output": "false",
+      "is_sample": false
+    },
+    {
+      "input": "1111111111",
+      "expected_output": "true",
+      "is_sample": false
+    },
+    {
+      "input": "123",
+      "expected_output": "false",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Strings"
+  ],
+  "companyIndex": 6
+}

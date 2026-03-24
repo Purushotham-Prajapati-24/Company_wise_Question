@@ -1,0 +1,90 @@
+{
+  "question_text": "<h3>Word Ladder II</h3><p>Find ALL shortest transformation sequences from beginWord to endWord.</p>",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "String begin, string end, word list.",
+  "output_format": "Array of arrays of strings.",
+  "constraints": [
+    "word length <= 5",
+    "wordList <= 1000"
+  ],
+  "explanation": "First, use BFS to build the adjacency list of shortest paths. Then use DFS/backtracking to find the paths.",
+  "answer": "def findLadders(beginWord, endWord, wordList):\n    wordSet = set(wordList)\n    if endWord not in wordSet: return []\n    layer = {beginWord: [[beginWord]]}\n    while layer:\n        new_layer = {}\n        for word in layer:\n            if word == endWord: return layer[word]\n            for i in range(len(word)):\n                for c in string.ascii_lowercase:\n                    new_word = word[:i] + c + word[i+1:]\n                    if new_word in wordSet:\n                        if new_word not in new_layer: new_layer[new_word] = []\n                        new_layer[new_word] += [path + [new_word] for path in layer[word]]\n        wordSet -= set(new_layer.keys())\n        layer = new_layer\n    return []",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 126 Word Ladder II here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "\"hit\"\n\"cog\"\n[\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"]",
+      "expected_output": "[[\"hit\",\"hot\",\"dot\",\"dog\",\"cog\"],[\"hit\",\"hot\",\"lot\",\"log\",\"cog\"]]",
+      "is_sample": true
+    },
+    {
+      "input": "\"hit\"\n\"cog\"\n[\"hot\",\"dot\",\"dog\",\"lot\",\"log\"]",
+      "expected_output": "[]",
+      "is_sample": true
+    },
+    {
+      "input": "\"a\"\n\"c\"\n[\"a\",\"b\",\"c\"]",
+      "expected_output": "[[\"a\",\"c\"]]",
+      "is_sample": false
+    },
+    {
+      "input": "\"lost\"\n\"cost\"\n[\"most\",\"cost\"]",
+      "expected_output": "[[\"lost\",\"cost\"]]",
+      "is_sample": false
+    },
+    {
+      "input": "\"talk\"\n\"tail\"\n[\"tall\",\"talk\",\"tail\"]",
+      "expected_output": "[[\"talk\",\"tail\"]]",
+      "is_sample": false
+    },
+    {
+      "input": "\"a\"\n\"b\"\n[\"b\"]",
+      "expected_output": "[[\"a\",\"b\"]]",
+      "is_sample": false
+    },
+    {
+      "input": "\"hot\"\n\"dog\"\n[\"hot\",\"dog\"]",
+      "expected_output": "[]",
+      "is_sample": false
+    },
+    {
+      "input": "\"hit\"\n\"cog\"\n[\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"abcde\",\"cog\"]",
+      "expected_output": "[]",
+      "is_sample": false
+    },
+    {
+      "input": "\"hit\"\n\"cog\"\n[\"hot\",\"cog\"]",
+      "expected_output": "[]",
+      "is_sample": false
+    },
+    {
+      "input": "\"a\"\n\"c\"\n[\"b\"]",
+      "expected_output": "[]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "String",
+    "BFS",
+    "Backtracking"
+  ],
+  "companyIndex": 3
+}

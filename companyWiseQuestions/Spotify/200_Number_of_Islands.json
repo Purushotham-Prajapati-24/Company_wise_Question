@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>200 Number of Islands</h3><p><strong>Number of Islands</strong></p><p>Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.</p>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply.",
+    "Time limit: 1s",
+    "Memory limit: 256MB"
+  ],
+  "explanation": "Treat the grid as a graph. Use BFS or DFS to traverse each island. For every unvisited land cell ('1'), perform a search to mark all connected land cells as visited and increment the island count.",
+  "answer": "def solve(grid):\n    if not grid: return 0\n    rows, cols = len(grid), len(grid[0])\n    visit = set()\n    islands = 0\n    def bfs(r, c):\n        q = collections.deque()\n        visit.add((r, c))\n        q.append((r, c))\n        while q:\n            row, col = q.popleft()\n            directions = [[1, 0], [-1, 0], [0, 1], [0, -1]]\n            for dr, dc in directions:\n                nr, nc = row + dr, col + dc\n                if (nr in range(rows) and nc in range(cols) and \n                    grid[nr][nc] == '1' and (nr, nc) not in visit):\n                    q.append((nr, nc))\n                    visit.add((nr, nc))\n    for r in range(rows):\n        for c in range(cols):\n            if grid[r][c] == '1' and (r, c) not in visit:\n                bfs(r, c)\n                islands += 1\n    return islands",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n\nint main() {\n    Solution sol;\n    sol.solve();\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n    public static void main(String[] args) {\n        new Solution().solve();\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "1\" \"1\" \"1\" \"1\" \"0\"\n\"1\" \"1\" \"0\" \"1\" \"0\"\n\"1\" \"1\" \"0\" \"0\" \"0\"\n\"0\" \"0\" \"0\" \"0\" \"0",
+      "expected_output": "1",
+      "is_sample": true
+    },
+    {
+      "input": "1\" \"1\" \"0\" \"0\" \"0\"\n\"1\" \"1\" \"0\" \"0\" \"0\"\n\"0\" \"0\" \"1\" \"0\" \"0\"\n\"0\" \"0\" \"0\" \"1\" \"1",
+      "expected_output": "3",
+      "is_sample": true
+    },
+    {
+      "input": "All water [[\"0\"]*5]*5",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "All land [[\"1\"]*5]*5",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "Checkerboard pattern 10x10",
+      "expected_output": "50",
+      "is_sample": false
+    },
+    {
+      "input": "Single cell '1",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "1",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "1",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "0 else '0' for j in range(300)",
+      "expected_output": "45000",
+      "is_sample": false
+    },
+    {
+      "input": "0",
+      "expected_output": "0",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Graphs"
+  ],
+  "companyIndex": 2
+}

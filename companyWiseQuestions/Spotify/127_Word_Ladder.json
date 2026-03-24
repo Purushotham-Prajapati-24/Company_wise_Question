@@ -1,0 +1,88 @@
+{
+  "question_text": "<h3>127 Word Ladder</h3><p><strong>Word Ladder</strong></p><p>A transformation sequence from word beginWord to word endWord using a dictionary wordList is a sequence of words beginWord -> s1 -> s2 -> ... -> sk such that every adjacent pair of words differs by a single letter. Return the number of words in the shortest transformation sequence.</p>",
+  "difficulty": "HARD",
+  "marks": 20,
+  "input_format": "Space-separated values as per problem arguments.",
+  "output_format": "A single line representing the result.",
+  "constraints": [
+    "Standard LeetCode constraints apply.",
+    "Time limit: 1s",
+    "Memory limit: 256MB"
+  ],
+  "explanation": "Treat the problem as a shortest path search in an unweighted graph where words are nodes. Efficiently find neighbors by changing each character (a-z) at each position. Use BFS to find the shortest distance from beginWord to endWord.",
+  "answer": "def solve(beginWord: str, endWord: str, wordList: List[str]) -> int:\n    if endWord not in wordList:\n        return 0\n    nei = collections.defaultdict(list)\n    wordList.append(beginWord)\n    for word in wordList:\n        for j in range(len(word)):\n            pattern = word[:j] + \"*\" + word[j+1:]\n            nei[pattern].append(word)\n    visit = set([beginWord])\n    q = collections.deque([beginWord])\n    res = 1\n    while q:\n        for i in range(len(q)):\n            word = q.popleft()\n            if word == endWord:\n                return res\n            for j in range(len(word)):\n                pattern = word[:j] + \"*\" + word[j+1:]\n                for neiWord in nei[pattern]:\n                    if neiWord not in visit:\n                        visit.add(neiWord)\n                        q.append(neiWord)\n        res += 1\n    return 0",
+  "boilerplate": {
+    "python": "class Solution:\n    def solve(self):\n        pass",
+    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nclass Solution {\npublic:\n    void solve() {\n    }\n};\n\nint main() {\n    Solution sol;\n    sol.solve();\n    return 0;\n}",
+    "java": "import java.util.*;\n\npublic class Solution {\n    public void solve() {\n    }\n    public static void main(String[] args) {\n        new Solution().solve();\n    }\n}",
+    "javascript": "/**\n * @param {any} input\n * @return {any}\n */\nvar solve = function(input) {\n};",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "hit\ncog\nhot dot dog lot log cog",
+      "expected_output": "5",
+      "is_sample": true
+    },
+    {
+      "input": "hit\ncog\nhot dot dog lot log",
+      "expected_output": "0",
+      "is_sample": true
+    },
+    {
+      "input": "a\nb\na b c",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "abc\ndef\nabc ghi def",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "hot\ndog\nhot dog dot",
+      "expected_output": "3",
+      "is_sample": false
+    },
+    {
+      "input": "cat\nsag\ncat sat sag",
+      "expected_output": "3",
+      "is_sample": false
+    },
+    {
+      "input": "lead\ngold\nload goad gold lead",
+      "expected_output": "4",
+      "is_sample": false
+    },
+    {
+      "input": "start\nend\nstart end",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "a\nc\na b c",
+      "expected_output": "2",
+      "is_sample": false
+    },
+    {
+      "input": "hot\nhot\nhot",
+      "expected_output": "1",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Graphs"
+  ],
+  "companyIndex": 2
+}
