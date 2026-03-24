@@ -1,5 +1,5 @@
 {
-  "question_text": "<h3>Design Log Storage System</h3>null",
+  "question_text": "<h3>Design Log Storage System</h3><p>You are given several logs, where each log contains a unique id and a timestamp.</p>",
   "difficulty": "MEDIUM",
   "marks": 10,
   "input_format": "put and retrieve calls",

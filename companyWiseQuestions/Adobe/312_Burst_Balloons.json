@@ -1,86 +1,86 @@
 {
-  "question_text": "<h3>Burst Balloons</h3><p>You are given `n` balloons, indexed from `0` to `n - 1`. Each balloon is painted with a number on it represented by an array `nums`. You are asked to burst all the balloons. If you burst the `i-th` balloon, you will get `nums[i - 1] * nums[i] * nums[i + 1]` coins. After the burst, the `i - 1` and `i + 1` then becomes adjacent. Find the maximum coins you can collect by bursting the balloons wisely.</p>",
-  "difficulty": "HARD",
-  "marks": 10,
-  "input_format": "Space-separated values as per problem arguments.",
-  "output_format": "A single line representing the result.",
-  "constraints": [
-    "1 <= N <= 10^5"
-  ],
-  "explanation": "We use entry-based dynamic programming. `dp[left][right]` represents the maximum coins we can get by bursting all balloons between indices `left` and `right`. We assume the last balloon to burst in this range is at index `i`. Time complexity is O(N^3).",
-  "answer": "class Solution:\n    def solve(self, nums: List[int]) -> int:\n        nums = [1] + [x for x in nums if x > 0] + [1]\n        n = len(nums)\n        dp = [[0] * n for _ in range(n)]\n        for k in range(2, n):\n            for left in range(0, n - k):\n                right = left + k\n                for i in range(left + 1, right):\n                    dp[left][right] = max(dp[left][right], nums[left] * nums[i] * nums[right] + dp[left][i] + dp[i][right])\n        return dp[0][n - 1]",
-  "boilerplate": {
-    "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
-    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
-    "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
-    "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
-  },
-  "metadata": {
-    "time_limit_ms": 1000,
-    "memory_limit_mb": 256,
-    "allowed_languages": [
-      "python",
-      "cpp",
-      "java",
-      "javascript",
-      "c"
-    ]
-  },
-  "test_cases": [
-    {
-      "input": "3 1 5 8",
-      "expected_output": "167",
-      "is_sample": true
+    "question_text": "<h3>312. Burst Balloons</h3><p>You are given <code>n</code> balloons, indexed from <code>0</code> to <code>n - 1</code>. Each balloon is painted with a number on it represented by an array <code>nums</code>. You are asked to burst all the balloons.</p>\n\n<p>If you burst the <code>i<sup>th</sup></code> balloon, you will get <code>nums[i - 1] * nums[i] * nums[i + 1]</code> coins. If <code>i - 1</code> or <code>i + 1</code> goes out of bounds of the array, then treat it as if there is a balloon with a <code>1</code> painted on it.</p>\n\n<p>Return <em>the maximum coins you can collect by bursting the balloons wisely</em>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [3,1,5,8]\n<strong>Output:</strong> 167\n<strong>Explanation:</strong>\nnums = [3,1,5,8] --&gt; [3,5,8] --&gt; [3,8] --&gt; [8] --&gt; []\ncoins =  3*1*5    +   3*5*8   +  1*3*8  + 1*8*1 = 167</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [1,5]\n<strong>Output:</strong> 10\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>n == nums.length</code></li>\n\t<li><code>1 &lt;= n &lt;= 300</code></li>\n\t<li><code>0 &lt;= nums[i] &lt;= 100</code></li>\n</ul>\n",
+    "difficulty": "HARD",
+    "marks": 10,
+    "input_format": "Space-separated values as per problem arguments.",
+    "output_format": "A single line representing the result.",
+    "constraints": [
+        "1 <= N <= 10^5"
+    ],
+    "explanation": "We use entry-based dynamic programming. `dp[left][right]` represents the maximum coins we can get by bursting all balloons between indices `left` and `right`. We assume the last balloon to burst in this range is at index `i`. Time complexity is O(N^3).",
+    "answer": "class Solution:\n    def solve(self, nums: List[int]) -> int:\n        nums = [1] + [x for x in nums if x > 0] + [1]\n        n = len(nums)\n        dp = [[0] * n for _ in range(n)]\n        for k in range(2, n):\n            for left in range(0, n - k):\n                right = left + k\n                for i in range(left + 1, right):\n                    dp[left][right] = max(dp[left][right], nums[left] * nums[i] * nums[right] + dp[left][i] + dp[i][right])\n        return dp[0][n - 1]",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
+        "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
+        "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
     },
-    {
-      "input": "1 5",
-      "expected_output": "10",
-      "is_sample": true
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
     },
-    {
-      "input": "8",
-      "expected_output": "8",
-      "is_sample": false
-    },
-    {
-      "input": "1 2 3",
-      "expected_output": "12",
-      "is_sample": false
-    },
-    {
-      "input": "7 9 8 0 7",
-      "expected_output": "165",
-      "is_sample": false
-    },
-    {
-      "input": "1 1 1 1",
-      "expected_output": "4",
-      "is_sample": false
-    },
-    {
-      "input": "10  20  30",
-      "expected_output": "6200",
-      "is_sample": false
-    },
-    {
-      "input": "100]*100",
-      "expected_output": "1010000",
-      "is_sample": false
-    },
-    {
-      "input": "list(range(1\n101))",
-      "expected_output": "32340200",
-      "is_sample": false
-    },
-    {
-      "input": "50]*300",
-      "expected_output": "12252550",
-      "is_sample": false
-    }
-  ],
-  "topics": [
-    "Data Structures / Algorithms"
-  ],
-  "companyIndex": 6
+    "test_cases": [
+        {
+            "input": "3 1 5 8",
+            "expected_output": "167",
+            "is_sample": true
+        },
+        {
+            "input": "1 5",
+            "expected_output": "10",
+            "is_sample": true
+        },
+        {
+            "input": "8",
+            "expected_output": "8",
+            "is_sample": false
+        },
+        {
+            "input": "1 2 3",
+            "expected_output": "12",
+            "is_sample": false
+        },
+        {
+            "input": "7 9 8 0 7",
+            "expected_output": "165",
+            "is_sample": false
+        },
+        {
+            "input": "1 1 1 1",
+            "expected_output": "4",
+            "is_sample": false
+        },
+        {
+            "input": "10  20  30",
+            "expected_output": "6200",
+            "is_sample": false
+        },
+        {
+            "input": "100]*100",
+            "expected_output": "1010000",
+            "is_sample": false
+        },
+        {
+            "input": "list(range(1\n101))",
+            "expected_output": "32340200",
+            "is_sample": false
+        },
+        {
+            "input": "50]*300",
+            "expected_output": "12252550",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Data Structures / Algorithms"
+    ],
+    "companyIndex": 6
 }

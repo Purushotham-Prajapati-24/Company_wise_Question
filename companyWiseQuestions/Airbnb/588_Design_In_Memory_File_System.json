@@ -1,90 +1,90 @@
 {
-    "question_text": "<h3>588. Design In-Memory File System</h3>\n<p>Design a data structure that simulates an in-memory file system.</p>\n<p>Implement the FileSystem class:</p>\n<ul>\n    <li><code>FileSystem()</code> Initializes the object of the system.</li>\n    <li><code>List&lt;String&gt; ls(String path)</code>\n    <ul>\n        <li>If <code>path</code> is a file path, returns a list that only contains this file's name.</li>\n        <li>If <code>path</code> is a directory path, returns the list of file and directory names <strong>in this directory</strong>.</li>\n    </ul>\n    The answer should in <strong>lexicographic order</strong>.</li>\n    <li><code>void mkdir(String path)</code> Makes a new directory according to the given <code>path</code>. The given directory path does not exist. If the middle directories in the path do not exist, you should create them as well.</li>\n    <li><code>void addContentToFile(String filePath, String content)</code>\n    <ul>\n        <li>If <code>filePath</code> does not exist, creates that file containing given <code>content</code>.</li>\n        <li>If <code>filePath</code> already exists, appends the given <code>content</code> to original content.</li>\n    </ul>\n    </li>\n    <li><code>String readContentFromFile(String filePath)</code> Returns the content in the file at <code>filePath</code>.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img src=\"https://assets.leetcode.com/uploads/2021/04/28/filesystem.png\" style=\"width: 650px; height: 315px;\" />\n<pre>\n<strong>Input</strong>\n[\"FileSystem\", \"ls\", \"mkdir\", \"addContentToFile\", \"ls\", \"readContentFromFile\"]\n[[], [\"/\"], [\"/a/b/c\"], [\"/a/b/c/d\", \"hello\"], [\"/\"], [\"/a/b/c/d\"]]\n<strong>Output</strong>\n[null, [], null, null, [\"a\"], \"hello\"]\n\n<strong>Explanation</strong>\nFileSystem fileSystem = new FileSystem();\nfileSystem.ls(\"/\");                         // return []\nfileSystem.mkdir(\"/a/b/c\");\nfileSystem.addContentToFile(\"/a/b/c/d\", \"hello\");\nfileSystem.ls(\"/\");                         // return [\"a\"]\nfileSystem.readContentFromFile(\"/a/b/c/d\"); // return \"hello\"\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n<ul>\n    <li><code>1 &lt;= path.length, filePath.length &lt;= 100</code></li>\n    <li><code>path</code> and <code>filePath</code> are absolute paths which begin with <code>'/'</code> and do not end with <code>'/'</code> except that the path is just <code>\"/\"</code>.</li>\n    <li>You can assume that all directory names and file names only contain lowercase letters, and the same names will not exist in the same directory.</li>\n    <li>You can assume that all operations will be passed valid parameters, and users will not attempt to retrieve file content or list a directory or file that does not exist.</li>\n    <li><code>1 &lt;= content.length &lt;= 50</code></li>\n    <li>At most <code>300</code> calls will be made to <code>ls</code>, <code>mkdir</code>, <code>addContentToFile</code>, and <code>readContentFromFile</code>.</li>\n</ul>",
-    "difficulty": "HARD",
-    "marks": 15,
-    "input_format": "Method calls array, args array",
-    "output_format": "Results array",
-    "constraints": [
-        "1 <= path.length <= 100",
-        "1 <= content.length <= 50"
-    ],
-    "explanation": "Create a Node structure representing a file or directory. Keep track of children in a map/dictionary. For ls, sort keys. For cd/mkdir traverse split paths.",
-    "answer": "class FileSystem:\n    def __init__(self):\n        self.root = {\"dirs\":{}, \"files\":{}}\n    def ls(self, path):\n        node = self.root\n        if path != \"/\":\n            for p in path.split('/')[1:]:\n                if p in node[\"files\"]:\n                    return [p]\n                node = node[\"dirs\"][p]\n        return sorted(list(node[\"dirs\"].keys()) + list(node[\"files\"].keys()))\n    def mkdir(self, path):\n        node = self.root\n        for p in path.split('/')[1:]:\n            if p not in node[\"dirs\"]:\n                node[\"dirs\"][p] = {\"dirs\":{}, \"files\":{}}\n            node = node[\"dirs\"][p]\n    def addContentToFile(self, filePath, content):\n        node = self.root\n        parts = filePath.split('/')\n        for p in parts[1:-1]:\n            node = node[\"dirs\"][p]\n        node[\"files\"][parts[-1]] = node[\"files\"].get(parts[-1], \"\") + content\n    def readContentFromFile(self, filePath):\n        node = self.root\n        parts = filePath.split('/')\n        for p in parts[1:-1]:\n            node = node[\"dirs\"][p]\n        return node[\"files\"][parts[-1]]\n\ndef solveFileSystem(commands, args):\n    fs = FileSystem()\n    res = []\n    for cmd, arg in zip(commands, args):\n        if cmd == \"FileSystem\": res.append(None)\n        elif cmd == \"ls\": res.append(fs.ls(arg[0]))\n        elif cmd == \"mkdir\": res.append(fs.mkdir(arg[0]))\n        elif cmd == \"addContentToFile\": res.append(fs.addContentToFile(arg[0], arg[1]))\n        elif cmd == \"readContentFromFile\": res.append(fs.readContentFromFile(arg[0]))\n    return res",
-    "boilerplate": {
-        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Python optimum solution exclusively\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if not input_data or input_data == ['']: sys.exit(0)\n    parsed_args = [json.loads(line) for line in input_data]\n    print(json.dumps(solve(*parsed_args)).replace(' ', ''))",
-        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint solve() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Basic standard IO loop parser\n    string line;\n    while (getline(cin, line)) {\n        // Parse line into arguments and call solve\n    }\n    return 0;\n}",
-        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object solve() {\n        // User logic should be written here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {\n            // Parse line into arguments\n        }\n    }\n}",
-        "javascript": "const fs = require('fs');\n\nfunction solve(...args) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    const parsedArgs = input.map(line => JSON.parse(line));\n    console.log(JSON.stringify(solve(...parsedArgs)));\n}\n\nmodule.exports = solve;",
-        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint solve() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Standard C IO loop\n    return 0;\n}"
+  "question_text": "<h3>588. Design In-Memory File System</h3>\n<p>Design a data structure that simulates an in-memory file system.</p>\n<p>Implement the FileSystem class:</p>\n<ul>\n    <li><code>FileSystem()</code> Initializes the object of the system.</li>\n    <li><code>List&lt;String&gt; ls(String path)</code>\n    <ul>\n        <li>If <code>path</code> is a file path, returns a list that only contains this file's name.</li>\n        <li>If <code>path</code> is a directory path, returns the list of file and directory names <strong>in this directory</strong>.</li>\n    </ul>\n    The answer should in <strong>lexicographic order</strong>.</li>\n    <li><code>void mkdir(String path)</code> Makes a new directory according to the given <code>path</code>. The given directory path does not exist. If the middle directories in the path do not exist, you should create them as well.</li>\n    <li><code>void addContentToFile(String filePath, String content)</code>\n    <ul>\n        <li>If <code>filePath</code> does not exist, creates that file containing given <code>content</code>.</li>\n        <li>If <code>filePath</code> already exists, appends the given <code>content</code> to original content.</li>\n    </ul>\n    </li>\n    <li><code>String readContentFromFile(String filePath)</code> Returns the content in the file at <code>filePath</code>.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img src=\"https://assets.leetcode.com/uploads/2021/04/28/filesystem.png\" style=\"width: 650px; height: 315px;\" />\n<pre>\n<strong>Input</strong>\n[\"FileSystem\", \"ls\", \"mkdir\", \"addContentToFile\", \"ls\", \"readContentFromFile\"]\n[[], [\"/\"], [\"/a/b/c\"], [\"/a/b/c/d\", \"hello\"], [\"/\"], [\"/a/b/c/d\"]]\n<strong>Output</strong>\n[null, [], null, null, [\"a\"], \"hello\"]\n\n<strong>Explanation</strong>\nFileSystem fileSystem = new FileSystem();\nfileSystem.ls(\"/\");                         // return []\nfileSystem.mkdir(\"/a/b/c\");\nfileSystem.addContentToFile(\"/a/b/c/d\", \"hello\");\nfileSystem.ls(\"/\");                         // return [\"a\"]\nfileSystem.readContentFromFile(\"/a/b/c/d\"); // return \"hello\"\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n<ul>\n    <li><code>1 &lt;= path.length, filePath.length &lt;= 100</code></li>\n    <li><code>path</code> and <code>filePath</code> are absolute paths which begin with <code>'/'</code> and do not end with <code>'/'</code> except that the path is just <code>\"/\"</code>.</li>\n    <li>You can assume that all directory names and file names only contain lowercase letters, and the same names will not exist in the same directory.</li>\n    <li>You can assume that all operations will be passed valid parameters, and users will not attempt to retrieve file content or list a directory or file that does not exist.</li>\n    <li><code>1 &lt;= content.length &lt;= 50</code></li>\n    <li>At most <code>300</code> calls will be made to <code>ls</code>, <code>mkdir</code>, <code>addContentToFile</code>, and <code>readContentFromFile</code>.</li>\n</ul>",
+  "difficulty": "HARD",
+  "marks": 15,
+  "input_format": "Method calls array, args array",
+  "output_format": "Results array",
+  "constraints": [
+    "1 <= path.length <= 100",
+    "1 <= content.length <= 50"
+  ],
+  "explanation": "Create a Node structure representing a file or directory. Keep track of children in a map/dictionary. For ls, sort keys. For cd/mkdir traverse split paths.",
+  "answer": "class FileSystem:\n    def __init__(self):\n        self.root = {\"dirs\":{}, \"files\":{}}\n    def ls(self, path):\n        node = self.root\n        if path != \"/\":\n            for p in path.split('/')[1:]:\n                if p in node[\"files\"]:\n                    return [p]\n                node = node[\"dirs\"][p]\n        return sorted(list(node[\"dirs\"].keys()) + list(node[\"files\"].keys()))\n    def mkdir(self, path):\n        node = self.root\n        for p in path.split('/')[1:]:\n            if p not in node[\"dirs\"]:\n                node[\"dirs\"][p] = {\"dirs\":{}, \"files\":{}}\n            node = node[\"dirs\"][p]\n    def addContentToFile(self, filePath, content):\n        node = self.root\n        parts = filePath.split('/')\n        for p in parts[1:-1]:\n            node = node[\"dirs\"][p]\n        node[\"files\"][parts[-1]] = node[\"files\"].get(parts[-1], \"\") + content\n    def readContentFromFile(self, filePath):\n        node = self.root\n        parts = filePath.split('/')\n        for p in parts[1:-1]:\n            node = node[\"dirs\"][p]\n        return node[\"files\"][parts[-1]]\n\ndef solveFileSystem(commands, args):\n    fs = FileSystem()\n    res = []\n    for cmd, arg in zip(commands, args):\n        if cmd == \"FileSystem\": res.append(None)\n        elif cmd == \"ls\": res.append(fs.ls(arg[0]))\n        elif cmd == \"mkdir\": res.append(fs.mkdir(arg[0]))\n        elif cmd == \"addContentToFile\": res.append(fs.addContentToFile(arg[0], arg[1]))\n        elif cmd == \"readContentFromFile\": res.append(fs.readContentFromFile(arg[0]))\n    return res",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Python optimum solution exclusively\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if not input_data or input_data == ['']: sys.exit(0)\n    parsed_args = [json.loads(line) for line in input_data]\n    print(json.dumps(solve(*parsed_args)).replace(' ', ''))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint solve() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Basic standard IO loop parser\n    string line;\n    while (getline(cin, line)) {\n        // Parse line into arguments and call solve\n    }\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object solve() {\n        // User logic should be written here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {\n            // Parse line into arguments\n        }\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve(...args) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    const parsedArgs = input.map(line => JSON.parse(line));\n    console.log(JSON.stringify(solve(...parsedArgs)));\n}\n\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint solve() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Standard C IO loop\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"FileSystem\",\"ls\",\"mkdir\",\"addContentToFile\",\"ls\",\"readContentFromFile\"]\n[[],[\"/\"],[\"/a/b/c\"],[\"/a/b/c/d\",\"hello\"],[\"/\"],[\"/a/b/c/d\"]]",
+      "expected_output": "[null,[],null,null,[\"a\"],\"hello\"]",
+      "is_sample": true
     },
-    "metadata": {
-        "time_limit_ms": 1000,
-        "memory_limit_mb": 256,
-        "allowed_languages": [
-            "python",
-            "cpp",
-            "java",
-            "javascript",
-            "c"
-        ]
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"ls\"]\n[[],[\"/a\"],[\"/\"]]",
+      "expected_output": "[null,null,[\"a\"]]",
+      "is_sample": true
     },
-    "test_cases": [
-        {
-            "input": "[\"FileSystem\",\"ls\",\"mkdir\",\"addContentToFile\",\"ls\",\"readContentFromFile\"]\n[[],[\"/\"],[\"/a/b/c\"],[\"/a/b/c/d\",\"hello\"],[\"/\"],[\"/a/b/c/d\"]]",
-            "expected_output": "[null,[],null,null,[\"a\"],\"hello\"]",
-            "is_sample": true
-        },
-        {
-            "input": "[\"FileSystem\",\"mkdir\",\"ls\"]\n[[],[\"/a\"],[\"/\"]]",
-            "expected_output": "[null,null,[\"a\"]]",
-            "is_sample": true
-        },
-        {
-            "input": "[\"FileSystem\",\"ls\",\"mkdir\",\"addContentToFile\",\"ls\",\"readContentFromFile\"]\n[[],[\"/\"],[\"/a/b/c\"],[\"/a/b/c/d\",\"hello\"],[\"/\"],[\"/a/b/c/d\"]]",
-            "expected_output": "[null,[],null,null,[\"a\"],\"hello\"]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"mkdir\",\"ls\"]\n[[],[\"/a\"],[\"/\"]]",
-            "expected_output": "[null,null,[\"a\"]]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"ls\",\"mkdir\",\"addContentToFile\",\"ls\",\"readContentFromFile\"]\n[[],[\"/\"],[\"/a/b/c\"],[\"/a/b/c/d\",\"hello\"],[\"/\"],[\"/a/b/c/d\"]]",
-            "expected_output": "[null,[],null,null,[\"a\"],\"hello\"]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"mkdir\",\"ls\"]\n[[],[\"/a\"],[\"/\"]]",
-            "expected_output": "[null,null,[\"a\"]]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"ls\",\"mkdir\",\"addContentToFile\",\"ls\",\"readContentFromFile\"]\n[[],[\"/\"],[\"/a/b/c\"],[\"/a/b/c/d\",\"hello\"],[\"/\"],[\"/a/b/c/d\"]]",
-            "expected_output": "[null,[],null,null,[\"a\"],\"hello\"]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"mkdir\",\"addContentToFile\",\"ls\",\"readContentFromFile\"]\n[[],[\"/dir/sub/path\"],[\"/dir/sub/path/file.txt\",\"content123\"],[\"/dir/sub/path\"],[\"/dir/sub/path/file.txt\"]]",
-            "expected_output": "[null, null, null, [\"file.txt\"], \"content123\"]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"mkdir\",\"ls\",\"mkdir\",\"ls\"]\n[[],[\"/long/path/name/v1\"],[\"/long/path/name\"],[\"/long/path/name/v2\"],[\"/long/path/name\"]]",
-            "expected_output": "[null, null, [\"v1\"], null, [\"v1\", \"v2\"]]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"ls\"]\n[[],[\"/\"]]",
-            "expected_output": "[null, []]",
-            "is_sample": false
-        }
-    ],
-    "topics": [
-        "Hash Table",
-        "String",
-        "Design",
-        "Trie"
-    ],
-    "companyIndex": 5
+    {
+      "input": "[\"FileSystem\",\"ls\",\"mkdir\",\"addContentToFile\",\"ls\",\"readContentFromFile\"]\n[[],[\"/\"],[\"/a/b/c\"],[\"/a/b/c/d\",\"hello\"],[\"/\"],[\"/a/b/c/d\"]]",
+      "expected_output": "[null,[],null,null,[\"a\"],\"hello\"]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"ls\"]\n[[],[\"/a\"],[\"/\"]]",
+      "expected_output": "[null,null,[\"a\"]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"ls\",\"mkdir\",\"addContentToFile\",\"ls\",\"readContentFromFile\"]\n[[],[\"/\"],[\"/a/b/c\"],[\"/a/b/c/d\",\"hello\"],[\"/\"],[\"/a/b/c/d\"]]",
+      "expected_output": "[null,[],null,null,[\"a\"],\"hello\"]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"ls\"]\n[[],[\"/a\"],[\"/\"]]",
+      "expected_output": "[null,null,[\"a\"]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"ls\",\"mkdir\",\"addContentToFile\",\"ls\",\"readContentFromFile\"]\n[[],[\"/\"],[\"/a/b/c\"],[\"/a/b/c/d\",\"hello\"],[\"/\"],[\"/a/b/c/d\"]]",
+      "expected_output": "[null,[],null,null,[\"a\"],\"hello\"]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"addContentToFile\",\"ls\",\"readContentFromFile\"]\n[[],[\"/dir/sub/path\"],[\"/dir/sub/path/file.txt\",\"content123\"],[\"/dir/sub/path\"],[\"/dir/sub/path/file.txt\"]]",
+      "expected_output": "[null, null, null, [\"file.txt\"], \"content123\"]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"mkdir\",\"ls\",\"mkdir\",\"ls\"]\n[[],[\"/long/path/name/v1\"],[\"/long/path/name\"],[\"/long/path/name/v2\"],[\"/long/path/name\"]]",
+      "expected_output": "[null, null, [\"v1\"], null, [\"v1\", \"v2\"]]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"ls\"]\n[[],[\"/\"]]",
+      "expected_output": "[null, []]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "String",
+    "Design",
+    "Trie"
+  ],
+  "companyIndex": 21
 }

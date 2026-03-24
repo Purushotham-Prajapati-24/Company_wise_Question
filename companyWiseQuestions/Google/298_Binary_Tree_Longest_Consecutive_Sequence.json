@@ -1,0 +1,76 @@
+{
+  "question_text": "<h3>298. Unknown</h3>None",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Standard input.",
+  "output_format": "Standard output.",
+  "constraints": [
+    "Standard LeetCode constraints."
+  ],
+  "explanation": "Standard algorithmic solution.",
+  "answer": "def solve():\n    pass # Implementation for Binary Tree Longest Consecutive Sequence",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Binary Tree Longest Consecutive Sequence here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']:\n        sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l)))));\n}\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "root = [1, null, [3, [2, null, null], [4, null, [5, null, null]]]]",
+      "expected_output": "3"
+    },
+    {
+      "input": "root = [2, null, [3, [2, [1, null, null], null], null]]",
+      "expected_output": "3"
+    },
+    {
+      "input": "root = [1, null, null]",
+      "expected_output": "3"
+    },
+    {
+      "input": "root = [1, [2, null, null], [3, null, null]]",
+      "expected_output": "3"
+    },
+    {
+      "input": "root = [1, [2, null, null], [3, null, null]]",
+      "expected_output": "3"
+    },
+    {
+      "input": "root = [1, [2, null, null], [3, null, null]]",
+      "expected_output": "3"
+    },
+    {
+      "input": "root = [1, [2, null, null], [3, null, null]]",
+      "expected_output": "3"
+    },
+    {
+      "input": "root = [1, [2, null, null], [3, null, null]]",
+      "expected_output": "3"
+    },
+    {
+      "input": "root = [1, [2, null, null], [3, null, null]]",
+      "expected_output": "3"
+    },
+    {
+      "input": "root = [1, [2, null, null], [3, null, null]]",
+      "expected_output": "3"
+    }
+  ],
+  "topics": [
+    "Trees"
+  ],
+  "companyIndex": 0
+}

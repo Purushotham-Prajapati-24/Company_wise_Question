@@ -1,86 +1,86 @@
 {
-  "question_text": "<p>Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M. Given a roman numeral, convert it to an integer.</p>",
-  "difficulty": "EASY",
-  "marks": 10,
-  "input_format": "Space-separated values as per problem arguments.",
-  "output_format": "A single line representing the result.",
-  "constraints": [
-    "1 <= N <= 10^5"
-  ],
-  "explanation": "We iterate through the string and map each Roman symbol to its value. If a smaller symbol appears before a larger one, it's a subtraction case (like IV = 4). Otherwise, we simply add the value. This is O(N) where N is the length of the string.",
-  "answer": "def solve(s):\n    m = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\n    ans = 0\n    for i in range(len(s)):\n        if i < len(s) - 1 and m[s[i]] < m[s[i+1]]:\n            ans -= m[s[i]]\n        else:\n            ans += m[s[i]]\n    return ans",
-  "boilerplate": {
-    "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
-    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
-    "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
-    "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
-  },
-  "metadata": {
-    "time_limit_ms": 1000,
-    "memory_limit_mb": 256,
-    "allowed_languages": [
-      "python",
-      "cpp",
-      "java",
-      "javascript",
-      "c"
-    ]
-  },
-  "test_cases": [
-    {
-      "input": "III",
-      "expected_output": "3",
-      "is_sample": true
+    "question_text": "<h3>13. Roman to Integer</h3><p>Roman numerals are represented by seven different symbols:&nbsp;<code>I</code>, <code>V</code>, <code>X</code>, <code>L</code>, <code>C</code>, <code>D</code> and <code>M</code>.</p>\n\n<pre>\n<strong>Symbol</strong>       <strong>Value</strong>\nI             1\nV             5\nX             10\nL             50\nC             100\nD             500\nM             1000</pre>\n\n<p>For example,&nbsp;<code>2</code> is written as <code>II</code>&nbsp;in Roman numeral, just two ones added together. <code>12</code> is written as&nbsp;<code>XII</code>, which is simply <code>X + II</code>. The number <code>27</code> is written as <code>XXVII</code>, which is <code>XX + V + II</code>.</p>\n\n<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not <code>IIII</code>. Instead, the number four is written as <code>IV</code>. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as <code>IX</code>. There are six instances where subtraction is used:</p>\n\n<ul>\n\t<li><code>I</code> can be placed before <code>V</code> (5) and <code>X</code> (10) to make 4 and 9.&nbsp;</li>\n\t<li><code>X</code> can be placed before <code>L</code> (50) and <code>C</code> (100) to make 40 and 90.&nbsp;</li>\n\t<li><code>C</code> can be placed before <code>D</code> (500) and <code>M</code> (1000) to make 400 and 900.</li>\n</ul>\n\n<p>Given a roman numeral, convert it to an integer.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> s = &quot;III&quot;\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> III = 3.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> s = &quot;LVIII&quot;\n<strong>Output:</strong> 58\n<strong>Explanation:</strong> L = 50, V= 5, III = 3.\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> s = &quot;MCMXCIV&quot;\n<strong>Output:</strong> 1994\n<strong>Explanation:</strong> M = 1000, CM = 900, XC = 90 and IV = 4.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= s.length &lt;= 15</code></li>\n\t<li><code>s</code> contains only&nbsp;the characters <code>(&#39;I&#39;, &#39;V&#39;, &#39;X&#39;, &#39;L&#39;, &#39;C&#39;, &#39;D&#39;, &#39;M&#39;)</code>.</li>\n\t<li>It is <strong>guaranteed</strong>&nbsp;that <code>s</code> is a valid roman numeral in the range <code>[1, 3999]</code>.</li>\n</ul>\n",
+    "difficulty": "EASY",
+    "marks": 10,
+    "input_format": "Space-separated values as per problem arguments.",
+    "output_format": "A single line representing the result.",
+    "constraints": [
+        "1 <= N <= 10^5"
+    ],
+    "explanation": "We iterate through the string and map each Roman symbol to its value. If a smaller symbol appears before a larger one, it's a subtraction case (like IV = 4). Otherwise, we simply add the value. This is O(N) where N is the length of the string.",
+    "answer": "def solve(s):\n    m = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\n    ans = 0\n    for i in range(len(s)):\n        if i < len(s) - 1 and m[s[i]] < m[s[i+1]]:\n            ans -= m[s[i]]\n        else:\n            ans += m[s[i]]\n    return ans",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
+        "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
+        "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
     },
-    {
-      "input": "LVIII",
-      "expected_output": "58",
-      "is_sample": true
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
     },
-    {
-      "input": "MCMXCIV",
-      "expected_output": "1994",
-      "is_sample": false
-    },
-    {
-      "input": "I",
-      "expected_output": "1",
-      "is_sample": false
-    },
-    {
-      "input": "MMMCMXCIX",
-      "expected_output": "3999",
-      "is_sample": false
-    },
-    {
-      "input": "IV",
-      "expected_output": "4",
-      "is_sample": false
-    },
-    {
-      "input": "IX",
-      "expected_output": "9",
-      "is_sample": false
-    },
-    {
-      "input": "CD",
-      "expected_output": "400",
-      "is_sample": false
-    },
-    {
-      "input": "CM",
-      "expected_output": "900",
-      "is_sample": false
-    },
-    {
-      "input": "D",
-      "expected_output": "500",
-      "is_sample": false
-    }
-  ],
-  "topics": [
-    "Math"
-  ],
-  "companyIndex": 6
+    "test_cases": [
+        {
+            "input": "III",
+            "expected_output": "3",
+            "is_sample": true
+        },
+        {
+            "input": "LVIII",
+            "expected_output": "58",
+            "is_sample": true
+        },
+        {
+            "input": "MCMXCIV",
+            "expected_output": "1994",
+            "is_sample": false
+        },
+        {
+            "input": "I",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "MMMCMXCIX",
+            "expected_output": "3999",
+            "is_sample": false
+        },
+        {
+            "input": "IV",
+            "expected_output": "4",
+            "is_sample": false
+        },
+        {
+            "input": "IX",
+            "expected_output": "9",
+            "is_sample": false
+        },
+        {
+            "input": "CD",
+            "expected_output": "400",
+            "is_sample": false
+        },
+        {
+            "input": "CM",
+            "expected_output": "900",
+            "is_sample": false
+        },
+        {
+            "input": "D",
+            "expected_output": "500",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Math"
+    ],
+    "companyIndex": 6
 }

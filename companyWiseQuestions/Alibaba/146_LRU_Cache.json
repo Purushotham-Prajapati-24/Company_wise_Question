@@ -1,5 +1,5 @@
 {
-  "question_text": "<h3>LRU Cache</h3><p>Design LRU cache.</p>",
+  "question_text": "<h3>LRU Cache</h3><p>Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.</p>",
   "difficulty": "MEDIUM",
   "marks": 10,
   "input_format": "Commands/Args.",

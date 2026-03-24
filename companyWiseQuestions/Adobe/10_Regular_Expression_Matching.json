@@ -1,86 +1,86 @@
 {
-  "question_text": "<p>Given an input string <code>s</code> and a pattern <code>p</code>, implement regular expression matching with support for <code>'.'</code> and <code>'*'</code>.</p>",
-  "difficulty": "HARD",
-  "marks": 10,
-  "input_format": "Space-separated values as per problem arguments.",
-  "output_format": "A single line representing the result.",
-  "constraints": [
-    "1 <= N <= 10^5"
-  ],
-  "explanation": "We use recursion with memoization (top-down DP). The key cases are handling the '*' quantifier (skip the quantifier or use it if characters match) and '.' matching any character. Time complexity O(SP).",
-  "answer": "def solve(s, p):\n    cache = {}\n    def dfs(i, j):\n        if (i, j) in cache: return cache[(i, j)]\n        if i >= len(s) and j >= len(p): return True\n        if j >= len(p): return False\n        match = i < len(s) and (s[i] == p[j] or p[j] == \".\")\n        if (j + 1) < len(p) and p[j + 1] == \"*\":\n            cache[(i, j)] = (dfs(i, j + 2) or (match and dfs(i + 1, j)))\n            return cache[(i, j)]\n        if match: \n            cache[(i, j)] = dfs(i + 1, j + 1)\n            return cache[(i, j)]\n        cache[(i, j)] = False\n        return False\n    return dfs(0, 0)",
-  "boilerplate": {
-    "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
-    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
-    "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
-    "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
-  },
-  "metadata": {
-    "time_limit_ms": 1000,
-    "memory_limit_mb": 256,
-    "allowed_languages": [
-      "python",
-      "cpp",
-      "java",
-      "javascript",
-      "c"
-    ]
-  },
-  "test_cases": [
-    {
-      "input": "aa\na",
-      "expected_output": "false",
-      "is_sample": true
+    "question_text": "<h3>10. Regular Expression Matching</h3><p>Given an input string <code>s</code>&nbsp;and a pattern <code>p</code>, implement regular expression matching with support for <code>&#39;.&#39;</code> and <code>&#39;*&#39;</code> where:</p>\n\n<ul>\n\t<li><code>&#39;.&#39;</code> Matches any single character.​​​​</li>\n\t<li><code>&#39;*&#39;</code> Matches zero or more of the preceding element.</li>\n</ul>\n\n<p>Return a boolean indicating whether the matching covers the entire input string (not partial).</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> s = &quot;aa&quot;, p = &quot;a&quot;\n<strong>Output:</strong> false\n<strong>Explanation:</strong> &quot;a&quot; does not match the entire string &quot;aa&quot;.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> s = &quot;aa&quot;, p = &quot;a*&quot;\n<strong>Output:</strong> true\n<strong>Explanation:</strong> &#39;*&#39; means zero or more of the preceding element, &#39;a&#39;. Therefore, by repeating &#39;a&#39; once, it becomes &quot;aa&quot;.\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> s = &quot;ab&quot;, p = &quot;.*&quot;\n<strong>Output:</strong> true\n<strong>Explanation:</strong> &quot;.*&quot; means &quot;zero or more (*) of any character (.)&quot;.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= s.length&nbsp;&lt;= 20</code></li>\n\t<li><code>1 &lt;= p.length&nbsp;&lt;= 20</code></li>\n\t<li><code>s</code> contains only lowercase English letters.</li>\n\t<li><code>p</code> contains only lowercase English letters, <code>&#39;.&#39;</code>, and&nbsp;<code>&#39;*&#39;</code>.</li>\n\t<li>It is guaranteed for each appearance of the character <code>&#39;*&#39;</code>, there will be a previous valid character to match.</li>\n</ul>\n",
+    "difficulty": "HARD",
+    "marks": 10,
+    "input_format": "Space-separated values as per problem arguments.",
+    "output_format": "A single line representing the result.",
+    "constraints": [
+        "1 <= N <= 10^5"
+    ],
+    "explanation": "We use recursion with memoization (top-down DP). The key cases are handling the '*' quantifier (skip the quantifier or use it if characters match) and '.' matching any character. Time complexity O(SP).",
+    "answer": "def solve(s, p):\n    cache = {}\n    def dfs(i, j):\n        if (i, j) in cache: return cache[(i, j)]\n        if i >= len(s) and j >= len(p): return True\n        if j >= len(p): return False\n        match = i < len(s) and (s[i] == p[j] or p[j] == \".\")\n        if (j + 1) < len(p) and p[j + 1] == \"*\":\n            cache[(i, j)] = (dfs(i, j + 2) or (match and dfs(i + 1, j)))\n            return cache[(i, j)]\n        if match: \n            cache[(i, j)] = dfs(i + 1, j + 1)\n            return cache[(i, j)]\n        cache[(i, j)] = False\n        return False\n    return dfs(0, 0)",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
+        "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
+        "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
     },
-    {
-      "input": "aa\na*",
-      "expected_output": "true",
-      "is_sample": true
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
     },
-    {
-      "input": "ab\n.*",
-      "expected_output": "true",
-      "is_sample": false
-    },
-    {
-      "input": "aab\nc*a*b",
-      "expected_output": "true",
-      "is_sample": false
-    },
-    {
-      "input": "mississippi\nmis*is*p*.",
-      "expected_output": "false",
-      "is_sample": false
-    },
-    {
-      "input": "aaa\na*a",
-      "expected_output": "true",
-      "is_sample": false
-    },
-    {
-      "input": "aaa\nab*a*c*a",
-      "expected_output": "true",
-      "is_sample": false
-    },
-    {
-      "input": "aaaaaaaaaa\na*b*c*d*e*f*g*h*i*j*",
-      "expected_output": "true",
-      "is_sample": false
-    },
-    {
-      "input": "ab\n.*c",
-      "expected_output": "false",
-      "is_sample": false
-    },
-    {
-      "input": "ab\n.b",
-      "expected_output": "true",
-      "is_sample": false
-    }
-  ],
-  "topics": [
-    "Data Structures / Algorithms"
-  ],
-  "companyIndex": 6
+    "test_cases": [
+        {
+            "input": "aa\na",
+            "expected_output": "false",
+            "is_sample": true
+        },
+        {
+            "input": "aa\na*",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "ab\n.*",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "aab\nc*a*b",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "mississippi\nmis*is*p*.",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "aaa\na*a",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "aaa\nab*a*c*a",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "aaaaaaaaaa\na*b*c*d*e*f*g*h*i*j*",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "ab\n.*c",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "ab\n.b",
+            "expected_output": "true",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Data Structures / Algorithms"
+    ],
+    "companyIndex": 6
 }

@@ -1,0 +1,92 @@
+{
+  "question_text": "<p>You have <code>k</code> lists of sorted integers in <strong>non-decreasing&nbsp;order</strong>. Find the <b>smallest</b> range that includes at least one number from each of the <code>k</code> lists.</p>\n\n<p>We define the range <code>[a, b]</code> is smaller than range <code>[c, d]</code> if <code>b - a &lt; d - c</code> <strong>or</strong> <code>a &lt; c</code> if <code>b - a == d - c</code>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [[4,10,15,24,26],[0,9,12,20],[5,18,22,30]]\n<strong>Output:</strong> [20,24]\n<strong>Explanation: </strong>\nList 1: [4, 10, 15, 24,26], 24 is in range [20,24].\nList 2: [0, 9, 12, 20], 20 is in range [20,24].\nList 3: [5, 18, 22, 30], 22 is in range [20,24].\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> nums = [[1,2,3],[1,2,3],[1,2,3]]\n<strong>Output:</strong> [1,1]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>nums.length == k</code></li>\n\t<li><code>1 &lt;= k &lt;= 3500</code></li>\n\t<li><code>1 &lt;= nums[i].length &lt;= 50</code></li>\n\t<li><code>-10<sup>5</sup> &lt;= nums[i][j] &lt;= 10<sup>5</sup></code></li>\n\t<li><code>nums[i]</code>&nbsp;is sorted in <strong>non-decreasing</strong> order.</li>\n</ul>\n",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "List of lists.",
+  "output_format": "Range [start, end].",
+  "constraints": [
+    "nums.length == k",
+    "1 <= k <= 3500",
+    "1 <= nums[i].length <= 50"
+  ],
+  "explanation": "Use a min-priority queue to keep track of the minimum element among the pointers in the `k` lists. Also track the maximum element currently in the heap. The current range is `[min, max]`. Advance the pointer of the list that provided the min element.",
+  "answer": "import heapq\ndef smallestRange(nums):\n    heap = [(row[0], i, 0) for i, row in enumerate(nums)]\n    heapq.heapify(heap)\n    ans = -1e9, 1e9\n    right = max(row[0] for row in nums)\n    while heap:\n        left, i, j = heapq.heappop(heap)\n        if right - left < ans[1] - ans[0]:\n            ans = left, right\n        if j + 1 == len(nums[i]):\n            return ans\n        v = nums[i][j+1]\n        right = max(right, v)\n        heapq.heappush(heap, (v, i, j+1))",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 632 Smallest Range Covering Elements from K Lists here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']:\n        sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l)))));\n}\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[[4,10,15,24,26],[0,9,12,20],[5,18,22,30]]",
+      "expected_output": "[20,24]",
+      "is_sample": true
+    },
+    {
+      "input": "[[1,2,3],[1,2,3],[1,2,3]]",
+      "expected_output": "[1,1]",
+      "is_sample": true
+    },
+    {
+      "input": "[[1],[2],[3]]",
+      "expected_output": "[1,3]",
+      "is_sample": false
+    },
+    {
+      "input": "[[1,10],[2,11],[3,12]]",
+      "expected_output": "[1,3]",
+      "is_sample": false
+    },
+    {
+      "input": "[[1,5,10],[1,5,10]]",
+      "expected_output": "[1,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[[10,20],[15,25],[18,22]]",
+      "expected_output": "[18,20]",
+      "is_sample": false
+    },
+    {
+      "input": "[[1,100],[1,100]]",
+      "expected_output": "[1,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[[1,2,7],[3,6,7],[8,9]]",
+      "expected_output": "[7,8]",
+      "is_sample": false
+    },
+    {
+      "input": "[[0,0,0],[0,0,0]]",
+      "expected_output": "[0,0]",
+      "is_sample": false
+    },
+    {
+      "input": "[[1,10,20],[5,15,25]]",
+      "expected_output": "[1,5]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Hash Table",
+    "Sorting",
+    "Sliding Window",
+    "Heap (Priority Queue)"
+  ],
+  "companyIndex": 29
+}

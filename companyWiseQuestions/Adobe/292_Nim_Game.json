@@ -1,0 +1,86 @@
+{
+    "question_text": "<h3>292. Nim Game</h3><p>You are playing the following Nim Game with your friend:</p>\n\n<ul>\n\t<li>Initially, there is a heap of stones on the table.</li>\n\t<li>You and your friend will alternate taking turns, and <strong>you go first</strong>.</li>\n\t<li>On each turn, the person whose turn it is will remove 1 to 3 stones from the heap.</li>\n\t<li>The one who removes the last stone is the winner.</li>\n</ul>\n\n<p>Given <code>n</code>, the number of stones in the heap, return <code>true</code><em> if you can win the game assuming both you and your friend play optimally, otherwise return </em><code>false</code>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> n = 4\n<strong>Output:</strong> false\n<strong>Explanation:</strong> These are the possible outcomes:\n1. You remove 1 stone. Your friend removes 3 stones, including the last stone. Your friend wins.\n2. You remove 2 stones. Your friend removes 2 stones, including the last stone. Your friend wins.\n3. You remove 3 stones. Your friend removes the last stone. Your friend wins.\nIn all outcomes, your friend wins.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> n = 1\n<strong>Output:</strong> true\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> n = 2\n<strong>Output:</strong> true\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>\n</ul>\n",
+    "difficulty": "EASY",
+    "marks": 10,
+    "input_format": "Standard input.",
+    "output_format": "Standard output.",
+    "constraints": [
+        "Standard LeetCode constraints."
+    ],
+    "explanation": "Standard algorithmic solution.",
+    "answer": "def solve():\n    pass # Implementation for Nim Game",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Nim Game here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']:\n        sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l)))));\n}\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 512,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": true
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": true
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Data Structures / Algorithms"
+    ],
+    "companyIndex": 6
+}

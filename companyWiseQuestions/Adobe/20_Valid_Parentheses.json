@@ -1,86 +1,86 @@
 {
-  "question_text": "<h3>Valid Parentheses</h3><p>Given a string `s` containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.</p>",
-  "difficulty": "EASY",
-  "marks": 10,
-  "input_format": "Space-separated values as per problem arguments.",
-  "output_format": "A single line representing the result.",
-  "constraints": [
-    "1 <= N <= 10^5"
-  ],
-  "explanation": "We use a stack to keep track of opening brackets. When a closing bracket is encountered, it must match the top of the stack. O(N) time and O(N) space.",
-  "answer": "class Solution:\n    def solve(self, s: str) -> bool:\n        stack = []\n        mapping = {')': '(', '}': '{', ']': '['}\n        for char in s:\n            if char in mapping:\n                top = stack.pop() if stack else '#'\n                if mapping[char] != top: return False\n            else:\n                stack.append(char)\n        return not stack",
-  "boilerplate": {
-    "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
-    "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
-    "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
-    "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
-  },
-  "metadata": {
-    "time_limit_ms": 1000,
-    "memory_limit_mb": 256,
-    "allowed_languages": [
-      "python",
-      "cpp",
-      "java",
-      "javascript",
-      "c"
-    ]
-  },
-  "test_cases": [
-    {
-      "input": "()",
-      "expected_output": "true",
-      "is_sample": true
+    "question_text": "<h3>20. Valid Parentheses</h3><p>Given a string <code>s</code> containing just the characters <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code>, <code>&#39;{&#39;</code>, <code>&#39;}&#39;</code>, <code>&#39;[&#39;</code> and <code>&#39;]&#39;</code>, determine if the input string is valid.</p>\n\n<p>An input string is valid if:</p>\n\n<ol>\n\t<li>Open brackets must be closed by the same type of brackets.</li>\n\t<li>Open brackets must be closed in the correct order.</li>\n\t<li>Every close bracket has a corresponding open bracket of the same type.</li>\n</ol>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">s = &quot;()&quot;</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">true</span></p>\n</div>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">s = &quot;()[]{}&quot;</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">true</span></p>\n</div>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">s = &quot;(]&quot;</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">false</span></p>\n</div>\n\n<p><strong class=\"example\">Example 4:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">s = &quot;([])&quot;</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">true</span></p>\n</div>\n\n<p><strong class=\"example\">Example 5:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">s = &quot;([)]&quot;</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">false</span></p>\n</div>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li>\n\t<li><code>s</code> consists of parentheses only <code>&#39;()[]{}&#39;</code>.</li>\n</ul>\n",
+    "difficulty": "EASY",
+    "marks": 10,
+    "input_format": "Space-separated values as per problem arguments.",
+    "output_format": "A single line representing the result.",
+    "constraints": [
+        "1 <= N <= 10^5"
+    ],
+    "explanation": "We use a stack to keep track of opening brackets. When a closing bracket is encountered, it must match the top of the stack. O(N) time and O(N) space.",
+    "answer": "class Solution:\n    def solve(self, s: str) -> bool:\n        stack = []\n        mapping = {')': '(', '}': '{', ']': '['}\n        for char in s:\n            if char in mapping:\n                top = stack.pop() if stack else '#'\n                if mapping[char] != top: return False\n            else:\n                stack.append(char)\n        return not stack",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
+        "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
+        "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
     },
-    {
-      "input": "()[]{}",
-      "expected_output": "true",
-      "is_sample": true
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
     },
-    {
-      "input": "(]",
-      "expected_output": "false",
-      "is_sample": false
-    },
-    {
-      "input": "([)]",
-      "expected_output": "false",
-      "is_sample": false
-    },
-    {
-      "input": "{[]}",
-      "expected_output": "true",
-      "is_sample": false
-    },
-    {
-      "input": "",
-      "expected_output": "true",
-      "is_sample": false
-    },
-    {
-      "input": "[",
-      "expected_output": "false",
-      "is_sample": false
-    },
-    {
-      "input": "(\"*10**4 + \")\"*10**4",
-      "expected_output": "true",
-      "is_sample": false
-    },
-    {
-      "input": "(\"()\"*5000) + \"(",
-      "expected_output": "false",
-      "is_sample": false
-    },
-    {
-      "input": "(\" + \"[]\"*10**4 + \")",
-      "expected_output": "true",
-      "is_sample": false
-    }
-  ],
-  "topics": [
-    "Data Structures / Algorithms"
-  ],
-  "companyIndex": 6
+    "test_cases": [
+        {
+            "input": "()",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "()[]{}",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "(]",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "([)]",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "{[]}",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "[",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "(\"*10**4 + \")\"*10**4",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "(\"()\"*5000) + \"(",
+            "expected_output": "false",
+            "is_sample": false
+        },
+        {
+            "input": "(\" + \"[]\"*10**4 + \")",
+            "expected_output": "true",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Data Structures / Algorithms"
+    ],
+    "companyIndex": 6
 }

@@ -1,15 +1,14 @@
 {
-  "question_text": "<h3>Course Schedule II</h3><p>There are a total of <code>numCourses</code> courses you have to take, labeled from <code>0</code> to <code>numCourses - 1</code>. You are given an array <code>prerequisites</code> where <code>prerequisites[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that you must take course <code>b<sub>i</sub></code> first to take <code>a<sub>i</sub></code>. Return the ordering of courses you should take to finish all courses. If there are many valid answers, return any of them. If it is impossible, return an empty array.</p>\n<p><strong>Constraints:</strong></p><ul><li><code>1 &lt;= numCourses &lt;= 2000</code></li><li><code>0 &lt;= prerequisites.length &lt;= numCourses * (numCourses - 1)</code></li><li>All pairs prerequisites[i] are distinct.</li></ul>",
+  "question_text": "<h3>Course Schedule II</h3><p>Return the ordering of courses you should take to finish $numCourses$. If impossible, return an empty array.</p>",
   "difficulty": "MEDIUM",
   "marks": 10,
-  "input_format": "Integer numCourses and array prerequisites [[ai,bi],…].",
-  "output_format": "An array representing a valid course order, or an empty array if impossible.",
+  "input_format": "numCourses, prerequisites.",
+  "output_format": "Ordering (Arr).",
   "constraints": [
-    "1 <= numCourses <= 2000",
-    "0 <= prerequisites.length <= numCourses*(numCourses-1)"
+    "numCourses <= 2000"
   ],
-  "explanation": "<h4>Kahn's Algorithm (BFS Topological Sort)</h4><p>Build adjacency list and in-degree array. Use a queue initialized with all nodes of in-degree 0. Dequeue, add to result, decrement neighbors' in-degrees; enqueue any that reach 0. If result length equals numCourses, a valid ordering exists.</p><p><strong>Time:</strong> O(V+E). <strong>Space:</strong> O(V+E).</p>",
-  "answer": "from collections import deque\ndef findOrder(numCourses, prerequisites):\n    adj = [[] for _ in range(numCourses)]\n    deg = [0] * numCourses\n    for a, b in prerequisites:\n        adj[b].append(a); deg[a] += 1\n    q = deque(i for i in range(numCourses) if deg[i] == 0)\n    res = []\n    while q:\n        u = q.popleft(); res.append(u)\n        for v in adj[u]:\n            deg[v] -= 1\n            if deg[v] == 0: q.append(v)\n    return res if len(res) == numCourses else []",
+  "explanation": "Use Kahn's algorithm for topological sort (BFS with in-degrees) or DFS with cycle detection. If the number of sorted nodes equals $numCourses$, return the order; otherwise, return `[]`.",
+  "answer": "def findOrder(numCourses, prerequisites):\n    adj = [[] for _ in range(numCourses)]\n    indegree = [0] * numCourses\n    for dest, src in prerequisites:\n        adj[src].append(dest); indegree[dest] += 1\n    q = collections.deque([i for i, d in enumerate(indegree) if d == 0])\n    res = []\n    while q:\n        u = q.popleft(); res.append(u)\n        for v in adj[u]:\n            indegree[v] -= 1\n            if indegree[v] == 0: q.append(v)\n    return res if len(res) == numCourses else []",
   "boilerplate": {
     "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 210 Course Schedule II here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
     "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
@@ -18,8 +17,8 @@
     "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
   },
   "metadata": {
-    "time_limit_ms": 1000,
-    "memory_limit_mb": 256,
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
     "allowed_languages": [
       "python",
       "cpp",
@@ -42,7 +41,7 @@
     {
       "input": "1\n[]",
       "expected_output": "[0]",
-      "is_sample": false
+      "is_sample": true
     },
     {
       "input": "2\n[[1,0],[0,1]]",
@@ -55,36 +54,36 @@
       "is_sample": false
     },
     {
-      "input": "3\n[[0,1],[0,2],[1,2]]",
-      "expected_output": "[2,1,0]",
+      "input": "3\n[[0,1],[0,2]]",
+      "expected_output": "[1,2,0]",
       "is_sample": false
     },
     {
-      "input": "4\n[[1,0],[2,1],[3,2]]",
-      "expected_output": "[0,1,2,3]",
+      "input": "10\n[[1,0],[2,1],[3,2],[4,3],[5,4],[6,5],[7,6],[8,7],[9,8]]",
+      "expected_output": "[0,1,2,3,4,5,6,7,8,9]",
       "is_sample": false
     },
     {
-      "input": "6\n[[1,0],[2,1],[3,2],[4,3],[5,4]]",
-      "expected_output": "[0,1,2,3,4,5]",
+      "input": "5\n[[1,0],[2,0],[3,1],[4,2]]",
+      "expected_output": "[0,1,2,3,4]",
       "is_sample": false
     },
     {
-      "input": "3\n[[1,0],[2,0]]",
-      "expected_output": "[0,1,2]",
+      "input": "3\n[[1,0],[1,2],[0,1]]",
+      "expected_output": "[]",
       "is_sample": false
     },
     {
-      "input": "4\n[[1,0],[2,0],[3,0]]",
-      "expected_output": "[0,1,2,3]",
+      "input": "2000\n[[1,0]]",
+      "expected_output": "",
       "is_sample": false
     }
   ],
   "topics": [
-    "Depth-First Search",
-    "Breadth-First Search",
     "Graph",
-    "Topological Sort"
+    "Topological Sort",
+    "Depth-First Search",
+    "Breadth-First Search"
   ],
-  "companyIndex": 20
+  "companyIndex": 29
 }

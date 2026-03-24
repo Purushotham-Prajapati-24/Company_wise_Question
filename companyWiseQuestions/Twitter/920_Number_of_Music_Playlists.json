@@ -1,0 +1,86 @@
+{
+  "question_text": "<p>Your music player contains <code>n</code> different songs. You want to listen to <code>goal</code> songs (not necessarily different) during your trip. To avoid boredom, you will create a playlist so that:</p>\n\n<ul>\n\t<li>Every song is played <strong>at least once</strong>.</li>\n\t<li>A song can only be played again only if <code>k</code> other songs have been played.</li>\n</ul>\n\n<p>Given <code>n</code>, <code>goal</code>, and <code>k</code>, return <em>the number of possible playlists that you can create</em>. Since the answer can be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> n = 3, goal = 3, k = 1\n<strong>Output:</strong> 6\n<strong>Explanation:</strong> There are 6 possible playlists: [1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], and [3, 2, 1].\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> n = 2, goal = 3, k = 0\n<strong>Output:</strong> 6\n<strong>Explanation:</strong> There are 6 possible playlists: [1, 1, 2], [1, 2, 1], [2, 1, 1], [2, 2, 1], [2, 1, 2], and [1, 2, 2].\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> n = 2, goal = 3, k = 1\n<strong>Output:</strong> 2\n<strong>Explanation:</strong> There are 2 possible playlists: [1, 2, 1] and [2, 1, 2].\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>0 &lt;= k &lt; n &lt;= goal &lt;= 100</code></li>\n</ul>\n",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Standard input.",
+  "output_format": "Standard output.",
+  "constraints": [
+    "Standard LeetCode constraints."
+  ],
+  "explanation": "Standard algorithmic solution.",
+  "answer": "def solve():\n    pass # Implementation for Number of Music Playlists",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Number of Music Playlists here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']:\n        sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l)))));\n}\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": true
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": true
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Data Structures / Algorithms"
+  ],
+  "companyIndex": 27
+}

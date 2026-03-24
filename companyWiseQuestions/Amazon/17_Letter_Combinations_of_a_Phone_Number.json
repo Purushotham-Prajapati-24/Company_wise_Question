@@ -1,88 +1,88 @@
 {
-  "question_text": "<h3>Letter Combinations of a Phone Number</h3><p>Return all combinations of letters for a digit string.</p>",
-  "difficulty": "MEDIUM",
-  "marks": 10,
-  "input_format": "String digits.",
-  "output_format": "Array of strings.",
-  "constraints": [
-    "length <= 4"
-  ],
-  "explanation": "Use backtracking or nested loops to build combinations based on the digit-to-letters mapping.",
-  "answer": "def letterCombinations(digits):\n    if not digits: return []\n    m = {'2':'abc','3':'def','4':'ghi','5':'jkl','6':'mno','7':'pqrs','8':'tuv','9':'wxyz'}\n    res = [\"\"]\n    for d in digits:\n        res = [prefix + l for prefix in res for l in m[d]]\n    return res",
-  "boilerplate": {
-    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 17 Letter Combinations of a Phone Number here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
-    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
-    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
-    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
-  },
-  "metadata": {
-    "time_limit_ms": 1000,
-    "memory_limit_mb": 256,
-    "allowed_languages": [
-      "python",
-      "cpp",
-      "java",
-      "javascript",
-      "c"
-    ]
-  },
-  "test_cases": [
-    {
-      "input": "\"23\"",
-      "expected_output": "[\"ad\",\"ae\",\"af\",\"bd\",\"be\",\"bf\",\"cd\",\"ce\",\"cf\"]",
-      "is_sample": true
+    "question_text": "<h3>17. Letter Combinations of a Phone Number</h3><p>Given a string containing digits from <code>2-9</code> inclusive, return all possible letter combinations that the number could represent. Return the answer in <strong>any order</strong>.</p>\n\n<p>A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.</p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2022/03/15/1200px-telephone-keypad2svg.png\" style=\"width: 300px; height: 243px;\" />\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> digits = &quot;23&quot;\n<strong>Output:</strong> [&quot;ad&quot;,&quot;ae&quot;,&quot;af&quot;,&quot;bd&quot;,&quot;be&quot;,&quot;bf&quot;,&quot;cd&quot;,&quot;ce&quot;,&quot;cf&quot;]\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> digits = &quot;2&quot;\n<strong>Output:</strong> [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= digits.length &lt;= 4</code></li>\n\t<li><code>digits[i]</code> is a digit in the range <code>[&#39;2&#39;, &#39;9&#39;]</code>.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "String digits.",
+    "output_format": "Array of strings.",
+    "constraints": [
+        "length <= 4"
+    ],
+    "explanation": "Use backtracking or nested loops to build combinations based on the digit-to-letters mapping.",
+    "answer": "def letterCombinations(digits):\n    if not digits: return []\n    m = {'2':'abc','3':'def','4':'ghi','5':'jkl','6':'mno','7':'pqrs','8':'tuv','9':'wxyz'}\n    res = [\"\"]\n    for d in digits:\n        res = [prefix + l for prefix in res for l in m[d]]\n    return res",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 17 Letter Combinations of a Phone Number here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
     },
-    {
-      "input": "\"\"",
-      "expected_output": "[]",
-      "is_sample": true
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
     },
-    {
-      "input": "\"2\"",
-      "expected_output": "[\"a\",\"b\",\"c\"]",
-      "is_sample": true
-    },
-    {
-      "input": "\"7\"",
-      "expected_output": "[\"p\",\"q\",\"r\",\"s\"]",
-      "is_sample": false
-    },
-    {
-      "input": "\"22\"",
-      "expected_output": "[\"aa\",\"ab\",\"ac\",\"ba\",\"bb\",\"bc\",\"ca\",\"cb\",\"cc\"]",
-      "is_sample": false
-    },
-    {
-      "input": "\"99\"",
-      "expected_output": "[\"ww\",\"wx\",\"wy\",\"wz\",\"xw\",\"xx\",\"xy\",\"xz\",\"yw\",\"yx\",\"yy\",\"yz\",\"zw\",\"zx\",\"zy\",\"zz\"]",
-      "is_sample": false
-    },
-    {
-      "input": "\"234\"",
-      "expected_output": "[\"adg\",\"adh\",\"adi\",\"aeg\",\"aeh\",\"aei\",\"afg\",\"afh\",\"afi\",\"bdg\",\"bdh\",\"bdi\",\"beg\",\"beh\",\"bei\",\"bfg\",\"bfh\",\"bfi\",\"cdg\",\"cdh\",\"cdi\",\"ceg\",\"ceh\",\"cei\",\"cfg\",\"cfh\",\"cfi\"]",
-      "is_sample": false
-    },
-    {
-      "input": "\"2222\"",
-      "expected_output": "[\"aaaa\",\"aaab\",\"aaac\",\"aaba\",\"aabb\",\"aabc\",\"aaca\",\"aacb\",\"aacc\",\"abaa\",\"abab\",\"abac\",\"abba\",\"abbb\",\"abbc\",\"abca\",\"abcb\",\"abcc\",\"acaa\",\"acab\",\"acac\",\"acba\",\"acbb\",\"acbc\",\"acca\",\"accb\",\"accc\",\"baaa\",\"baab\",\"baac\",\"baba\",\"babb\",\"babc\",\"baca\",\"bacb\",\"bacc\",\"bbaa\",\"bbab\",\"bbac\",\"bbba\",\"bbbb\",\"bbbc\",\"bbca\",\"bbcb\",\"bbcc\",\"bcaa\",\"bcab\",\"bcac\",\"bcba\",\"bcbb\",\"bcbc\",\"bcca\",\"bccb\",\"bccc\",\"caaa\",\"caab\",\"caac\",\"caba\",\"cabb\",\"cabc\",\"caca\",\"cacb\",\"cacc\",\"cbaa\",\"cbab\",\"cbac\",\"cbba\",\"cbbb\",\"cbbc\",\"cbca\",\"cbcb\",\"cbcc\",\"ccaa\",\"ccab\",\"ccac\",\"ccba\",\"ccbb\",\"ccbc\",\"ccca\",\"cccb\",\"cccc\"]",
-      "is_sample": false
-    },
-    {
-      "input": "\"333\"",
-      "expected_output": "[\"ddd\",\"dde\",\"ddf\",\"ded\",\"dee\",\"def\",\"dfd\",\"dfe\",\"dff\",\"edd\",\"ede\",\"edf\",\"eed\",\"eee\",\"eef\",\"efd\",\"efe\",\"eff\",\"fdd\",\"fde\",\"fdf\",\"fed\",\"fee\",\"fef\",\"ffd\",\"ffe\",\"fff\"]",
-      "is_sample": false
-    },
-    {
-      "input": "\"234\"",
-      "expected_output": "[\"adg\",\"adh\",\"adi\",\"aeg\",\"aeh\",\"aei\",\"afg\",\"afh\",\"afi\",\"bdg\",\"bdh\",\"bdi\",\"beg\",\"beh\",\"bei\",\"bfg\",\"bfh\",\"bfi\",\"cdg\",\"cdh\",\"cdi\",\"ceg\",\"ceh\",\"cei\",\"cfg\",\"cfh\",\"cfi\"]",
-      "is_sample": false
-    }
-  ],
-  "topics": [
-    "Hash Table",
-    "String",
-    "Backtracking"
-  ],
-  "companyIndex": 3
+    "test_cases": [
+        {
+            "input": "\"23\"",
+            "expected_output": "[\"ad\",\"ae\",\"af\",\"bd\",\"be\",\"bf\",\"cd\",\"ce\",\"cf\"]",
+            "is_sample": true
+        },
+        {
+            "input": "\"\"",
+            "expected_output": "[]",
+            "is_sample": true
+        },
+        {
+            "input": "\"2\"",
+            "expected_output": "[\"a\",\"b\",\"c\"]",
+            "is_sample": true
+        },
+        {
+            "input": "\"7\"",
+            "expected_output": "[\"p\",\"q\",\"r\",\"s\"]",
+            "is_sample": false
+        },
+        {
+            "input": "\"22\"",
+            "expected_output": "[\"aa\",\"ab\",\"ac\",\"ba\",\"bb\",\"bc\",\"ca\",\"cb\",\"cc\"]",
+            "is_sample": false
+        },
+        {
+            "input": "\"99\"",
+            "expected_output": "[\"ww\",\"wx\",\"wy\",\"wz\",\"xw\",\"xx\",\"xy\",\"xz\",\"yw\",\"yx\",\"yy\",\"yz\",\"zw\",\"zx\",\"zy\",\"zz\"]",
+            "is_sample": false
+        },
+        {
+            "input": "\"234\"",
+            "expected_output": "[\"adg\",\"adh\",\"adi\",\"aeg\",\"aeh\",\"aei\",\"afg\",\"afh\",\"afi\",\"bdg\",\"bdh\",\"bdi\",\"beg\",\"beh\",\"bei\",\"bfg\",\"bfh\",\"bfi\",\"cdg\",\"cdh\",\"cdi\",\"ceg\",\"ceh\",\"cei\",\"cfg\",\"cfh\",\"cfi\"]",
+            "is_sample": false
+        },
+        {
+            "input": "\"2222\"",
+            "expected_output": "[\"aaaa\",\"aaab\",\"aaac\",\"aaba\",\"aabb\",\"aabc\",\"aaca\",\"aacb\",\"aacc\",\"abaa\",\"abab\",\"abac\",\"abba\",\"abbb\",\"abbc\",\"abca\",\"abcb\",\"abcc\",\"acaa\",\"acab\",\"acac\",\"acba\",\"acbb\",\"acbc\",\"acca\",\"accb\",\"accc\",\"baaa\",\"baab\",\"baac\",\"baba\",\"babb\",\"babc\",\"baca\",\"bacb\",\"bacc\",\"bbaa\",\"bbab\",\"bbac\",\"bbba\",\"bbbb\",\"bbbc\",\"bbca\",\"bbcb\",\"bbcc\",\"bcaa\",\"bcab\",\"bcac\",\"bcba\",\"bcbb\",\"bcbc\",\"bcca\",\"bccb\",\"bccc\",\"caaa\",\"caab\",\"caac\",\"caba\",\"cabb\",\"cabc\",\"caca\",\"cacb\",\"cacc\",\"cbaa\",\"cbab\",\"cbac\",\"cbba\",\"cbbb\",\"cbbc\",\"cbca\",\"cbcb\",\"cbcc\",\"ccaa\",\"ccab\",\"ccac\",\"ccba\",\"ccbb\",\"ccbc\",\"ccca\",\"cccb\",\"cccc\"]",
+            "is_sample": false
+        },
+        {
+            "input": "\"333\"",
+            "expected_output": "[\"ddd\",\"dde\",\"ddf\",\"ded\",\"dee\",\"def\",\"dfd\",\"dfe\",\"dff\",\"edd\",\"ede\",\"edf\",\"eed\",\"eee\",\"eef\",\"efd\",\"efe\",\"eff\",\"fdd\",\"fde\",\"fdf\",\"fed\",\"fee\",\"fef\",\"ffd\",\"ffe\",\"fff\"]",
+            "is_sample": false
+        },
+        {
+            "input": "\"234\"",
+            "expected_output": "[\"adg\",\"adh\",\"adi\",\"aeg\",\"aeh\",\"aei\",\"afg\",\"afh\",\"afi\",\"bdg\",\"bdh\",\"bdi\",\"beg\",\"beh\",\"bei\",\"bfg\",\"bfh\",\"bfi\",\"cdg\",\"cdh\",\"cdi\",\"ceg\",\"ceh\",\"cei\",\"cfg\",\"cfh\",\"cfi\"]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Hash Table",
+        "String",
+        "Backtracking"
+    ],
+    "companyIndex": 2
 }

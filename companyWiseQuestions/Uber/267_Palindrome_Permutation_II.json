@@ -1,91 +1,91 @@
 {
-    "id": "267",
-    "title": "Palindrome Permutation II",
-    "difficulty": "MEDIUM",
-    "marks": 10,
-    "input_format": "First line single string s.",
-    "output_format": "JSON array of all unique palindromic permutations.",
-    "constraints": [
-        "1 <= s.length <= 16",
-        "s consists of lower-case English letters."
-    ],
-    "explanation": "Count character frequencies. If more than one character has an odd frequency, impossible. Place the single odd character (if exists) in the middle. Then recursively backtrack half the remaining characters symmetrically to build permutations.",
-    "answer": "def solve(s):\n    import collections\n    counts = collections.Counter(s)\n    odds = [c for c, count in counts.items() if count % 2 != 0]\n    if len(odds) > 1: return '[]'\n    mid = odds[0] if odds else ''\n    half = []\n    for c, count in counts.items():\n        half.extend([c] * (count // 2))\n    half.sort()\n    res = []\n    def backtrack(path, used):\n        if len(path) == len(half):\n            p = \"\".join(path)\n            res.append(\"\\\"\" + p + mid + p[::-1] + \"\\\"\")\n            return\n        for i in range(len(half)):\n            if used[i]: continue\n            if i > 0 and half[i] == half[i-1] and not used[i-1]: continue\n            used[i] = True\n            path.append(half[i])\n            backtrack(path, used)\n            path.pop()\n            used[i] = False\n    backtrack([], [False]*len(half))\n    return '[' + ', '.join(res) + ']'",
-    "boilerplate": {
-        "python": "import sys\n\ndef solve(s):\n    pass\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    s = lines[0].strip() if lines else \"\"\n    print(solve(s))",
-        "cpp": "#include <iostream>\\nusing namespace std;\\nint main() { return 0; }",
-        "java": "public class Main { public static void main(String[] args) {} }",
-        "javascript": "const fs = require('fs'); const input = fs.readFileSync(0, 'utf-8').trim().split('\\\\n');",
-        "c": "#include <stdio.h>\\nint main() { return 0; }"
+  "id": "267",
+  "title": "Palindrome Permutation II",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "First line single string s.",
+  "output_format": "JSON array of all unique palindromic permutations.",
+  "constraints": [
+    "1 <= s.length <= 16",
+    "s consists of lower-case English letters."
+  ],
+  "explanation": "Count character frequencies. If more than one character has an odd frequency, impossible. Place the single odd character (if exists) in the middle. Then recursively backtrack half the remaining characters symmetrically to build permutations.",
+  "answer": "def solve(s):\n    import collections\n    counts = collections.Counter(s)\n    odds = [c for c, count in counts.items() if count % 2 != 0]\n    if len(odds) > 1: return '[]'\n    mid = odds[0] if odds else ''\n    half = []\n    for c, count in counts.items():\n        half.extend([c] * (count // 2))\n    half.sort()\n    res = []\n    def backtrack(path, used):\n        if len(path) == len(half):\n            p = \"\".join(path)\n            res.append(\"\\\"\" + p + mid + p[::-1] + \"\\\"\")\n            return\n        for i in range(len(half)):\n            if used[i]: continue\n            if i > 0 and half[i] == half[i-1] and not used[i-1]: continue\n            used[i] = True\n            path.append(half[i])\n            backtrack(path, used)\n            path.pop()\n            used[i] = False\n    backtrack([], [False]*len(half))\n    return '[' + ', '.join(res) + ']'",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve(s):\n    pass\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    s = lines[0].strip() if lines else \"\"\n    print(solve(s))",
+    "cpp": "#include <iostream>\\nusing namespace std;\\nint main() { return 0; }",
+    "java": "public class Main { public static void main(String[] args) {} }",
+    "javascript": "const fs = require('fs'); const input = fs.readFileSync(0, 'utf-8').trim().split('\\\\n');",
+    "c": "#include <stdio.h>\\nint main() { return 0; }"
+  },
+  "test_cases": [
+    {
+      "input": "aabb",
+      "expected_output": "[\"abba\", \"baab\"]",
+      "is_sample": true
     },
-    "test_cases": [
-        {
-            "input": "aabb",
-            "expected_output": "[\"abba\", \"baab\"]",
-            "is_sample": true
-        },
-        {
-            "input": "abc",
-            "expected_output": "[]",
-            "is_sample": true
-        },
-        {
-            "input": "aabbcc",
-            "expected_output": "[\"abccba\", \"acbbca\", \"baccab\", \"bcaacb\", \"cabbac\", \"cbaabc\"]",
-            "is_sample": false
-        },
-        {
-            "input": "a",
-            "expected_output": "[\"a\"]",
-            "is_sample": false
-        },
-        {
-            "input": "aaaa",
-            "expected_output": "[\"aaaa\"]",
-            "is_sample": false
-        },
-        {
-            "input": "ababa",
-            "expected_output": "[\"aabba\", \"baaab\"]",
-            "is_sample": false
-        },
-        {
-            "input": "xxyyzz",
-            "expected_output": "[\"xyzzyx\", \"xzyyzx\", \"yxzzxy\", \"yzxxyz\", \"zxyyxz\", \"zyxxyz\"]",
-            "is_sample": false
-        },
-        {
-            "input": "abccba",
-            "expected_output": "[\"abccba\", \"acbbca\", \"baccab\", \"bcaacb\", \"cabbac\", \"cbaabc\"]",
-            "is_sample": false
-        },
-        {
-            "input": "d",
-            "expected_output": "[\"d\"]",
-            "is_sample": false
-        },
-        {
-            "input": "aaaaaabbbbbb",
-            "expected_output": "[\"something\"]",
-            "is_sample": false
-        }
-    ],
-    "topics": [
-        "Hash Table",
-        "String",
-        "Backtracking"
-    ],
-    "question_text": "<h3>Palindrome Permutation II</h3>",
-    "companyIndex": 8,
-    "metadata": {
-        "time_limit_ms": 2000,
-        "memory_limit_mb": 256,
-        "allowed_languages": [
-            "python",
-            "cpp",
-            "java",
-            "javascript",
-            "c"
-        ]
+    {
+      "input": "abc",
+      "expected_output": "[]",
+      "is_sample": true
+    },
+    {
+      "input": "aabbcc",
+      "expected_output": "[\"abccba\", \"acbbca\", \"baccab\", \"bcaacb\", \"cabbac\", \"cbaabc\"]",
+      "is_sample": false
+    },
+    {
+      "input": "a",
+      "expected_output": "[\"a\"]",
+      "is_sample": false
+    },
+    {
+      "input": "aaaa",
+      "expected_output": "[\"aaaa\"]",
+      "is_sample": false
+    },
+    {
+      "input": "ababa",
+      "expected_output": "[\"aabba\", \"baaab\"]",
+      "is_sample": false
+    },
+    {
+      "input": "xxyyzz",
+      "expected_output": "[\"xyzzyx\", \"xzyyzx\", \"yxzzxy\", \"yzxxyz\", \"zxyyxz\", \"zyxxyz\"]",
+      "is_sample": false
+    },
+    {
+      "input": "abccba",
+      "expected_output": "[\"abccba\", \"acbbca\", \"baccab\", \"bcaacb\", \"cabbac\", \"cbaabc\"]",
+      "is_sample": false
+    },
+    {
+      "input": "d",
+      "expected_output": "[\"d\"]",
+      "is_sample": false
+    },
+    {
+      "input": "aaaaaabbbbbb",
+      "expected_output": "[\"something\"]",
+      "is_sample": false
     }
+  ],
+  "topics": [
+    "Hash Table",
+    "String",
+    "Backtracking"
+  ],
+  "question_text": "<h3>Palindrome Permutation II</h3><p>Given a string s, return all the palindromic permutations (without duplicates) of it.</p>",
+  "companyIndex": 8,
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  }
 }

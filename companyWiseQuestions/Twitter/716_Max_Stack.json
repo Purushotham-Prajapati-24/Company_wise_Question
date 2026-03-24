@@ -1,5 +1,5 @@
 {
-  "question_text": "<h3>Max Stack</h3>null",
+  "question_text": "<h3>Max Stack</h3><p>Design a max stack data structure that supports typical stack operations and also can retrieve the maximum element in O(1).</p>",
   "difficulty": "HARD",
   "marks": 20,
   "input_format": "push, pop, top, peekMax, popMax calls",

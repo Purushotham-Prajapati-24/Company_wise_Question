@@ -1,91 +1,91 @@
 {
-    "question_text": "<h3>1166. Design File System</h3>\n<p>You are asked to design a file system that allows you to create new paths and associate them with different values.</p>\n<p>The format of a path is one or more concatenated strings of the form: <code>/</code> followed by one or more lowercase English letters. For example, <code>\"/leetcode\"</code> and <code>\"/leetcode/problems\"</code> are valid paths while an empty string <code>\"\"</code> and <code>\"/\"</code> are not.</p>\n<p>Implement the <code>FileSystem</code> class:</p>\n<ul>\n    <li><code>bool createPath(string path, int value)</code> Creates a new <code>path</code> and associates a <code>value</code> to it if possible and returns <code>true</code>. Returns <code>false</code> if the path <strong>already exists</strong> or its parent path <strong>does not exist</strong>.</li>\n    <li><code>int get(string path)</code> Returns the value associated with <code>path</code> or returns <code>-1</code> if the path does not exist.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre>\n<strong>Input:</strong> \n[\"FileSystem\",\"createPath\",\"get\"]\n[[],[\"/a\",1],[\"/a\"]]\n<strong>Output:</strong> \n[null,true,1]\n<strong>Explanation:</strong> \nFileSystem fileSystem = new FileSystem();\nfileSystem.createPath(\"/a\", 1); // return true\nfileSystem.get(\"/a\"); // return 1\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n<ul>\n    <li><code>2 &lt;= path.length &lt;= 100</code></li>\n    <li><code>1 &lt;= value &lt;= 10<sup>9</sup></code></li>\n    <li>Each <code>path</code> is <strong>valid</strong> and consists of lowercase English letters and <code>'/'</code>.</li>\n    <li>At most <code>10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>createPath</code> and <code>get</code>.</li>\n</ul>",
-    "difficulty": "MEDIUM",
-    "marks": 10,
-    "input_format": "Methods and args",
-    "output_format": "Return values",
-    "constraints": [
-        "1 <= path.length <= 100",
-        "1 <= value <= 10^9",
-        "At most 10^4 calls"
-    ],
-    "explanation": "Trie or Hash Map tracking path strings to values. Cannot create a path without parent existing.",
-    "answer": "class FileSystem:\n    def __init__(self):\n        self.paths = {\"\": -1}\n    def createPath(self, path, value):\n        if not path or path == \"/\" or path in self.paths: return False\n        parent = path[:path.rfind('/')]\n        if parent not in self.paths: return False\n        self.paths[path] = value\n        return True\n    def get(self, path):\n        return self.paths.get(path, -1)\n\ndef solveFileSystem(commands, args):\n    fs = FileSystem()\n    res = []\n    for cmd, arg in zip(commands, args):\n        if cmd == \"FileSystem\": res.append(None)\n        elif cmd == \"createPath\": res.append(fs.createPath(arg[0], arg[1]))\n        elif cmd == \"get\": res.append(fs.get(arg[0]))\n    return res",
-    "boilerplate": {
-        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Python optimum solution exclusively\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if not input_data or input_data == ['']: sys.exit(0)\n    parsed_args = [json.loads(line) for line in input_data]\n    print(json.dumps(solve(*parsed_args)).replace(' ', ''))",
-        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint solve() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Basic standard IO loop parser\n    string line;\n    while (getline(cin, line)) {\n        // Parse line into arguments and call solve\n    }\n    return 0;\n}",
-        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object solve() {\n        // User logic should be written here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {\n            // Parse line into arguments\n        }\n    }\n}",
-        "javascript": "const fs = require('fs');\n\nfunction solve(...args) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    const parsedArgs = input.map(line => JSON.parse(line));\n    console.log(JSON.stringify(solve(...parsedArgs)));\n}\n\nmodule.exports = solve;",
-        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint solve() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Standard C IO loop\n    return 0;\n}"
+  "question_text": "<h3>1166. Design File System</h3>\n<p>You are asked to design a file system that allows you to create new paths and associate them with different values.</p>\n<p>The format of a path is one or more concatenated strings of the form: <code>/</code> followed by one or more lowercase English letters. For example, <code>\"/leetcode\"</code> and <code>\"/leetcode/problems\"</code> are valid paths while an empty string <code>\"\"</code> and <code>\"/\"</code> are not.</p>\n<p>Implement the <code>FileSystem</code> class:</p>\n<ul>\n    <li><code>bool createPath(string path, int value)</code> Creates a new <code>path</code> and associates a <code>value</code> to it if possible and returns <code>true</code>. Returns <code>false</code> if the path <strong>already exists</strong> or its parent path <strong>does not exist</strong>.</li>\n    <li><code>int get(string path)</code> Returns the value associated with <code>path</code> or returns <code>-1</code> if the path does not exist.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre>\n<strong>Input:</strong> \n[\"FileSystem\",\"createPath\",\"get\"]\n[[],[\"/a\",1],[\"/a\"]]\n<strong>Output:</strong> \n[null,true,1]\n<strong>Explanation:</strong> \nFileSystem fileSystem = new FileSystem();\nfileSystem.createPath(\"/a\", 1); // return true\nfileSystem.get(\"/a\"); // return 1\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n<ul>\n    <li><code>2 &lt;= path.length &lt;= 100</code></li>\n    <li><code>1 &lt;= value &lt;= 10<sup>9</sup></code></li>\n    <li>Each <code>path</code> is <strong>valid</strong> and consists of lowercase English letters and <code>'/'</code>.</li>\n    <li>At most <code>10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>createPath</code> and <code>get</code>.</li>\n</ul>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Methods and args",
+  "output_format": "Return values",
+  "constraints": [
+    "1 <= path.length <= 100",
+    "1 <= value <= 10^9",
+    "At most 10^4 calls"
+  ],
+  "explanation": "Trie or Hash Map tracking path strings to values. Cannot create a path without parent existing.",
+  "answer": "class FileSystem:\n    def __init__(self):\n        self.paths = {\"\": -1}\n    def createPath(self, path, value):\n        if not path or path == \"/\" or path in self.paths: return False\n        parent = path[:path.rfind('/')]\n        if parent not in self.paths: return False\n        self.paths[path] = value\n        return True\n    def get(self, path):\n        return self.paths.get(path, -1)\n\ndef solveFileSystem(commands, args):\n    fs = FileSystem()\n    res = []\n    for cmd, arg in zip(commands, args):\n        if cmd == \"FileSystem\": res.append(None)\n        elif cmd == \"createPath\": res.append(fs.createPath(arg[0], arg[1]))\n        elif cmd == \"get\": res.append(fs.get(arg[0]))\n    return res",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Python optimum solution exclusively\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if not input_data or input_data == ['']: sys.exit(0)\n    parsed_args = [json.loads(line) for line in input_data]\n    print(json.dumps(solve(*parsed_args)).replace(' ', ''))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint solve() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Basic standard IO loop parser\n    string line;\n    while (getline(cin, line)) {\n        // Parse line into arguments and call solve\n    }\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object solve() {\n        // User logic should be written here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {\n            // Parse line into arguments\n        }\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction solve(...args) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    const parsedArgs = input.map(line => JSON.parse(line));\n    console.log(JSON.stringify(solve(...parsedArgs)));\n}\n\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint solve() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Standard C IO loop\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[\"FileSystem\",\"createPath\",\"get\"]\n[[],[\"/a\",1],[\"/a\"]]",
+      "expected_output": "[null,true,1]",
+      "is_sample": true
     },
-    "metadata": {
-        "time_limit_ms": 1000,
-        "memory_limit_mb": 256,
-        "allowed_languages": [
-            "python",
-            "cpp",
-            "java",
-            "javascript",
-            "c"
-        ]
+    {
+      "input": "[\"FileSystem\",\"createPath\",\"createPath\",\"get\",\"createPath\",\"get\"]\n[[],[\"/leet\",1],[\"/leet/code\",2],[\"/leet/code\"],[\"/c/d\",1],[\"/c\"]]",
+      "expected_output": "[null,true,true,2,false,-1]",
+      "is_sample": true
     },
-    "test_cases": [
-        {
-            "input": "[\"FileSystem\",\"createPath\",\"get\"]\n[[],[\"/a\",1],[\"/a\"]]",
-            "expected_output": "[null,true,1]",
-            "is_sample": true
-        },
-        {
-            "input": "[\"FileSystem\",\"createPath\",\"createPath\",\"get\",\"createPath\",\"get\"]\n[[],[\"/leet\",1],[\"/leet/code\",2],[\"/leet/code\"],[\"/c/d\",1],[\"/c\"]]",
-            "expected_output": "[null,true,true,2,false,-1]",
-            "is_sample": true
-        },
-        {
-            "input": "[\"FileSystem\",\"createPath\",\"get\"]\n[[],[\"/a\",1],[\"/a\"]]",
-            "expected_output": "[null,true,1]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"createPath\",\"createPath\",\"get\",\"createPath\",\"get\"]\n[[],[\"/leet\",1],[\"/leet/code\",2],[\"/leet/code\"],[\"/c/d\",1],[\"/c\"]]",
-            "expected_output": "[null,true,true,2,false,-1]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"createPath\",\"get\"]\n[[],[\"/a\",1],[\"/a\"]]",
-            "expected_output": "[null,true,1]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"createPath\",\"createPath\",\"get\",\"createPath\",\"get\"]\n[[],[\"/leet\",1],[\"/leet/code\",2],[\"/leet/code\"],[\"/c/d\",1],[\"/c\"]]",
-            "expected_output": "[null,true,true,2,false,-1]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"createPath\",\"get\"]\n[[],[\"/a\",1],[\"/a\"]]",
-            "expected_output": "[null,true,1]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"createPath\",\"createPath\",\"createPath\",\"createPath\",\"get\"]\n[[],[\"/a\",10],[\"/a/b\",20],[\"/a/b/c\",30],[\"/a/b/c/d\",40],[\"/a/b/c/d\"]]",
-            "expected_output": "[null, true, true, true, true, 40]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"createPath\",\"createPath\",\"get\",\"get\"]\n[[],[\"/level1\",100],[\"/level1/level2\",200],[\"/level1/level2\"],[\"/level1/level2/level3\"]]",
-            "expected_output": "[null, true, true, 200, -1]",
-            "is_sample": false
-        },
-        {
-            "input": "[\"FileSystem\",\"createPath\",\"createPath\",\"createPath\"]\n[[],[\"/first\",1],[\"/first/second\",2],[\"/first\",3]]",
-            "expected_output": "[null, true, true, false]",
-            "is_sample": false
-        }
-    ],
-    "topics": [
-        "Hash Table",
-        "String",
-        "Design",
-        "Trie"
-    ],
-    "companyIndex": 5
+    {
+      "input": "[\"FileSystem\",\"createPath\",\"get\"]\n[[],[\"/a\",1],[\"/a\"]]",
+      "expected_output": "[null,true,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"createPath\",\"createPath\",\"get\",\"createPath\",\"get\"]\n[[],[\"/leet\",1],[\"/leet/code\",2],[\"/leet/code\"],[\"/c/d\",1],[\"/c\"]]",
+      "expected_output": "[null,true,true,2,false,-1]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"createPath\",\"get\"]\n[[],[\"/a\",1],[\"/a\"]]",
+      "expected_output": "[null,true,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"createPath\",\"createPath\",\"get\",\"createPath\",\"get\"]\n[[],[\"/leet\",1],[\"/leet/code\",2],[\"/leet/code\"],[\"/c/d\",1],[\"/c\"]]",
+      "expected_output": "[null,true,true,2,false,-1]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"createPath\",\"get\"]\n[[],[\"/a\",1],[\"/a\"]]",
+      "expected_output": "[null,true,1]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"createPath\",\"createPath\",\"createPath\",\"createPath\",\"get\"]\n[[],[\"/a\",10],[\"/a/b\",20],[\"/a/b/c\",30],[\"/a/b/c/d\",40],[\"/a/b/c/d\"]]",
+      "expected_output": "[null, true, true, true, true, 40]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"createPath\",\"createPath\",\"get\",\"get\"]\n[[],[\"/level1\",100],[\"/level1/level2\",200],[\"/level1/level2\"],[\"/level1/level2/level3\"]]",
+      "expected_output": "[null, true, true, 200, -1]",
+      "is_sample": false
+    },
+    {
+      "input": "[\"FileSystem\",\"createPath\",\"createPath\",\"createPath\"]\n[[],[\"/first\",1],[\"/first/second\",2],[\"/first\",3]]",
+      "expected_output": "[null, true, true, false]",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Hash Table",
+    "String",
+    "Design",
+    "Trie"
+  ],
+  "companyIndex": 21
 }

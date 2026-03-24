@@ -1,5 +1,5 @@
 {
-  "question_text": "<h3>Paint House</h3>null",
+  "question_text": "<h3>Paint House</h3><p>There is a row of n houses, where each house can be painted one of three colors: red, blue, or green.</p>",
   "difficulty": "MEDIUM",
   "marks": 10,
   "input_format": "n x 3 matrix of costs",

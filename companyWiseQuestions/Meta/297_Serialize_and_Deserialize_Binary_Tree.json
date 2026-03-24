@@ -1,91 +1,91 @@
 {
-  "question_text": "<h3>Serialize and Deserialize Binary Tree</h3><p>Serialize a binary tree to string and deserialize it back.</p>",
-  "difficulty": "HARD",
-  "marks": 10,
-  "input_format": "Tree.",
-  "output_format": "Original Tree.",
-  "constraints": [
-    "nodes <= 10^4"
-  ],
-  "explanation": "Perform a pre-order traversal. Use \"None\" or a specific character for null nodes.",
-  "answer": "class Codec:\n    def serialize(self, root):\n        res = []\n        def dfs(node):\n            if not node: res.append(\"N\"); return\n            res.append(str(node.val)); dfs(node.left); dfs(node.right)\n        dfs(root); return \",\".join(res)\n    def deserialize(self, data):\n        vals = data.split(\",\"); self.i = 0\n        def dfs():\n            if vals[self.i] == \"N\": self.i += 1; return None\n            node = TreeNode(int(vals[self.i])); self.i += 1\n            node.left = dfs(); node.right = dfs(); return node\n        return dfs()",
-  "boilerplate": {
-    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 297 Serialize and Deserialize Binary Tree here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
-    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
-    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
-    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
-  },
-  "metadata": {
-    "time_limit_ms": 2000,
-    "memory_limit_mb": 512,
-    "allowed_languages": [
-      "python",
-      "cpp",
-      "java",
-      "javascript",
-      "c"
-    ]
-  },
-  "test_cases": [
-    {
-      "input": "[1,2,3,null,null,4,5]",
-      "expected_output": "[1,2,3,null,null,4,5]",
-      "is_sample": true
+    "question_text": "<h3>297. Serialize and Deserialize Binary Tree</h3><p>Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.</p>\n\n<p>Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.</p>\n\n<p><strong>Clarification:</strong> The input/output format is the same as <a href=\"https://support.leetcode.com/hc/en-us/articles/32442719377939-How-to-create-test-cases-on-LeetCode#h_01J5EGREAW3NAEJ14XC07GRW1A\" target=\"_blank\">how LeetCode serializes a binary tree</a>. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<img alt=\"\" src=\"https://assets.leetcode.com/uploads/2020/09/15/serdeser.jpg\" style=\"width: 442px; height: 324px;\" />\n<pre>\n<strong>Input:</strong> root = [1,2,3,null,null,4,5]\n<strong>Output:</strong> [1,2,3,null,null,4,5]\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> root = []\n<strong>Output:</strong> []\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li>The number of nodes in the tree is in the range <code>[0, 10<sup>4</sup>]</code>.</li>\n\t<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>\n</ul>\n",
+    "difficulty": "HARD",
+    "marks": 10,
+    "input_format": "Tree.",
+    "output_format": "Original Tree.",
+    "constraints": [
+        "nodes <= 10^4"
+    ],
+    "explanation": "Perform a pre-order traversal. Use \"None\" or a specific character for null nodes.",
+    "answer": "class Codec:\n    def serialize(self, root):\n        res = []\n        def dfs(node):\n            if not node: res.append(\"N\"); return\n            res.append(str(node.val)); dfs(node.left); dfs(node.right)\n        dfs(root); return \",\".join(res)\n    def deserialize(self, data):\n        vals = data.split(\",\"); self.i = 0\n        def dfs():\n            if vals[self.i] == \"N\": self.i += 1; return None\n            node = TreeNode(int(vals[self.i])); self.i += 1\n            node.left = dfs(); node.right = dfs(); return node\n        return dfs()",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 297 Serialize and Deserialize Binary Tree here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
     },
-    {
-      "input": "[]",
-      "expected_output": "[]",
-      "is_sample": true
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 512,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
     },
-    {
-      "input": "[1]",
-      "expected_output": "[1]",
-      "is_sample": false
-    },
-    {
-      "input": "[1,2]",
-      "expected_output": "[1,2]",
-      "is_sample": false
-    },
-    {
-      "input": "[1,null,2]",
-      "expected_output": "[1,null,2]",
-      "is_sample": false
-    },
-    {
-      "input": "[1,2,3,4,null,null,5]",
-      "expected_output": "[1,2,3,4,null,null,5]",
-      "is_sample": false
-    },
-    {
-      "input": "[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]",
-      "expected_output": "[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]",
-      "is_sample": false
-    },
-    {
-      "input": "[null,1,null,3,null,5,null,7,null,9,null,11,null,1",
-      "expected_output": "[null,1,null,3,null,5,null,7,null,9,null,11,null,13,null,15,null,17,null,19,null,21,null,23,null,25,null,27,null,29,null,31,null,33,null,35,null,37,null,39,null,41,null,43,null,45,null,47,null,49,null,51,null,53,null,55,null,57,null,59,null,61,null,63,null,65,null,67,null,69,null,71,null,73,null,75,null,77,null,79,null,81,null,83,null,85,null,87,null,89,null,91,null,93,null,95,null,97,null,99,null,101,null,103,null,105,null,107,null,109,null,111,null,113,null,115,null,117,null,119,null,121,null,123,null,125,null,127,null,129,null,131,null,133,null,135,null,137,null,139,null,141,null,143,null,145,null,147,null,149,null,151,null,153,null,155,null,157,null,159,null,161,null,163,null,165,null,167,null,169,null,171,null,173,null,175,null,177,null,179,null,181,null,183,null,185,null,187,null,189,null,191,null,193,null,195,null,197,null,199,null,201,null,203,null,205,null,207,null,209,null,211,null,213,null,215,null,217,null,219,null,221,null,223,null,225,null,227,null,229,null,231,null,233,null,235,null,237,null,239,null,241,null,243,null,245,null,247,null,249,null,251,null,253,null,255,null,257,null,259,null,261,null,263,null,265,null,267,null,269,null,271,null,273,null,275,null,277,null,279,null,281,null,283,null,285,null,287,null,289,null,291,null,293,null,295,null,297,null,299,null,301,null,303,null,305,null,307,null,309,null,311,null,313,null,315,null,317,null,319,null,321,null,323,null,325,null,327,null,329,null,331,null,333,null,335,null,337,null,339,null,341,null,343,null,345,null,347,null,349,null,351,null,353,null,355,null,357,null,359,null,361,null,363,null,365,null,367,null,369,null,371,null,373,null,375,null,377,null,379,null,381,null,383,null,385,null,387,null,389,null,391,null,393,null,395,null,397,null,399,null,401,null,403,null,405,null,407,null,409,null,411,null,413,null,415,null,417,null,419,null,421,null,423,null,425,null,427,null,429,null,431,null,433,null,435,null,437,null,439,null,441,null,443,null,445,null,447,null,449,null,451,null,453,null,455,null,457,null,459,null,461,null,463,null,465,null,467,null,469,null,471,null,473,null,475,null,477,null,479,null,481,null,483,null,485,null,487,null,489,null,491,null,493,null,495,null,497,null,499,null,501,null,503,null,505,null,507,null,509,null,511,null,513,null,515,null,517,null,519,null,521,null,523,null,525,null,527,null,529,null,531,null,533,null,535,null,537,null,539,null,541,null,543,null,545,null,547,null,549,null,551,null,553,null,555,null,557,null,559,null,561,null,563,null,565,null,567,null,569,null,571,null,573,null,575,null,577,null,579,null,581,null,583,null,585,null,587,null,589,null,591,null,593,null,595,null,597,null,599,null,601,null,603,null,605,null,607,null,609,null,611,null,613,null,615,null,617,null,619,null,621,null,623,null,625,null,627,null,629,null,631,null,633,null,635,null,637,null,639,null,641,null,643,null,645,null,647,null,649,null,651,null,653,null,655,null,657,null,659,null,661,null,663,null,665,null,667,null,669,null,671,null,673,null,675,null,677,null,679,null,681,null,683,null,685,null,687,null,689,null,691,null,693,null,695,null,697,null,699,null,701,null,703,null,705,null,707,null,709,null,711,null,713,null,715,null,717,null,719,null,721,null,723,null,725,null,727,null,729,null,731,null,733,null,735,null,737,null,739,null,741,null,743,null,745,null,747,null,749,null,751,null,753,null,755,null,757,null,759,null,761,null,763,null,765,null,767,null,769,null,771,null,773,null,775,null,777,null,779,null,781,null,783,null,785,null,787,null,789,null,791,null,793,null,795,null,797,null,799,null,801,null,803,null,805,null,807,null,809,null,811,null,813,null,815,null,817,null,819,null,821,null,823,null,825,null,827,null,829,null,831,null,833,null,835,null,837,null,839,null,841,null,843,null,845,null,847,null,849,null,851,null,853,null,855,null,857,null,859,null,861,null,863,null,865,null,867,null,869,null,871,null,873,null,875,null,877,null,879,null,881,null,883,null,885,null,887,null,889,null,891,null,893,null,895,null,897,null,899,null,901,null,903,null,905,null,907,null,909,null,911,null,913,null,915,null,917,null,919,null,921,null,923,null,925,null,927,null,929,null,931,null,933,null,935,null,937,null,939,null,941,null,943,null,945,null,947,null,949,null,951,null,953,null,955,null,957,null,959,null,961,null,963,null,965,null,967,null,969,null,971,null,973,null,975,null,977,null,979,null,981,null,983,null,985,null,987,null,989,null,991,null,993,null,995,null,997,null,999]",
-      "is_sample": false
-    },
-    {
-      "input": "[1,2,2,3,null,null,3,4,null,null,4]",
-      "expected_output": "[1,2,2,3,null,null,3,4,null,null,4]",
-      "is_sample": false
-    },
-    {
-      "input": "[1,null,2,null,3,null,4]",
-      "expected_output": "[1,null,2,null,3,null,4]",
-      "is_sample": false
-    }
-  ],
-  "topics": [
-    "String",
-    "Tree",
-    "Depth-First Search",
-    "Breadth-First Search",
-    "Design",
-    "Binary Tree"
-  ],
-  "companyIndex": 4
+    "test_cases": [
+        {
+            "input": "[1,2,3,null,null,4,5]",
+            "expected_output": "[1,2,3,null,null,4,5]",
+            "is_sample": true
+        },
+        {
+            "input": "[]",
+            "expected_output": "[]",
+            "is_sample": true
+        },
+        {
+            "input": "[1]",
+            "expected_output": "[1]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2]",
+            "expected_output": "[1,2]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,null,2]",
+            "expected_output": "[1,null,2]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3,4,null,null,5]",
+            "expected_output": "[1,2,3,4,null,null,5]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]",
+            "expected_output": "[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]",
+            "is_sample": false
+        },
+        {
+            "input": "[null,1,null,3,null,5,null,7,null,9,null,11,null,1",
+            "expected_output": "[null,1,null,3,null,5,null,7,null,9,null,11,null,13,null,15,null,17,null,19,null,21,null,23,null,25,null,27,null,29,null,31,null,33,null,35,null,37,null,39,null,41,null,43,null,45,null,47,null,49,null,51,null,53,null,55,null,57,null,59,null,61,null,63,null,65,null,67,null,69,null,71,null,73,null,75,null,77,null,79,null,81,null,83,null,85,null,87,null,89,null,91,null,93,null,95,null,97,null,99,null,101,null,103,null,105,null,107,null,109,null,111,null,113,null,115,null,117,null,119,null,121,null,123,null,125,null,127,null,129,null,131,null,133,null,135,null,137,null,139,null,141,null,143,null,145,null,147,null,149,null,151,null,153,null,155,null,157,null,159,null,161,null,163,null,165,null,167,null,169,null,171,null,173,null,175,null,177,null,179,null,181,null,183,null,185,null,187,null,189,null,191,null,193,null,195,null,197,null,199,null,201,null,203,null,205,null,207,null,209,null,211,null,213,null,215,null,217,null,219,null,221,null,223,null,225,null,227,null,229,null,231,null,233,null,235,null,237,null,239,null,241,null,243,null,245,null,247,null,249,null,251,null,253,null,255,null,257,null,259,null,261,null,263,null,265,null,267,null,269,null,271,null,273,null,275,null,277,null,279,null,281,null,283,null,285,null,287,null,289,null,291,null,293,null,295,null,297,null,299,null,301,null,303,null,305,null,307,null,309,null,311,null,313,null,315,null,317,null,319,null,321,null,323,null,325,null,327,null,329,null,331,null,333,null,335,null,337,null,339,null,341,null,343,null,345,null,347,null,349,null,351,null,353,null,355,null,357,null,359,null,361,null,363,null,365,null,367,null,369,null,371,null,373,null,375,null,377,null,379,null,381,null,383,null,385,null,387,null,389,null,391,null,393,null,395,null,397,null,399,null,401,null,403,null,405,null,407,null,409,null,411,null,413,null,415,null,417,null,419,null,421,null,423,null,425,null,427,null,429,null,431,null,433,null,435,null,437,null,439,null,441,null,443,null,445,null,447,null,449,null,451,null,453,null,455,null,457,null,459,null,461,null,463,null,465,null,467,null,469,null,471,null,473,null,475,null,477,null,479,null,481,null,483,null,485,null,487,null,489,null,491,null,493,null,495,null,497,null,499,null,501,null,503,null,505,null,507,null,509,null,511,null,513,null,515,null,517,null,519,null,521,null,523,null,525,null,527,null,529,null,531,null,533,null,535,null,537,null,539,null,541,null,543,null,545,null,547,null,549,null,551,null,553,null,555,null,557,null,559,null,561,null,563,null,565,null,567,null,569,null,571,null,573,null,575,null,577,null,579,null,581,null,583,null,585,null,587,null,589,null,591,null,593,null,595,null,597,null,599,null,601,null,603,null,605,null,607,null,609,null,611,null,613,null,615,null,617,null,619,null,621,null,623,null,625,null,627,null,629,null,631,null,633,null,635,null,637,null,639,null,641,null,643,null,645,null,647,null,649,null,651,null,653,null,655,null,657,null,659,null,661,null,663,null,665,null,667,null,669,null,671,null,673,null,675,null,677,null,679,null,681,null,683,null,685,null,687,null,689,null,691,null,693,null,695,null,697,null,699,null,701,null,703,null,705,null,707,null,709,null,711,null,713,null,715,null,717,null,719,null,721,null,723,null,725,null,727,null,729,null,731,null,733,null,735,null,737,null,739,null,741,null,743,null,745,null,747,null,749,null,751,null,753,null,755,null,757,null,759,null,761,null,763,null,765,null,767,null,769,null,771,null,773,null,775,null,777,null,779,null,781,null,783,null,785,null,787,null,789,null,791,null,793,null,795,null,797,null,799,null,801,null,803,null,805,null,807,null,809,null,811,null,813,null,815,null,817,null,819,null,821,null,823,null,825,null,827,null,829,null,831,null,833,null,835,null,837,null,839,null,841,null,843,null,845,null,847,null,849,null,851,null,853,null,855,null,857,null,859,null,861,null,863,null,865,null,867,null,869,null,871,null,873,null,875,null,877,null,879,null,881,null,883,null,885,null,887,null,889,null,891,null,893,null,895,null,897,null,899,null,901,null,903,null,905,null,907,null,909,null,911,null,913,null,915,null,917,null,919,null,921,null,923,null,925,null,927,null,929,null,931,null,933,null,935,null,937,null,939,null,941,null,943,null,945,null,947,null,949,null,951,null,953,null,955,null,957,null,959,null,961,null,963,null,965,null,967,null,969,null,971,null,973,null,975,null,977,null,979,null,981,null,983,null,985,null,987,null,989,null,991,null,993,null,995,null,997,null,999]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,2,3,null,null,3,4,null,null,4]",
+            "expected_output": "[1,2,2,3,null,null,3,4,null,null,4]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,null,2,null,3,null,4]",
+            "expected_output": "[1,null,2,null,3,null,4]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "String",
+        "Tree",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Design",
+        "Binary Tree"
+    ],
+    "companyIndex": 4
 }

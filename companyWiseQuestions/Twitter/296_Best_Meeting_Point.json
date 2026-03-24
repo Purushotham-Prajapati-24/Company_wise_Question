@@ -1,5 +1,5 @@
 {
-  "question_text": "<h3>Best Meeting Point</h3>null",
+  "question_text": "<h3>Best Meeting Point</h3><p>Given an m x n binary grid grid where each 1 marks the home of a person, return the minimum total travel distance to a meeting point.</p>",
   "difficulty": "HARD",
   "marks": 20,
   "input_format": "Binary grid",

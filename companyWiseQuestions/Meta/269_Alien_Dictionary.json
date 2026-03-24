@@ -1,93 +1,93 @@
 {
-  "question_text": "<h3>Alien Dictionary</h3><p>Derive letter order from a sorted dictionary of alien words.</p>",
-  "difficulty": "HARD",
-  "marks": 10,
-  "input_format": "words.",
-  "output_format": "String.",
-  "constraints": [
-    "words <= 100",
-    "len <= 100"
-  ],
-  "explanation": "Build a directed graph of character dependencies. Perform topological sort (Kahn's BFS or DFS).",
-  "answer": "def alienOrder(words):\n    adj = collections.defaultdict(set); in_degree = {c: 0 for w in words for c in w}\n    for i in range(len(words)-1):\n        w1, w2 = words[i], words[i+1]\n        for j in range(min(len(w1), len(w2))):\n            if w1[j] != w2[j]:\n                if w2[j] not in adj[w1[j]]: adj[w1[j]].add(w2[j]); in_degree[w2[j]] += 1\n                break\n            else:\n                if j == len(w2)-1 and len(w1) > len(w2): return \"\"\n    res = []; q = collections.deque([c for c in in_degree if in_degree[c] == 0])\n    while q:\n        c = q.popleft(); res.append(c)\n        for n in adj[c]:\n            in_degree[n] -= 1\n            if in_degree[n] == 0: q.append(n)\n    return \"\".join(res) if len(res) == len(in_degree) else \"\"",
-  "boilerplate": {
-    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 269 Alien Dictionary here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
-    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
-    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
-    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
-  },
-  "metadata": {
-    "time_limit_ms": 2000,
-    "memory_limit_mb": 512,
-    "allowed_languages": [
-      "python",
-      "cpp",
-      "java",
-      "javascript",
-      "c"
-    ]
-  },
-  "test_cases": [
-    {
-      "input": "[\"wrt\",\"wrf\",\"er\",\"ett\",\"rftt\"]",
-      "expected_output": "\"wertf\"",
-      "is_sample": true
+    "question_text": "<h3>269. Alien Dictionary</h3><p>There is a new alien language that uses the English alphabet. However, the order of the letters is unknown to you.</p><p>You are given a list of strings <code>words</code> from the alien language's dictionary, where the strings in <code>words</code> are <strong>sorted lexicographically</strong> by the rules of this new language.</p><p>Return <em>a string of the unique letters in the new alien language sorted in <strong>lexicographically increasing order</strong> by the new language's rules. If there is no solution, return </em><code>\"\"</code><em>. If there are multiple solutions, return <strong>any of them</strong>.</em></p><p>&nbsp;</p><p><strong class=\"example\">Example 1:</strong></p><pre><strong>Input:</strong> words = [\"wrt\",\"wrf\",\"er\",\"ett\",\"rftt\"]\n<strong>Output:</strong> \"wertf\"</pre><p>&nbsp;</p><p><strong>Constraints:</strong></p><ul><li><code>1 &lt;= words.length &lt;= 100</code></li><li><code>1 &lt;= words[i].length &lt;= 100</code></li></ul>",
+    "difficulty": "HARD",
+    "marks": 10,
+    "input_format": "words.",
+    "output_format": "String.",
+    "constraints": [
+        "words <= 100",
+        "len <= 100"
+    ],
+    "explanation": "Build a directed graph of character dependencies. Perform topological sort (Kahn's BFS or DFS).",
+    "answer": "def alienOrder(words):\n    adj = collections.defaultdict(set); in_degree = {c: 0 for w in words for c in w}\n    for i in range(len(words)-1):\n        w1, w2 = words[i], words[i+1]\n        for j in range(min(len(w1), len(w2))):\n            if w1[j] != w2[j]:\n                if w2[j] not in adj[w1[j]]: adj[w1[j]].add(w2[j]); in_degree[w2[j]] += 1\n                break\n            else:\n                if j == len(w2)-1 and len(w1) > len(w2): return \"\"\n    res = []; q = collections.deque([c for c in in_degree if in_degree[c] == 0])\n    while q:\n        c = q.popleft(); res.append(c)\n        for n in adj[c]:\n            in_degree[n] -= 1\n            if in_degree[n] == 0: q.append(n)\n    return \"\".join(res) if len(res) == len(in_degree) else \"\"",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 269 Alien Dictionary here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
     },
-    {
-      "input": "[\"z\",\"x\"]",
-      "expected_output": "\"zx\"",
-      "is_sample": true
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 512,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
     },
-    {
-      "input": "[\"z\",\"x\",\"z\"]",
-      "expected_output": "\"\"",
-      "is_sample": true
-    },
-    {
-      "input": "[\"abc\",\"ab\"]",
-      "expected_output": "\"\"",
-      "is_sample": false
-    },
-    {
-      "input": "[\"a\",\"b\",\"a\"]",
-      "expected_output": "\"\"",
-      "is_sample": false
-    },
-    {
-      "input": "[\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\"]",
-      "expected_output": "\"a\"",
-      "is_sample": false
-    },
-    {
-      "input": "[\"ri\",\"qz\",\"eq\",\"hp\",\"lo\",\"gc\",\"sk\",\"sj\",\"fm\",\"js\"",
-      "expected_output": "",
-      "is_sample": false
-    },
-    {
-      "input": "[\"a\",\"b\",\"c\",\"d\",\"e\"]",
-      "expected_output": "\"abcde\"",
-      "is_sample": false
-    },
-    {
-      "input": "[\"w\",\"e\",\"r\",\"t\",\"y\"]",
-      "expected_output": "\"werty\"",
-      "is_sample": false
-    },
-    {
-      "input": "[\"apple\",\"app\"]",
-      "expected_output": "\"\"",
-      "is_sample": false
-    }
-  ],
-  "topics": [
-    "Array",
-    "Hash Table",
-    "String",
-    "Depth-First Search",
-    "Breadth-First Search",
-    "Graph",
-    "Topological Sort"
-  ],
-  "companyIndex": 4
+    "test_cases": [
+        {
+            "input": "[\"wrt\",\"wrf\",\"er\",\"ett\",\"rftt\"]",
+            "expected_output": "\"wertf\"",
+            "is_sample": true
+        },
+        {
+            "input": "[\"z\",\"x\"]",
+            "expected_output": "\"zx\"",
+            "is_sample": true
+        },
+        {
+            "input": "[\"z\",\"x\",\"z\"]",
+            "expected_output": "\"\"",
+            "is_sample": true
+        },
+        {
+            "input": "[\"abc\",\"ab\"]",
+            "expected_output": "\"\"",
+            "is_sample": false
+        },
+        {
+            "input": "[\"a\",\"b\",\"a\"]",
+            "expected_output": "\"\"",
+            "is_sample": false
+        },
+        {
+            "input": "[\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\"]",
+            "expected_output": "\"a\"",
+            "is_sample": false
+        },
+        {
+            "input": "[\"ri\",\"qz\",\"eq\",\"hp\",\"lo\",\"gc\",\"sk\",\"sj\",\"fm\",\"js\"",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "[\"a\",\"b\",\"c\",\"d\",\"e\"]",
+            "expected_output": "\"abcde\"",
+            "is_sample": false
+        },
+        {
+            "input": "[\"w\",\"e\",\"r\",\"t\",\"y\"]",
+            "expected_output": "\"werty\"",
+            "is_sample": false
+        },
+        {
+            "input": "[\"apple\",\"app\"]",
+            "expected_output": "\"\"",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Hash Table",
+        "String",
+        "Depth-First Search",
+        "Breadth-First Search",
+        "Graph",
+        "Topological Sort"
+    ],
+    "companyIndex": 4
 }

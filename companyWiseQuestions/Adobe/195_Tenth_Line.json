@@ -1,0 +1,86 @@
+{
+    "question_text": "<h3>195. Tenth Line</h3><p>Given a text file&nbsp;<code>file.txt</code>, print&nbsp;just the 10th line of the&nbsp;file.</p>\r\n\r\n<p><strong class=\"example\">Example:</strong></p>\r\n\r\n<p>Assume that <code>file.txt</code> has the following content:</p>\r\n\r\n<pre>\r\nLine 1\r\nLine 2\r\nLine 3\r\nLine 4\r\nLine 5\r\nLine 6\r\nLine 7\r\nLine 8\r\nLine 9\r\nLine 10\r\n</pre>\r\n\r\n<p>Your script should output the tenth line, which is:</p>\r\n\r\n<pre>\r\nLine 10\r\n</pre>\r\n\r\n<div class=\"spoilers\"><b>Note:</b><br />\r\n1. If the file contains less than 10 lines, what should you output?<br />\r\n2. There&#39;s at least three different solutions. Try to explore all possibilities.</div>\r\n",
+    "difficulty": "EASY",
+    "marks": 10,
+    "input_format": "Standard input.",
+    "output_format": "Standard output.",
+    "constraints": [
+        "Standard LeetCode constraints."
+    ],
+    "explanation": "Standard algorithmic solution.",
+    "answer": "def solve():\n    pass # Implementation for Tenth Line",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Tenth Line here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']:\n        sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l)))));\n}\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 512,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": true
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": true
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "",
+            "expected_output": "",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Data Structures / Algorithms"
+    ],
+    "companyIndex": 6
+}

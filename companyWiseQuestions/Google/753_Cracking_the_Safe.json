@@ -1,0 +1,76 @@
+{
+  "question_text": "<h3>753. Unknown</h3><p>There is a safe protected by a password. The password is a sequence of <code>n</code> digits where each digit can be in the range <code>[0, k - 1]</code>.</p>\n\n<p>The safe has a peculiar way of checking the password. When you enter in a sequence, it checks the <strong>most recent </strong><code>n</code><strong> digits</strong> that were entered each time you type a digit.</p>\n\n<ul>\n\t<li>For example, the correct password is <code>&quot;345&quot;</code> and you enter in <code>&quot;012345&quot;</code>:\n\n\t<ul>\n\t\t<li>After typing <code>0</code>, the most recent <code>3</code> digits is <code>&quot;0&quot;</code>, which is incorrect.</li>\n\t\t<li>After typing <code>1</code>, the most recent <code>3</code> digits is <code>&quot;01&quot;</code>, which is incorrect.</li>\n\t\t<li>After typing <code>2</code>, the most recent <code>3</code> digits is <code>&quot;012&quot;</code>, which is incorrect.</li>\n\t\t<li>After typing <code>3</code>, the most recent <code>3</code> digits is <code>&quot;123&quot;</code>, which is incorrect.</li>\n\t\t<li>After typing <code>4</code>, the most recent <code>3</code> digits is <code>&quot;234&quot;</code>, which is incorrect.</li>\n\t\t<li>After typing <code>5</code>, the most recent <code>3</code> digits is <code>&quot;345&quot;</code>, which is correct and the safe unlocks.</li>\n\t</ul>\n\t</li>\n</ul>\n\n<p>Return <em>any string of <strong>minimum length</strong> that will unlock the safe <strong>at some point</strong> of entering it</em>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> n = 1, k = 2\n<strong>Output:</strong> &quot;10&quot;\n<strong>Explanation:</strong> The password is a single digit, so enter each digit. &quot;01&quot; would also unlock the safe.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> n = 2, k = 2\n<strong>Output:</strong> &quot;01100&quot;\n<strong>Explanation:</strong> For each possible password:\n- &quot;00&quot; is typed in starting from the 4<sup>th</sup> digit.\n- &quot;01&quot; is typed in starting from the 1<sup>st</sup> digit.\n- &quot;10&quot; is typed in starting from the 3<sup>rd</sup> digit.\n- &quot;11&quot; is typed in starting from the 2<sup>nd</sup> digit.\nThus &quot;01100&quot; will unlock the safe. &quot;10011&quot;, and &quot;11001&quot; would also unlock the safe.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= n &lt;= 4</code></li>\n\t<li><code>1 &lt;= k &lt;= 10</code></li>\n\t<li><code>1 &lt;= k<sup>n</sup> &lt;= 4096</code></li>\n</ul>\n",
+  "difficulty": "HARD",
+  "marks": 10,
+  "input_format": "Standard input.",
+  "output_format": "Standard output.",
+  "constraints": [
+    "Standard LeetCode constraints."
+  ],
+  "explanation": "Standard algorithmic solution.",
+  "answer": "def solve():\n    pass # Implementation for Cracking the Safe",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Cracking the Safe here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']:\n        sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l)))));\n}\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "n = 1, k = 2",
+      "expected_output": "\"10\""
+    },
+    {
+      "input": "n = 1, k = 2",
+      "expected_output": "\"10\""
+    },
+    {
+      "input": "n = 1, k = 2",
+      "expected_output": "\"10\""
+    },
+    {
+      "input": "n = 1, k = 2",
+      "expected_output": "\"10\""
+    },
+    {
+      "input": "n = 1, k = 2",
+      "expected_output": "\"10\""
+    },
+    {
+      "input": "n = 1, k = 2",
+      "expected_output": "\"10\""
+    },
+    {
+      "input": "n = 1, k = 2",
+      "expected_output": "\"10\""
+    },
+    {
+      "input": "n = 1, k = 2",
+      "expected_output": "\"10\""
+    },
+    {
+      "input": "n = 1, k = 2",
+      "expected_output": "\"10\""
+    },
+    {
+      "input": "n = 1, k = 2",
+      "expected_output": "\"10\""
+    }
+  ],
+  "topics": [
+    "Data Structures / Algorithms"
+  ],
+  "companyIndex": 0
+}

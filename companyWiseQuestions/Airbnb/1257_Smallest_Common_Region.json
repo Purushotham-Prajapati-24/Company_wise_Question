@@ -1,92 +1,92 @@
 {
-    "question_text": "<h3>1257. Smallest Common Region</h3>\n<p>You are given some lists of <code>regions</code> where the first region of each list includes all other regions in that list.</p>\n<p>Naturally, if a region <code>X</code> contains another region <code>Y</code> then <code>X</code> is bigger than <code>Y</code>. Also, by definition, a region <code>X</code> contains itself.</p>\n<p>Given two regions: <code>region1</code> and <code>region2</code>, return <em>the smallest region that contains both of them</em>.</p>\n<p>If you are given regions <code>r1</code>, <code>r2</code>, and <code>r3</code> such that <code>r1</code> includes <code>r3</code>, it is guaranteed there is no <code>r2</code> such that <code>r2</code> includes <code>r3</code>.</p>\n<p>It's guaranteed the smallest region exists.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre>\n<strong>Input:</strong>\nregions = [[\"Earth\",\"North America\",\"South America\"],\n[\"North America\",\"United States\",\"Canada\"],\n[\"United States\",\"New York\",\"Boston\"],\n[\"Canada\",\"Ontario\",\"Quebec\"],\n[\"South America\",\"Brazil\"]],\nregion1 = \"Quebec\",\nregion2 = \"New York\"\n<strong>Output:</strong> \"North America\"\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n<ul>\n    <li><code>2 &lt;= regions.length &lt;= 10<sup>4</sup></code></li>\n    <li><code>region1 != region2</code></li>\n    <li>All strings consist of English letters and spaces with at most 20 letters.</li>\n</ul>",
-    "difficulty": "MEDIUM",
-    "marks": 10,
-    "input_format": "regions array, region1, region2",
-    "output_format": "Smallest common region string",
-    "constraints": [
-        "2 <= regions.length <= 10^4",
-        "region1 and region2 exist"
-    ],
-    "explanation": "Create a Map storing child to parent links. Find path to root for region1 and store. Traverse up from region2, returning first match in path1.",
-    "answer": "def findSmallestRegion(regions, region1, region2):\n    parents = {}\n    for r in regions:\n        for i in range(1, len(r)):\n            parents[r[i]] = r[0]\n    ancestors = set()\n    while region1:\n        ancestors.add(region1)\n        region1 = parents.get(region1)\n    while region2 not in ancestors:\n        region2 = parents.get(region2)\n    return region2",
-    "boilerplate": {
-        "python": "import sys\nimport json\n\ndef findSmallestRegion(*args):\n    # Python optimum solution exclusively\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if not input_data or input_data == ['']: sys.exit(0)\n    parsed_args = [json.loads(line) for line in input_data]\n    print(json.dumps(findSmallestRegion(*parsed_args)).replace(' ', ''))",
-        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint findSmallestRegion() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Basic standard IO loop parser\n    string line;\n    while (getline(cin, line)) {\n        // Parse line into arguments and call solve\n    }\n    return 0;\n}",
-        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object findSmallestRegion() {\n        // User logic should be written here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {\n            // Parse line into arguments\n        }\n    }\n}",
-        "javascript": "const fs = require('fs');\n\nfunction findSmallestRegion(...args) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    const parsedArgs = input.map(line => JSON.parse(line));\n    console.log(JSON.stringify(findSmallestRegion(...parsedArgs)));\n}\n\nmodule.exports = findSmallestRegion;",
-        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint findSmallestRegion() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Standard C IO loop\n    return 0;\n}"
+  "question_text": "<h3>1257. Smallest Common Region</h3>\n<p>You are given some lists of <code>regions</code> where the first region of each list includes all other regions in that list.</p>\n<p>Naturally, if a region <code>X</code> contains another region <code>Y</code> then <code>X</code> is bigger than <code>Y</code>. Also, by definition, a region <code>X</code> contains itself.</p>\n<p>Given two regions: <code>region1</code> and <code>region2</code>, return <em>the smallest region that contains both of them</em>.</p>\n<p>If you are given regions <code>r1</code>, <code>r2</code>, and <code>r3</code> such that <code>r1</code> includes <code>r3</code>, it is guaranteed there is no <code>r2</code> such that <code>r2</code> includes <code>r3</code>.</p>\n<p>It's guaranteed the smallest region exists.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre>\n<strong>Input:</strong>\nregions = [[\"Earth\",\"North America\",\"South America\"],\n[\"North America\",\"United States\",\"Canada\"],\n[\"United States\",\"New York\",\"Boston\"],\n[\"Canada\",\"Ontario\",\"Quebec\"],\n[\"South America\",\"Brazil\"]],\nregion1 = \"Quebec\",\nregion2 = \"New York\"\n<strong>Output:</strong> \"North America\"\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n<ul>\n    <li><code>2 &lt;= regions.length &lt;= 10<sup>4</sup></code></li>\n    <li><code>region1 != region2</code></li>\n    <li>All strings consist of English letters and spaces with at most 20 letters.</li>\n</ul>",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "regions array, region1, region2",
+  "output_format": "Smallest common region string",
+  "constraints": [
+    "2 <= regions.length <= 10^4",
+    "region1 and region2 exist"
+  ],
+  "explanation": "Create a Map storing child to parent links. Find path to root for region1 and store. Traverse up from region2, returning first match in path1.",
+  "answer": "def findSmallestRegion(regions, region1, region2):\n    parents = {}\n    for r in regions:\n        for i in range(1, len(r)):\n            parents[r[i]] = r[0]\n    ancestors = set()\n    while region1:\n        ancestors.add(region1)\n        region1 = parents.get(region1)\n    while region2 not in ancestors:\n        region2 = parents.get(region2)\n    return region2",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef findSmallestRegion(*args):\n    # Python optimum solution exclusively\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if not input_data or input_data == ['']: sys.exit(0)\n    parsed_args = [json.loads(line) for line in input_data]\n    print(json.dumps(findSmallestRegion(*parsed_args)).replace(' ', ''))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint findSmallestRegion() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Basic standard IO loop parser\n    string line;\n    while (getline(cin, line)) {\n        // Parse line into arguments and call solve\n    }\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object findSmallestRegion() {\n        // User logic should be written here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {\n            // Parse line into arguments\n        }\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction findSmallestRegion(...args) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    const parsedArgs = input.map(line => JSON.parse(line));\n    console.log(JSON.stringify(findSmallestRegion(...parsedArgs)));\n}\n\nmodule.exports = findSmallestRegion;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint findSmallestRegion() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Standard C IO loop\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[[\"Earth\",\"North America\",\"South America\"],[\"North America\",\"United States\",\"Canada\"],[\"United States\",\"New York\",\"Boston\"],[\"Canada\",\"Ontario\",\"Quebec\"],[\"South America\",\"Brazil\"]]\n\"Quebec\"\n\"New York\"",
+      "expected_output": "\"North America\"",
+      "is_sample": true
     },
-    "metadata": {
-        "time_limit_ms": 1000,
-        "memory_limit_mb": 256,
-        "allowed_languages": [
-            "python",
-            "cpp",
-            "java",
-            "javascript",
-            "c"
-        ]
+    {
+      "input": "[[\"Earth\", \"North America\", \"South America\"],[\"North America\", \"United States\", \"Canada\"],[\"United States\", \"New York\", \"Boston\"],[\"Canada\", \"Ontario\", \"Quebec\"],[\"South America\", \"Brazil\"]]\n\"Canada\"\n\"South America\"",
+      "expected_output": "\"Earth\"",
+      "is_sample": true
     },
-    "test_cases": [
-        {
-            "input": "[[\"Earth\",\"North America\",\"South America\"],[\"North America\",\"United States\",\"Canada\"],[\"United States\",\"New York\",\"Boston\"],[\"Canada\",\"Ontario\",\"Quebec\"],[\"South America\",\"Brazil\"]]\n\"Quebec\"\n\"New York\"",
-            "expected_output": "\"North America\"",
-            "is_sample": true
-        },
-        {
-            "input": "[[\"Earth\", \"North America\", \"South America\"],[\"North America\", \"United States\", \"Canada\"],[\"United States\", \"New York\", \"Boston\"],[\"Canada\", \"Ontario\", \"Quebec\"],[\"South America\", \"Brazil\"]]\n\"Canada\"\n\"South America\"",
-            "expected_output": "\"Earth\"",
-            "is_sample": true
-        },
-        {
-            "input": "[[\"Earth\",\"North America\",\"South America\"],[\"North America\",\"United States\",\"Canada\"],[\"United States\",\"New York\",\"Boston\"],[\"Canada\",\"Ontario\",\"Quebec\"],[\"South America\",\"Brazil\"]]\n\"Quebec\"\n\"New York\"",
-            "expected_output": "\"North America\"",
-            "is_sample": false
-        },
-        {
-            "input": "[[\"Earth\", \"North America\", \"South America\"],[\"North America\", \"United States\", \"Canada\"],[\"United States\", \"New York\", \"Boston\"],[\"Canada\", \"Ontario\", \"Quebec\"],[\"South America\", \"Brazil\"]]\n\"Canada\"\n\"South America\"",
-            "expected_output": "\"Earth\"",
-            "is_sample": false
-        },
-        {
-            "input": "[[\"Earth\",\"North America\",\"South America\"],[\"North America\",\"United States\",\"Canada\"],[\"United States\",\"New York\",\"Boston\"],[\"Canada\",\"Ontario\",\"Quebec\"],[\"South America\",\"Brazil\"]]\n\"Quebec\"\n\"New York\"",
-            "expected_output": "\"North America\"",
-            "is_sample": false
-        },
-        {
-            "input": "[[\"Earth\", \"North America\", \"South America\"],[\"North America\", \"United States\", \"Canada\"],[\"United States\", \"New York\", \"Boston\"],[\"Canada\", \"Ontario\", \"Quebec\"],[\"South America\", \"Brazil\"]]\n\"Canada\"\n\"South America\"",
-            "expected_output": "\"Earth\"",
-            "is_sample": false
-        },
-        {
-            "input": "[[\"Earth\",\"North America\",\"South America\"],[\"North America\",\"United States\",\"Canada\"],[\"United States\",\"New York\",\"Boston\"],[\"Canada\",\"Ontario\",\"Quebec\"],[\"South America\",\"Brazil\"]]\n\"Quebec\"\n\"New York\"",
-            "expected_output": "\"North America\"",
-            "is_sample": false
-        },
-        {
-            "input": "[[\"R0\",\"R1\"],[\"R1\",\"R2\"],[\"R2\",\"R3\"],[\"R3\",\"R4\"],[\"R4\",\"R5\"],[\"R5\",\"R6\"],[\"R6\",\"R7\"],[\"R7\",\"R8\"],[\"R8\",\"R9\"],[\"R9\",\"R10\"],[\"R10\",\"R11\"],[\"R11\",\"R12\"],[\"R12\",\"R13\"],[\"R13\",\"R14\"],[\"R14\",\"R15\"],[\"R15\",\"R16\"],[\"R16\",\"R17\"],[\"R17\",\"R18\"],[\"R18\",\"R19\"],[\"R19\",\"R20\"],[\"R20\",\"R21\"],[\"R21\",\"R22\"],[\"R22\",\"R23\"],[\"R23\",\"R24\"],[\"R24\",\"R25\"],[\"R25\",\"R26\"],[\"R26\",\"R27\"],[\"R27\",\"R28\"],[\"R28\",\"R29\"],[\"R29\",\"R30\"],[\"R30\",\"R31\"],[\"R31\",\"R32\"],[\"R32\",\"R33\"],[\"R33\",\"R34\"],[\"R34\",\"R35\"],[\"R35\",\"R36\"],[\"R36\",\"R37\"],[\"R37\",\"R38\"],[\"R38\",\"R39\"],[\"R39\",\"R40\"],[\"R40\",\"R41\"],[\"R41\",\"R42\"],[\"R42\",\"R43\"],[\"R43\",\"R44\"],[\"R44\",\"R45\"],[\"R45\",\"R46\"],[\"R46\",\"R47\"],[\"R47\",\"R48\"],[\"R48\",\"R49\"],[\"R49\",\"R50\"]]\n\"R50\"\n\"R25\"",
-            "expected_output": "\"R25\"",
-            "is_sample": false
-        },
-        {
-            "input": "[[\"node0\",\"node1\"],[\"node1\",\"node2\"],[\"node2\",\"node3\"],[\"node3\",\"node4\"],[\"node4\",\"node5\"],[\"node5\",\"node6\"],[\"node6\",\"node7\"],[\"node7\",\"node8\"],[\"node8\",\"node9\"],[\"node9\",\"node10\"],[\"node10\",\"node11\"],[\"node11\",\"node12\"],[\"node12\",\"node13\"],[\"node13\",\"node14\"],[\"node14\",\"node15\"],[\"node15\",\"node16\"],[\"node16\",\"node17\"],[\"node17\",\"node18\"],[\"node18\",\"node19\"],[\"node19\",\"node20\"],[\"node20\",\"node21\"],[\"node21\",\"node22\"],[\"node22\",\"node23\"],[\"node23\",\"node24\"],[\"node24\",\"node25\"],[\"node25\",\"node26\"],[\"node26\",\"node27\"],[\"node27\",\"node28\"],[\"node28\",\"node29\"],[\"node29\",\"node30\"],[\"node30\",\"node31\"],[\"node31\",\"node32\"],[\"node32\",\"node33\"],[\"node33\",\"node34\"],[\"node34\",\"node35\"],[\"node35\",\"node36\"],[\"node36\",\"node37\"],[\"node37\",\"node38\"],[\"node38\",\"node39\"],[\"node39\",\"node40\"],[\"node40\",\"node41\"],[\"node41\",\"node42\"],[\"node42\",\"node43\"],[\"node43\",\"node44\"],[\"node44\",\"node45\"],[\"node45\",\"node46\"],[\"node46\",\"node47\"],[\"node47\",\"node48\"],[\"node48\",\"node49\"],[\"node49\",\"node50\"]]\n\"node49\"\n\"node0\"",
-            "expected_output": "\"node0\"",
-            "is_sample": false
-        },
-        {
-            "input": "[[\"Earth\",\"A\",\"B\"],[\"A\",\"C\"],[\"B\",\"D\"]]\n\"C\"\n\"D\"",
-            "expected_output": "\"Earth\"",
-            "is_sample": false
-        }
-    ],
-    "topics": [
-        "Array",
-        "Hash Table",
-        "String",
-        "Tree",
-        "Depth-First Search",
-        "Breadth-First Search"
-    ],
-    "companyIndex": 5
+    {
+      "input": "[[\"Earth\",\"North America\",\"South America\"],[\"North America\",\"United States\",\"Canada\"],[\"United States\",\"New York\",\"Boston\"],[\"Canada\",\"Ontario\",\"Quebec\"],[\"South America\",\"Brazil\"]]\n\"Quebec\"\n\"New York\"",
+      "expected_output": "\"North America\"",
+      "is_sample": false
+    },
+    {
+      "input": "[[\"Earth\", \"North America\", \"South America\"],[\"North America\", \"United States\", \"Canada\"],[\"United States\", \"New York\", \"Boston\"],[\"Canada\", \"Ontario\", \"Quebec\"],[\"South America\", \"Brazil\"]]\n\"Canada\"\n\"South America\"",
+      "expected_output": "\"Earth\"",
+      "is_sample": false
+    },
+    {
+      "input": "[[\"Earth\",\"North America\",\"South America\"],[\"North America\",\"United States\",\"Canada\"],[\"United States\",\"New York\",\"Boston\"],[\"Canada\",\"Ontario\",\"Quebec\"],[\"South America\",\"Brazil\"]]\n\"Quebec\"\n\"New York\"",
+      "expected_output": "\"North America\"",
+      "is_sample": false
+    },
+    {
+      "input": "[[\"Earth\", \"North America\", \"South America\"],[\"North America\", \"United States\", \"Canada\"],[\"United States\", \"New York\", \"Boston\"],[\"Canada\", \"Ontario\", \"Quebec\"],[\"South America\", \"Brazil\"]]\n\"Canada\"\n\"South America\"",
+      "expected_output": "\"Earth\"",
+      "is_sample": false
+    },
+    {
+      "input": "[[\"Earth\",\"North America\",\"South America\"],[\"North America\",\"United States\",\"Canada\"],[\"United States\",\"New York\",\"Boston\"],[\"Canada\",\"Ontario\",\"Quebec\"],[\"South America\",\"Brazil\"]]\n\"Quebec\"\n\"New York\"",
+      "expected_output": "\"North America\"",
+      "is_sample": false
+    },
+    {
+      "input": "[[\"R0\",\"R1\"],[\"R1\",\"R2\"],[\"R2\",\"R3\"],[\"R3\",\"R4\"],[\"R4\",\"R5\"],[\"R5\",\"R6\"],[\"R6\",\"R7\"],[\"R7\",\"R8\"],[\"R8\",\"R9\"],[\"R9\",\"R10\"],[\"R10\",\"R11\"],[\"R11\",\"R12\"],[\"R12\",\"R13\"],[\"R13\",\"R14\"],[\"R14\",\"R15\"],[\"R15\",\"R16\"],[\"R16\",\"R17\"],[\"R17\",\"R18\"],[\"R18\",\"R19\"],[\"R19\",\"R20\"],[\"R20\",\"R21\"],[\"R21\",\"R22\"],[\"R22\",\"R23\"],[\"R23\",\"R24\"],[\"R24\",\"R25\"],[\"R25\",\"R26\"],[\"R26\",\"R27\"],[\"R27\",\"R28\"],[\"R28\",\"R29\"],[\"R29\",\"R30\"],[\"R30\",\"R31\"],[\"R31\",\"R32\"],[\"R32\",\"R33\"],[\"R33\",\"R34\"],[\"R34\",\"R35\"],[\"R35\",\"R36\"],[\"R36\",\"R37\"],[\"R37\",\"R38\"],[\"R38\",\"R39\"],[\"R39\",\"R40\"],[\"R40\",\"R41\"],[\"R41\",\"R42\"],[\"R42\",\"R43\"],[\"R43\",\"R44\"],[\"R44\",\"R45\"],[\"R45\",\"R46\"],[\"R46\",\"R47\"],[\"R47\",\"R48\"],[\"R48\",\"R49\"],[\"R49\",\"R50\"]]\n\"R50\"\n\"R25\"",
+      "expected_output": "\"R25\"",
+      "is_sample": false
+    },
+    {
+      "input": "[[\"node0\",\"node1\"],[\"node1\",\"node2\"],[\"node2\",\"node3\"],[\"node3\",\"node4\"],[\"node4\",\"node5\"],[\"node5\",\"node6\"],[\"node6\",\"node7\"],[\"node7\",\"node8\"],[\"node8\",\"node9\"],[\"node9\",\"node10\"],[\"node10\",\"node11\"],[\"node11\",\"node12\"],[\"node12\",\"node13\"],[\"node13\",\"node14\"],[\"node14\",\"node15\"],[\"node15\",\"node16\"],[\"node16\",\"node17\"],[\"node17\",\"node18\"],[\"node18\",\"node19\"],[\"node19\",\"node20\"],[\"node20\",\"node21\"],[\"node21\",\"node22\"],[\"node22\",\"node23\"],[\"node23\",\"node24\"],[\"node24\",\"node25\"],[\"node25\",\"node26\"],[\"node26\",\"node27\"],[\"node27\",\"node28\"],[\"node28\",\"node29\"],[\"node29\",\"node30\"],[\"node30\",\"node31\"],[\"node31\",\"node32\"],[\"node32\",\"node33\"],[\"node33\",\"node34\"],[\"node34\",\"node35\"],[\"node35\",\"node36\"],[\"node36\",\"node37\"],[\"node37\",\"node38\"],[\"node38\",\"node39\"],[\"node39\",\"node40\"],[\"node40\",\"node41\"],[\"node41\",\"node42\"],[\"node42\",\"node43\"],[\"node43\",\"node44\"],[\"node44\",\"node45\"],[\"node45\",\"node46\"],[\"node46\",\"node47\"],[\"node47\",\"node48\"],[\"node48\",\"node49\"],[\"node49\",\"node50\"]]\n\"node49\"\n\"node0\"",
+      "expected_output": "\"node0\"",
+      "is_sample": false
+    },
+    {
+      "input": "[[\"Earth\",\"A\",\"B\"],[\"A\",\"C\"],[\"B\",\"D\"]]\n\"C\"\n\"D\"",
+      "expected_output": "\"Earth\"",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Array",
+    "Hash Table",
+    "String",
+    "Tree",
+    "Depth-First Search",
+    "Breadth-First Search"
+  ],
+  "companyIndex": 21
 }

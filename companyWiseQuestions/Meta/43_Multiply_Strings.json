@@ -1,88 +1,88 @@
 {
-  "question_text": "<h3>Multiply Strings</h3><p>Multiply two large non-negative integers represented as strings.</p>",
-  "difficulty": "MEDIUM",
-  "marks": 10,
-  "input_format": "num1, num2.",
-  "output_format": "String.",
-  "constraints": [
-    "len <= 200"
-  ],
-  "explanation": "Perform manual multiplication digit by digit, storing intermediate results in an array. Sum the products and handle carries.",
-  "answer": "def multiply(num1, num2):\n    if \"0\" in [num1, num2]: return \"0\"\n    res = [0] * (len(num1) + len(num2))\n    for i in range(len(num1)-1, -1, -1):\n        for j in range(len(num2)-1, -1, -1):\n            res[i+j+1] += int(num1[i]) * int(num2[j])\n            res[i+j] += res[i+j+1] // 10\n            res[i+j+1] %= 10\n    return \"\".join(map(str, res)).lstrip(\"0\")",
-  "boilerplate": {
-    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 43 Multiply Strings here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
-    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
-    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
-    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
-  },
-  "metadata": {
-    "time_limit_ms": 2000,
-    "memory_limit_mb": 512,
-    "allowed_languages": [
-      "python",
-      "cpp",
-      "java",
-      "javascript",
-      "c"
-    ]
-  },
-  "test_cases": [
-    {
-      "input": "\"2\"\n\"3\"",
-      "expected_output": "\"6\"",
-      "is_sample": true
+    "question_text": "<h3>43. Multiply Strings</h3><p>Given two non-negative integers <code>num1</code> and <code>num2</code> represented as strings, return the product of <code>num1</code> and <code>num2</code>, also represented as a string.</p>\n\n<p><strong>Note:</strong>&nbsp;You must not use any built-in BigInteger library or convert the inputs to integer directly.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre><strong>Input:</strong> num1 = \"2\", num2 = \"3\"\n<strong>Output:</strong> \"6\"\n</pre><p><strong class=\"example\">Example 2:</strong></p>\n<pre><strong>Input:</strong> num1 = \"123\", num2 = \"456\"\n<strong>Output:</strong> \"56088\"\n</pre>\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= num1.length, num2.length &lt;= 200</code></li>\n\t<li><code>num1</code> and <code>num2</code> consist of digits only.</li>\n\t<li>Both <code>num1</code> and <code>num2</code>&nbsp;do not contain any leading zero, except the number <code>0</code> itself.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "num1, num2.",
+    "output_format": "String.",
+    "constraints": [
+        "len <= 200"
+    ],
+    "explanation": "Perform manual multiplication digit by digit, storing intermediate results in an array. Sum the products and handle carries.",
+    "answer": "def multiply(num1, num2):\n    if \"0\" in [num1, num2]: return \"0\"\n    res = [0] * (len(num1) + len(num2))\n    for i in range(len(num1)-1, -1, -1):\n        for j in range(len(num2)-1, -1, -1):\n            res[i+j+1] += int(num1[i]) * int(num2[j])\n            res[i+j] += res[i+j+1] // 10\n            res[i+j+1] %= 10\n    return \"\".join(map(str, res)).lstrip(\"0\")",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 43 Multiply Strings here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
     },
-    {
-      "input": "\"123\"\n\"456\"",
-      "expected_output": "\"56088\"",
-      "is_sample": true
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 512,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
     },
-    {
-      "input": "\"0\"\n\"0\"",
-      "expected_output": "\"0\"",
-      "is_sample": false
-    },
-    {
-      "input": "\"1\"\n\"1\"",
-      "expected_output": "\"1\"",
-      "is_sample": false
-    },
-    {
-      "input": "\"10\"\n\"10\"",
-      "expected_output": "\"100\"",
-      "is_sample": false
-    },
-    {
-      "input": "\"9999999999\"\n\"0\"",
-      "expected_output": "\"0\"",
-      "is_sample": false
-    },
-    {
-      "input": "\"1111111111111111111111111111111111111111111111111",
-      "expected_output": "",
-      "is_sample": false
-    },
-    {
-      "input": "\"9999999999999999999999999999999999999999999999999",
-      "expected_output": "",
-      "is_sample": false
-    },
-    {
-      "input": "\"123456789\"\n\"987654321\"",
-      "expected_output": "\"121932631112635269\"",
-      "is_sample": false
-    },
-    {
-      "input": "\"2\"\n\"50\"",
-      "expected_output": "\"100\"",
-      "is_sample": false
-    }
-  ],
-  "topics": [
-    "Math",
-    "String",
-    "Simulation"
-  ],
-  "companyIndex": 4
+    "test_cases": [
+        {
+            "input": "\"2\"\n\"3\"",
+            "expected_output": "\"6\"",
+            "is_sample": true
+        },
+        {
+            "input": "\"123\"\n\"456\"",
+            "expected_output": "\"56088\"",
+            "is_sample": true
+        },
+        {
+            "input": "\"0\"\n\"0\"",
+            "expected_output": "\"0\"",
+            "is_sample": false
+        },
+        {
+            "input": "\"1\"\n\"1\"",
+            "expected_output": "\"1\"",
+            "is_sample": false
+        },
+        {
+            "input": "\"10\"\n\"10\"",
+            "expected_output": "\"100\"",
+            "is_sample": false
+        },
+        {
+            "input": "\"9999999999\"\n\"0\"",
+            "expected_output": "\"0\"",
+            "is_sample": false
+        },
+        {
+            "input": "\"1111111111111111111111111111111111111111111111111",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "\"9999999999999999999999999999999999999999999999999",
+            "expected_output": "",
+            "is_sample": false
+        },
+        {
+            "input": "\"123456789\"\n\"987654321\"",
+            "expected_output": "\"121932631112635269\"",
+            "is_sample": false
+        },
+        {
+            "input": "\"2\"\n\"50\"",
+            "expected_output": "\"100\"",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Math",
+        "String",
+        "Simulation"
+    ],
+    "companyIndex": 4
 }

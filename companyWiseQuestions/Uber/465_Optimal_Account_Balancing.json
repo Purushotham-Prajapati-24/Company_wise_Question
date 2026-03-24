@@ -1,92 +1,92 @@
 {
-    "id": "465",
-    "title": "Optimal Account Balancing",
-    "difficulty": "HARD",
-    "marks": 15,
-    "input_format": "The first line contains N. The next N lines contain space separated u, v, amount.",
-    "output_format": "Return an integer representing minimum number of transactions required.",
-    "constraints": [
-        "1 <= transactions.length <= 8",
-        "transactions[i].length == 3",
-        "0 <= u, v <= 12",
-        "amount >= 1"
-    ],
-    "explanation": "First, build a debt profile for each person (net flow). We discard people with 0 net flow. We then use backtracking to find the minimum number of transactions to clear valid non-zero debts by trying to settle the first non-settled person's debt with others with opposite signs.",
-    "answer": "def solve(transactions):\n    from collections import defaultdict\n    net = defaultdict(int)\n    for u, v, amt in transactions:\n        net[u] -= amt\n        net[v] += amt\n    debts = [x for x in net.values() if x != 0]\n    def dfs(idx):\n        while idx < len(debts) and debts[idx] == 0:\n            idx += 1\n        if idx == len(debts): return 0\n        res = float('inf')\n        for i in range(idx + 1, len(debts)):\n            if debts[i] * debts[idx] < 0:\n                debts[i] += debts[idx]\n                res = min(res, 1 + dfs(idx + 1))\n                debts[i] -= debts[idx]\n        return res\n    return str(dfs(0))",
-    "boilerplate": {
-        "python": "import sys\n\ndef solve(transactions):\n    pass\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    if not lines: sys.exit(0)\n    n = int(lines[0])\n    transactions = [list(map(int, lines[i].split())) for i in range(1, n+1)]\n    print(solve(transactions))",
-        "cpp": "#include <iostream>\nusing namespace std;\nint main() { return 0; }",
-        "java": "public class Main { public static void main(String[] args) {} }",
-        "javascript": "const fs = require('fs'); const input = fs.readFileSync(0, 'utf-8').trim().split('\\\\n');",
-        "c": "#include <stdio.h>\\nint main() { return 0; }"
+  "id": "465",
+  "title": "Optimal Account Balancing",
+  "difficulty": "HARD",
+  "marks": 15,
+  "input_format": "The first line contains N. The next N lines contain space separated u, v, amount.",
+  "output_format": "Return an integer representing minimum number of transactions required.",
+  "constraints": [
+    "1 <= transactions.length <= 8",
+    "transactions[i].length == 3",
+    "0 <= u, v <= 12",
+    "amount >= 1"
+  ],
+  "explanation": "First, build a debt profile for each person (net flow). We discard people with 0 net flow. We then use backtracking to find the minimum number of transactions to clear valid non-zero debts by trying to settle the first non-settled person's debt with others with opposite signs.",
+  "answer": "def solve(transactions):\n    from collections import defaultdict\n    net = defaultdict(int)\n    for u, v, amt in transactions:\n        net[u] -= amt\n        net[v] += amt\n    debts = [x for x in net.values() if x != 0]\n    def dfs(idx):\n        while idx < len(debts) and debts[idx] == 0:\n            idx += 1\n        if idx == len(debts): return 0\n        res = float('inf')\n        for i in range(idx + 1, len(debts)):\n            if debts[i] * debts[idx] < 0:\n                debts[i] += debts[idx]\n                res = min(res, 1 + dfs(idx + 1))\n                debts[i] -= debts[idx]\n        return res\n    return str(dfs(0))",
+  "boilerplate": {
+    "python": "import sys\n\ndef solve(transactions):\n    pass\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    if not lines: sys.exit(0)\n    n = int(lines[0])\n    transactions = [list(map(int, lines[i].split())) for i in range(1, n+1)]\n    print(solve(transactions))",
+    "cpp": "#include <iostream>\nusing namespace std;\nint main() { return 0; }",
+    "java": "public class Main { public static void main(String[] args) {} }",
+    "javascript": "const fs = require('fs'); const input = fs.readFileSync(0, 'utf-8').trim().split('\\\\n');",
+    "c": "#include <stdio.h>\\nint main() { return 0; }"
+  },
+  "test_cases": [
+    {
+      "input": "3\n0 1 10\n2 0 5\n1 2 5",
+      "expected_output": "1",
+      "is_sample": true
     },
-    "test_cases": [
-        {
-            "input": "3\n0 1 10\n2 0 5\n1 2 5",
-            "expected_output": "1",
-            "is_sample": true
-        },
-        {
-            "input": "3\n0 1 10\n1 0 1\n1 2 5",
-            "expected_output": "2",
-            "is_sample": true
-        },
-        {
-            "input": "4\n0 1 10\n1 2 10\n2 3 10\n3 0 10",
-            "expected_output": "0",
-            "is_sample": false
-        },
-        {
-            "input": "4\n0 1 10\n0 2 10\n0 3 10\n1 2 10",
-            "expected_output": "3",
-            "is_sample": false
-        },
-        {
-            "input": "8\n0 1 10\n1 2 20\n2 3 30\n3 4 40\n4 5 50\n5 6 60\n6 7 70\n7 0 80",
-            "expected_output": "7",
-            "is_sample": false
-        },
-        {
-            "input": "2\n1 2 100\n2 1 100",
-            "expected_output": "0",
-            "is_sample": false
-        },
-        {
-            "input": "2\n0 1 5\n0 1 5",
-            "expected_output": "1",
-            "is_sample": false
-        },
-        {
-            "input": "3\n0 1 2\n1 2 1\n2 0 1",
-            "expected_output": "1",
-            "is_sample": false
-        },
-        {
-            "input": "5\n0 1 10\n1 2 10\n2 3 10\n3 4 10\n4 0 10",
-            "expected_output": "0",
-            "is_sample": false
-        },
-        {
-            "input": "6\n0 1 10\n0 2 10\n0 3 10\n0 4 10\n0 5 10\n5 0 10",
-            "expected_output": "4",
-            "is_sample": false
-        }
-    ],
-    "topics": [
-        "Array",
-        "Backtracking"
-    ],
-    "question_text": "<h3>Optimal Account Balancing</h3>",
-    "companyIndex": 8,
-    "metadata": {
-        "time_limit_ms": 2000,
-        "memory_limit_mb": 256,
-        "allowed_languages": [
-            "python",
-            "cpp",
-            "java",
-            "javascript",
-            "c"
-        ]
+    {
+      "input": "3\n0 1 10\n1 0 1\n1 2 5",
+      "expected_output": "2",
+      "is_sample": true
+    },
+    {
+      "input": "4\n0 1 10\n1 2 10\n2 3 10\n3 0 10",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "4\n0 1 10\n0 2 10\n0 3 10\n1 2 10",
+      "expected_output": "3",
+      "is_sample": false
+    },
+    {
+      "input": "8\n0 1 10\n1 2 20\n2 3 30\n3 4 40\n4 5 50\n5 6 60\n6 7 70\n7 0 80",
+      "expected_output": "7",
+      "is_sample": false
+    },
+    {
+      "input": "2\n1 2 100\n2 1 100",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "2\n0 1 5\n0 1 5",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "3\n0 1 2\n1 2 1\n2 0 1",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "5\n0 1 10\n1 2 10\n2 3 10\n3 4 10\n4 0 10",
+      "expected_output": "0",
+      "is_sample": false
+    },
+    {
+      "input": "6\n0 1 10\n0 2 10\n0 3 10\n0 4 10\n0 5 10\n5 0 10",
+      "expected_output": "4",
+      "is_sample": false
     }
+  ],
+  "topics": [
+    "Array",
+    "Backtracking"
+  ],
+  "question_text": "<h3>Optimal Account Balancing</h3><p>A group of friends went on holiday and sometimes lent each other money.</p>",
+  "companyIndex": 8,
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  }
 }

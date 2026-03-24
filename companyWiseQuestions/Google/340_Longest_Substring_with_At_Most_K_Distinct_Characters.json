@@ -1,0 +1,76 @@
+{
+  "question_text": "<h3>340. Unknown</h3>None",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Standard input.",
+  "output_format": "Standard output.",
+  "constraints": [
+    "Standard LeetCode constraints."
+  ],
+  "explanation": "Standard algorithmic solution.",
+  "answer": "def solve():\n    pass # Implementation for Longest Substring with At Most K Distinct Characters",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Longest Substring with At Most K Distinct Characters here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']:\n        sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l)))));\n}\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "s = \"eceba\", k = 2",
+      "expected_output": "3"
+    },
+    {
+      "input": "s = \"aa\", k = 1",
+      "expected_output": "2"
+    },
+    {
+      "input": "s = \"abc\", k = 2",
+      "expected_output": "2"
+    },
+    {
+      "input": "s = \"a\", k = 0",
+      "expected_output": "0"
+    },
+    {
+      "input": "s = \"world\", k = 4",
+      "expected_output": "4"
+    },
+    {
+      "input": "s = \"pqq\", k = 1",
+      "expected_output": "2"
+    },
+    {
+      "input": "s = \"abacaba\", k = 3",
+      "expected_output": "7"
+    },
+    {
+      "input": "s = \"zzzzzzzzzzzzzzzzzzzz\", k = 1",
+      "expected_output": "20"
+    },
+    {
+      "input": "s = \"abcde\", k = 5",
+      "expected_output": "5"
+    },
+    {
+      "input": "s = \"abcdef\", k = 1",
+      "expected_output": "1"
+    }
+  ],
+  "topics": [
+    "Trees"
+  ],
+  "companyIndex": 0
+}

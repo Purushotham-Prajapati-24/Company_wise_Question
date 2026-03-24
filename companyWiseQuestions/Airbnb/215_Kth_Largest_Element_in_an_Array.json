@@ -1,91 +1,91 @@
 {
-    "question_text": "<p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the</em> <code>k<sup>th</sup></code> <em>largest element in the array</em>.</p>\n\n<p>Note that it is the <code>k<sup>th</sup></code> largest element in the sorted order, not the <code>k<sup>th</sup></code> distinct element.</p>\n\n<p>Can you solve it without sorting?</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre><strong>Input:</strong> nums = [3,2,1,5,6,4], k = 2\n<strong>Output:</strong> 5\n</pre><p><strong class=\"example\">Example 2:</strong></p>\n<pre><strong>Input:</strong> nums = [3,2,3,1,2,4,5,5,6], k = 4\n<strong>Output:</strong> 4\n</pre>\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= k &lt;= nums.length &lt;= 10<sup>5</sup></code></li>\n\t<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>\n</ul>\n",
-    "difficulty": "MEDIUM",
-    "marks": 10,
-    "input_format": "Array nums and integer k",
-    "output_format": "kth largest element",
-    "constraints": [
-        "1 <= k <= nums.length <= 10^5",
-        "-10^4 <= nums[i] <= 10^4"
-    ],
-    "explanation": "Use a min-heap of size k, or QuickSelect for O(n) average time.",
-    "answer": "def findKthLargest(nums, k):\n    import heapq\n    return heapq.nlargest(k, nums)[-1]",
-    "boilerplate": {
-        "python": "import sys\nimport json\n\ndef findKthLargest(*args):\n    # Python optimum solution exclusively\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if not input_data or input_data == ['']: sys.exit(0)\n    parsed_args = [json.loads(line) for line in input_data]\n    print(json.dumps(findKthLargest(*parsed_args)).replace(' ', ''))",
-        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint findKthLargest() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Basic standard IO loop parser\n    string line;\n    while (getline(cin, line)) {\n        // Parse line into arguments and call solve\n    }\n    return 0;\n}",
-        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object findKthLargest() {\n        // User logic should be written here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {\n            // Parse line into arguments\n        }\n    }\n}",
-        "javascript": "const fs = require('fs');\n\nfunction findKthLargest(...args) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    const parsedArgs = input.map(line => JSON.parse(line));\n    console.log(JSON.stringify(findKthLargest(...parsedArgs)));\n}\n\nmodule.exports = findKthLargest;",
-        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint findKthLargest() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Standard C IO loop\n    return 0;\n}"
+  "question_text": "<p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the</em> <code>k<sup>th</sup></code> <em>largest element in the array</em>.</p>\n\n<p>Note that it is the <code>k<sup>th</sup></code> largest element in the sorted order, not the <code>k<sup>th</sup></code> distinct element.</p>\n\n<p>Can you solve it without sorting?</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre><strong>Input:</strong> nums = [3,2,1,5,6,4], k = 2\n<strong>Output:</strong> 5\n</pre><p><strong class=\"example\">Example 2:</strong></p>\n<pre><strong>Input:</strong> nums = [3,2,3,1,2,4,5,5,6], k = 4\n<strong>Output:</strong> 4\n</pre>\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= k &lt;= nums.length &lt;= 10<sup>5</sup></code></li>\n\t<li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>\n</ul>\n",
+  "difficulty": "MEDIUM",
+  "marks": 10,
+  "input_format": "Array nums and integer k",
+  "output_format": "kth largest element",
+  "constraints": [
+    "1 <= k <= nums.length <= 10^5",
+    "-10^4 <= nums[i] <= 10^4"
+  ],
+  "explanation": "Use a min-heap of size k, or QuickSelect for O(n) average time.",
+  "answer": "def findKthLargest(nums, k):\n    import heapq\n    return heapq.nlargest(k, nums)[-1]",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef findKthLargest(*args):\n    # Python optimum solution exclusively\n    return 0\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if not input_data or input_data == ['']: sys.exit(0)\n    parsed_args = [json.loads(line) for line in input_data]\n    print(json.dumps(findKthLargest(*parsed_args)).replace(' ', ''))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint findKthLargest() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Basic standard IO loop parser\n    string line;\n    while (getline(cin, line)) {\n        // Parse line into arguments and call solve\n    }\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static Object findKthLargest() {\n        // User logic should be written here\n        return null;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {\n            // Parse line into arguments\n        }\n    }\n}",
+    "javascript": "const fs = require('fs');\n\nfunction findKthLargest(...args) {\n    // User logic should be written here\n    return 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length > 0 && input[0] !== '') {\n    const parsedArgs = input.map(line => JSON.parse(line));\n    console.log(JSON.stringify(findKthLargest(...parsedArgs)));\n}\n\nmodule.exports = findKthLargest;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint findKthLargest() {\n    // User logic should be written here\n    return 0;\n}\n\nint main() {\n    // Standard C IO loop\n    return 0;\n}"
+  },
+  "metadata": {
+    "time_limit_ms": 1000,
+    "memory_limit_mb": 256,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "[3,2,1,5,6,4]\n2",
+      "expected_output": "5",
+      "is_sample": true
     },
-    "metadata": {
-        "time_limit_ms": 1000,
-        "memory_limit_mb": 256,
-        "allowed_languages": [
-            "python",
-            "cpp",
-            "java",
-            "javascript",
-            "c"
-        ]
+    {
+      "input": "[3,2,3,1,2,4,5,5,6]\n4",
+      "expected_output": "4",
+      "is_sample": true
     },
-    "test_cases": [
-        {
-            "input": "[3,2,1,5,6,4]\n2",
-            "expected_output": "5",
-            "is_sample": true
-        },
-        {
-            "input": "[3,2,3,1,2,4,5,5,6]\n4",
-            "expected_output": "4",
-            "is_sample": true
-        },
-        {
-            "input": "[1]\n1",
-            "expected_output": "1",
-            "is_sample": false
-        },
-        {
-            "input": "[-1,-2,-3,-4]\n2",
-            "expected_output": "-2",
-            "is_sample": false
-        },
-        {
-            "input": "[10,10,10,10,10]\n5",
-            "expected_output": "10",
-            "is_sample": false
-        },
-        {
-            "input": "[1,2,3,4,5,6,7,8,9,10]\n10",
-            "expected_output": "1",
-            "is_sample": false
-        },
-        {
-            "input": "[1,2,3,4,5,6,7,8,9,10]\n1",
-            "expected_output": "10",
-            "is_sample": false
-        },
-        {
-            "input": "[99,99]\n1",
-            "expected_output": "99",
-            "is_sample": false
-        },
-        {
-            "input": "[100,200,300,400]\n3",
-            "expected_output": "200",
-            "is_sample": false
-        },
-        {
-            "input": "[-100, -200, 100, 200, 0, -50, 50]\n4",
-            "expected_output": "0",
-            "is_sample": false
-        }
-    ],
-    "topics": [
-        "Arrays",
-        "Divide and Conquer",
-        "Sorting",
-        "Heap (Priority Queue)",
-        "Quickselect"
-    ],
-    "companyIndex": 5
+    {
+      "input": "[1]\n1",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "[-1,-2,-3,-4]\n2",
+      "expected_output": "-2",
+      "is_sample": false
+    },
+    {
+      "input": "[10,10,10,10,10]\n5",
+      "expected_output": "10",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,3,4,5,6,7,8,9,10]\n10",
+      "expected_output": "1",
+      "is_sample": false
+    },
+    {
+      "input": "[1,2,3,4,5,6,7,8,9,10]\n1",
+      "expected_output": "10",
+      "is_sample": false
+    },
+    {
+      "input": "[99,99]\n1",
+      "expected_output": "99",
+      "is_sample": false
+    },
+    {
+      "input": "[100,200,300,400]\n3",
+      "expected_output": "200",
+      "is_sample": false
+    },
+    {
+      "input": "[-100, -200, 100, 200, 0, -50, 50]\n4",
+      "expected_output": "0",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Arrays",
+    "Divide and Conquer",
+    "Sorting",
+    "Heap (Priority Queue)",
+    "Quickselect"
+  ],
+  "companyIndex": 21
 }

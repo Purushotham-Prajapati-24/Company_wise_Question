@@ -1,89 +1,89 @@
 {
-  "question_text": "<h3>Partition Labels</h3><p>Partition string into parts where each letter appears in at most one part.</p>",
-  "difficulty": "MEDIUM",
-  "marks": 10,
-  "input_format": "String.",
-  "output_format": "Array of lengths.",
-  "constraints": [
-    "length <= 500"
-  ],
-  "explanation": "Record the last occurrence of each character. Iterate through the string, maintaining a running \"furthest last\" pointer. When the current index matches this pointer, a partition is found.",
-  "answer": "def partitionLabels(s):\n    last = {c: i for i, c in enumerate(s)}\n    j = anchor = 0\n    res = []\n    for i, c in enumerate(s):\n        j = max(j, last[c])\n        if i == j:\n            res.append(i - anchor + 1)\n            anchor = i + 1\n    return res",
-  "boilerplate": {
-    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 763 Partition Labels here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
-    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
-    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
-    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
-  },
-  "metadata": {
-    "time_limit_ms": 1000,
-    "memory_limit_mb": 256,
-    "allowed_languages": [
-      "python",
-      "cpp",
-      "java",
-      "javascript",
-      "c"
-    ]
-  },
-  "test_cases": [
-    {
-      "input": "\"ababcbacadefegdehijhklij\"",
-      "expected_output": "[9,7,8]",
-      "is_sample": true
+    "question_text": "<h3>763. Partition Labels</h3><p>You are given a string <code>s</code>. We want to partition the string into as many parts as possible so that each letter appears in at most one part. For example, the string <code>&quot;ababcc&quot;</code> can be partitioned into <code>[&quot;abab&quot;, &quot;cc&quot;]</code>, but partitions such as <code>[&quot;aba&quot;, &quot;bcc&quot;]</code> or <code>[&quot;ab&quot;, &quot;ab&quot;, &quot;cc&quot;]</code> are invalid.</p>\n\n<p>Note that the partition is done so that after concatenating all the parts in order, the resultant string should be <code>s</code>.</p>\n\n<p>Return <em>a list of integers representing the size of these parts</em>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> s = &quot;ababcbacadefegdehijhklij&quot;\n<strong>Output:</strong> [9,7,8]\n<strong>Explanation:</strong>\nThe partition is &quot;ababcbaca&quot;, &quot;defegde&quot;, &quot;hijhklij&quot;.\nThis is a partition so that each letter appears in at most one part.\nA partition like &quot;ababcbacadefegde&quot;, &quot;hijhklij&quot; is incorrect, because it splits s into less parts.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> s = &quot;eccbbbbdec&quot;\n<strong>Output:</strong> [10]\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= s.length &lt;= 500</code></li>\n\t<li><code>s</code> consists of lowercase English letters.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "String.",
+    "output_format": "Array of lengths.",
+    "constraints": [
+        "length <= 500"
+    ],
+    "explanation": "Record the last occurrence of each character. Iterate through the string, maintaining a running \"furthest last\" pointer. When the current index matches this pointer, a partition is found.",
+    "answer": "def partitionLabels(s):\n    last = {c: i for i, c in enumerate(s)}\n    j = anchor = 0\n    res = []\n    for i, c in enumerate(s):\n        j = max(j, last[c])\n        if i == j:\n            res.append(i - anchor + 1)\n            anchor = i + 1\n    return res",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 763 Partition Labels here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
+        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
+        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
     },
-    {
-      "input": "\"eccbbbbdec\"",
-      "expected_output": "[10]",
-      "is_sample": true
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
     },
-    {
-      "input": "\"a\"",
-      "expected_output": "[1]",
-      "is_sample": false
-    },
-    {
-      "input": "\"ab\"",
-      "expected_output": "[1,1]",
-      "is_sample": false
-    },
-    {
-      "input": "\"aa\"",
-      "expected_output": "[2]",
-      "is_sample": false
-    },
-    {
-      "input": "\"abc\"",
-      "expected_output": "[1,1,1]",
-      "is_sample": false
-    },
-    {
-      "input": "\"aba\"",
-      "expected_output": "[3]",
-      "is_sample": false
-    },
-    {
-      "input": "\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"",
-      "expected_output": "[500]",
-      "is_sample": false
-    },
-    {
-      "input": "\"abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghij\"",
-      "expected_output": "[500]",
-      "is_sample": false
-    },
-    {
-      "input": "\"abccba\"",
-      "expected_output": "[6]",
-      "is_sample": false
-    }
-  ],
-  "topics": [
-    "Hash Table",
-    "Two Pointers",
-    "String",
-    "Greedy"
-  ],
-  "companyIndex": 3
+    "test_cases": [
+        {
+            "input": "\"ababcbacadefegdehijhklij\"",
+            "expected_output": "[9,7,8]",
+            "is_sample": true
+        },
+        {
+            "input": "\"eccbbbbdec\"",
+            "expected_output": "[10]",
+            "is_sample": true
+        },
+        {
+            "input": "\"a\"",
+            "expected_output": "[1]",
+            "is_sample": false
+        },
+        {
+            "input": "\"ab\"",
+            "expected_output": "[1,1]",
+            "is_sample": false
+        },
+        {
+            "input": "\"aa\"",
+            "expected_output": "[2]",
+            "is_sample": false
+        },
+        {
+            "input": "\"abc\"",
+            "expected_output": "[1,1,1]",
+            "is_sample": false
+        },
+        {
+            "input": "\"aba\"",
+            "expected_output": "[3]",
+            "is_sample": false
+        },
+        {
+            "input": "\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"",
+            "expected_output": "[500]",
+            "is_sample": false
+        },
+        {
+            "input": "\"abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghij\"",
+            "expected_output": "[500]",
+            "is_sample": false
+        },
+        {
+            "input": "\"abccba\"",
+            "expected_output": "[6]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Hash Table",
+        "Two Pointers",
+        "String",
+        "Greedy"
+    ],
+    "companyIndex": 2
 }

@@ -1,0 +1,86 @@
+{
+  "question_text": "<p>Table: <code>Orders</code></p>\n\n<pre>\n+-----------------+----------+\n| Column Name     | Type     |\n+-----------------+----------+\n| order_number    | int      |\n| customer_number | int      |\n+-----------------+----------+\norder_number is the primary key (column with unique values) for this table.\nThis table contains information about the order ID and the customer ID.\n</pre>\n\n<p>&nbsp;</p>\n\n<p>Write a solution to find the <code>customer_number</code> for the customer who has placed <strong>the largest number of orders</strong>.</p>\n\n<p>The test cases are generated so that <strong>exactly one customer</strong> will have placed more orders than any other customer.</p>\n\n<p>The result format is in the following example.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> \nOrders table:\n+--------------+-----------------+\n| order_number | customer_number |\n+--------------+-----------------+\n| 1            | 1               |\n| 2            | 2               |\n| 3            | 3               |\n| 4            | 3               |\n+--------------+-----------------+\n<strong>Output:</strong> \n+-----------------+\n| customer_number |\n+-----------------+\n| 3               |\n+-----------------+\n<strong>Explanation:</strong> \nThe customer with number 3 has two orders, which is greater than either customer 1 or 2 because each of them only has one order. \nSo the result is customer_number 3.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Follow up:</strong> What if more than one customer has the largest number of orders, can you find all the <code>customer_number</code> in this case?</p>\n",
+  "difficulty": "EASY",
+  "marks": 10,
+  "input_format": "Standard input.",
+  "output_format": "Standard output.",
+  "constraints": [
+    "Standard LeetCode constraints."
+  ],
+  "explanation": "Standard algorithmic solution.",
+  "answer": "def solve():\n    pass # Implementation for Customer Placing the Largest Number of Orders",
+  "boilerplate": {
+    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Customer Placing the Largest Number of Orders here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']:\n        sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
+    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
+    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
+    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l)))));\n}\nmodule.exports = solve;",
+    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+  },
+  "metadata": {
+    "time_limit_ms": 2000,
+    "memory_limit_mb": 512,
+    "allowed_languages": [
+      "python",
+      "cpp",
+      "java",
+      "javascript",
+      "c"
+    ]
+  },
+  "test_cases": [
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": true
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": true
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    },
+    {
+      "input": "",
+      "expected_output": "",
+      "is_sample": false
+    }
+  ],
+  "topics": [
+    "Data Structures / Algorithms"
+  ],
+  "companyIndex": 27
+}

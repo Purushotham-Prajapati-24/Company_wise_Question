@@ -1,7 +1,7 @@
 {
   "question_text": "<h3>Basic Calculator III</h3><p>Implement a basic calculator to evaluate a simple expression string. The expression string contains only non-negative integers, <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> operators, and empty spaces. The integer division should truncate towards zero. May contain parentheses.</p>\n<p><strong>Constraints:</strong></p><ul><li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code></li><li><code>s</code> consists of digits, <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>(</code>, <code>)</code>, and spaces.</li><li><code>s</code> is a valid expression.</li></ul>",
   "difficulty": "HARD",
-  "marks": 10,
+  "marks": 15,
   "input_format": "A string s representing a mathematical expression with +,-,*,/ and parentheses.",
   "output_format": "The integer result of evaluating the expression.",
   "constraints": [
@@ -86,5 +86,5 @@
     "Stack",
     "Recursion"
   ],
-  "companyIndex": 28
+  "companyIndex": 29
 }
