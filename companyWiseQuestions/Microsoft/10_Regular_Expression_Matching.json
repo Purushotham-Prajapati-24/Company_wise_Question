@@ -1,24 +1,27 @@
 {
-    "question_text": "<h3>10. Regular Expression Matching</h3><p>Given an input string <code>s</code>&nbsp;and a pattern <code>p</code>, implement regular expression matching with support for <code>&#39;.&#39;</code> and <code>&#39;*&#39;</code> where:</p>\n\n<ul>\n\t<li><code>&#39;.&#39;</code> Matches any single character.​​​​</li>\n\t<li><code>&#39;*&#39;</code> Matches zero or more of the preceding element.</li>\n</ul>\n\n<p>Return a boolean indicating whether the matching covers the entire input string (not partial).</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> s = &quot;aa&quot;, p = &quot;a&quot;\n<strong>Output:</strong> false\n<strong>Explanation:</strong> &quot;a&quot; does not match the entire string &quot;aa&quot;.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> s = &quot;aa&quot;, p = &quot;a*&quot;\n<strong>Output:</strong> true\n<strong>Explanation:</strong> &#39;*&#39; means zero or more of the preceding element, &#39;a&#39;. Therefore, by repeating &#39;a&#39; once, it becomes &quot;aa&quot;.\n</pre>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<pre>\n<strong>Input:</strong> s = &quot;ab&quot;, p = &quot;.*&quot;\n<strong>Output:</strong> true\n<strong>Explanation:</strong> &quot;.*&quot; means &quot;zero or more (*) of any character (.)&quot;.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= s.length&nbsp;&lt;= 20</code></li>\n\t<li><code>1 &lt;= p.length&nbsp;&lt;= 20</code></li>\n\t<li><code>s</code> contains only lowercase English letters.</li>\n\t<li><code>p</code> contains only lowercase English letters, <code>&#39;.&#39;</code>, and&nbsp;<code>&#39;*&#39;</code>.</li>\n\t<li>It is guaranteed for each appearance of the character <code>&#39;*&#39;</code>, there will be a previous valid character to match.</li>\n</ul>\n",
+    "question_text": "<h3>10. Regular Expression Matching</h3><p>Given an input string <code>s</code>&nbsp;and a pattern <code>p</code>, implement regular expression matching with support for <code>&#39;.&#39;</code> and <code>&#39;*&#39;</code> where:</p>\\n\\n<ul>\\n\\t<li><code>&#39;.&#39;</code> Matches any single character.​​​​</li>\\n\\t<li><code>&#39;*&#39;</code> Matches zero or more of the preceding element.</li>\\n</ul>\\n\\n<p>Return a boolean indicating whether the matching covers the entire input string (not partial).</p>\\n\\n<p>&nbsp;</p>\\n<p><strong class=\"example\">Example 1:</strong></p>\\n\\n<pre>\\n<strong>Input:</strong> s = &quot;aa&quot;, p = &quot;a&quot;\\n<strong>Output:</strong> false\\n<strong>Explanation:</strong> &quot;a&quot; does not match the entire string &quot;aa&quot;.\\n</pre>\\n\\n<p><strong class=\"example\">Example 2:</strong></p>\\n\\n<pre>\\n<strong>Input:</strong> s = &quot;aa&quot;, p = &quot;a*&quot;\\n<strong>Output:</strong> true\\n<strong>Explanation:</strong> &#39;*&#39; means zero or more of the preceding element, &#39;a&#39;. Therefore, by repeating &#39;a&#39; once, it becomes &quot;aa&quot;.\\n</pre>\\n\\n<p><strong class=\"example\">Example 3:</strong></p>\\n\\n<pre>\\n<strong>Input:</strong> s = &quot;ab&quot;, p = &quot;.*&quot;\\n<strong>Output:</strong> true\\n<strong>Explanation:</strong> &quot;.*&quot; means &quot;zero or more (*) of any character (.)&quot;.\\n</pre>\\n\\n<p>&nbsp;</p>\\n<p><strong>Constraints:</strong></p>\\n\\n<ul>\\n\\t<li><code>1 &lt;= s.length&nbsp;&lt;= 20</code></li>\\n\\t<li><code>1 &lt;= p.length&nbsp;&lt;= 20</code></li>\\n\\t<li><code>s</code> contains only lowercase English letters.</li>\\n\\t<li><code>p</code> contains only lowercase English letters, <code>&#39;.&#39;</code>, and&nbsp;<code>&#39;*&#39;</code>.</li>\\n\\t<li>It is guaranteed for each appearance of the character <code>&#39;*&#39;</code>, there will be a previous valid character to match.</li>\\n</ul>\\n",
     "difficulty": "HARD",
     "marks": 10,
-    "input_format": "s, p strings.",
-    "output_format": "Bool.",
+    "input_format": "Two lines: the first line contains the string `s`, and the second line contains the pattern `p`.",
+    "output_format": "A single line containing `true` if `s` matches `p`, or `false` otherwise.",
     "constraints": [
-        "s,p length <= 20"
+        "1 <= s.length <= 20",
+        "1 <= p.length <= 20",
+        "s contains only lowercase English letters.",
+        "p contains only lowercase English letters, '.', and '*'."
     ],
-    "explanation": "Dynamic programming or memoized recursion to handle * matching.",
-    "answer": "def isMatch(s, p):\n    m, n = len(s), len(p); dp = [[False]*(n+1) for _ in range(m+1)]; dp[0][0] = True\n    for j in range(2, n+1):\n        if p[j-1]=='*': dp[0][j]=dp[0][j-2]\n    for i in range(1, m+1):\n        for j in range(1, n+1):\n            if p[j-1]=='*':\n                dp[i][j] = dp[i][j-2] or (dp[i-1][j] and (s[i-1]==p[j-2] or p[j-2]=='.'))\n            else: dp[i][j] = dp[i-1][j-1] and (s[i-1]==p[j-1] or p[j-1]=='.')\n    return dp[m][n]",
+    "explanation": "We use dynamic programming to solve this. $dp[i][j]$ represents whether the suffix $s[i:]$ matches the suffix $p[j:]$. The base case is when we reach the end of the pattern. For '*' operators, we either skip the character in the pattern (0 matches) or match the current character and continue matching with the same pattern character (1+ matches).",
+    "answer": "def isMatch(s, p):\n    memo = {}\n    def dp(i, j):\n        if (i, j) in memo: return memo[(i, j)]\n        if j == len(p): return i == len(s)\n        first = i < len(s) and p[j] in {s[i], '.'}\n        if j + 1 < len(p) and p[j+1] == '*':\n            res = dp(i, j+2) or (first and dp(i+1, j))\n        else: res = first and dp(i+1, j+1)\n        memo[(i, j)] = res; return res\n    return dp(0, 0)",
     "boilerplate": {
-        "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 10 Regular Expression Matching here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
-        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
-        "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
-        "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
-        "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
+        "python": "import sys\n\ndef solve(s, p):\n    # User logic should be written here\n    return False\n\nif __name__ == '__main__':\n    input_data = sys.stdin.read().strip().split('\\n')\n    if len(input_data) >= 2:\n        s = input_data[0].strip()\n        p = input_data[1].strip()\n        if s.startswith('\"') and s.endswith('\"'): s = s[1:-1]\n        if p.startswith('\"') and p.endswith('\"'): p = p[1:-1]\n        print(str(solve(s, p)).lower())",
+        "cpp": "#include <iostream>\n#include <string>\n#include <vector>\nusing namespace std;\n\nbool solve(string s, string p) {\n    // User logic should be written here\n    return false;\n}\n\nint main() {\n    string s, p;\n    if (getline(cin, s) && getline(cin, p)) {\n        if (s.length() >= 2 && s[0] == '\"' && s[s.length()-1] == '\"') s = s.substr(1, s.length()-2);\n        if (p.length() >= 2 && p[0] == '\"' && p[p.length()-1] == '\"') p = p.substr(1, p.length()-2);\n        cout << (solve(s, p) ? \"true\" : \"false\") << endl;\n    }\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static boolean solve(String s, String p) {\n        // User logic should be written here\n        return false;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String s = br.readLine();\n        String p = br.readLine();\n        if (s != null && p != null) {\n            s = s.trim(); p = p.trim();\n            if (s.startsWith(\"\\\"\") && s.endsWith(\"\\\"\")) s = s.substring(1, s.length()-1);\n            if (p.startsWith(\"\\\"\") && p.endsWith(\"\\\"\")) p = p.substring(1, p.length()-1);\n            System.out.println(solve(s, p));\n        }\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve(s, p) {\n    // User logic should be written here\n    return false;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split(/\\r?\\n/);\nif (input.length >= 2) {\n    let s = input[0].trim();\n    let p = input[1].trim();\n    if (s.startsWith('\"') && s.endsWith('\"')) s = s.substring(1, s.length()-1);\n    if (p.startsWith('\"') && p.endsWith('\"')) p = p.substring(1, p.length()-1);\n    console.log(solve(s, p));\n}",
+        "c": "#include <stdio.h>\n#include <string.h>\n#include <stdbool.h>\n\nbool solve(char* s, char* p) {\n    // User logic should be written here\n    return false;\n}\n\nint main() {\n    char s[105], p[105];\n    if (fgets(s, 105, stdin) && fgets(p, 105, stdin)) {\n        s[strcspn(s, \"\\n\\r\")] = 0;\n        p[strcspn(p, \"\\n\\r\")] = 0;\n        char *s_ptr = s, *p_ptr = p;\n        if (s[0] == '\"' && s[strlen(s)-1] == '\"') { s[strlen(s)-1] = 0; s_ptr++; }\n        if (p[0] == '\"' && p[strlen(p)-1] == '\"') { p[strlen(p)-1] = 0; p_ptr++; }\n        printf(\"%s\\n\", solve(s_ptr, p_ptr) ? \"true\" : \"false\");\n    }\n    return 0;\n}"
     },
     "metadata": {
-        "time_limit_ms": 1000,
-        "memory_limit_mb": 256,
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 512,
         "allowed_languages": [
             "python",
             "cpp",
@@ -29,53 +32,53 @@
     },
     "test_cases": [
         {
-            "input": "\"aa\"\n\"a\"",
+            "input": "aa\na",
             "expected_output": "false",
             "is_sample": true
         },
         {
-            "input": "\"aa\"\n\"a*\"",
+            "input": "aa\na*",
             "expected_output": "true",
             "is_sample": true
         },
         {
-            "input": "\"ab\"\n\".*\"",
+            "input": "ab\n.*",
             "expected_output": "true",
             "is_sample": true
         },
         {
-            "input": "\"aab\"\n\"c*a*b\"",
+            "input": "aab\nc*a*b",
             "expected_output": "true",
             "is_sample": false
         },
         {
-            "input": "\"mississippi\"\n\"mis*is*p*.\"",
+            "input": "mississippi\nmis*is*p*.",
             "expected_output": "false",
             "is_sample": false
         },
         {
-            "input": "\"aaaaaaaaaaaaaaaaaaaa\"\n\"a*\"",
+            "input": " \n.*",
             "expected_output": "true",
             "is_sample": false
         },
         {
-            "input": "\"aaaaaaaaaaaaaaaaaaaa\"\n\"a*a*a*a*a*a*a*a*a*a*b\"",
+            "input": "aaaaaaaaaaaaaaaaaaaa\na*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "aaaaaaaaaaaaaaaaaaaa\na*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*ab",
             "expected_output": "false",
             "is_sample": false
         },
         {
-            "input": "\"abcd\"\n\"abcde*\"",
-            "expected_output": "true",
+            "input": "abcd\nd*",
+            "expected_output": "false",
             "is_sample": false
         },
         {
-            "input": "\"ab\"\n\"a*b*\"",
-            "expected_output": "true",
-            "is_sample": false
-        },
-        {
-            "input": "\"a\"\n\"ab*\"",
-            "expected_output": "true",
+            "input": "a\n.*..",
+            "expected_output": "false",
             "is_sample": false
         }
     ],

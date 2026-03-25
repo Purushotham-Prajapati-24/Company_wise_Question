@@ -1,0 +1,89 @@
+{
+    "question_text": "<h3>27. Remove Element</h3><p>Given an integer array <code>nums</code> and an integer <code>val</code>, remove all occurrences of <code>val</code> in <code>nums</code> <strong><a href=\"https://en.wikipedia.org/wiki/In-place_algorithm\" target=\"_blank\">in-place</a></strong>. The order of the elements may be changed. Then return <em>the number of elements in </em><code>nums</code><em> which are not equal to </em><code>val</code>.</p><p>Consider the number of elements in <code>nums</code> which are not equal to <code>val</code> be <code>k</code>, to get accepted, you need to do the following things:</p><ul><li>Change the array <code>nums</code> such that the first <code>k</code> elements of <code>nums</code> contain the elements which are not equal to <code>val</code>. The remaining elements of <code>nums</code> are not important as well as the size of <code>nums</code>.</li><li>Return <code>k</code>.</li></ul>",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "The first line contains an integer array `nums`. The second line contains an integer `val`.",
+    "output_format": "Return the integer `k` (number of elements not equal to `val`).",
+    "constraints": [
+        "0 <= nums.length <= 100",
+        "0 <= nums[i] <= 50",
+        "0 <= val <= 100"
+    ],
+    "explanation": "Use two pointers: one (`k`) to keep track of the position where the next non-`val` element should be placed, and another (`i`) to iterate through the array. If `nums[i]` is not equal to `val`, copy `nums[i]` to `nums[k]` and increment `k`.",
+    "answer": "def removeElement(nums, val):\n    k = 0\n    for i in range(len(nums)):\n        if nums[i] != val:\n            nums[k] = nums[i]\n            k += 1\n    return k",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(nums, val):\n    k = 0\n    for i in range(len(nums)):\n        if nums[i] != val:\n            nums[k] = nums[i]\n            k += 1\n    return k\n\nif __name__ == '__main__':\n    content = sys.stdin.read().strip().split('\\n')\n    if len(content) >= 2:\n        nums = json.loads(content[0])\n        val = int(content[1])\n        print(json.dumps(solve(nums, val)))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <sstream>\n#include <algorithm>\nusing namespace std;\n\nint removeElement(vector<int>& nums, int val) {\n    int k = 0;\n    for (int i = 0; i < nums.size(); i++) {\n        if (nums[i] != val) {\n            nums[k] = nums[i];\n            k++;\n        }\n    }\n    return k;\n}\n\nint main() {\n    string line, valStr;\n    if (getline(cin, line) && getline(cin, valStr)) {\n        if (line.front() == '[') line = line.substr(1, line.size() - 2);\n        stringstream ss(line);\n        vector<int> nums;\n        string v;\n        while (getline(ss, v, ',')) {\n            nums.push_back(stoi(v));\n        }\n        cout << removeElement(nums, stoi(valStr)) << endl;\n    }\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static int removeElement(int[] nums, int val) {\n        int k = 0;\n        for (int i = 0; i < nums.length; i++) {\n            if (nums[i] != val) {\n                nums[k] = nums[i];\n                k++;\n            }\n        }\n        return k;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line = br.readLine();\n        String valStr = br.readLine();\n        if (line != null && valStr != null) {\n            line = line.replace(\"[\", \"\").replace(\"]\", \"\").trim();\n            int[] nums;\n            if (line.isEmpty()) nums = new int[0];\n            else {\n                String[] parts = line.split(\",\");\n                nums = new int[parts.length];\n                for (int i = 0; i < parts.length; i++) nums[i] = Integer.parseInt(parts[i].trim());\n            }\n            System.out.println(removeElement(nums, Integer.parseInt(valStr.trim())));\n        }\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction removeElement(nums, val) {\n    let k = 0;\n    for (let i = 0; i < nums.length; i++) {\n        if (nums[i] !== val) {\n            nums[k] = nums[i];\n            k++;\n        }\n    }\n    return k;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length >= 2) {\n    const nums = JSON.parse(input[0]);\n    const val = parseInt(input[1]);\n    console.log(JSON.stringify(removeElement(nums, val)));\n}",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint removeElement(int* nums, int numsSize, int val) {\n    int k = 0;\n    for (int i = 0; i < numsSize; i++) {\n        if (nums[i] != val) {\n            nums[k] = nums[i];\n            k++;\n        }\n    }\n    return k;\n}\n\nint main() {\n    char buffer[1000];\n    if (fgets(buffer, sizeof(buffer), stdin)) {\n        char* p = buffer;\n        while (*p && (*p == '[' || *p == ' ' || *p == '\\n')) p++;\n        int nums[100], n = 0;\n        char* token = strtok(p, \",] \\n\");\n        while (token) {\n            nums[n++] = atoi(token);\n            token = strtok(NULL, \",] \\n\");\n        }\n        if (fgets(buffer, sizeof(buffer), stdin)) {\n            int val = atoi(buffer);\n            printf(\"%d\\n\", removeElement(nums, n, val));\n        }\n    }\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[3,2,2,3]\n3",
+            "expected_output": "2",
+            "is_sample": true
+        },
+        {
+            "input": "[0,1,2,2,3,0,4,2]\n2",
+            "expected_output": "5",
+            "is_sample": true
+        },
+        {
+            "input": "[]\n0",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "[1]\n1",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "[1]\n0",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "[2,2,2,2,2]\n2",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3,4,5]\n6",
+            "expected_output": "5",
+            "is_sample": false
+        },
+        {
+            "input": "[3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]\n3",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100]\n101",
+            "expected_output": "100",
+            "is_sample": false
+        },
+        {
+            "input": "[0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1]\n0",
+            "expected_output": "50",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Two Pointers"
+    ],
+    "companyIndex": 15
+}

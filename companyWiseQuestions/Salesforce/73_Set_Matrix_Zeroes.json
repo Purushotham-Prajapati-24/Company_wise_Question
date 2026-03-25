@@ -1,0 +1,91 @@
+{
+    "question_text": "<h3>73. Set Matrix Zeroes</h3><p>Given an <code>m x n</code> integer matrix <code>matrix</code>, if an element is <code>0</code>, set its entire row and column to <code>0</code>'s.</p>\\n\\n<p>You must do it <a href=\\\"https://en.wikipedia.org/wiki/In-place_algorithm\\\" target=\\\"_blank\\\">in place</a>.</p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "A 2D integer array `matrix`.",
+    "output_format": "NONE (modify the matrix in-place).",
+    "constraints": [
+        "m == matrix.length",
+        "n == matrix[0].length",
+        "1 <= m, n <= 200",
+        "-2^31 <= matrix[i][j] <= 2^31 - 1"
+    ],
+    "explanation": "Use first row and first column to store whether current row/col should be zero. Handle first row/col zeroes separately with boolean flags.",
+    "answer": "class Solution:\n    def setZeroes(self, matrix: List[List[int]]) -> None:\n        m, n = len(matrix), len(matrix[0])\n        row0 = col0 = False\n        for j in range(n):\n            if matrix[0][j] == 0: row0 = True\n        for i in range(m):\n            if matrix[i][0] == 0: col0 = True\n        for i in range(1, m):\n            for j in range(1, n):\n                if matrix[i][j] == 0:\n                    matrix[i][0] = matrix[0][j] = 0\n        for i in range(1, m):\n            for j in range(1, n):\n                if matrix[i][0] == 0 or matrix[0][j] == 0:\n                    matrix[i][j] = 0\n        if row0:\n            for j in range(n): matrix[0][j] = 0\n        if col0:\n            for i in range(m): matrix[i][0] = 0",
+    "boilerplate": {
+        "python": "import sys, json\n\ndef setZeroes(matrix):\n    m, n = len(matrix), len(matrix[0])\n    row0 = col0 = False\n    for j in range(n):\n        if matrix[0][j] == 0: row0 = True\n    for i in range(m):\n        if matrix[i][0] == 0: col0 = True\n    for i in range(1, m):\n        for j in range(1, n):\n            if matrix[i][j] == 0: matrix[i][0] = matrix[0][j] = 0\n    for i in range(1, m):\n        for j in range(1, n):\n            if matrix[i][0] == 0 or matrix[0][j] == 0: matrix[i][j] = 0\n    if row0:\n        for j in range(n): matrix[0][j] = 0\n    if col0:\n        for i in range(m): matrix[i][0] = 0\n    return matrix\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip()\n    if data:\n        matrix = json.loads(data)\n        setZeroes(matrix)\n        print(json.dumps(matrix))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n#include <json/json.h> // Assuming json-cpp or similar for parsing 2D array input\nusing namespace std;\n\n// Using a simplified manual parser for competitive programming style\nvoid setZeroes(vector<vector<int>>& matrix) {\n    int m = matrix.size(), n = matrix[0].size();\n    bool row0 = false, col0 = false;\n    for (int j = 0; j < n; j++) if (matrix[0][j] == 0) row0 = true;\n    for (int i = 0; i < m; i++) if (matrix[i][0] == 0) col0 = true;\n    for (int i = 1; i < m; i++) {\n        for (int j = 1; j < n; j++) {\n            if (matrix[i][j] == 0) matrix[i][0] = matrix[0][j] = 0;\n        }\n    }\n    for (int i = 1; i < m; i++) {\n        for (int j = 1; j < n; j++) {\n            if (matrix[i][0] == 0 || matrix[0][j] == 0) matrix[i][j] = 0;\n        }\n    }\n    if (row0) for (int j = 0; j < n; j++) matrix[0][j] = 0;\n    if (col0) for (int i = 0; i < m; i++) matrix[i][0] = 0;\n}\n\nint main() {\n    // Boilerplate for reading JSON matrix as string and processing\n    string s;\n    if (cin >> s) {\n        // Simple 2D vector parser for format [[1,1],[1,0]]\n        // (Implementation details omitted for brevity, usually handled by a framework)\n    }\n    return 0;\n}",
+        "java": "import java.util.*;\n\npublic class Main {\n    public static void setZeroes(int[][] matrix) {\n        int m = matrix.length, n = matrix[0].length;\n        boolean row0 = false, col0 = false;\n        for (int j = 0; j < n; j++) if (matrix[0][j] == 0) row0 = true;\n        for (int i = 0; i < m; i++) if (matrix[i][0] == 0) col0 = true;\n        for (int i = 1; i < m; i++) {\n            for (int j = 1; j < n; j++) {\n                if (matrix[i][j] == 0) {\n                    matrix[i][0] = 0;\n                    matrix[0][j] = 0;\n                }\n            }\n        }\n        for (int i = 1; i < m; i++) {\n            for (int j = 1; j < n; j++) {\n                if (matrix[i][0] == 0 || matrix[0][j] == 0) matrix[i][j] = 0;\n            }\n        }\n        if (row0) for (int j = 0; j < n; j++) matrix[0][j] = 0;\n        if (col0) for (int i = 0; i < m; i++) matrix[i][0] = 0;\n    }\n\n    public static void main(String[] args) {\n        // IO logic\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction setZeroes(matrix) {\n    let m = matrix.length, n = matrix[0].length;\n    let row0 = false, col0 = false;\n    for (let j = 0; j < n; j++) if (matrix[0][j] === 0) row0 = true;\n    for (let i = 0; i < m; i++) if (matrix[i][0] === 0) col0 = true;\n    for (let i = 1; i < m; i++) {\n        for (let j = 1; j < n; j++) {\n            if (matrix[i][j] === 0) {\n                matrix[i][0] = 0;\n                matrix[0][j] = 0;\n            }\n        }\n    }\n    for (let i = 1; i < m; i++) {\n        for (let j = 1; j < n; j++) {\n            if (matrix[i][0] === 0 || matrix[0][j] === 0) matrix[i][j] = 0;\n        }\n    }\n    if (row0) for (let j = 0; j < n; j++) matrix[0][j] = 0;\n    if (col0) for (let i = 0; i < m; i++) matrix[i][0] = 0;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim();\nif (input) {\n    const matrix = JSON.parse(input);\n    setZeroes(matrix);\n    console.log(JSON.stringify(matrix));\n}",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\nint solve() { return 0; }\nint main() { return 0; }"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[[1,1,1],[1,0,1],[1,1,1]]",
+            "expected_output": "[[1,0,1],[0,0,0],[1,0,1]]",
+            "is_sample": true
+        },
+        {
+            "input": "[[0,1,2,0],[3,4,5,2],[1,3,1,5]]",
+            "expected_output": "[[0,0,0,0],[0,4,5,0],[0,3,1,0]]",
+            "is_sample": true
+        },
+        {
+            "input": "[[1]]",
+            "expected_output": "[[1]]",
+            "is_sample": false
+        },
+        {
+            "input": "[[0]]",
+            "expected_output": "[[0]]",
+            "is_sample": false
+        },
+        {
+            "input": "[[1,0]]",
+            "expected_output": "[[0,0]]",
+            "is_sample": false
+        },
+        {
+            "input": "[[1],[0]]",
+            "expected_output": "[[0],[0]]",
+            "is_sample": false
+        },
+        {
+            "input": "[[1,2],[3,4]]",
+            "expected_output": "[[1,2],[3,4]]",
+            "is_sample": false
+        },
+        {
+            "input": "[[0, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 0]]",
+            "expected_output": "[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 1, 1, 1, 1, 0], [0, 1, 1, 1, 1, 1, 1, 1, 1, 0], [0, 1, 1, 1, 1, 1, 1, 1, 1, 0], [0, 1, 1, 1, 1, 1, 1, 1, 1, 0], [0, 1, 1, 1, 1, 1, 1, 1, 1, 0], [0, 1, 1, 1, 1, 1, 1, 1, 1, 0], [0, 1, 1, 1, 1, 1, 1, 1, 1, 0], [0, 1, 1, 1, 1, 1, 1, 1, 1, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]",
+            "is_sample": false
+        },
+        {
+            "input": "[[1, 0, 1], [1, 1, 1], [0, 1, 1]]",
+            "expected_output": "[[0, 0, 0], [0, 0, 1], [0, 0, 0]]",
+            "is_sample": false
+        },
+        {
+            "input": "[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]",
+            "expected_output": "[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Matrix",
+        "Hash Table"
+    ],
+    "companyIndex": 7
+}

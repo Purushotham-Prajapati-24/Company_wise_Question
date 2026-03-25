@@ -1,0 +1,89 @@
+{
+    "question_text": "<h3>83. Remove Duplicates from Sorted List</h3><p>Given the <code>head</code> of a sorted linked list, <em>delete all duplicates such that each element appears only once</em>. Return <em>the linked list <strong>sorted</strong> as well</em>.</p>",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "An array representing the linked list.",
+    "output_format": "An array representing the linked list after removing duplicate values.",
+    "constraints": [
+        "The number of nodes in the list is in the range [0, 300].",
+        "-100 <= Node.val <= 100",
+        "The list is guaranteed to be sorted in ascending order."
+    ],
+    "explanation": "Iterate through the sorted linked list. For each node, if the next node has the same value, bypass the next node. Otherwise, move the current pointer forward.",
+    "answer": "# Definition for singly-linked list.\n# class ListNode:\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution:\n    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:\n        cur = head\n        while cur and cur.next:\n            if cur.val == cur.next.val:\n                cur.next = cur.next.next\n            else:\n                cur = cur.next\n        return head",
+    "boilerplate": {
+        "python": "import sys, json\n\ndef deleteDuplicates(head_arr):\n    if not head_arr: return []\n    res = []\n    for x in head_arr:\n        if not res or res[-1] != x:\n            res.append(x)\n    return res\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip()\n    if data:\n        head_arr = json.loads(data)\n        print(json.dumps(deleteDuplicates(head_arr)))\n    else:\n        print(\"[]\")",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nvector<int> deleteDuplicates(vector<int>& nums) {\n    if (nums.empty()) return {};\n    vector<int> res;\n    res.push_back(nums[0]);\n    for (int i = 1; i < nums.size(); i++) {\n        if (nums[i] != nums[i-1]) res.push_back(nums[i]);\n    }\n    return res;\n}\n\nint main() {\n    // IO\n    return 0;\n}",
+        "java": "import java.util.*;\n\npublic class Main {\n    public static List<Integer> deleteDuplicates(int[] nums) {\n        if (nums.length == 0) return new ArrayList<>();\n        List<Integer> res = new ArrayList<>();\n        res.add(nums[0]);\n        for (int i = 1; i < nums.length; i++) {\n            if (nums[i] != nums[i-1]) res.add(nums[i]);\n        }\n        return res;\n    }\n\n    public static void main(String[] args) {\n        // IO\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction deleteDuplicates(nums) {\n    if (nums.length === 0) return [];\n    let res = [nums[0]];\n    for (let i = 1; i < nums.length; i++) {\n        if (nums[i] !== nums[i-1]) res.push(nums[i]);\n    }\n    return res;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim();\nif (input) {\n    const nums = JSON.parse(input);\n    console.log(JSON.stringify(deleteDuplicates(nums)));\n}",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[1,1,2]",
+            "expected_output": "[1,2]",
+            "is_sample": true
+        },
+        {
+            "input": "[1,1,2,3,3]",
+            "expected_output": "[1,2,3]",
+            "is_sample": true
+        },
+        {
+            "input": "[]",
+            "expected_output": "[]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,1,1]",
+            "expected_output": "[1]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,3]",
+            "expected_output": "[1,2,3]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,1,2,2,3,3]",
+            "expected_output": "[1,2,3]",
+            "is_sample": false
+        },
+        {
+            "input": "[-100,-100,-50,0,0,100]",
+            "expected_output": "[-100,-50,0,100]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,1,1,1,1]",
+            "expected_output": "[1]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,2,2,2,3]",
+            "expected_output": "[1,2,3]",
+            "is_sample": false
+        },
+        {
+            "input": "[1,1,2,2,2,2,2,2,2,2,3]",
+            "expected_output": "[1,2,3]",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Linked List",
+        "Two Pointers"
+    ],
+    "companyIndex": 28
+}

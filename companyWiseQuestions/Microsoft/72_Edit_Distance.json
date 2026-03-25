@@ -1,0 +1,88 @@
+{
+    "question_text": "<h3>72. Edit Distance</h3><p>Given two strings <code>word1</code> and <code>word2</code>, return <em>the minimum number of operations required to convert <code>word1</code> to <code>word2</code></em>.</p>\\n\\n<p>You have the following three operations permitted on a word:</p>\\n\\n<ul>\\n\\t<li>Insert a character</li>\\n\\t<li>Delete a character</li>\\n\\t<li>Replace a character</li>\\n</ul>",
+    "difficulty": "HARD",
+    "marks": 20,
+    "input_format": "Two strings `word1` and `word2`.",
+    "output_format": "An integer representing the minimum number of operations.",
+    "constraints": [
+        "0 <= word1.length, word2.length <= 500",
+        "word1 and word2 consist of lowercase English letters."
+    ],
+    "explanation": "We strategically synthesize a comprehensive dynamic tracker `dp` initializing a 2D constraint boundary dimension mirroring the twin strings string lengths absolute parameters. Navigating row by row continuously, whenever matching mappings exist `dp` inherits strictly bounded diagonal histories. Contrasting mappings dynamically isolate the minimal operation offset geometrically bounded mathematically directly producing pure dynamic arrays.",
+    "answer": "class Solution:\n    def minDistance(self, word1: str, word2: str) -> int:\n        m, n = len(word1), len(word2)\n        dp = [[0] * (n + 1) for _ in range(m + 1)]\n        for i in range(m + 1): dp[i][0] = i\n        for j in range(n + 1): dp[0][j] = j\n        for i in range(1, m + 1):\n            for j in range(1, n + 1):\n                if word1[i-1] == word2[j-1]:\n                    dp[i][j] = dp[i-1][j-1]\n                else:\n                    dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])\n        return dp[m][n]",
+    "boilerplate": {
+        "python": "import sys, json\n\ndef minDistance(word1, word2):\n    m, n = len(word1), len(word2)\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n    for i in range(m + 1): dp[i][0] = i\n    for j in range(n + 1): dp[0][j] = j\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if word1[i-1] == word2[j-1]:\n                dp[i][j] = dp[i-1][j-1]\n            else:\n                dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])\n    return dp[m][n]\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if len(data) >= 2:\n        word1 = json.loads(data[0])\n        word2 = json.loads(data[1])\n        print(minDistance(word1, word2))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\n\nint minDistance(string word1, string word2) {\n    int m = word1.length(), n = word2.length();\n    vector<vector<int>> dp(m + 1, vector<int>(n + 1));\n    for (int i = 0; i <= m; i++) dp[i][0] = i;\n    for (int j = 0; j <= n; j++) dp[0][j] = j;\n    for (int i = 1; i <= m; i++) {\n        for (int j = 1; j <= n; j++) {\n            if (word1[i-1] == word2[j-1]) dp[i][j] = dp[i-1][j-1];\n            else dp[i][j] = 1 + min({dp[i-1][j], dp[i][j-1], dp[i-1][j-1]});\n        }\n    }\n    return dp[m][n];\n}\n\nint main() {\n    string w1, w2;\n    // Simple line parsing\n    string line1, line2;\n    if (getline(cin, line1) && getline(cin, line2)) {\n        if (line1.front() == '\"') line1 = line1.substr(1, line1.length() - 2);\n        if (line2.front() == '\"') line2 = line2.substr(1, line2.length() - 2);\n        cout << minDistance(line1, line2) << endl;\n    }\n    return 0;\n}",
+        "java": "import java.util.*;\n\npublic class Main {\n    public static int minDistance(String word1, String word2) {\n        int m = word1.length(), n = word2.length();\n        int[][] dp = new int[m + 1][n + 1];\n        for (int i = 0; i <= m; i++) dp[i][0] = i;\n        for (int j = 0; j <= n; j++) dp[0][j] = j;\n        for (int i = 1; i <= m; i++) {\n            for (int j = 1; j <= n; j++) {\n                if (word1.charAt(i-1) == word2.charAt(j-1)) dp[i][j] = dp[i-1][j-1];\n                else dp[i][j] = 1 + Math.min(dp[i-1][j], Math.min(dp[i][j-1], dp[i-1][j-1]));\n            }\n        }\n        return dp[m][n];\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String w1 = sc.nextLine().trim();\n            if (sc.hasNextLine()) {\n                String w2 = sc.nextLine().trim();\n                if (w1.startsWith(\"\\\"\")) w1 = w1.substring(1, w1.length() - 1);\n                if (w2.startsWith(\"\\\"\")) w2 = w2.substring(1, w2.length() - 1);\n                System.out.println(minDistance(w1, w2));\n            }\n        }\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction minDistance(word1, word2) {\n    let m = word1.length, n = word2.length;\n    let dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));\n    for (let i = 0; i <= m; i++) dp[i][0] = i;\n    for (let j = 0; j <= n; j++) dp[0][j] = j;\n    for (let i = 1; i <= m; i++) {\n        for (let j = 1; j <= n; j++) {\n            if (word1[i-1] === word2[j-1]) dp[i][j] = dp[i-1][j-1];\n            else dp[i][j] = 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);\n        }\n    }\n    return dp[m][n];\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length >= 2) {\n    const w1 = JSON.parse(input[0]);\n    const w2 = JSON.parse(input[1]);\n    console.log(minDistance(w1, w2));\n}",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <stdbool.h>\n\nint solve(char* s1, char* s2) {\n    return 0;\n}\n\nint main() {\n    char s1[50000], s2[50000];\n    if (scanf(\"%s %s\", s1, s2) == 2) {\n        int res = solve(s1, s2);\n        printf(\"%d\\n\", res);\n    }\n    return 0;\n}"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "\"horse\"\\n\"ros\"",
+            "expected_output": "3",
+            "is_sample": true
+        },
+        {
+            "input": "\"intention\"\\n\"execution\"",
+            "expected_output": "5",
+            "is_sample": true
+        },
+        {
+            "input": "\"\"\\n\"a\"",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "\"a\"\\n\"\"",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "\"\"\\n\"\"",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "\"abc\"\\n\"abc\"",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "\"abc\"\\n\"y\"",
+            "expected_output": "3",
+            "is_sample": false
+        },
+        {
+            "input": "\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"\\n\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"",
+            "expected_output": "500",
+            "is_sample": false
+        },
+        {
+            "input": "\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"\\n\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "\"abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdef\"\\n\"bcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefgbcdefg\"",
+            "expected_output": "81",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "String",
+        "Dynamic Programming"
+    ],
+    "companyIndex": 1
+}

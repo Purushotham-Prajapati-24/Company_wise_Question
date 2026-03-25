@@ -1,5 +1,5 @@
 {
-  "question_text": "<h3>Maximum Number of Events That Can Be Attended</h3><p>Return the maximum number of events you can attend where each event $i$ has a start day $s_i$ and end day $e_i$. You can attend at most one event on any day $d$ if $s_i le d le e_i$.</p>",
+  "question_text": "<h3>1353. Maximum Number of Events That Can Be Attended</h3><p>Return the maximum number of events you can attend where each event $i$ has a start day $s_i$ and end day $e_i$. You can attend at most one event on any day $d$ if $s_i le d le e_i$.</p>",
   "difficulty": "MEDIUM",
   "marks": 10,
   "input_format": "events [[start, end]].",

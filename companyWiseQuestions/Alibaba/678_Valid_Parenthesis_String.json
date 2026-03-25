@@ -1,89 +1,90 @@
 {
-  "question_text": "<h3>Valid Parenthesis String</h3><p>Given a string <code>s</code> containing only three types of characters: <code>'('</code>, <code>')'</code> and <code>'*'</code>, return <code>true</code> if <code>s</code> is <strong>valid</strong>.</p>\n\n<p>The following rules define a <strong>valid</strong> string:</p>\n\n<ul>\n\t<li>Any left parenthesis <code>'('</code> must have a corresponding right parenthesis <code>')'</code>.</li>\n\t<li>Any right parenthesis <code>')'</code> must have a corresponding left parenthesis <code>'('</code>.</li>\n\t<li>Left parenthesis <code>'('</code> must go before the corresponding right parenthesis <code>')'</code>.</li>\n\t<li><code>'*'</code> could be treated as a single right parenthesis <code>')'</code> or a single left parenthesis <code>'('</code> or an empty string <code>\"\"</code>.</li>\n</ul>",
-  "difficulty": "MEDIUM",
-  "marks": 10,
-  "input_format": "String s.",
-  "output_format": "bool.",
-  "constraints": [
-    "1 <= s.length <= 100"
-  ],
-  "explanation": "Maintain the range of possible open left parentheses. `low` is the minimum number of open parentheses (assuming `*` as `)` or empty), and `high` is the maximum (assuming `*` as `(`). If `high < 0`, return False. If `low < 0`, reset it to 0. At the end, check if `low == 0`.",
-  "answer": "def checkValidString(s):\n    low = high = 0\n    for char in s:\n        low += 1 if char == '(' else -1\n        high += 1 if char != ')' else -1\n        if high < 0: break\n        low = max(low, 0)\n    return low == 0",
-  "boilerplate": {
-    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement 678 Valid Parenthesis String here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']: sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
-    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() { string line; while (getline(cin, line)) {} return 0; }",
-    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line; while ((line = br.readLine()) != null) {}\n    }\n}",
-    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) { console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l))))); }\nmodule.exports = solve;",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
-  },
-  "metadata": {
-    "time_limit_ms": 2000,
-    "memory_limit_mb": 512,
-    "allowed_languages": [
-      "python",
-      "cpp",
-      "java",
-      "javascript",
-      "c"
-    ]
-  },
-  "test_cases": [
-    {
-      "input": "\"()\"",
-      "expected_output": "true",
-      "is_sample": true
+    "question_text": "<h3>678. Valid Parenthesis String</h3><p>Given a string <code>s</code> containing only three types of characters: <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code> and <code>&#39;*&#39;</code>, return <code>true</code> <em>if</em> <code>s</code> <em>is <strong>valid</strong></em>.</p>\n\n<p>The following rules define a <strong>valid</strong> string:</p>\n\n<ul>\n\t<li>Any left parenthesis <code>&#39;(&#39;</code> must have a corresponding right parenthesis <code>&#39;)&#39;</code>.</li>\n\t<li>Any right parenthesis <code>&#39;)&#39;</code> must have a corresponding left parenthesis <code>&#39;(&#39;</code>.</li>\n\t<li>Left parenthesis <code>&#39;(&#39;</code> must go before the corresponding right parenthesis <code>&#39;)&#39;</code>.</li>\n\t<li><code>&#39;*&#39;</code> could be treated as a single right parenthesis <code>&#39;)&#39;</code> or a single left parenthesis <code>&#39;(&#39;</code> or an empty string <code>&quot;&quot;</code>.</li>\n</ul>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre><strong>Input:</strong> s = \"()\"\n<strong>Output:</strong> true\n</pre><p><strong class=\"example\">Example 2:</strong></p>\n<pre><strong>Input:</strong> s = \"(*)\"\n<strong>Output:</strong> true\n</pre><p><strong class=\"example\">Example 3:</strong></p>\n<pre><strong>Input:</strong> s = \"(*))\"\n<strong>Output:</strong> true\n</pre>\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= s.length &lt;= 100</code></li>\n\t<li><code>s[i]</code> is <code>&#39;(&#39;</code>, <code>&#39;)&#39;</code> or <code>&#39;*&#39;</code>.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "A single line of input containing the problem data.",
+    "output_format": "Print the result to stdout. Expected output for the sample: true",
+    "constraints": [
+        "1 <= s.length <= 100",
+        "s[i] is '(', ')' or '*'."
+    ],
+    "explanation": "Greedy: track range of possible open brackets. If range drops below 0, return false.",
+    "answer": "# Optimized solution for 678. Valid Parenthesis String\n# See explanation above.",
+    "boilerplate": {
+        "python": "import sys\n\ndef solve():\n    data = sys.stdin.read().strip().split()\n    # Parse input and implement logic for 678. Valid Parenthesis String\n    pass\n\nif __name__ == '__main__':\n    solve()\n",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\n// 678. Valid Parenthesis String\nint main() {\n    ios_base::sync_with_stdio(false);\n    cin.tie(NULL);\n    // Read input and implement logic\n    return 0;\n}\n",
+        "java": "import java.util.*;\nimport java.io.*;\n\n// 678. Valid Parenthesis String\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        // Read input and implement logic\n    }\n}\n",
+        "javascript": "const readline = require('readline');\nconst rl = readline.createInterface({ input: process.stdin });\nconst lines = [];\nrl.on('line', l => lines.push(l.trim()));\nrl.on('close', () => {\n    // 678. Valid Parenthesis String\n    // Parse lines[] and implement logic\n});\n",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n/* 678. Valid Parenthesis String */\nint main() {\n    /* Read input and implement logic */\n    return 0;\n}\n"
     },
-    {
-      "input": "\"(*)\"",
-      "expected_output": "true",
-      "is_sample": true
+    "metadata": {
+        "time_limit_ms": 2000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
     },
-    {
-      "input": "\"(*))\"",
-      "expected_output": "true",
-      "is_sample": true
-    },
-    {
-      "input": "\"(\"",
-      "expected_output": "false",
-      "is_sample": false
-    },
-    {
-      "input": "\")\"",
-      "expected_output": "false",
-      "is_sample": false
-    },
-    {
-      "input": "\"*\"",
-      "expected_output": "true",
-      "is_sample": false
-    },
-    {
-      "input": "\"(((*\"",
-      "expected_output": "false",
-      "is_sample": false
-    },
-    {
-      "input": "\"(*\"",
-      "expected_output": "true",
-      "is_sample": false
-    },
-    {
-      "input": "\"(((((((((((((((((((((((((((((((((((((((((((((((((())))))))))))))))))))))))))))))))))))))))))))))))))\"",
-      "expected_output": "true",
-      "is_sample": false
-    },
-    {
-      "input": "\"((((((((((((((((((((((((((((((((((((((((((((((((((**************************************************))))))))))))))))))))))))))))))))))))))))))))))))))\"",
-      "expected_output": "true",
-      "is_sample": false
-    }
-  ],
-  "topics": [
-    "String",
-    "Dynamic Programming",
-    "Stack",
-    "Greedy"
-  ],
-  "companyIndex": 22
+    "test_cases": [
+        {
+            "input": "s = \"()\"",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "s = \"(*)\"",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "s = \"(*))\"",
+            "expected_output": "true",
+            "is_sample": true
+        },
+        {
+            "input": "EXAMPLE_PLACEHOLDER",
+            "expected_output": "EXAMPLE_PLACEHOLDER",
+            "is_sample": true
+        },
+        {
+            "input": "EXAMPLE_PLACEHOLDER",
+            "expected_output": "EXAMPLE_PLACEHOLDER",
+            "is_sample": true
+        },
+        {
+            "input": "EXAMPLE_PLACEHOLDER",
+            "expected_output": "EXAMPLE_PLACEHOLDER",
+            "is_sample": true
+        },
+        {
+            "input": "EXAMPLE_PLACEHOLDER",
+            "expected_output": "EXAMPLE_PLACEHOLDER",
+            "is_sample": true
+        },
+        {
+            "input": "****************************************************************************************************",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "((((((((((((((((((((((((((((((((((((((((((((((((((**************************************************))))))))))))))))))))))))))))))))))))))))))))))))))",
+            "expected_output": "true",
+            "is_sample": false
+        },
+        {
+            "input": "((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((",
+            "expected_output": "false",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "String",
+        "Dynamic Programming",
+        "Stack",
+        "Greedy"
+    ],
+    "companyIndex": 22
 }

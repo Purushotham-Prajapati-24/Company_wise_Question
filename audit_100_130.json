@@ -1,0 +1,3908 @@
+[
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Adobe\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Airbnb\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Alibaba\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Amazon\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Apple\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Atlasssian\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Bloomberg\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Cisco\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Goldman Sachs\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Google\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\IBM\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Intel\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Jane Street\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\JPMorgan Chase\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Meta\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Microsoft\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Morgan Stanley\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Morgan Stanley\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Morgan Stanley\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Morgan Stanley\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Morgan Stanley\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Morgan Stanley\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Morgan Stanley\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Morgan Stanley\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Morgan Stanley\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Morgan Stanley\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Morgan Stanley\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Morgan Stanley\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Morgan Stanley\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Netflix\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\NVIDIA\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Oracle\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Paypal\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Qualcomm\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Quora\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Salesforce\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\SAP\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Spotify\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Tesla\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Twitter\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Uber\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 101,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\101_Symmetric_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 102,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\102_Binary_Tree_Level_Order_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 104,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\104_Maximum_Depth_of_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 105,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 106,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 108,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\108_Convert_Sorted_Array_to_Binary_Search_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 110,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\110_Balanced_Binary_Tree.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 113,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\113_Path_Sum_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 114,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\114_Flatten_Binary_Tree_to_Linked_List.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 116,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\116_Populating_Next_Right_Pointers_in_Each_Node.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 117,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\117_Populating_Next_Right_Pointers_in_Each_Node_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 118,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\118_Pascal_s_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 119,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\119_Pascal_s_Triangle_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 120,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\120_Triangle.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 121,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\121_Best_Time_to_Buy_and_Sell_Stock.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 122,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\122_Best_Time_to_Buy_and_Sell_Stock_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 123,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\123_Best_Time_to_Buy_and_Sell_Stock_III.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 124,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\124_Binary_Tree_Maximum_Path_Sum.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 125,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\125_Valid_Palindrome.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 126,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\126_Word_Ladder_II.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 127,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\127_Word_Ladder.json",
+        "has_period": false,
+        "num_test_cases": 10
+    },
+    {
+        "id": 128,
+        "file": "d:\\College Projects\\MNC_based\\companyWiseQuestions\\Visa\\128_Longest_Consecutive_Sequence.json",
+        "has_period": false,
+        "num_test_cases": 10
+    }
+]

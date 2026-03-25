@@ -1,0 +1,40 @@
+{
+    "question_text": "<h3>559. Maximum Depth of N-ary Tree</h3><p>Given a n-ary tree, find its maximum depth.</p> <p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p> <p><em>Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by the null value (See examples).</em></p> <p> </p> <p><strong class=\"example\">Example 1:</strong></p> <p><img src=\"https://assets.leetcode.com/uploads/2018/10/12/narytreeexample.png\" style=\"width: 100%; max-width: 300px;\" /></p> <pre> <strong>Input:</strong> root = [1,null,3,2,4,null,5,6] <strong>Output:</strong> 3 </pre> <p><strong class=\"example\">Example 2:</strong></p> <p><img alt=\"\" src=\"https://assets.leetcode.com/uploads/2019/11/08/sample_4_964.png\" style=\"width: 296px; height: 241px;\" /></p> <pre> <strong>Input:</strong> root = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14] <strong>Output:</strong> 5 </pre> <p> </p> <p><strong>Constraints:</strong></p> <ul> <li>The total number of nodes is in the range <code>[0, 10<sup>4</sup>]</code>.</li> <li>The depth of the n-ary tree is less than or equal to <code>1000</code>.</li> </ul>",
+    "difficulty": "EASY",
+    "marks": 5,
+    "input_format": "Level-order traversal of N-ary tree.",
+    "output_format": "Integer depth.",
+    "constraints": [
+        "Total nodes [0, 10^4]",
+        "Depth <= 1000"
+    ],
+    "explanation": "Recursively find the depth of each child and add 1 to the maximum child depth.",
+    "answer": "class Solution:\n    def maxDepth(self, root):\n        if not root: return 0\n        if not root.children: return 1\n        return 1 + max(self.maxDepth(child) for child in root.children)",
+    "boilerplate": {
+        "python": "import sys\\nclass Solution:\n    def maxDepth(self, root):\n        if not root: return 0\n        if not root.children: return 1\n        return 1 + max(self.maxDepth(child) for child in root.children)"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[1,null,3,2,4,null,5,6]",
+            "expected_output": "3",
+            "is_sample": true
+        }
+    ],
+    "topics": [
+        "Tree",
+        "DFS",
+        "BFS"
+    ],
+    "companyIndex": 0
+}

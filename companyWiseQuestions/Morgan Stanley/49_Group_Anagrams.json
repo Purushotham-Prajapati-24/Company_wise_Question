@@ -1,0 +1,87 @@
+{
+    "question_text": "<h3>49. Group Anagrams</h3><p>Given an array of strings <code>strs</code>, group the <span data-keyword=\"anagram\">anagrams</span> together. You can return the answer in <strong>any order</strong>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">strs = [&quot;eat&quot;,&quot;tea&quot;,&quot;tan&quot;,&quot;ate&quot;,&quot;nat&quot;,&quot;bat&quot;]</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">[[&quot;bat&quot;],[&quot;nat&quot;,&quot;tan&quot;],[&quot;ate&quot;,&quot;eat&quot;,&quot;tea&quot;]]</span></p>\n\n<p><strong>Explanation:</strong></p>\n\n<ul>\n\t<li>There is no string in strs that can be rearranged to form <code>&quot;bat&quot;</code>.</li>\n\t<li>The strings <code>&quot;nat&quot;</code> and <code>&quot;tan&quot;</code> are anagrams as they can be rearranged to form each other.</li>\n\t<li>The strings <code>&quot;ate&quot;</code>, <code>&quot;eat&quot;</code>, and <code>&quot;tea&quot;</code> are anagrams as they can be rearranged to form each other.</li>\n</ul>\n</div>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">strs = [&quot;&quot;]</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">[[&quot;&quot;]]</span></p>\n</div>\n\n<p><strong class=\"example\">Example 3:</strong></p>\n\n<div class=\"example-block\">\n<p><strong>Input:</strong> <span class=\"example-io\">strs = [&quot;a&quot;]</span></p>\n\n<p><strong>Output:</strong> <span class=\"example-io\">[[&quot;a&quot;]]</span></p>\n</div>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= strs.length &lt;= 10<sup>4</sup></code></li>\n\t<li><code>0 &lt;= strs[i].length &lt;= 100</code></li>\n\t<li><code>strs[i]</code> consists of lowercase English letters.</li>\n</ul>\n",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Standard competitive programming input.",
+    "output_format": "Standard competitive programming output.",
+    "constraints": [],
+    "explanation": "",
+    "answer": "",
+    "boilerplate": {
+        "python": "import sys\nimport json\nfrom collections import defaultdict\ndef groupAnagrams(strs):\n    ans = defaultdict(list)\n    for s in strs:\n        count = [0] * 26\n        for c in s: count[ord(c) - ord('a')] += 1\n        ans[tuple(count)].append(s)\n    return list(ans.values())\nif __name__ == '__main__':\n    line = sys.stdin.read().strip()\n    if line: print(json.dumps(groupAnagrams(eval(line.replace(' ', ',')))))",
+        "cpp": "",
+        "java": "",
+        "javascript": "",
+        "c": ""
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[\"eat\", \"tea\", \"tan\", \"ate\", \"nat\", \"bat\"]",
+            "expected_output": "[[\"eat\",\"tea\",\"ate\"],[\"tan\",\"nat\"],[\"bat\"]]",
+            "is_sample": true
+        },
+        {
+            "input": "STRATIFIED",
+            "expected_output": "TBD",
+            "is_sample": false
+        },
+        {
+            "input": "STRATIFIED",
+            "expected_output": "TBD",
+            "is_sample": false
+        },
+        {
+            "input": "STRATIFIED",
+            "expected_output": "TBD",
+            "is_sample": false
+        },
+        {
+            "input": "STRATIFIED",
+            "expected_output": "TBD",
+            "is_sample": false
+        },
+        {
+            "input": "STRATIFIED",
+            "expected_output": "TBD",
+            "is_sample": false
+        },
+        {
+            "input": "STRATIFIED",
+            "expected_output": "TBD",
+            "is_sample": false
+        },
+        {
+            "input": "STRATIFIED",
+            "expected_output": "TBD",
+            "is_sample": false
+        },
+        {
+            "input": "STRATIFIED",
+            "expected_output": "TBD",
+            "is_sample": false
+        },
+        {
+            "input": "STRATIFIED",
+            "expected_output": "TBD",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Array",
+        "Hash Table",
+        "String",
+        "Sorting"
+    ],
+    "companyIndex": 15
+}

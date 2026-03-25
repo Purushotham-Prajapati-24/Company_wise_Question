@@ -10,11 +10,11 @@
     "explanation": "We iterate through both linked lists simultaneously, adding corresponding digits and maintaining a carry. We create a new node for each digit of the sum. If one list is shorter, we treat its nodes as 0. This ensures O(max(N, M)) time complexity.",
     "answer": "def solve(l1, l2):\n    dummy = ListNode(0)\n    cur = dummy\n    carry = 0\n    while l1 or l2 or carry:\n        v1 = l1.val if l1 else 0\n        v2 = l2.val if l2 else 0\n        val = v1 + v2 + carry\n        carry = val // 10\n        val = val % 10\n        cur.next = ListNode(val)\n        cur = cur.next\n        l1 = l1.next if l1 else None\n        l2 = l2.next if l2 else None\n    return dummy.next",
     "boilerplate": {
-        "python": "import sys\n\ndef solve():\n    # Implement solution\n    pass\n\nif __name__ == '__main__':\n    # Standard I/O handler\n    pass",
-        "cpp": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint main() {\n    return 0;\n}",
-        "java": "import java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n    }\n}",
-        "javascript": "const fs = require('fs');\n\nfunction solve() {\n}\n\n// I/O handler",
-        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    return 0;\n}"
+        "python": "import sys\n\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef solve(l1, l2):\n    # User logic should be written here\n    return None\n\ndef build_list(arr):\n    dummy = ListNode(0)\n    curr = dummy\n    for x in arr: curr.next = ListNode(x); curr = curr.next\n    return dummy.next\n\ndef list_to_str(head):\n    res = []\n    while head: res.append(str(head.val)); head = head.next\n    return ' '.join(res)\n\nif __name__ == '__main__':\n    lines = sys.stdin.read().splitlines()\n    if len(lines) >= 2:\n        nums1 = list(map(int, lines[0].strip().split()))\n        nums2 = list(map(int, lines[1].strip().split()))\n        l1 = build_list(nums1)\n        l2 = build_list(nums2)\n        res = solve(l1, l2)\n        print(list_to_str(res))",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <sstream>\nusing namespace std;\n\nstruct ListNode {\n    int val;\n    ListNode *next;\n    ListNode(int x) : val(x), next(NULL) {}\n};\n\nListNode* solve(ListNode* l1, ListNode* l2) {\n    // User logic should be written here\n    return NULL;\n}\n\nint main() {\n    string line1, line2;\n    if (getline(cin, line1) && getline(cin, line2)) {\n        // I/O handling for linked lists\n    }\n    return 0;\n}",
+        "java": "import java.util.Scanner;\n\nclass ListNode {\n    int val; ListNode next;\n    ListNode(int x) { val = x; }\n}\n\npublic class Main {\n    public static ListNode solve(ListNode l1, ListNode l2) {\n        // User logic should be written here\n        return null;\n    }\n    public static void main(String[] args) {\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction solve(l1, l2) {\n    // User logic should be written here\n}\n\n// I/O handling",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct ListNode { int val; struct ListNode *next; };\n\nstruct ListNode* solve(struct ListNode* l1, struct ListNode* l2) {\n    return NULL;\n}"
     },
     "metadata": {
         "time_limit_ms": 1000,
@@ -64,18 +64,18 @@
             "is_sample": false
         },
         {
-            "input": "1 1 1 1 1 1 1\n9 9 9 9",
-            "expected_output": "0 1 1 1 2 1 1",
+            "input": "9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9\n1",
+            "expected_output": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1",
             "is_sample": false
         },
         {
-            "input": "0 0 1\n1",
-            "expected_output": "1 0 1",
+            "input": "1\n9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9",
+            "expected_output": "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1",
             "is_sample": false
         },
         {
-            "input": "9\n1",
-            "expected_output": "0 1",
+            "input": "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1\n8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8",
+            "expected_output": "9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9",
             "is_sample": false
         }
     ],

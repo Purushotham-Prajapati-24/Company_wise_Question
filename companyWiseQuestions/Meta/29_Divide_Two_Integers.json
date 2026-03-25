@@ -1,86 +1,88 @@
 {
-  "question_text": "<p>Given two integers <code>dividend</code> and <code>divisor</code>, divide two integers <strong>without</strong> using multiplication, division, and mod operator.</p>\n\n<p>The integer division should truncate toward zero, which means losing its fractional part. For example, <code>8.345</code> would be truncated to <code>8</code>, and <code>-2.7335</code> would be truncated to <code>-2</code>.</p>\n\n<p>Return <em>the <strong>quotient</strong> after dividing </em><code>dividend</code><em> by </em><code>divisor</code>.</p>\n\n<p><strong>Note: </strong>Assume we are dealing with an environment that could only store integers within the <strong>32-bit</strong> signed integer range: <code>[&minus;2<sup>31</sup>, 2<sup>31</sup> &minus; 1]</code>. For this problem, if the quotient is <strong>strictly greater than</strong> <code>2<sup>31</sup> - 1</code>, then return <code>2<sup>31</sup> - 1</code>, and if the quotient is <strong>strictly less than</strong> <code>-2<sup>31</sup></code>, then return <code>-2<sup>31</sup></code>.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n\n<pre>\n<strong>Input:</strong> dividend = 10, divisor = 3\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> 10/3 = 3.33333.. which is truncated to 3.\n</pre>\n\n<p><strong class=\"example\">Example 2:</strong></p>\n\n<pre>\n<strong>Input:</strong> dividend = 7, divisor = -3\n<strong>Output:</strong> -2\n<strong>Explanation:</strong> 7/-3 = -2.33333.. which is truncated to -2.\n</pre>\n\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>-2<sup>31</sup> &lt;= dividend, divisor &lt;= 2<sup>31</sup> - 1</code></li>\n\t<li><code>divisor != 0</code></li>\n</ul>\n",
-  "difficulty": "MEDIUM",
-  "marks": 10,
-  "input_format": "Standard input.",
-  "output_format": "Standard output.",
-  "constraints": [
-    "Standard LeetCode constraints."
-  ],
-  "explanation": "Standard algorithmic solution.",
-  "answer": "def solve():\n    pass # Implementation for Divide Two Integers",
-  "boilerplate": {
-    "python": "import sys\nimport json\n\ndef solve(*args):\n    # Implement Divide Two Integers here\n    pass\n\nif __name__ == '__main__':\n    data = sys.stdin.read().strip().split('\\n')\n    if not data or data == ['']:\n        sys.exit(0)\n    args = [json.loads(line) for line in data]\n    print(json.dumps(solve(*args)))",
-    "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\nusing namespace std;\nint main() {\n    string line;\n    while (getline(cin, line)) {}\n    return 0;\n}",
-    "java": "import java.util.*;\nimport java.io.*;\npublic class Main {\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        String line;\n        while ((line = br.readLine()) != null) {}\n    }\n}",
-    "javascript": "const fs = require('fs');\nfunction solve(...args) { return 0; }\nconst lines = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (lines.length) {\n    console.log(JSON.stringify(solve(...lines.map(l => JSON.parse(l)))));\n}\nmodule.exports = solve;",
-    "c": "#include <stdio.h>\n#include <stdlib.h>\nint main() { return 0; }"
-  },
-  "metadata": {
-    "time_limit_ms": 2000,
-    "memory_limit_mb": 512,
-    "allowed_languages": [
-      "python",
-      "cpp",
-      "java",
-      "javascript",
-      "c"
-    ]
-  },
-  "test_cases": [
-    {
-      "input": "",
-      "expected_output": "",
-      "is_sample": true
+    "question_text": "<h3>29. Divide Two Integers</h3><p>Given two integers <code>dividend</code> and <code>divisor</code>, divide two integers <strong>without</strong> using multiplication, division, and mod operator.</p><p>The integer division should truncate toward zero, which means losing its fractional part. For example, <code>8.345</code> would be truncated to <code>8</code>, and <code>-2.7335</code> would be truncated to <code>-2</code>.</p><p>Return <em>the <strong>quotient</strong> after dividing </em><code>dividend</code><em> by </em><code>divisor</code>.</p><p><strong>Note: </strong>Assume we are dealing with an environment that could only store integers within the <strong>32-bit</strong> signed integer range: <code>[&minus;2<sup>31</sup>, 2<sup>31</sup> &minus; 1]</code>. For this problem, if the quotient is <strong>strictly greater than</strong> <code>2<sup>31</sup> - 1</code>, then return <code>2<sup>31</sup> - 1</code>, and if the quotient is <strong>strictly less than</strong> <code>-2<sup>31</sup></code>, then return <code>-2<sup>31</sup></code>.</p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "Two lines: the first line contains `dividend`, the second contains `divisor`.",
+    "output_format": "Return the integer quotient.",
+    "constraints": [
+        "-2^31 <= dividend, divisor <= 2^31 - 1",
+        "divisor != 0"
+    ],
+    "explanation": "Use bit manipulation to perform division. Subtract powers of two of the divisor (using bit shifts) from the dividend to efficiently find the quotient. Handle the 32-bit overflow case (INT_MIN / -1).",
+    "answer": "def divide(dividend, divisor):\n    if dividend == -2147483648 and divisor == -1:\n        return 2147483647\n    a, b = abs(dividend), abs(divisor)\n    res = 0\n    for i in range(31, -1, -1):\n        if (a >> i) >= b:\n            res += (1 << i)\n            a -= (b << i)\n    return res if (dividend > 0) == (divisor > 0) else -res",
+    "boilerplate": {
+        "python": "import sys\nimport json\n\ndef solve(dividend, divisor):\n    if dividend == -2147483648 and divisor == -1:\n        return 2147483647\n    a, b = abs(dividend), abs(divisor)\n    res = 0\n    for i in range(31, -1, -1):\n        if (a >> i) >= b:\n            res += (1 << i)\n            a -= (b << i)\n    return res if (dividend > 0) == (divisor > 0) else -res\n\nif __name__ == '__main__':\n    content = sys.stdin.read().strip().split('\\n')\n    if len(content) >= 2:\n        dividend = int(content[0])\n        divisor = int(content[1])\n        print(json.dumps(solve(dividend, divisor)))",
+        "cpp": "#include <iostream>\n#include <climits>\nusing namespace std;\n\nint divide(int dividend, int divisor) {\n    if (dividend == INT_MIN && divisor == -1) return INT_MAX;\n    long long a = abs((long long)dividend);\n    long long b = abs((long long)divisor);\n    long long res = 0;\n    for (int i = 31; i >= 0; i--) {\n        if ((a >> i) >= b) {\n            res += (1LL << i);\n            a -= (b << i);\n        }\n    }\n    return (dividend > 0) == (divisor > 0) ? (int)res : (int)-res;\n}\n\nint main() {\n    long long d1, d2;\n    if (cin >> d1 >> d2) {\n        cout << divide((int)d1, (int)d2) << endl;\n    }\n    return 0;\n}",
+        "java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n    public static int divide(int dividend, int divisor) {\n        if (dividend == Integer.MIN_VALUE && divisor == -1) return Integer.MAX_VALUE;\n        long a = Math.abs((long) dividend);\n        long b = Math.abs((long) divisor);\n        long res = 0;\n        for (int i = 31; i >= 0; i--) {\n            if ((a >> i) >= b) {\n                res += (1L << i);\n                a -= (b << i);\n            }\n        }\n        return (dividend > 0) == (divisor > 0) ? (int) res : (int) -res;\n    }\n\n    public static void main(String[] args) throws IOException {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLong()) {\n            long d1 = sc.nextLong();\n            if (sc.hasNextLong()) {\n                long d2 = sc.nextLong();\n                System.out.println(divide((int)d1, (int)d2));\n            }\n        }\n    }\n}",
+        "javascript": "const fs = require('fs');\n\nfunction divide(dividend, divisor) {\n    if (dividend === -2147483648 && divisor === -1) return 2147483647;\n    let a = Math.abs(dividend);\n    let b = Math.abs(divisor);\n    let res = 0;\n    for (let i = 31; i >= 0; i--) {\n        // JavaScript bitwise operators work on 32-bit signed ints, but we use Math.pow for precision\n        let bShift = b * Math.pow(2, i);\n        if (a >= bShift) {\n            res += Math.pow(2, i);\n            a -= bShift;\n        }\n    }\n    return (dividend > 0) === (divisor > 0) ? res : -res;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split('\\n');\nif (input.length >= 2) {\n    console.log(JSON.stringify(divide(parseInt(input[0]), parseInt(input[1]))));\n}",
+        "c": "#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\n\nint divideInts(int dividend, int divisor) {\n    if (dividend == INT_MIN && divisor == -1) return INT_MAX;\n    long long a = llabs((long long)dividend);\n    long long b = llabs((long long)divisor);\n    long long res = 0;\n    for (int i = 31; i >= 0; i--) {\n        if ((a >> i) >= b) {\n            res += (1LL << i);\n            a -= (b << i);\n        }\n    }\n    return (dividend > 0) == (divisor > 0) ? (int)res : (int)-res;\n}\n\nint main() {\n    long long d1, d2;\n    if (scanf(\"%lld %lld\", &d1, &d2) == 2) {\n        printf(\"%d\\n\", divideInts((int)d1, (int)d2));\n    }\n    return 0;\n}"
     },
-    {
-      "input": "",
-      "expected_output": "",
-      "is_sample": true
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
     },
-    {
-      "input": "",
-      "expected_output": "",
-      "is_sample": false
-    },
-    {
-      "input": "",
-      "expected_output": "",
-      "is_sample": false
-    },
-    {
-      "input": "",
-      "expected_output": "",
-      "is_sample": false
-    },
-    {
-      "input": "",
-      "expected_output": "",
-      "is_sample": false
-    },
-    {
-      "input": "",
-      "expected_output": "",
-      "is_sample": false
-    },
-    {
-      "input": "",
-      "expected_output": "",
-      "is_sample": false
-    },
-    {
-      "input": "",
-      "expected_output": "",
-      "is_sample": false
-    },
-    {
-      "input": "",
-      "expected_output": "",
-      "is_sample": false
-    }
-  ],
-  "topics": [
-    "Math"
-  ],
-  "companyIndex": 4
+    "test_cases": [
+        {
+            "input": "10\n3",
+            "expected_output": "3",
+            "is_sample": true
+        },
+        {
+            "input": "7\n-3",
+            "expected_output": "-2",
+            "is_sample": true
+        },
+        {
+            "input": "0\n1",
+            "expected_output": "0",
+            "is_sample": false
+        },
+        {
+            "input": "1\n1",
+            "expected_output": "1",
+            "is_sample": false
+        },
+        {
+            "input": "-1\n1",
+            "expected_output": "-1",
+            "is_sample": false
+        },
+        {
+            "input": "2147483647\n1",
+            "expected_output": "2147483647",
+            "is_sample": false
+        },
+        {
+            "input": "-2147483648\n1",
+            "expected_output": "-2147483648",
+            "is_sample": false
+        },
+        {
+            "input": "-2147483648\n-1",
+            "expected_output": "2147483647",
+            "is_sample": false
+        },
+        {
+            "input": "2147483647\n2",
+            "expected_output": "1073741823",
+            "is_sample": false
+        },
+        {
+            "input": "-2147483648\n2",
+            "expected_output": "-1073741824",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Math",
+        "Bit Manipulation"
+    ],
+    "companyIndex": 4
 }

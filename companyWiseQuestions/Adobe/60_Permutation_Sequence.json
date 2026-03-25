@@ -1,0 +1,88 @@
+{
+    "question_text": "<h3>60. Permutation Sequence</h3><p>The set <code>[1, 2, 3, ...,&nbsp;n]</code> contains a total of <code>n!</code> unique permutations.</p>\n\n<p>By listing and labeling all of the permutations in order, we get the following sequence for <code>n = 3</code>:</p>\n\n<ol>\n\t<li><code>&quot;123&quot;</code></li>\n\t<li><code>&quot;132&quot;</code></li>\n\t<li><code>&quot;213&quot;</code></li>\n\t<li><code>&quot;231&quot;</code></li>\n\t<li><code>&quot;312&quot;</code></li>\n\t<li><code>&quot;321&quot;</code></li>\n</ol>\n\n<p>Given <code>n</code> and <code>k</code>, return the <code>k<sup>th</sup></code> permutation sequence.</p>\n\n<p>&nbsp;</p>\n<p><strong class=\"example\">Example 1:</strong></p>\n<pre><strong>Input:</strong> n = 3, k = 3\n<strong>Output:</strong> \"213\"\n</pre><p><strong class=\"example\">Example 2:</strong></p>\n<pre><strong>Input:</strong> n = 4, k = 9\n<strong>Output:</strong> \"2314\"\n</pre><p><strong class=\"example\">Example 3:</strong></p>\n<pre><strong>Input:</strong> n = 3, k = 1\n<strong>Output:</strong> \"123\"\n</pre>\n<p>&nbsp;</p>\n<p><strong>Constraints:</strong></p>\n\n<ul>\n\t<li><code>1 &lt;= n &lt;= 9</code></li>\n\t<li><code>1 &lt;= k &lt;= n!</code></li>\n</ul>\n",
+    "difficulty": "HARD",
+    "marks": 10,
+    "input_format": "Two integers n and k.",
+    "output_format": "The kth permutation sequence as a string.",
+    "constraints": [
+        "1 <= n <= 9",
+        "1 <= k <= n!"
+    ],
+    "explanation": "This problem is solved using a factorial-based mathematical approach rather than generating all permutations. Since there are (n-1)! permutations starting with each digit, we can determine the first digit by k // (n-1)!, then update k = k % (n-1)! and repeat for the next digit using the remaining available numbers.",
+    "answer": "class Solution:\n    def getPermutation(self, n: int, k: int) -> str:\n        nums = [str(i) for i in range(1, n + 1)]\n        k -= 1\n        res = \"\"\n        import math\n        for i in range(n - 1, -1, -1):\n            idx, k = divmod(k, math.factorial(i))\n            res += nums.pop(idx)\n        return res",
+    "boilerplate": {
+        "python": "import sys\nimport math\n\ndef getPermutation(n, k):\n    nums = [str(i) for i in range(1, n + 1)]\n    k -= 1\n    res = \"\"\n    for i in range(n - 1, -1, -1):\n        f = math.factorial(i)\n        idx = k // f\n        k %= f\n        res += nums.pop(idx)\n    return res\n\nif __name__ == '__main__':\n    content = sys.stdin.read().strip().split()\n    if len(content) >= 2:\n        n = int(content[0])\n        k = int(content[1])\n        print(f'\"{getPermutation(n, k)}\"')\n",
+        "cpp": "#include <iostream>\n#include <vector>\n#include <string>\n#include <numeric>\n\nusing namespace std;\n\nstring getPermutation(int n, int k) {\n    vector<int> nums(n);\n    iota(nums.begin(), nums.end(), 1);\n    vector<int> factorial(n, 1);\n    for (int i = 1; i < n; i++) factorial[i] = factorial[i - 1] * i;\n    \n    k--;\n    string res = \"\";\n    for (int i = n - 1; i >= 0; i--) {\n        int idx = k / factorial[i];\n        k %= factorial[i];\n        res += to_string(nums[idx]);\n        nums.erase(nums.begin() + idx);\n    }\n    return res;\n}\n\nint main() {\n    int n, k;\n    if (!(cin >> n >> k)) return 0;\n    cout << \"\\\"\" << getPermutation(n, k) << \"\\\"\" << endl;\n    return 0;\n}\n",
+        "java": "import java.util.*;\n\npublic class Main {\n    public static String getPermutation(int n, int k) {\n        List<Integer> nums = new ArrayList<>();\n        int[] factorial = new int[n];\n        factorial[0] = 1;\n        for (int i = 1; i < n; i++) {\n            factorial[i] = factorial[i - 1] * i;\n            nums.add(i);\n        }\n        nums.add(n);\n        \n        k--;\n        StringBuilder sb = new StringBuilder();\n        for (int i = n - 1; i >= 0; i--) {\n            int idx = k / factorial[i];\n            k %= factorial[i];\n            sb.append(nums.get(idx));\n            nums.remove(idx);\n        }\n        return sb.toString();\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (!sc.hasNextInt()) return;\n        int n = sc.nextInt();\n        int k = sc.nextInt();\n        System.out.println(\"\\\"\" + getPermutation(n, k) + \"\\\"\");\n    }\n}\n",
+        "javascript": "const fs = require('fs');\n\nfunction getPermutation(n, k) {\n    const nums = [];\n    const factorial = [1];\n    for (let i = 1; i < n; i++) {\n        factorial[i] = factorial[i - 1] * i;\n        nums.push(i);\n    }\n    nums.push(n);\n    \n    k--;\n    let res = \"\";\n    for (let i = n - 1; i >= 0; i--) {\n        const idx = Math.floor(k / factorial[i]);\n        k %= factorial[i];\n        res += nums[idx];\n        nums.splice(idx, 1);\n    }\n    return res;\n}\n\nconst input = fs.readFileSync(0, 'utf8').trim().split(/\\s+/);\nif (input.length < 2) process.exit(0);\nconsole.log(`\"${getPermutation(parseInt(input[0]), parseInt(input[1]))}\"`);\n",
+        "c": ""
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "3\\n3",
+            "expected_output": "\"213\"",
+            "is_sample": true
+        },
+        {
+            "input": "4\\n9",
+            "expected_output": "\"2314\"",
+            "is_sample": true
+        },
+        {
+            "input": "3\\n1",
+            "expected_output": "\"123\"",
+            "is_sample": true
+        },
+        {
+            "input": "2\\n2",
+            "expected_output": "\"21\"",
+            "is_sample": false
+        },
+        {
+            "input": "1\\n1",
+            "expected_output": "\"1\"",
+            "is_sample": false
+        },
+        {
+            "input": "4\\n1",
+            "expected_output": "\"1234\"",
+            "is_sample": false
+        },
+        {
+            "input": "4\\n24",
+            "expected_output": "\"4321\"",
+            "is_sample": false
+        },
+        {
+            "input": "9\\n362880",
+            "expected_output": "\"987654321\"",
+            "is_sample": false
+        },
+        {
+            "input": "9\\n1",
+            "expected_output": "\"123456789\"",
+            "is_sample": false
+        },
+        {
+            "input": "9\\n181440",
+            "expected_output": "\"549876321\"",
+            "is_sample": false
+        }
+    ],
+    "topics": [
+        "Math",
+        "Recursion"
+    ],
+    "companyIndex": 6
+}

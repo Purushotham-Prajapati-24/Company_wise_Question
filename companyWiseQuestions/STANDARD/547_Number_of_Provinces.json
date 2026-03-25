@@ -1,0 +1,41 @@
+{
+    "question_text": "<h3>547. Number of Provinces</h3><p><p>There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.</p>\n<p>A <strong>province</strong> is a group of directly or indirectly connected cities and no other cities outside of the group.</p>\n<p>You are given an <code>n x n</code> matrix <code>isConnected</code> where <code>isConnected[i][j] = 1</code> if the <code>i<sup>th</sup></code> city and the <code>j<sup>th</sup></code> city are directly connected, and <code>isConnected[i][j] = 0</code> otherwise. Return <em>the total number of <strong>provinces</strong></em>.</p>\n<p><strong>Example 1:</strong></p>\n<pre>Input: isConnected = [[1,1,0],[1,1,0],[0,0,1]]\nOutput: 2</pre></p>",
+    "difficulty": "MEDIUM",
+    "marks": 10,
+    "input_format": "n x n adjacency matrix.",
+    "output_format": "Integer count of provinces.",
+    "constraints": [
+        "1 <= n <= 200",
+        "isConnected[i][j] is 0 or 1"
+    ],
+    "explanation": "This is a connected components problem. Use DFS or BFS to traverse each component and count them.",
+    "answer": "def solve(isConnected):\n    n = len(isConnected)\n    visited = [False] * n\n    provinces = 0\n    def dfs(i):\n        for j in range(n):\n            if isConnected[i][j] == 1 and not visited[j]:\n                visited[j] = True\n                dfs(j)\n    for i in range(n):\n        if not visited[i]:\n            provinces += 1\n            visited[i] = True\n            dfs(i)\n    return provinces",
+    "boilerplate": {
+        "python": "import sys\\ndef solve(isConnected):\n    n = len(isConnected)\n    visited = [False] * n\n    provinces = 0\n    def dfs(i):\n        for j in range(n):\n            if isConnected[i][j] == 1 and not visited[j]:\n                visited[j] = True\n                dfs(j)\n    for i in range(n):\n        if not visited[i]:\n            provinces += 1\n            visited[i] = True\n            dfs(i)\n    return provinces"
+    },
+    "metadata": {
+        "time_limit_ms": 1000,
+        "memory_limit_mb": 256,
+        "allowed_languages": [
+            "python",
+            "cpp",
+            "java",
+            "javascript",
+            "c"
+        ]
+    },
+    "test_cases": [
+        {
+            "input": "[[1,1,0],[1,1,0],[0,0,1]]",
+            "expected_output": "2",
+            "is_sample": true
+        }
+    ],
+    "topics": [
+        "DFS",
+        "BFS",
+        "Union Find",
+        "Graph"
+    ],
+    "companyIndex": 0
+}
