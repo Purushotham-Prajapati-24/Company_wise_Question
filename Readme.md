@@ -57,16 +57,8 @@ Propagation ensures that the newly generated question is correctly indexed under
     3.  For each associated company, add the question summary (ID, Title, Difficulty, Link) to the corresponding list in `company_questions_dataset.json`.
     4.  Update the `frequency_score` to reflect the latest data.
 
-> [!TIP]
-> Use the utility scripts in `archive/scripts/` to automate bulk updates. For example, `inject_boilerplates.py` can be adapted to mass-update company associations across the entire dataset.
-
 ---
 
-## 🧪 Maintenance Scripts
-
-- **`find_gaps.py`**: Identifies missing problem IDs that haven't been standardized yet.
-- **`inject_boilerplates.py`**: Mass-injects or updates code templates across multiple `make_standard_N.py` files.
-- **`_verify_batch.py`**: Validates the integrity of generated JSON files against a set of rules.
 
 ## 📈 SEO & Discovery
 This dataset is optimized for building interview prep tools. Every question has unique IDs and structured metadata, making it highly searchable and easy to integrate into databases or frontend frameworks.
