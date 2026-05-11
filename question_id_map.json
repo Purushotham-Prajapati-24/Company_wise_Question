@@ -133,6 +133,31 @@
         "name": "Visa",
         "frequency": 0.18,
         "link": "https://leetcode.com/problems/two-sum"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 10.0,
+        "link": "https://leetcode.com/problems/two-sum"
+      },
+      {
+        "name": "HCLTech",
+        "frequency": 10.0,
+        "link": "https://leetcode.com/problems/two-sum"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 10.0,
+        "link": "https://leetcode.com/problems/two-sum"
+      },
+      {
+        "name": "TCS",
+        "frequency": 8.75,
+        "link": "https://leetcode.com/problems/two-sum"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 10.0,
+        "link": "https://leetcode.com/problems/two-sum"
       }
     ]
   },
@@ -220,6 +245,21 @@
         "name": "Paypal",
         "frequency": 0.05,
         "link": "https://leetcode.com/problems/add-two-numbers"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/add-two-numbers"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/add-two-numbers"
+      },
+      {
+        "name": "TCS",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/add-two-numbers"
       }
     ]
   },
@@ -287,6 +327,31 @@
         "name": "Paypal",
         "frequency": 0.025,
         "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 8.75,
+        "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters"
+      },
+      {
+        "name": "HCLTech",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters"
+      },
+      {
+        "name": "TCS",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters"
       }
     ]
   },
@@ -343,6 +408,11 @@
       {
         "name": "Visa",
         "frequency": 0.035,
+        "link": "https://leetcode.com/problems/median-of-two-sorted-arrays"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 7.5,
         "link": "https://leetcode.com/problems/median-of-two-sorted-arrays"
       }
     ]
@@ -406,6 +476,26 @@
         "name": "Paypal",
         "frequency": 0.028,
         "link": "https://leetcode.com/problems/longest-palindromic-substring"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/longest-palindromic-substring"
+      },
+      {
+        "name": "HCLTech",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/longest-palindromic-substring"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/longest-palindromic-substring"
+      },
+      {
+        "name": "TCS",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/longest-palindromic-substring"
       }
     ]
   },
@@ -440,6 +530,26 @@
         "name": "JPMorgan Chase",
         "frequency": 0.055,
         "link": "https://leetcode.com/problems/reverse-integer/"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/reverse-integer"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/reverse-integer"
+      },
+      {
+        "name": "TCS",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/reverse-integer"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/reverse-integer"
       }
     ]
   },
@@ -479,6 +589,26 @@
         "name": "JPMorgan Chase",
         "frequency": 0.088,
         "link": "https://leetcode.com/problems/palindrome-number/"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 8.75,
+        "link": "https://leetcode.com/problems/palindrome-number"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/palindrome-number"
+      },
+      {
+        "name": "TCS",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/palindrome-number"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/palindrome-number"
       }
     ]
   },
@@ -533,6 +663,21 @@
         "name": "Adobe",
         "frequency": 1.15,
         "link": "https://leetcode.com/problems/container-with-most-water/"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/container-with-most-water"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/container-with-most-water"
+      },
+      {
+        "name": "TCS",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/container-with-most-water"
       }
     ]
   },
@@ -550,6 +695,11 @@
         "name": "Bloomberg",
         "frequency": 0.052,
         "link": "https://leetcode.com/problems/integer-to-roman"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/integer-to-roman"
       }
     ]
   },
@@ -562,6 +712,16 @@
         "name": "Adobe",
         "frequency": 1.434,
         "link": "https://leetcode.com/problems/roman-to-integer/"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/roman-to-integer"
+      },
+      {
+        "name": "TCS",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/roman-to-integer"
       }
     ]
   },
@@ -593,6 +753,26 @@
       {
         "name": "Visa",
         "frequency": 0.021,
+        "link": "https://leetcode.com/problems/longest-common-prefix"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/longest-common-prefix"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/longest-common-prefix"
+      },
+      {
+        "name": "TCS",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/longest-common-prefix"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 8.75,
         "link": "https://leetcode.com/problems/longest-common-prefix"
       }
     ]
@@ -661,6 +841,26 @@
         "name": "Visa",
         "frequency": 0.035,
         "link": "https://leetcode.com/problems/3sum"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/3sum"
+      },
+      {
+        "name": "HCLTech",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/3sum"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/3sum"
+      },
+      {
+        "name": "TCS",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/3sum"
       }
     ]
   },
@@ -673,6 +873,11 @@
         "name": "SAP",
         "frequency": 0.008,
         "link": "https://leetcode.com/problems/3sum-closest/"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/3sum-closest"
       }
     ]
   },
@@ -747,6 +952,11 @@
         "name": "Adobe",
         "frequency": 0.787,
         "link": "https://leetcode.com/problems/4sum/"
+      },
+      {
+        "name": "TCS",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/4sum"
       }
     ]
   },
@@ -866,6 +1076,31 @@
         "name": "Visa",
         "frequency": 0.107,
         "link": "https://leetcode.com/problems/valid-parentheses"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/valid-parentheses"
+      },
+      {
+        "name": "HCLTech",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/valid-parentheses"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/valid-parentheses"
+      },
+      {
+        "name": "TCS",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/valid-parentheses"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/valid-parentheses"
       }
     ]
   },
@@ -933,6 +1168,16 @@
         "name": "Visa",
         "frequency": 0.005,
         "link": "https://leetcode.com/problems/merge-two-sorted-lists"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/merge-two-sorted-lists"
+      },
+      {
+        "name": "TCS",
+        "frequency": 2.5,
+        "link": "https://leetcode.com/problems/merge-two-sorted-lists"
       }
     ]
   },
@@ -959,6 +1204,11 @@
       {
         "name": "Alibaba",
         "frequency": 0.085,
+        "link": "https://leetcode.com/problems/generate-parentheses"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
         "link": "https://leetcode.com/problems/generate-parentheses"
       }
     ]
@@ -1056,6 +1306,11 @@
         "name": "Paypal",
         "frequency": 0.062,
         "link": "https://leetcode.com/problems/reverse-nodes-in-k-group"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/reverse-nodes-in-k-group"
       }
     ]
   },
@@ -1068,6 +1323,21 @@
         "name": "Cisco",
         "frequency": 0.048,
         "link": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/remove-duplicates-from-sorted-array"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/remove-duplicates-from-sorted-array"
+      },
+      {
+        "name": "TCS",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/remove-duplicates-from-sorted-array"
       }
     ]
   },
@@ -1080,6 +1350,11 @@
         "name": "Paypal",
         "frequency": 0.024,
         "link": "https://leetcode.com/problems/implement-strstr"
+      },
+      {
+        "name": "TCS",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string"
       }
     ]
   },
@@ -1118,6 +1393,16 @@
       {
         "name": "Quora",
         "frequency": 0.11,
+        "link": "https://leetcode.com/problems/next-permutation"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/next-permutation"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
         "link": "https://leetcode.com/problems/next-permutation"
       }
     ]
@@ -1215,6 +1500,16 @@
         "name": "Visa",
         "frequency": 0.01,
         "link": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array"
       }
     ]
   },
@@ -1289,6 +1584,16 @@
       {
         "name": "Quora",
         "frequency": 0.034,
+        "link": "https://leetcode.com/problems/combination-sum"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/combination-sum"
+      },
+      {
+        "name": "TCS",
+        "frequency": 2.5,
         "link": "https://leetcode.com/problems/combination-sum"
       }
     ]
@@ -1394,6 +1699,16 @@
         "name": "Visa",
         "frequency": 0.169,
         "link": "https://leetcode.com/problems/trapping-rain-water"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/trapping-rain-water"
+      },
+      {
+        "name": "TCS",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/trapping-rain-water"
       }
     ]
   },
@@ -1467,6 +1782,11 @@
         "name": "Quora",
         "frequency": 0.058,
         "link": "https://leetcode.com/problems/rotate-image"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/rotate-image"
       }
     ]
   },
@@ -1514,6 +1834,11 @@
         "name": "Visa",
         "frequency": 0.024,
         "link": "https://leetcode.com/problems/group-anagrams"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/group-anagrams"
       }
     ]
   },
@@ -1526,6 +1851,11 @@
         "name": "Morgan Stanley",
         "frequency": 0.006,
         "link": "https://leetcode.com/problems/powxn/"
+      },
+      {
+        "name": "TCS",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/powx-n"
       }
     ]
   },
@@ -1633,6 +1963,21 @@
         "name": "Visa",
         "frequency": 0.019,
         "link": "https://leetcode.com/problems/maximum-subarray"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/maximum-subarray"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 8.75,
+        "link": "https://leetcode.com/problems/maximum-subarray"
+      },
+      {
+        "name": "TCS",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/maximum-subarray"
       }
     ]
   },
@@ -1679,6 +2024,16 @@
       {
         "name": "Visa",
         "frequency": 0.126,
+        "link": "https://leetcode.com/problems/spiral-matrix"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/spiral-matrix"
+      },
+      {
+        "name": "TCS",
+        "frequency": 5.0,
         "link": "https://leetcode.com/problems/spiral-matrix"
       }
     ]
@@ -1747,6 +2102,11 @@
         "name": "Alibaba",
         "frequency": 0.014,
         "link": "https://leetcode.com/problems/merge-intervals"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/merge-intervals"
       }
     ]
   },
@@ -1792,6 +2152,11 @@
       {
         "name": "Alibaba",
         "frequency": 0.055,
+        "link": "https://leetcode.com/problems/unique-paths"
+      },
+      {
+        "name": "TCS",
+        "frequency": 6.25,
         "link": "https://leetcode.com/problems/unique-paths"
       }
     ]
@@ -1839,6 +2204,16 @@
         "name": "Spotify",
         "frequency": 0.029,
         "link": "https://leetcode.com/problems/plus-one/"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/plus-one"
+      },
+      {
+        "name": "TCS",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/plus-one"
       }
     ]
   },
@@ -1851,6 +2226,11 @@
         "name": "Meta",
         "frequency": 4.591,
         "link": "https://leetcode.com/problems/add-binary/"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/add-binary"
       }
     ]
   },
@@ -1895,6 +2275,21 @@
         "name": "Alibaba",
         "frequency": 0.141,
         "link": "https://leetcode.com/problems/climbing-stairs"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/climbing-stairs"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 8.75,
+        "link": "https://leetcode.com/problems/climbing-stairs"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/climbing-stairs"
       }
     ]
   },
@@ -1929,6 +2324,21 @@
         "name": "Paypal",
         "frequency": 0.022,
         "link": "https://leetcode.com/problems/edit-distance"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/edit-distance"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/edit-distance"
+      },
+      {
+        "name": "TCS",
+        "frequency": 2.5,
+        "link": "https://leetcode.com/problems/edit-distance"
       }
     ]
   },
@@ -1946,6 +2356,11 @@
         "name": "Paypal",
         "frequency": 0.028,
         "link": "https://leetcode.com/problems/set-matrix-zeroes"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/set-matrix-zeroes"
       }
     ]
   },
@@ -1962,6 +2377,11 @@
       {
         "name": "Paypal",
         "frequency": 0.031,
+        "link": "https://leetcode.com/problems/sort-colors"
+      },
+      {
+        "name": "TCS",
+        "frequency": 6.25,
         "link": "https://leetcode.com/problems/sort-colors"
       }
     ]
@@ -2022,6 +2442,11 @@
         "name": "Atlasssian",
         "frequency": 0.008,
         "link": "https://leetcode.com/problems/subsets"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/subsets"
       }
     ]
   },
@@ -2038,6 +2463,11 @@
       {
         "name": "Bloomberg",
         "frequency": 0.033,
+        "link": "https://leetcode.com/problems/word-search"
+      },
+      {
+        "name": "TCS",
+        "frequency": 2.5,
         "link": "https://leetcode.com/problems/word-search"
       }
     ]
@@ -2080,6 +2510,11 @@
         "name": "Twitter",
         "frequency": 0.126,
         "link": "https://leetcode.com/problems/largest-rectangle-in-histogram"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/largest-rectangle-in-histogram"
       }
     ]
   },
@@ -2114,6 +2549,31 @@
         "name": "IBM",
         "frequency": 0.012,
         "link": "https://leetcode.com/problems/merge-sorted-array/"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/merge-sorted-array"
+      },
+      {
+        "name": "HCLTech",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/merge-sorted-array"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/merge-sorted-array"
+      },
+      {
+        "name": "TCS",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/merge-sorted-array"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/merge-sorted-array"
       }
     ]
   },
@@ -2398,6 +2858,21 @@
         "name": "Twitter",
         "frequency": 0.015,
         "link": "https://leetcode.com/problems/pascals-triangle"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/pascals-triangle"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/pascals-triangle"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/pascals-triangle"
       }
     ]
   },
@@ -2504,6 +2979,21 @@
         "name": "Visa",
         "frequency": 0.008,
         "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 8.75,
+        "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
+      },
+      {
+        "name": "TCS",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock"
       }
     ]
   },
@@ -2516,6 +3006,11 @@
         "name": "Goldman Sachs",
         "frequency": 0.265,
         "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii"
       }
     ]
   },
@@ -2557,6 +3052,16 @@
         "name": "Meta",
         "frequency": 4.472,
         "link": "https://leetcode.com/problems/valid-palindrome/"
+      },
+      {
+        "name": "HCLTech",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/valid-palindrome"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/valid-palindrome"
       }
     ]
   },
@@ -2638,6 +3143,11 @@
         "name": "Bloomberg",
         "frequency": 0.055,
         "link": "https://leetcode.com/problems/longest-consecutive-sequence"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/longest-consecutive-sequence"
       }
     ]
   },
@@ -2672,6 +3182,11 @@
         "name": "Paypal",
         "frequency": 0.03,
         "link": "https://leetcode.com/problems/gas-station"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/gas-station"
       }
     ]
   },
@@ -2700,6 +3215,11 @@
       {
         "name": "Airbnb",
         "frequency": 0.035,
+        "link": "https://leetcode.com/problems/single-number"
+      },
+      {
+        "name": "TCS",
+        "frequency": 6.25,
         "link": "https://leetcode.com/problems/single-number"
       }
     ]
@@ -3003,6 +3523,21 @@
         "name": "Qualcomm",
         "frequency": 0.009,
         "link": "https://leetcode.com/problems/reverse-words-in-a-string/"
+      },
+      {
+        "name": "HCLTech",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/reverse-words-in-a-string"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/reverse-words-in-a-string"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/reverse-words-in-a-string"
       }
     ]
   },
@@ -3014,6 +3549,11 @@
       {
         "name": "Alibaba",
         "frequency": 0.034,
+        "link": "https://leetcode.com/problems/maximum-product-subarray"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
         "link": "https://leetcode.com/problems/maximum-product-subarray"
       }
     ]
@@ -3161,6 +3701,11 @@
         "name": "Quora",
         "frequency": 0.142,
         "link": "https://leetcode.com/problems/find-peak-element"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/find-peak-element"
       }
     ]
   },
@@ -3238,6 +3783,16 @@
         "name": "Twitter",
         "frequency": 0.011,
         "link": "https://leetcode.com/problems/majority-element"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/majority-element"
+      },
+      {
+        "name": "TCS",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/majority-element"
       }
     ]
   },
@@ -3306,6 +3861,26 @@
         "name": "Adobe",
         "frequency": 0.555,
         "link": "https://leetcode.com/problems/second-highest-salary/"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/second-highest-salary"
+      },
+      {
+        "name": "HCLTech",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/second-highest-salary"
+      },
+      {
+        "name": "TCS",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/second-highest-salary"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/second-highest-salary"
       }
     ]
   },
@@ -3330,6 +3905,16 @@
         "name": "Salesforce",
         "frequency": 0.084,
         "link": "https://leetcode.com/problems/largest-number/"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/largest-number"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/largest-number"
       }
     ]
   },
@@ -3342,6 +3927,16 @@
         "name": "Netflix",
         "frequency": 0.074,
         "link": "https://leetcode.com/problems/department-top-three-salaries/"
+      },
+      {
+        "name": "HCLTech",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/department-top-three-salaries"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/department-top-three-salaries"
       }
     ]
   },
@@ -3370,6 +3965,26 @@
       {
         "name": "Paypal",
         "frequency": 0.016,
+        "link": "https://leetcode.com/problems/rotate-array"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/rotate-array"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/rotate-array"
+      },
+      {
+        "name": "TCS",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/rotate-array"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 6.25,
         "link": "https://leetcode.com/problems/rotate-array"
       }
     ]
@@ -3428,6 +4043,16 @@
       {
         "name": "Quora",
         "frequency": 0.004,
+        "link": "https://leetcode.com/problems/house-robber"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/house-robber"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
         "link": "https://leetcode.com/problems/house-robber"
       }
     ]
@@ -3553,6 +4178,11 @@
         "name": "Visa",
         "frequency": 0.057,
         "link": "https://leetcode.com/problems/number-of-islands"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/number-of-islands"
       }
     ]
   },
@@ -3592,6 +4222,11 @@
         "name": "Jane Street",
         "frequency": 0.12,
         "link": "https://leetcode.com/problems/happy-number"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/happy-number"
       }
     ]
   },
@@ -3621,6 +4256,11 @@
         "name": "Intel",
         "frequency": 0.042,
         "link": "https://leetcode.com/problems/count-primes/"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/count-primes"
       }
     ]
   },
@@ -3866,6 +4506,11 @@
         "name": "Alibaba",
         "frequency": 0.358,
         "link": "https://leetcode.com/problems/kth-largest-element-in-an-array"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/kth-largest-element-in-an-array"
       }
     ]
   },
@@ -3877,6 +4522,11 @@
       {
         "name": "Airbnb",
         "frequency": 0.015,
+        "link": "https://leetcode.com/problems/contains-duplicate"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
         "link": "https://leetcode.com/problems/contains-duplicate"
       }
     ]
@@ -4232,6 +4882,11 @@
         "name": "Visa",
         "frequency": 0.035,
         "link": "https://leetcode.com/problems/product-of-array-except-self"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/product-of-array-except-self"
       }
     ]
   },
@@ -4304,6 +4959,16 @@
       {
         "name": "Bloomberg",
         "frequency": 0.064,
+        "link": "https://leetcode.com/problems/valid-anagram"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/valid-anagram"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 7.5,
         "link": "https://leetcode.com/problems/valid-anagram"
       }
     ]
@@ -4523,6 +5188,16 @@
         "name": "IBM",
         "frequency": 0.093,
         "link": "https://leetcode.com/problems/missing-number/"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/missing-number"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/missing-number"
       }
     ]
   },
@@ -4682,6 +5357,11 @@
         "name": "Cisco",
         "frequency": 0.009,
         "link": "https://leetcode.com/problems/perfect-squares/"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/perfect-squares"
       }
     ]
   },
@@ -4749,6 +5429,11 @@
       {
         "name": "Paypal",
         "frequency": 0.07,
+        "link": "https://leetcode.com/problems/move-zeroes"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 6.25,
         "link": "https://leetcode.com/problems/move-zeroes"
       }
     ]
@@ -4990,6 +5675,11 @@
       {
         "name": "Atlasssian",
         "frequency": 0.102,
+        "link": "https://leetcode.com/problems/longest-increasing-subsequence"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 3.75,
         "link": "https://leetcode.com/problems/longest-increasing-subsequence"
       }
     ]
@@ -5268,6 +5958,16 @@
       {
         "name": "Paypal",
         "frequency": 0.029,
+        "link": "https://leetcode.com/problems/reverse-string"
+      },
+      {
+        "name": "Infosys",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/reverse-string"
+      },
+      {
+        "name": "HCLTech",
+        "frequency": 7.5,
         "link": "https://leetcode.com/problems/reverse-string"
       }
     ]
@@ -6023,6 +6723,11 @@
         "name": "Bloomberg",
         "frequency": 0.113,
         "link": "https://leetcode.com/problems/sort-characters-by-frequency"
+      },
+      {
+        "name": "Wipro",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/sort-characters-by-frequency"
       }
     ]
   },
@@ -6181,6 +6886,11 @@
       {
         "name": "Twitter",
         "frequency": 0.029,
+        "link": "https://leetcode.com/problems/next-greater-element-i"
+      },
+      {
+        "name": "Accenture",
+        "frequency": 5.0,
         "link": "https://leetcode.com/problems/next-greater-element-i"
       }
     ]
@@ -6810,6 +7520,11 @@
       {
         "name": "Atlasssian",
         "frequency": 0.023,
+        "link": "https://leetcode.com/problems/palindromic-substrings"
+      },
+      {
+        "name": "HCLTech",
+        "frequency": 6.25,
         "link": "https://leetcode.com/problems/palindromic-substrings"
       }
     ]
@@ -8950,6 +9665,455 @@
         "name": "Paypal",
         "frequency": 0.309,
         "link": "https://leetcode.com/problems/check-if-array-pairs-are-divisible-by-k"
+      }
+    ]
+  },
+  "1946": {
+    "title": "Largest Number After Mutating Substring",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/largest-number-after-mutating-substring"
+      }
+    ]
+  },
+  "2940": {
+    "title": "Find Building Where Alice and Bob Can Meet",
+    "difficulty": "Hard",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/find-building-where-alice-and-bob-can-meet"
+      }
+    ]
+  },
+  "1124": {
+    "title": "Longest Well-Performing Interval",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/longest-well-performing-interval"
+      }
+    ]
+  },
+  "2233": {
+    "title": "Maximum Product After K Increments",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/maximum-product-after-k-increments"
+      }
+    ]
+  },
+  "69": {
+    "title": "Sqrt(x)",
+    "difficulty": "Easy",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/sqrtx"
+      },
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/sqrtx"
+      }
+    ]
+  },
+  "3165": {
+    "title": "Maximum Sum of Subsequence With Non-adjacent Elements",
+    "difficulty": "Hard",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/maximum-sum-of-subsequence-with-non-adjacent-elements"
+      }
+    ]
+  },
+  "1255": {
+    "title": "Maximum Score Words Formed by Letters",
+    "difficulty": "Hard",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/maximum-score-words-formed-by-letters"
+      }
+    ]
+  },
+  "2338": {
+    "title": "Count the Number of Ideal Arrays",
+    "difficulty": "Hard",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/count-the-number-of-ideal-arrays"
+      }
+    ]
+  },
+  "2382": {
+    "title": "Maximum Segment Sum After Removals",
+    "difficulty": "Hard",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/maximum-segment-sum-after-removals"
+      }
+    ]
+  },
+  "2418": {
+    "title": "Sort the People",
+    "difficulty": "Easy",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/sort-the-people"
+      }
+    ]
+  },
+  "2457": {
+    "title": "Minimum Addition to Make Integer Beautiful",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/minimum-addition-to-make-integer-beautiful"
+      }
+    ]
+  },
+  "2463": {
+    "title": "Minimum Total Distance Traveled",
+    "difficulty": "Hard",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/minimum-total-distance-traveled"
+      }
+    ]
+  },
+  "2445": {
+    "title": "Number of Nodes With Value One",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/number-of-nodes-with-value-one"
+      }
+    ]
+  },
+  "1540": {
+    "title": "Can Convert String in K Moves",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/can-convert-string-in-k-moves"
+      }
+    ]
+  },
+  "2597": {
+    "title": "The Number of Beautiful Subsets",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/the-number-of-beautiful-subsets"
+      }
+    ]
+  },
+  "2612": {
+    "title": "Minimum Reverse Operations",
+    "difficulty": "Hard",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/minimum-reverse-operations"
+      }
+    ]
+  },
+  "2829": {
+    "title": "Determine the Minimum Sum of a k-avoiding Array",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/determine-the-minimum-sum-of-a-k-avoiding-array"
+      }
+    ]
+  },
+  "1661": {
+    "title": "Average Time of Process per Machine",
+    "difficulty": "Easy",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/average-time-of-process-per-machine"
+      }
+    ]
+  },
+  "853": {
+    "title": "Car Fleet",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/car-fleet"
+      }
+    ]
+  },
+  "1798": {
+    "title": "Maximum Number of Consecutive Values You Can Make",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Infosys",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/maximum-number-of-consecutive-values-you-can-make"
+      }
+    ]
+  },
+  "319": {
+    "title": "Bulb Switcher",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Accenture",
+        "frequency": 7.5,
+        "link": "https://leetcode.com/problems/bulb-switcher"
+      }
+    ]
+  },
+  "343": {
+    "title": "Integer Break",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Accenture",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/integer-break"
+      }
+    ]
+  },
+  "507": {
+    "title": "Perfect Number",
+    "difficulty": "Easy",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Accenture",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/perfect-number"
+      }
+    ]
+  },
+  "345": {
+    "title": "Reverse Vowels of a String",
+    "difficulty": "Easy",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Accenture",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/reverse-vowels-of-a-string"
+      }
+    ]
+  },
+  "137": {
+    "title": "Single Number II",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Accenture",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/single-number-ii"
+      }
+    ]
+  },
+  "740": {
+    "title": "Delete and Earn",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Accenture",
+        "frequency": 8.75,
+        "link": "https://leetcode.com/problems/delete-and-earn"
+      }
+    ]
+  },
+  "1636": {
+    "title": "Sort Array by Increasing Frequency",
+    "difficulty": "Easy",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Accenture",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/sort-array-by-increasing-frequency"
+      }
+    ]
+  },
+  "2855": {
+    "title": "Minimum Right Shifts to Sort the Array",
+    "difficulty": "Easy",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Accenture",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/minimum-right-shifts-to-sort-the-array"
+      }
+    ]
+  },
+  "3028": {
+    "title": "Ant on the Boundary",
+    "difficulty": "Easy",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Accenture",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/ant-on-the-boundary"
+      }
+    ]
+  },
+  "3000": {
+    "title": "Maximum Area of Longest Diagonal Rectangle",
+    "difficulty": "Easy",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Accenture",
+        "frequency": 5.0,
+        "link": "https://leetcode.com/problems/maximum-area-of-longest-diagonal-rectangle"
+      }
+    ]
+  },
+  "2960": {
+    "title": "Count Tested Devices After Test Operations",
+    "difficulty": "Easy",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Accenture",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/count-tested-devices-after-test-operations"
+      }
+    ]
+  },
+  "55": {
+    "title": "Jump Game",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "TCS",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/jump-game"
+      }
+    ]
+  },
+  "58": {
+    "title": "Length of Last Word",
+    "difficulty": "Easy",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "TCS",
+        "frequency": 3.75,
+        "link": "https://leetcode.com/problems/length-of-last-word"
+      }
+    ]
+  },
+  "80": {
+    "title": "Remove Duplicates from Sorted Array II",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "TCS",
+        "frequency": 2.5,
+        "link": "https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii"
+      }
+    ]
+  },
+  "3001": {
+    "title": "Minimum Moves to Capture The Queen",
+    "difficulty": "Medium",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Wipro",
+        "frequency": 10.0,
+        "link": "https://leetcode.com/problems/minimum-moves-to-capture-the-queen"
+      }
+    ]
+  },
+  "2667": {
+    "title": "Create Hello World Function",
+    "difficulty": "Easy",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Wipro",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/create-hello-world-function"
+      }
+    ]
+  },
+  "766": {
+    "title": "Toeplitz Matrix",
+    "difficulty": "Easy",
+    "topic": "Data Structures / Algorithms",
+    "companies": [
+      {
+        "name": "Wipro",
+        "frequency": 6.25,
+        "link": "https://leetcode.com/problems/toeplitz-matrix"
       }
     ]
   }

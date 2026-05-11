@@ -1,0 +1,254 @@
+[
+  {
+    "file": "1145_Binary_Tree_Coloring_Game.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2019/08/01/1482_example_1_2.png",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2019/08/01/1480-binary-tree-coloring-game.png"
+    ]
+  },
+  {
+    "file": "1242_Web_Crawler_Multithreaded.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2019/08/13/url_tree.png",
+    "recovered_srcs": [
+      "https://raw.githubusercontent.com/doocs/leetcode/main/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/images/sample_2_1497.png",
+      "https://raw.githubusercontent.com/doocs/leetcode/main/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/images/sample_3_1497.png",
+      "https://raw.githubusercontent.com/doocs/leetcode/main/solution/1200-1299/1242.Web%20Crawler%20Multithreaded/images/urlhostname.png"
+    ]
+  },
+  {
+    "file": "1274_Number_of_Ships_in_a_Rectangle.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2019/07/26/1445_example_1.png",
+    "recovered_srcs": [
+      "https://raw.githubusercontent.com/doocs/leetcode/main/solution/1200-1299/1274.Number%20of%20Ships%20in%20a%20Rectangle/images/1445_example_1.png"
+    ]
+  },
+  {
+    "file": "1326_Minimum_Number_of_Taps_to_Open_to_Water_a_Garden.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2020/01/16/1622_example_1.png",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2020/01/16/1685_example_1.png"
+    ]
+  },
+  {
+    "file": "143_Reorder_List.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/03/04/reorder1-linked-list.jpg",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2021/03/04/reorder1linked-list.jpg",
+      "https://assets.leetcode.com/uploads/2021/03/09/reorder2-linked-list.jpg"
+    ]
+  },
+  {
+    "file": "144_Binary_Tree_Preorder_Traversal.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2024/08/29/preorder_1.png",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2024/08/29/screenshot-2024-08-29-202743.png",
+      "https://assets.leetcode.com/uploads/2024/08/29/tree_2.png"
+    ]
+  },
+  {
+    "file": "17_Letter_Combinations_of_a_Phone_Number.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2022/03/02/1200px-telephone-keypad2svg.png",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2022/03/15/1200px-telephone-keypad2svg.png"
+    ]
+  },
+  {
+    "file": "223_Rectangle_Area.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/05/08/rectangle-area.png",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2021/05/08/rectangle-plane.png"
+    ]
+  },
+  {
+    "file": "2463_Minimum_Total_Distance_Traveled.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2022/09/15/example2.jpg",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2022/09/15/example1.jpg",
+      "https://assets.leetcode.com/uploads/2022/09/15/example-2.jpg"
+    ]
+  },
+  {
+    "file": "298_Binary_Tree_Longest_Consecutive_Sequence.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/03/14/lcs1-tree.jpg",
+    "recovered_srcs": [
+      "https://raw.githubusercontent.com/doocs/leetcode/main/solution/0200-0299/0298.Binary%20Tree%20Longest%20Consecutive%20Sequence/images/consec1-1-tree.jpg",
+      "https://raw.githubusercontent.com/doocs/leetcode/main/solution/0200-0299/0298.Binary%20Tree%20Longest%20Consecutive%20Sequence/images/consec1-2-tree.jpg"
+    ]
+  },
+  {
+    "file": "298_Binary_Tree_Longest_Consecutive_Sequence.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/03/14/lcs2-tree.jpg",
+    "recovered_srcs": [
+      "https://raw.githubusercontent.com/doocs/leetcode/main/solution/0200-0299/0298.Binary%20Tree%20Longest%20Consecutive%20Sequence/images/consec1-1-tree.jpg",
+      "https://raw.githubusercontent.com/doocs/leetcode/main/solution/0200-0299/0298.Binary%20Tree%20Longest%20Consecutive%20Sequence/images/consec1-2-tree.jpg"
+    ]
+  },
+  {
+    "file": "3001_Minimum_Moves_to_Capture_The_Queen.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2023/12/12/example1.png",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2023/12/21/ex1.png",
+      "https://assets.leetcode.com/uploads/2023/12/21/ex2.png"
+    ]
+  },
+  {
+    "file": "3001_Minimum_Moves_to_Capture_The_Queen.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2023/12/12/example2.png",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2023/12/21/ex1.png",
+      "https://assets.leetcode.com/uploads/2023/12/21/ex2.png"
+    ]
+  },
+  {
+    "file": "308_Range_Sum_Query_2D_Mutable.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/03/14/sumgrid-grid.jpg",
+    "recovered_srcs": [
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0308.Range%20Sum%20Query%202D%20-%20Mutable/images/summut-grid.jpg"
+    ]
+  },
+  {
+    "file": "311_Sparse_Matrix_Multiplication.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/01/12/spmatmult-grid.jpg",
+    "recovered_srcs": [
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0311.Sparse%20Matrix%20Multiplication/images/mult-grid.jpg"
+    ]
+  },
+  {
+    "file": "329_Longest_Increasing_Path_in_a_Matrix.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/01/05/tmp.jpg",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2021/01/05/grid1.jpg",
+      "https://assets.leetcode.com/uploads/2021/01/05/grid2.jpg"
+    ]
+  },
+  {
+    "file": "366_Find_Leaves_of_Binary_Tree.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/03/16/findleaf-tree.jpg",
+    "recovered_srcs": [
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0366.Find%20Leaves%20of%20Binary%20Tree/images/remleaves-tree.jpg"
+    ]
+  },
+  {
+    "file": "388_Longest_Absolute_File_Path.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2020/10/18/dir1.jpg",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2020/08/28/mdir.jpg",
+      "https://assets.leetcode.com/uploads/2020/08/28/dir1.jpg",
+      "https://assets.leetcode.com/uploads/2020/08/28/dir2.jpg"
+    ]
+  },
+  {
+    "file": "388_Longest_Absolute_File_Path.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2020/10/18/dir2.jpg",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2020/08/28/mdir.jpg",
+      "https://assets.leetcode.com/uploads/2020/08/28/dir1.jpg",
+      "https://assets.leetcode.com/uploads/2020/08/28/dir2.jpg"
+    ]
+  },
+  {
+    "file": "391_Perfect_Rectangle.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/03/27/perfecrec4-plane.jpg",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2021/03/27/perectrec1-plane.jpg",
+      "https://assets.leetcode.com/uploads/2021/03/27/perfectrec2-plane.jpg",
+      "https://assets.leetcode.com/uploads/2021/03/27/perfecrrec4-plane.jpg"
+    ]
+  },
+  {
+    "file": "426_Convert_Binary_Search_Tree_to_Sorted_Doubly_Linked_List.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2018/10/12/bstdllreturntop.png",
+    "recovered_srcs": [
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/images/bstdlloriginalbst.png",
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/images/bstdllreturnbst.png",
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0426.Convert%20Binary%20Search%20Tree%20to%20Sorted%20Doubly%20Linked%20List/images/bstdllreturndll.png"
+    ]
+  },
+  {
+    "file": "430_Flatten_a_Multilevel_Doubly_Linked_List.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/11/09/flatten2.1.jpg",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2021/11/09/flatten11.jpg",
+      "https://assets.leetcode.com/uploads/2021/11/09/flatten12.jpg",
+      "https://assets.leetcode.com/uploads/2021/11/09/flatten2.1jpg",
+      "https://assets.leetcode.com/uploads/2021/11/24/list.jpg"
+    ]
+  },
+  {
+    "file": "445_Add_Two_Numbers_II.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/04/09/addtwonumber2full.jpg",
+    "recovered_srcs": [
+      "https://assets.leetcode.com/uploads/2021/04/09/sumii-linked-list.jpg"
+    ]
+  },
+  {
+    "file": "489_Robot_Room_Cleaner.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2018/10/12/robot_room_cleaner.png",
+    "recovered_srcs": [
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0400-0499/0489.Robot%20Room%20Cleaner/images/lc-grid.jpg"
+    ]
+  },
+  {
+    "file": "545_Boundary_of_Binary_Tree.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/03/12/bdtree1.jpg",
+    "recovered_srcs": [
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/images/boundary1.jpg",
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/images/boundary2.jpg"
+    ]
+  },
+  {
+    "file": "545_Boundary_of_Binary_Tree.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/03/12/bdtree2.jpg",
+    "recovered_srcs": [
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/images/boundary1.jpg",
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0500-0599/0545.Boundary%20of%20Binary%20Tree/images/boundary2.jpg"
+    ]
+  },
+  {
+    "file": "608_Tree_Node.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/11/09/tree1.jpg",
+    "recovered_srcs": [
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0608.Tree%20Node/images/tree1.jpg"
+    ]
+  },
+  {
+    "file": "608_Tree_Node.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/11/09/tree2.jpg",
+    "recovered_srcs": [
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0600-0699/0608.Tree%20Node/images/tree1.jpg"
+    ]
+  },
+  {
+    "file": "701_Insert_into_a_Binary_Search_Tree.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2020/10/05/insertpst.jpg",
+    "recovered_srcs": [
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0701.Insert%20into%20a%20Binary%20Search%20Tree/images/insertbst.jpg",
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0701.Insert%20into%20a%20Binary%20Search%20Tree/images/bst.jpg"
+    ]
+  },
+  {
+    "file": "755_Pour_Water.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2021/04/08/pour11-grid.jpg",
+    "recovered_srcs": [
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0755.Pour%20Water/images/pour11-grid.jpg",
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0755.Pour%20Water/images/pour12-grid.jpg",
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0700-0799/0755.Pour%20Water/images/pour13-grid.jpg"
+    ]
+  },
+  {
+    "file": "935_Knight_Dialer.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2020/07/13/chess.jpg",
+    "recovered_srcs": [
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0935.Knight%20Dialer/images/phone.jpg",
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0935.Knight%20Dialer/images/chess.jpg"
+    ]
+  },
+  {
+    "file": "935_Knight_Dialer.json",
+    "original_broken_src": "https://assets.leetcode.com/uploads/2020/07/13/phone.jpg",
+    "recovered_srcs": [
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0935.Knight%20Dialer/images/phone.jpg",
+      "https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0900-0999/0935.Knight%20Dialer/images/chess.jpg"
+    ]
+  }
+]
